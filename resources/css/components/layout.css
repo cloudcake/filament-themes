@@ -1,0 +1,76 @@
+.fi-body {
+    @apply bg-body;
+}
+
+/*.fi-simple-main,*/
+/*.fi-simple-main-ctn,*/
+/*.fi-main-ctn {*/
+/*    @apply shadow-page bg-page mt-5 rounded-2xl rounded-b-none;*/
+/*}*/
+
+.fi-breadcrumbs {
+    .fi-breadcrumbs-item-label {
+        @apply text-gray-800 dark:text-gray-300 font-medium
+    }
+
+    .fi-breadcrumbs-item-separator {
+        @apply text-primary-400
+    }
+}
+
+/*
+ * The shell: canvas, content column and page rhythm.
+ */
+
+/*
+ * A very faint warm bloom at the top of the canvas. It gives the page a sense
+ * of light falling on it rather than a flat fill, and is far too subtle to
+ * read as a gradient.
+ *
+ * Painted as a background on the layout itself rather than as a positioned
+ * pseudo-element. An overlay would need a stacking context, and raising the
+ * sidebar out of it would mean overriding its `position` — which on mobile
+ * returns the off-canvas drawer to the document flow and pushes the whole
+ * content column sideways.
+ */
+.fi-body {
+    background-color: var(--theme-canvas);
+    background-image:
+        /* Top */ radial-gradient(110% 60% at 60% 0%, color-mix(in oklab, var(--primary-300) 26%, transparent) 5%, transparent 70%),
+        /* Middle Left */ radial-gradient(12% 50% at left center, color-mix(in oklab, var(--primary-300) 26%, transparent) 5%, transparent 70%),
+        /* Bottom Right */ radial-gradient(50% 60% at bottom right, color-mix(in oklab, var(--primary-300) 25%, transparent) 5%, transparent 60%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.dark .fi-body {
+    background-image:
+        /* Top */ radial-gradient(110% 60% at 60% 0%, color-mix(in oklab, var(--primary-950) 26%, transparent) 0%, transparent 70%),
+        /* Middle Left */ radial-gradient(12% 50% at left center, color-mix(in oklab, var(--primary-950) 10%, transparent) 0%, transparent 60%),
+        /* Bottom Right */ radial-gradient(50% 60% at bottom right, color-mix(in oklab, var(--primary-950) 25%, transparent) 5%, transparent 60%);
+}
+
+/* Wider gutters and a taller first fold than the framework default. */
+.fi-main {
+    padding-inline: calc(1.5rem * var(--theme-density, 1));
+    padding-block: calc(2rem * var(--theme-density, 1));
+    row-gap: var(--theme-section-gap, 2rem);
+}
+
+@media (min-width: 768px) {
+    .fi-main {
+        padding-inline: calc(2.25rem * var(--theme-density, 1));
+        padding-block: calc(2.5rem * var(--theme-density, 1));
+    }
+}
+
+@media (min-width: 1280px) {
+    .fi-main {
+        padding-inline: calc(3rem * var(--theme-density, 1));
+    }
+}
+
+.fi-page {
+    row-gap: var(--theme-section-gap, 2rem);
+}

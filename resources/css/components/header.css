@@ -1,0 +1,123 @@
+/*
+ * Page headers and breadcrumbs.
+ *
+ * The heading is the one place the theme allows itself a flourish: a short
+ * accent rule above it, then the display serif at a size that gives the serif
+ * room to show its stroke contrast.
+ */
+
+.fi-header {
+    position: relative;
+    padding-bottom: calc(0.875rem * var(--theme-density, 1));
+    gap: calc(1rem * var(--theme-density, 1));
+}
+
+.fi-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    inset-inline-start: 0;
+    width: 5.25rem;
+    height: 2px;
+    border-radius: 9999px;
+    background-color: var(--primary-500);
+}
+
+.fi-header-heading {
+    @apply inline;
+}
+
+.fi-header-actions-ctn {
+    gap: calc(0.625rem * var(--theme-density, 1));
+}
+
+.fi-breadcrumbs {
+    margin-bottom: calc(0.25rem * var(--theme-density, 1));
+}
+
+.fi-breadcrumbs-item-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--theme-ink-muted);
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-breadcrumbs-item-label:hover {
+    color: var(--primary-600);
+}
+
+.dark .fi-breadcrumbs-item-label:hover {
+    color: var(--primary-400);
+}
+
+/* Section headings stay in the sans: structural, not editorial. */
+.fi-section-header-heading {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.008em;
+    color: var(--theme-ink);
+}
+
+.fi-section-header-description {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--theme-ink-muted);
+}
+
+.fi-tabs,
+.fi-tabs:not(.fi-contained),
+.fi-tabs:not(.fi-contained):where(.dark,.dark *),
+.fi-tabs.fi-contained:where(.dark,.dark *),
+.fi-tabs.fi-vertical.fi-contained {
+    @apply !bg-transparent !p-0 !pt-3 shadow-none border-none overflow-y-hidden;
+}
+
+.fi-sc-tabs.fi-contained .fi-sc-tabs-tab.fi-active {
+    @apply p-0 pt-3;
+}
+
+.fi-sc-tabs,
+.fi-sc-tabs-tab,
+.fi-sc-tabs.fi-contained,
+.fi-sc-tabs.fi-contained:where(.dark,.dark *) {
+    @apply !bg-transparent !border-none !ring-0 !outline-0 !shadow-none;
+}
+
+.fi-tabs-item {
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    position: relative;
+    padding-block: calc(0.75rem * var(--theme-density, 1));
+    font-weight: 450;
+    color: var(--theme-ink-muted);
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-tabs-item:hover {
+    color: var(--theme-ink);
+    background-color: transparent;
+}
+
+.fi-tabs-item.fi-active {
+    background-color: transparent;
+    color: var(--primary-700);
+    font-weight: 550;
+}
+
+.dark .fi-tabs-item.fi-active {
+    color: var(--primary-300);
+}
+
+/* Underline rather than a filled pill, positioned over the container's rule. */
+.fi-tabs-item.fi-active::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 3px;
+    border-radius: 64px;
+    background-color: var(--primary-500);
+}

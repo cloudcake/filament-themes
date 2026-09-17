@@ -1,0 +1,57 @@
+/*
+ * Sections and cards.
+ *
+ * Filament separates surfaces from the page with a ring and a shadow. Here the
+ * separation is a hairline and a very wide, very faint shadow, so a card looks
+ * like a sheet resting on the page rather than a box drawn on it.
+ */
+
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained) {
+    background-color: var(--theme-surface);
+    border-radius: var(--theme-radius-2xl, 1.25rem);
+    box-shadow: var(--theme-shadow-md);
+    transition: box-shadow var(--theme-duration-slow, 420ms) var(--theme-ease, ease);
+}
+
+.fi-section.fi-section-not-contained {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.fi-section-header {
+    padding: calc(1.375rem * var(--theme-density, 1)) calc(1.5rem * var(--theme-density, 1));
+    gap: calc(0.875rem * var(--theme-density, 1));
+}
+
+.fi-section-content {
+    padding: calc(1.5rem * var(--theme-density, 1));
+}
+
+.fi-section-header-icon-ctn {
+    border-radius: var(--theme-radius-lg, 0.75rem);
+    background-color: var(--theme-accent-wash);
+    color: var(--primary-700);
+}
+
+.dark .fi-section-header-icon-ctn {
+    color: var(--primary-300);
+}
+
+.fi-fieldset {
+    border: 1px solid var(--theme-hairline);
+    border-radius: var(--theme-radius-xl, 0.9375rem);
+    padding: calc(1.25rem * var(--theme-density, 1));
+    background-color: var(--theme-surface-sunken);
+}
+
+.fi-fieldset-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--theme-ink-muted);
+}
+
+.fi-section .fi-section-header-description {
+    @apply text-sm font-thin dark:text-gray-400/50;
+}
