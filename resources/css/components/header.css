@@ -71,7 +71,7 @@
 .fi-tabs:not(.fi-contained):where(.dark,.dark *),
 .fi-tabs.fi-contained:where(.dark,.dark *),
 .fi-tabs.fi-vertical.fi-contained {
-    @apply !bg-transparent !p-0 !pt-3 shadow-none border-none overflow-y-hidden;
+    @apply !bg-transparent !p-0 !pt-3 shadow-none ring-0 rounded-none overflow-y-hidden;
 }
 
 .fi-sc-tabs.fi-contained .fi-sc-tabs-tab.fi-active {

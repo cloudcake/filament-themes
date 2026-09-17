@@ -53,5 +53,5 @@
 }
 
 .fi-section .fi-section-header-description {
-    @apply text-sm font-thin dark:text-gray-400/50;
+    @apply text-sm dark:text-gray-400/50;
 }

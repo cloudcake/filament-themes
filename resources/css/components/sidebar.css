@@ -88,7 +88,11 @@
  * leading edge. The rule is absolutely positioned rather than a border, so
  * activating an item never shifts its label.
  */
-.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+.fi-sidebar-sub-group-items .fi-sidebar-item > .fi-sidebar-item-btn {
+    @apply pl-4;
+}
+
+.fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
     background-color: var(--theme-accent-wash);
     color: var(--primary-700);
     font-weight: 550;

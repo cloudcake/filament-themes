@@ -28,19 +28,6 @@
     text-rendering: optimizeLegibility;
 }
 
-/*
- * Focus is never removed, only restyled. A two-layer ring — a halo in the
- * surface colour, then the accent — stays visible on any background, including
- * on top of the accent itself.
- */
-.fi-body :is(a, button, [role='button'], summary, input, select, textarea, [tabindex]):focus-visible {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--theme-surface),
-        0 0 0 4px var(--primary-500);
-}
-
 /* Filament draws its own focus ring on these, so only the offset is tuned. */
 .fi-body :is(.fi-input-wrp, .fi-btn):focus-visible,
 .fi-body .fi-input-wrp:focus-within {
