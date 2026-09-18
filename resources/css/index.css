@@ -3,8 +3,8 @@
 
 @import './tokens.css' layer(base);
 @import './base.css' layer(base);
+@import './typography.css' layer(base);
 
-@import './typography.css' layer(components);
 @import './components/layout.css' layer(components);
 @import './components/sidebar.css' layer(components);
 @import './components/topbar.css' layer(components);
@@ -13,12 +13,14 @@
 @import './components/button.css' layer(components);
 @import './components/table.css' layer(components);
 @import './components/badge.css' layer(components);
+@import './components/callout.css' layer(components);
 @import './components/overlay.css' layer(components);
 @import './components/empty-state.css' layer(components);
 @import './components/loading.css' layer(components);
 @import './components/auth.css' layer(components);
 @import './components/widget.css' layer(components);
 @import './components/chart.css' layer(components);
+@import './components/code.css' layer(components);
 @import './components/scrollbar.css' layer(components);
 
 @import './motion.css' layer(components);
@@ -41,6 +43,19 @@
     --radius-xl: var(--rounding);
     --radius-2xl: var(--rounding);
     --radius-4xl: var(--rounding);
+
+    --animate-background: background-move ease infinite;
+    --animate-border: border 4s linear infinite;
+    --animate-gradient: gradient 12s linear infinite;
+
+    @keyframes gradient {
+        from {
+            background-position: 0 50%;
+        }
+        to {
+            background-position: 600% 50%;
+        }
+    }
 }
 
 @utility bg-body {
@@ -65,4 +80,8 @@
 
 @utility text-panel {
     @apply text-[#151623] dark:text-[#6B7280]
+}
+
+@utility text-primary-gradient {
+    @apply animate-gradient bg-[length:200%_100%] bg-linear-to-r from-primary-500 via-primary-800 dark:via-primary-50 to-primary-500 bg-clip-text text-transparent;
 }

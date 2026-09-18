@@ -48,23 +48,3 @@
     border-radius: 9999px;
     box-shadow: 0 0 0 1px var(--theme-hairline);
 }
-
-/*
- * Callouts sit on a tinted wash with a rule on the leading edge, which is a
- * calmer way to signal importance than a fully saturated panel.
- */
-.fi-body .fi-callout {
-    border: 1px solid var(--theme-hairline);
-    border-radius: var(--theme-radius-xl, 0.9375rem);
-    box-shadow: none;
-}
-
-.fi-body .fi-callout.fi-color {
-    background-color: color-mix(in oklab, var(--color-200) 32%, transparent);
-    border-color: color-mix(in oklab, var(--color-500) 28%, transparent);
-}
-
-.dark .fi-body .fi-callout.fi-color {
-    background-color: color-mix(in oklab, var(--color-500) 11%, transparent);
-    border-color: color-mix(in oklab, var(--color-400) 24%, transparent);
-}
