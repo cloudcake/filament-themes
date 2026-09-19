@@ -1,0 +1,13 @@
+.fi-fieldset {
+    border: 1px solid var(--theme-hairline);
+    border-radius: var(--theme-radius-xl, 0.9375rem);
+    padding: calc(1.25rem * var(--theme-density, 1));
+    @apply !bg-transparent;
+}
+
+.fi-fieldset-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--theme-ink-muted);
+}
