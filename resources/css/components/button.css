@@ -10,6 +10,10 @@
  * configured. Only shape, weight and motion are restyled.
  */
 
+.fi-ac-icon-btn-action:not([class*="fi-color-"]):not(.fi-color) {
+    @apply text-gray-400;
+}
+
 .fi-body .fi-btn {
     border-radius: var(--theme-radius-lg, 0.75rem);
     padding: calc(0.5rem * var(--theme-density, 1)) calc(0.9375rem * var(--theme-density, 1));
