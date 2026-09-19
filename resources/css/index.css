@@ -21,6 +21,7 @@
 @import './components/widget.css' layer(components);
 @import './components/chart.css' layer(components);
 @import './components/code.css' layer(components);
+@import './components/tabs.css' layer(components);
 @import './components/scrollbar.css' layer(components);
 
 @import './motion.css' layer(components);
