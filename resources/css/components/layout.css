@@ -1,6 +1,5 @@
-body {
-    /*@apply bg-[var(--light-body-bg)] dark:bg-[var(--dark-body-bg)];*/
-    @apply bg-[var(--light-body-bg)] dark:bg-gray-950;
+.fi-body {
+    @apply bg-[var(--light-body-bg)] dark:bg-[var(--dark-body-bg)];
 }
 
 /*.fi-simple-main,*/

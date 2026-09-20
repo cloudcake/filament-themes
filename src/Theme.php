@@ -27,7 +27,7 @@ class Theme implements Plugin
     protected array|false|Closure $blooming = [];
 
     protected null|array|string|Closure $primaryColour = null;
-    protected null|array|string|Closure $darkBackgroundColour = null;
+    protected null|array|string|Closure $darkBackgroundColour = '#12121c';
     protected null|array|string|Closure $lightBackgroundColour = '#F1F5F8';
 
     /**
