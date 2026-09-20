@@ -19,7 +19,7 @@
     inset-inline-start: 0;
     width: 5.25rem;
     height: 2px;
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     background-color: var(--primary-500);
 }
 

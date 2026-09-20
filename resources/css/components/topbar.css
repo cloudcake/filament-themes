@@ -60,7 +60,7 @@ nav.fi-topbar  {
     background-color: color-mix(in oklab, var(--gray-400) 9%, transparent);
     box-shadow: none;
     border: 1px solid transparent;
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     transition:
         background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
         border-color var(--theme-duration, 260ms) var(--theme-ease, ease);
@@ -90,7 +90,7 @@ nav.fi-topbar  {
 }
 
 .fi-theme-switcher-btn {
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }
 

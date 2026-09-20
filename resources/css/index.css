@@ -19,10 +19,14 @@
 @import './components/loading.css' layer(components);
 @import './components/auth.css' layer(components);
 @import './components/widget.css' layer(components);
+@import './components/input.css' layer(components);
+@import './components/builder.css' layer(components);
+@import './components/repeater.css' layer(components);
 @import './components/chart.css' layer(components);
 @import './components/code.css' layer(components);
 @import './components/tabs.css' layer(components);
 @import './components/fieldset.css' layer(components);
+@import './components/toggle.css' layer(components);
 @import './components/scrollbar.css' layer(components);
 
 @import './motion.css' layer(components);
@@ -36,15 +40,6 @@
 
     --light-body-bg: #F1F5F8;
     --light-panel-bg: #FFFFFF;
-
-    --rounding: 2rem;
-
-    --radius-sm: calc(var(--rounding) /3);
-    --radius-md: calc(var(--rounding) /2);
-    --radius-lg: calc(var(--rounding) /1.2);
-    --radius-xl: var(--rounding);
-    --radius-2xl: var(--rounding);
-    --radius-4xl: var(--rounding);
 
     --animate-background: background-move ease infinite;
     --animate-border: border 4s linear infinite;

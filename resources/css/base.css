@@ -61,7 +61,7 @@
     background-color: var(--theme-hairline-strong);
     border: 3px solid transparent;
     background-clip: content-box;
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
 }
 
 .fi-body ::-webkit-scrollbar-thumb:hover {

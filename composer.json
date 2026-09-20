@@ -1,8 +1,8 @@
 {
-  "name": "cloudcake/filament-theme-pristine",
+  "name": "cloudcake/filament-themes",
   "type": "library",
   "license": "proprietary",
-  "description": "Filament Pristine Theme.",
+  "description": "Filament themes.",
   "require": {
     "php": "^8.2",
     "filament/filament": "^4.0|^5.0",
@@ -16,6 +16,13 @@
   "autoload": {
     "psr-4": {
       "Cloudcake\\Themes\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Cloudcake\\Themes\\ServiceProvider"
+      ]
     }
   }
 }

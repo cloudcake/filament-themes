@@ -9,7 +9,7 @@
 .fi-body .fi-badge {
     box-shadow: none;
     border: 0;
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     padding: 0.1875rem 0.5rem;
     font-size: 0.6875rem;
     font-weight: 600;
@@ -45,6 +45,6 @@
 }
 
 .fi-body .fi-avatar {
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     box-shadow: 0 0 0 1px var(--theme-hairline);
 }

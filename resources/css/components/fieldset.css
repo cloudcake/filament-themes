@@ -1,6 +1,6 @@
-.fi-fieldset {
+.fi-fieldset,.fi-fieldset:not(.fi-fieldset-not-contained) {
     border: 1px solid var(--theme-hairline);
-    border-radius: var(--theme-radius-xl, 0.9375rem);
+    border-radius: var(--theme-radius-xl);
     padding: calc(1.25rem * var(--theme-density, 1));
     @apply !bg-transparent;
 }

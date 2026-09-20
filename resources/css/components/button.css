@@ -72,7 +72,7 @@
 }
 
 .fi-body .fi-icon-btn {
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     transition:
         background-color 200ms var(--theme-ease, ease),
         color 200ms var(--theme-ease, ease);

@@ -1,0 +1,3 @@
+.fi-fo-repeater .fi-fo-repeater-item {
+    border-radius: var(--theme-radius-md, 0.5rem);
+}

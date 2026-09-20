@@ -198,7 +198,7 @@
     width: 2.5rem;
     height: 2px;
     margin: calc(1.25rem * var(--theme-density, 1)) auto 0;
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     background-color: var(--primary-500);
 }
 
@@ -554,7 +554,7 @@
     width: 3rem;
     height: 2px;
     margin-top: 2.25rem;
-    border-radius: 9999px;
+    border-radius: var(--theme-radius-3xl);
     background-color: color-mix(in oklab, var(--primary-400) 80%, transparent);
 }
 
