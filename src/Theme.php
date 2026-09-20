@@ -24,8 +24,10 @@ class Theme implements Plugin
     protected array|false|Closure $blooming = [];
 
     protected null|array|string|Closure $primaryColour = null;
+    protected null|array|string|Closure $darkBackgroundColour = null;
     protected null|array|string|Closure $darkPanelColour = null;
     protected null|array|string|Closure $lightPanelColour = null;
+    protected null|array|string|Closure $lightBackgroundColour = null;
 
     /**
      * Make an instance of the plugin.
@@ -40,8 +42,10 @@ class Theme implements Plugin
         bool|Closure                   $forceLightMode = false,
         bool|Closure                   $forceDarkMode = false,
         array|bool|null|string|Closure $primaryColour = null,
+        array|bool|null|string|Closure $darkBackgroundColour = '#12121c',
         array|bool|null|string|Closure $darkPanelTint = null,
         array|bool|null|string|Closure $lightPanelTint = null,
+        array|bool|null|string|Closure $lightBackgroundColour = '#F1F5F8',
     ): static
     {
         $instance = app(static::class);
@@ -51,12 +55,34 @@ class Theme implements Plugin
         $instance->forceLightMode($forceLightMode);
         $instance->forceDarkMode($forceDarkMode);
         $instance->primaryColour($primaryColour);
+        $instance->darkBackgroundColour($darkBackgroundColour);
+        $instance->lightBackgroundColour($lightBackgroundColour);
         $instance->darkPanelTint($darkPanelTint);
         $instance->lightPanelTint($lightPanelTint);
         $instance->blooming(!blank($blooming) ? $blooming : [
-            new Bloom(position: BloomPosition::UpperCenter, spreadX: 100, spreadY: 45),
-            new Bloom(position: BloomPosition::BottomLeft, spreadX: 15, spreadY: 85),
-            new Bloom(position: BloomPosition::BottomRight, spreadX: 50, spreadY: 30),
+            new Bloom(
+                position: BloomPosition::UpperCenter,
+                spreadX: 100,
+                spreadY: 45,
+                darkColour: 'var(--primary-900)',
+                lightColour: 'var(--primary-500)',
+            ),
+
+            new Bloom(
+                position: BloomPosition::BottomLeft,
+                spreadX: 15,
+                spreadY: 85,
+                darkColour: 'var(--primary-800)',
+                lightColour: 'var(--primary-600)',
+            ),
+
+            new Bloom(
+                position: BloomPosition::BottomRight,
+                spreadX: 50,
+                spreadY: 30,
+                darkColour: 'var(--primary-700)',
+                lightColour: 'var(--primary-600)',
+            ),
         ]);
 
         return $instance;
@@ -136,9 +162,23 @@ class Theme implements Plugin
         return $this;
     }
 
+    public function darkBackgroundColour(array|string|null|Closure $colour): static
+    {
+        $this->darkBackgroundColour = $colour;
+
+        return $this;
+    }
+
     public function darkPanelTint(array|string|null|Closure $colour): static
     {
         $this->darkPanelColour = $colour;
+
+        return $this;
+    }
+
+    public function lightBackgroundColour(array|string|null|Closure $colour): static
+    {
+        $this->lightBackgroundColour = $colour;
 
         return $this;
     }
@@ -169,8 +209,10 @@ class Theme implements Plugin
                     'roundness' => $panel->evaluate($this->roundness),
                     'shadows' => $panel->evaluate($this->shadows),
                     'blooming' => $panel->evaluate($this->blooming),
+                    'darkBackgroundColour' => $this->getColourFromInput($panel->evaluate($this->darkBackgroundColour)),
                     'darkPanelColour' => $this->getColourFromInput($panel->evaluate($this->darkPanelColour)),
                     'lightPanelColour' => $this->getColourFromInput($panel->evaluate($this->lightPanelColour)),
+                    'lightBackgroundColour' => $this->getColourFromInput($panel->evaluate($this->lightBackgroundColour)),
                 ])
             )
             ->when(

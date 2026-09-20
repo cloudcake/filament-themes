@@ -6,15 +6,17 @@ readonly class Bloom
 {
     public function __construct(
         public BloomPosition $position,
-        public int           $spreadX,
-        public int           $spreadY
+        public int           $spreadX = 30,
+        public int           $spreadY = 30,
+        public string|null   $darkColour = 'var(--primary-900)',
+        public string|null   $lightColour = 'var(--primary-500)',
     )
     {
     }
 
-    public function tokens() : string
+    public function positionToken(): string
     {
-        $position = match($this->position) {
+        $position = match ($this->position) {
             BloomPosition::UpperLeft => 'top left',
             BloomPosition::UpperCenter => 'top center',
             BloomPosition::UpperRight => 'top right',
@@ -28,6 +30,23 @@ readonly class Bloom
             BloomPosition::BottomRight => 'bottom right',
         };
 
-        return "$this->spreadX% $this->spreadY% at $position";
+        return "at $position";
+    }
+
+    public function spreadToken(): string
+    {
+        return "$this->spreadX% $this->spreadY%";
+    }
+
+    public function darkColourToken() : string {
+        $colour = $this->darkColour ?? 'var(--primary-900)';
+
+        return "color-mix(in oklab, $colour 26%, transparent) 5%, transparent 60%)";
+    }
+
+    public function lightColourToken() : string {
+        $colour = $this->lightColour ?? 'var(--primary-500)';
+
+        return "color-mix(in oklab, $colour 26%, transparent) 5%, transparent 70%)";
     }
 }

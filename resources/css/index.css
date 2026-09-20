@@ -35,12 +35,6 @@
 @source '../../**/*';
 
 @theme inline {
-    --dark-body-bg: #12121c;
-    --dark-panel-bg: #1c1e2b;
-
-    --light-body-bg: #F1F5F8;
-    --light-panel-bg: #FFFFFF;
-
     --animate-background: background-move ease infinite;
     --animate-border: border 4s linear infinite;
     --animate-gradient: gradient 12s linear infinite;
