@@ -19,7 +19,6 @@
         --theme-{{$variable}}: {{$value}};
         @endforeach
 
-        background-color: var(--theme-canvas);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
