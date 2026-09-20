@@ -20,14 +20,15 @@ class Theme implements Plugin
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
     protected bool|Closure $pageTransitions = true;
-    protected bool|Closure $countUpWidgets = true;
+
+    protected float|Closure $pageTransitionDuration = 0.5;
+    protected float|Closure $pageTransitionOffset = 1.5;
+
     protected array|false|Closure $blooming = [];
 
     protected null|array|string|Closure $primaryColour = null;
-    protected null|array|string|Closure $darkBackgroundColour = null;
-    protected null|array|string|Closure $darkPanelColour = null;
-    protected null|array|string|Closure $lightPanelColour = null;
-    protected null|array|string|Closure $lightBackgroundColour = null;
+    protected null|array|string|Closure $darkBackgroundColour = '#12121c';
+    protected null|array|string|Closure $lightBackgroundColour = '#F1F5F8';
 
     /**
      * Make an instance of the plugin.
@@ -42,10 +43,13 @@ class Theme implements Plugin
         bool|Closure                   $forceLightMode = false,
         bool|Closure                   $forceDarkMode = false,
         array|bool|null|string|Closure $primaryColour = null,
-        array|bool|null|string|Closure $darkBackgroundColour = '#12121c',
+        array|bool|null|string|Closure $darkBackgroundColour = null,
         array|bool|null|string|Closure $darkPanelTint = null,
         array|bool|null|string|Closure $lightPanelTint = null,
-        array|bool|null|string|Closure $lightBackgroundColour = '#F1F5F8',
+        array|bool|null|string|Closure $lightBackgroundColour = null,
+        bool|Closure                   $pageTransitions = true,
+        float|Closure                  $pageTransitionDuration = 0.5,
+        float|Closure                  $pageTransitionOffset = 1.5,
     ): static
     {
         $instance = app(static::class);
@@ -55,10 +59,9 @@ class Theme implements Plugin
         $instance->forceLightMode($forceLightMode);
         $instance->forceDarkMode($forceDarkMode);
         $instance->primaryColour($primaryColour);
-        $instance->darkBackgroundColour($darkBackgroundColour);
-        $instance->lightBackgroundColour($lightBackgroundColour);
-        $instance->darkPanelTint($darkPanelTint);
-        $instance->lightPanelTint($lightPanelTint);
+        $instance->darkBackgroundColour($darkBackgroundColour ?? $instance->darkBackgroundColour);
+        $instance->lightBackgroundColour($lightBackgroundColour ?? $instance->lightBackgroundColour);
+        $instance->pageTransitions($pageTransitions, $pageTransitionDuration, $pageTransitionOffset);
         $instance->blooming(!blank($blooming) ? $blooming : [
             new Bloom(
                 position: BloomPosition::UpperCenter,
@@ -82,6 +85,16 @@ class Theme implements Plugin
                 spreadY: 30,
                 darkColour: 'var(--primary-700)',
                 lightColour: 'var(--primary-600)',
+            ),
+
+            new Bloom(
+                position: BloomPosition::MiddleCenter,
+                spreadX: 200,
+                spreadY: 200,
+                darkIntensity: 5,
+                darkColour: 'var(--primary-700)',
+                lightColour: 'var(--primary-600)',
+                lightIntensity: 10,
             ),
         ]);
 
@@ -155,6 +168,15 @@ class Theme implements Plugin
         return $this;
     }
 
+    public function pageTransitions(bool|Closure $condition = true, float|Closure $duration = 0.5, float|Closure $offset = 1.5): static
+    {
+        $this->pageTransitions = $condition;
+        $this->pageTransitionDuration = $duration;
+        $this->pageTransitionOffset = $offset;
+
+        return $this;
+    }
+
     public function primaryColour(array|string|null|Closure $colour): static
     {
         $this->primaryColour = $colour;
@@ -169,23 +191,9 @@ class Theme implements Plugin
         return $this;
     }
 
-    public function darkPanelTint(array|string|null|Closure $colour): static
-    {
-        $this->darkPanelColour = $colour;
-
-        return $this;
-    }
-
     public function lightBackgroundColour(array|string|null|Closure $colour): static
     {
         $this->lightBackgroundColour = $colour;
-
-        return $this;
-    }
-
-    public function lightPanelTint(array|string|null|Closure $colour): static
-    {
-        $this->lightPanelColour = $colour;
 
         return $this;
     }
@@ -209,10 +217,11 @@ class Theme implements Plugin
                     'roundness' => $panel->evaluate($this->roundness),
                     'shadows' => $panel->evaluate($this->shadows),
                     'blooming' => $panel->evaluate($this->blooming),
-                    'darkBackgroundColour' => $this->getColourFromInput($panel->evaluate($this->darkBackgroundColour)),
-                    'darkPanelColour' => $this->getColourFromInput($panel->evaluate($this->darkPanelColour)),
-                    'lightPanelColour' => $this->getColourFromInput($panel->evaluate($this->lightPanelColour)),
-                    'lightBackgroundColour' => $this->getColourFromInput($panel->evaluate($this->lightBackgroundColour)),
+                    'darkBackgroundColour' => $panel->evaluate($this->darkBackgroundColour),
+                    'lightBackgroundColour' => $panel->evaluate($this->lightBackgroundColour),
+                    'pageTransitions' => $panel->evaluate($this->pageTransitions),
+                    'pageTransitionDuration' => $panel->evaluate($this->pageTransitionDuration),
+                    'pageTransitionOffset' => $panel->evaluate($this->pageTransitionOffset),
                 ])
             )
             ->when(

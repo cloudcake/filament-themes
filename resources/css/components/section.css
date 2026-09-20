@@ -6,12 +6,12 @@
  * like a sheet resting on the page rather than a box drawn on it.
  */
 
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained) {
-    @apply bg-gray-50 dark:bg-gray-900;
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section:not(.fi-section-not-contained).fi-aside>.fi-section-content-ctn,
+.fi-section:not(.fi-section-not-contained).fi-aside>.fi-section-content-ctn:where(.dark,.dark *) {
+    @apply bg-white dark:bg-gray-900 !shadow-[var(--theme-shadow-md)] rounded-2xl;
 
-    border-radius: var(--theme-radius-2xl, 1.25rem);
-    box-shadow: var(--theme-shadow-md);
-    transition: box-shadow var(--theme-duration-slow, 420ms) var(--theme-ease, ease);
+    transition: box-shadow var(--theme-duration-slow, 420ms) var(--theme-ease, ease) !important;
 }
 
 .fi-section.fi-section-not-contained {

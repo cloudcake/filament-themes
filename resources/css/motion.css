@@ -1,38 +1,4 @@
 /*
- * Motion.
- *
- * Two things happen here: content settles in on navigation, and every
- * animation in the theme is neutralised when the visitor has asked for less
- * motion.
- */
-
-/*
- * Page content fades and rises very slightly on entry. Applied to the content
- * container, never to lists or table rows: Livewire re-renders those on every
- * keystroke, filter and poll, and animating them makes the page appear to
- * rebuild itself while the user is working.
- */
-.fi-body .fi-main>.fi-page {
-    animation: theme-rise var(--theme-anim-duration);
-}
-
-.fi-body .fi-simple-main {
-    animation: theme-rise var(--theme-anim-duration);
-}
-
-@keyframes theme-rise {
-    from {
-        opacity: 0;
-        transform: translateY(1.5rem);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/*
  * Honour the operating system's reduced-motion setting for everything this
  * theme adds.
  *

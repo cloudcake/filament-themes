@@ -30,20 +30,14 @@
         @endforeach
         @endif
 
-        @if(is_array($lightBackgroundColour))
-            --light-body-bg: {{$lightBackgroundColour[600]}}
-        @endif
-
-        @if(is_array($lightPanelColour))
-        --color-white: {{$lightPanelColour[600]}}
+        @if(!blank($lightBackgroundColour))
+        --light-body-bg: {{$lightBackgroundColour}};
         @endif
     }
 
 .dark body {
-    @if(is_array($darkPanelColour))
-        @foreach($darkPanelColour as $shade => $colour)
-        --gray-{{$shade}}: {{$colour}};
-        @endforeach
+    @if(!blank($darkBackgroundColour))
+    --dark-body-bg: {{$darkBackgroundColour}};
     @endif
 
     @if(is_array($blooming) && !blank($blooming))
@@ -51,10 +45,24 @@
            radial-gradient({{$bloom->spreadToken()}} {{ $bloom->positionToken() }}, {{$bloom->darkColourToken() }}{{ $index < count($blooming)-1 ? ',' : ';' }}
         @endforeach
     @endif
+}
 
-    @if(is_array($darkBackgroundColour))
-        --dark-body-bg: {{$darkBackgroundColour[600]}};
-    @else
+@if($pageTransitions)
+.fi-body .fi-main>.fi-page,
+.fi-body .fi-simple-main {
+    animation: theme-rise {{$pageTransitionDuration}}s;
+}
 
-    @endif
+@keyframes theme-rise {
+    from {
+        opacity: 0;
+        transform: translateY({{ doubleval($pageTransitionOffset) }}rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@endif
 </style>

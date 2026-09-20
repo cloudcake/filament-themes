@@ -8,8 +8,10 @@ readonly class Bloom
         public BloomPosition $position,
         public int           $spreadX = 30,
         public int           $spreadY = 30,
+        public int           $darkIntensity = 26,
         public string|null   $darkColour = 'var(--primary-900)',
         public string|null   $lightColour = 'var(--primary-500)',
+        public int           $lightIntensity = 36,
     )
     {
     }
@@ -38,15 +40,17 @@ readonly class Bloom
         return "$this->spreadX% $this->spreadY%";
     }
 
-    public function darkColourToken() : string {
+    public function darkColourToken(): string
+    {
         $colour = $this->darkColour ?? 'var(--primary-900)';
 
-        return "color-mix(in oklab, $colour 26%, transparent) 5%, transparent 60%)";
+        return "color-mix(in oklab, $colour $this->darkIntensity%, transparent) 5%, transparent 60%)";
     }
 
-    public function lightColourToken() : string {
+    public function lightColourToken(): string
+    {
         $colour = $this->lightColour ?? 'var(--primary-500)';
 
-        return "color-mix(in oklab, $colour 26%, transparent) 5%, transparent 70%)";
+        return "color-mix(in oklab, $colour $this->lightIntensity%, transparent) 5%, transparent 70%)";
     }
 }

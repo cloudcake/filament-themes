@@ -49,10 +49,6 @@
     }
 }
 
-@utility bg-body {
-    @apply bg-[var(--light-body-bg)] dark:bg-[var(--dark-body-bg)];
-}
-
 @utility bg-panel {
     @apply bg-[var(--light-body-bg)] dark:bg-[var(--dark-panel-bg)];
 }
