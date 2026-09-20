@@ -27,7 +27,7 @@ class Theme implements Plugin
     protected array|false|Closure $blooming = [];
 
     protected null|array|string|Closure $primaryColour = null;
-    protected null|array|string|Closure $darkBackgroundColour = '#12121c';
+    protected null|array|string|Closure $darkBackgroundColour = null;
     protected null|array|string|Closure $lightBackgroundColour = '#F1F5F8';
 
     /**
@@ -44,8 +44,6 @@ class Theme implements Plugin
         bool|Closure                   $forceDarkMode = false,
         array|bool|null|string|Closure $primaryColour = null,
         array|bool|null|string|Closure $darkBackgroundColour = null,
-        array|bool|null|string|Closure $darkPanelTint = null,
-        array|bool|null|string|Closure $lightPanelTint = null,
         array|bool|null|string|Closure $lightBackgroundColour = null,
         bool|Closure                   $pageTransitions = true,
         float|Closure                  $pageTransitionDuration = 0.5,
