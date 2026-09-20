@@ -19,6 +19,9 @@ class Theme implements Plugin
     protected bool|Closure $headingIcons = false;
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
+    protected bool|Closure $pageTransitions = true;
+    protected bool|Closure $countUpWidgets = true;
+    protected array|false|Closure $blooming = [];
 
     protected null|array|string|Closure $primaryColour = null;
     protected null|array|string|Closure $darkPanelColour = null;
@@ -32,6 +35,7 @@ class Theme implements Plugin
     public static function make(
         Roundness|Closure              $roundness = Roundness::Moderate,
         Shadows|Closure                $shadows = Shadows::Dramatic,
+        array|false|Closure            $blooming = [],
         bool|Closure                   $headingIcons = false,
         bool|Closure                   $forceLightMode = false,
         bool|Closure                   $forceDarkMode = false,
@@ -49,6 +53,11 @@ class Theme implements Plugin
         $instance->primaryColour($primaryColour);
         $instance->darkPanelTint($darkPanelTint);
         $instance->lightPanelTint($lightPanelTint);
+        $instance->blooming(!blank($blooming) ? $blooming : [
+            new Bloom(position: BloomPosition::UpperCenter, spreadX: 100, spreadY: 45),
+            new Bloom(position: BloomPosition::BottomLeft, spreadX: 15, spreadY: 85),
+            new Bloom(position: BloomPosition::BottomRight, spreadX: 50, spreadY: 30),
+        ]);
 
         return $instance;
     }
@@ -88,6 +97,13 @@ class Theme implements Plugin
     public function shadows(Closure|Shadows $shadows): static
     {
         $this->shadows = $shadows;
+
+        return $this;
+    }
+
+    public function blooming(Closure|array|false $blooming): static
+    {
+        $this->blooming = $blooming;
 
         return $this;
     }
@@ -152,6 +168,7 @@ class Theme implements Plugin
                 fn() => view('cloudcake-themes::hooks.styles', [
                     'roundness' => $panel->evaluate($this->roundness),
                     'shadows' => $panel->evaluate($this->shadows),
+                    'blooming' => $panel->evaluate($this->blooming),
                     'darkPanelColour' => $this->getColourFromInput($panel->evaluate($this->darkPanelColour)),
                     'lightPanelColour' => $this->getColourFromInput($panel->evaluate($this->lightPanelColour)),
                 ])
