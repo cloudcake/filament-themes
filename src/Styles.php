@@ -120,6 +120,41 @@ class Styles extends Color
         return $str->toString();
     }
 
+    private static function selectorRules(
+        array  $selects = [],
+        array  $modifiers = [],
+        string $comment = 'Cloudcake Modifications'): string
+    {
+        $str = str("/* $comment */" . PHP_EOL . PHP_EOL . "\t\t");
+
+        foreach ($selects as $name => $selectors) {
+
+            $end = count($selectors);
+
+            foreach ($selectors as $index => $selector) {
+                $str = $str->append($selector);
+
+                if ($index < $end - 1)
+                    $str = $str->append(',' . PHP_EOL . "\t\t");
+            }
+
+            $str = $str->append(' {' . PHP_EOL . "\t\t\t");
+
+            $end = count($modifiers[$name]);
+
+            foreach ($modifiers[$name] as $index => $modifier) {
+                $str = $str->append($modifier . PHP_EOL);
+
+                if ($index < $end - 1)
+                    $str = $str->append("\t\t\t");
+            }
+
+            $str = $str->append("\t\t}" . PHP_EOL . "\t\t");
+        }
+
+        return $str->toString();
+    }
+
     public static function borderRails(bool $active, bool $dark): string
     {
         if (!$active)
@@ -129,7 +164,7 @@ class Styles extends Color
         $opacityOuter = $dark ? '30' : 80;
         $opacityInner = $dark ? '20' : 50;
 
-        $select = [
+        $selects = [
             'rails' => [
                 '.fi-wi-stats-overview-stat',
                 '.fi-ta-main',
@@ -145,7 +180,7 @@ class Styles extends Color
             ]
         ];
 
-        $modify = [
+        $modifiers = [
             'rails' => [
                 '--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);',
                 '--tw-outline-style: double;',
@@ -160,30 +195,7 @@ class Styles extends Color
             ]
         ];
 
-        $str = str('/* Cloudcake Border Rails */' . PHP_EOL . PHP_EOL . "\t\t");
-
-        foreach ($select as $name => $selectors) {
-
-            foreach($selectors as $index => $selector) {
-                $str = $str->append($selector);
-
-                if ($index < count($selectors)-1)
-                    $str = $str->append(','.PHP_EOL."\t\t");
-            }
-
-            $str = $str->append(' {'.PHP_EOL."\t\t\t");
-
-            foreach($modify[$name] as $index => $modifier) {
-                $str = $str->append($modifier.PHP_EOL);
-
-                if ($index < count($modify[$name])-1)
-                    $str = $str->append("\t\t\t");
-            }
-
-            $str = $str->append("\t\t}".PHP_EOL."\t\t");
-        }
-
-        return $str->toString();
+        return static::selectorRules($selects, $modifiers,'Cloudcake Border Rails');
     }
 
     public static function pageTransitions(bool $active, float $duration = 1.5, float $offset = 1.5): string
@@ -191,21 +203,25 @@ class Styles extends Color
         if (!$active)
             return '';
 
-        return <<<CSS
-        .fi-body .fi-main > .fi-page, .fi-body .fi-simple-main {
-            animation: theme-rise {$duration}s;
-        }
-        @keyframes theme-rise {
-            from {
-                opacity: 0;
-                transform: translateY({$offset}rem);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        CSS;
+        $selects = [
+            'targets' => [
+                '.fi-body .fi-main > .fi-page, .fi-body .fi-simple-main'
+            ],
+            'keyframes' => [
+                '@keyframes theme-rise'
+            ]
+        ];
 
+        $modifiers = [
+            'targets' => [
+                "animation: theme-rise {$duration}s;",
+            ],
+            'keyframes' => [
+                "from {opacity: 0; transform: translateY({$offset}rem);}",
+                'to {opacity: 1; transform: translateY(0);}'
+            ]
+        ];
+
+        return static::selectorRules($selects, $modifiers, 'Cloudcake Page Transitions');
     }
 }
