@@ -13,7 +13,6 @@
 }
 
 .fi-body .fi-ta-header {
-    @apply bg-gray-700;
     border-bottom: 1px solid var(--theme-hairline);
     padding: calc(1.25rem * var(--theme-density, 1)) calc(1.5rem * var(--theme-density, 1));
 }
@@ -36,7 +35,7 @@
  * clearest signal that the table is a document rather than a grid.
  */
 .fi-body .fi-ta-header-cell, .fi-ta-actions-header-cell, th.fi-ta-selection-cell {
-    @apply dark:!bg-gray-800 border-b-1 border-b-gray-200 dark:border-b-gray-700;
+    @apply border-b-1 border-b-gray-200 dark:border-b-gray-700;
     padding-block: calc(0.75rem * var(--theme-density, 1));
     color: var(--theme-ink-muted);
     white-space: nowrap;

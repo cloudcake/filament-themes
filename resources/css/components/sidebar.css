@@ -9,13 +9,12 @@
 .fi-sidebar {
     border-inline-end: 1px solid var(--theme-hairline);
 
-    @apply backdrop-blur bg-primary-50/5 dark:bg-primary-950/5 shadow-none;
+    @apply bg-primary-50/2 dark:bg-primary-950/2 shadow-none;
 }
 
 /* Off-canvas on small screens, where it does need to be a solid surface. */
 @media (max-width: 1023px) {
     .fi-sidebar {
-        background-color: var(--theme-surface);
         box-shadow: var(--theme-shadow-xl);
         border-inline-end: 1px solid var(--theme-hairline);
     }
@@ -122,12 +121,13 @@
 }
 
 .fi-sidebar-item-btn > .fi-icon {
-    color: var(--gray-400);
+    @apply dark:text-gray-700;
+
     transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }
 
-.dark .fi-sidebar-item-btn > .fi-icon {
-    color: var(--gray-500);
+.fi-body .fi-sidebar-item-btn > .fi-icon {
+    @apply dark:text-gray-700;
 }
 
 .fi-sidebar-item-label {
@@ -192,9 +192,7 @@
      * outrank the declaration, and padding rather than margin keeps the
      * active wash and the group rules inside the rail.
      */
-    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation)
-    .fi-sidebar:not(.fi-sidebar-open)
-    .fi-sidebar-nav {
+    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-nav {
         padding-inline: 0;
 
         /*
@@ -206,9 +204,7 @@
         scrollbar-gutter: auto;
     }
 
-    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation)
-    .fi-sidebar:not(.fi-sidebar-open)
-    .fi-sidebar-nav-groups {
+    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-nav-groups {
         margin-inline: 0;
         min-width: 100%;
         padding-inline: calc(0.5rem * var(--theme-density, 1));
@@ -219,9 +215,7 @@
      * then holds the expand control on its own. The theme's 1.25rem gutters
      * leave that control less room than it needs.
      */
-    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation)
-    .fi-sidebar:not(.fi-sidebar-open)
-    .fi-sidebar-header {
+    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-header {
         padding-inline: 0;
     }
 
@@ -231,9 +225,7 @@
      * theme's 0.75rem padding leave those icons a 1rem slot, so the spacing
      * comes off and the grid centres what is left.
      */
-    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation)
-    .fi-sidebar:not(.fi-sidebar-open)
-    .fi-sidebar-footer {
+    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-footer {
         margin-inline: 0;
         padding-inline: 0;
         justify-items: center;
@@ -290,10 +282,7 @@
      * navigation *group*, while the sidebar's own state is the absence of
      * `fi-sidebar-open`.
      */
-    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation)
-    .fi-sidebar:not(.fi-sidebar-open)
-    .fi-sidebar-item.fi-active
-    > .fi-sidebar-item-btn::before {
+    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
         display: none;
     }
 }

@@ -47,16 +47,25 @@ class Theme implements Plugin
         $instance->headingIcons();
         $instance->forceLightMode(false);
         $instance->forceDarkMode(false);
-        $instance->primaryColour(Color::Indigo, Color::Green);
-        $instance->background(dark: '#12121c', light: '#F1F5F8', darkShaded: true, lightShaded: true);
-        $instance->transitions(true, 0.5, 1.5);
-        $instance->rails(true);
+        $instance->primaryColour(Color::Indigo, Color::Indigo);
+        $instance->background(
+            dark: '#11111a',
+            light: '#F1F5F8',
+            darkShaded: true,
+            lightShaded: true
+        );
+        $instance->transitions(
+            condition: true,
+            duration: 0.5,
+            offset: 1.5
+        );
+        $instance->rails();
         $instance->blooming([
             new Bloom(
                 position: BloomPosition::UpperCenter,
                 spreadX: 100,
-                spreadY: 45,
-                darkIntensity: 15,
+                spreadY: 30,
+                darkIntensity: 10,
                 darkColour: 'var(--primary-900)',
                 lightColour: 'var(--primary-500)',
                 lightIntensity: 20,
@@ -64,17 +73,17 @@ class Theme implements Plugin
 
             new Bloom(
                 position: BloomPosition::BottomLeft,
-                spreadX: 15,
-                spreadY: 85,
-                darkIntensity: 15,
-                darkColour: 'var(--primary-800)',
+                spreadX: 20,
+                spreadY: 40,
+                darkIntensity: 8,
+                darkColour: 'var(--primary-900)',
                 lightColour: 'var(--primary-600)',
                 lightIntensity: 20,
             ),
 
             new Bloom(
                 position: BloomPosition::BottomRight,
-                spreadX: 50,
+                spreadX: 40,
                 spreadY: 30,
                 darkIntensity: 15,
                 darkColour: 'var(--primary-700)',

@@ -13,10 +13,12 @@
  */
 .fi-topbar {
     @apply bg-transparent;
+
+    border-bottom: 1px solid var(--theme-hairline);
 }
 
 nav.fi-topbar  {
-    @apply backdrop-blur bg-primary-50/5 dark:bg-primary-950/5 shadow-none;
+    @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2 shadow-none ring-0;
 }
 
 .fi-topbar-start,

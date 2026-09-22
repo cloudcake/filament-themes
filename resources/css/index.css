@@ -4,6 +4,7 @@
 @import './tokens.css' layer(base);
 @import './base.css' layer(base);
 @import './typography.css' layer(base);
+@import './motion.css' layer(base);
 
 @import './components/layout.css' layer(components);
 @import './components/sidebar.css' layer(components);
@@ -29,7 +30,7 @@
 @import './components/toggle.css' layer(components);
 @import './components/scrollbar.css' layer(components);
 
-@import './motion.css' layer(components);
+
 
 @source '../../views/**/*';
 @source '../../**/*';
