@@ -20,79 +20,66 @@ class Theme implements Plugin
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
     protected bool|Closure $pageTransitions = true;
+    protected bool|Closure $rails = true;
 
-    protected float|Closure $pageTransitionDuration = 0.5;
-    protected float|Closure $pageTransitionOffset = 1.5;
+    protected float|Closure $pageTransitionDuration = 0;
+    protected float|Closure $pageTransitionOffset = 0;
 
     protected array|false|Closure $blooming = [];
 
-    protected null|array|string|Closure $primaryColour = null;
-    protected null|array|string|Closure $darkBackgroundColour = '#12121c';
-    protected null|array|string|Closure $lightBackgroundColour = '#F1F5F8';
+    protected null|array|string|Closure $darkPrimaryColour = null;
+    protected null|array|string|Closure $lightPrimaryColour = null;
+    protected null|array|string|Closure $darkBackgroundColour = null;
+    protected bool|Closure $darkBackgroundColourShaded = true;
+    protected null|array|string|Closure $lightBackgroundColour = null;
+    protected bool|Closure $lightBackgroundColourShaded = true;
 
     /**
      * Make an instance of the plugin.
      *
      * @return static
      */
-    public static function make(
-        Roundness|Closure              $roundness = Roundness::Moderate,
-        Shadows|Closure                $shadows = Shadows::Dramatic,
-        array|false|Closure            $blooming = [],
-        bool|Closure                   $headingIcons = false,
-        bool|Closure                   $forceLightMode = false,
-        bool|Closure                   $forceDarkMode = false,
-        array|bool|null|string|Closure $primaryColour = null,
-        array|bool|null|string|Closure $darkBackgroundColour = null,
-        array|bool|null|string|Closure $lightBackgroundColour = null,
-        bool|Closure                   $pageTransitions = true,
-        float|Closure                  $pageTransitionDuration = 0.5,
-        float|Closure                  $pageTransitionOffset = 1.5,
-    ): static
+    public static function make(): static
     {
         $instance = app(static::class);
-        $instance->roundness($roundness);
-        $instance->shadows($shadows);
-        $instance->headingIcons($headingIcons);
-        $instance->forceLightMode($forceLightMode);
-        $instance->forceDarkMode($forceDarkMode);
-        $instance->primaryColour($primaryColour);
-        $instance->darkBackgroundColour($darkBackgroundColour ?? $instance->darkBackgroundColour);
-        $instance->lightBackgroundColour($lightBackgroundColour ?? $instance->lightBackgroundColour);
-        $instance->pageTransitions($pageTransitions, $pageTransitionDuration, $pageTransitionOffset);
-        $instance->blooming(!blank($blooming) ? $blooming : [
+        $instance->roundness(Roundness::Moderate);
+        $instance->shadows(Shadows::Strong);
+        $instance->headingIcons();
+        $instance->forceLightMode(false);
+        $instance->forceDarkMode(false);
+        $instance->primaryColour(Color::Indigo, Color::Green);
+        $instance->background(dark: '#12121c', light: '#F1F5F8', darkShaded: true, lightShaded: true);
+        $instance->transitions(true, 0.5, 1.5);
+        $instance->rails(true);
+        $instance->blooming([
             new Bloom(
                 position: BloomPosition::UpperCenter,
                 spreadX: 100,
                 spreadY: 45,
+                darkIntensity: 15,
                 darkColour: 'var(--primary-900)',
                 lightColour: 'var(--primary-500)',
+                lightIntensity: 20,
             ),
 
             new Bloom(
                 position: BloomPosition::BottomLeft,
                 spreadX: 15,
                 spreadY: 85,
+                darkIntensity: 15,
                 darkColour: 'var(--primary-800)',
                 lightColour: 'var(--primary-600)',
+                lightIntensity: 20,
             ),
 
             new Bloom(
                 position: BloomPosition::BottomRight,
                 spreadX: 50,
                 spreadY: 30,
+                darkIntensity: 15,
                 darkColour: 'var(--primary-700)',
                 lightColour: 'var(--primary-600)',
-            ),
-
-            new Bloom(
-                position: BloomPosition::MiddleCenter,
-                spreadX: 200,
-                spreadY: 200,
-                darkIntensity: 5,
-                darkColour: 'var(--primary-700)',
-                lightColour: 'var(--primary-600)',
-                lightIntensity: 10,
+                lightIntensity: 20,
             ),
         ]);
 
@@ -166,7 +153,7 @@ class Theme implements Plugin
         return $this;
     }
 
-    public function pageTransitions(bool|Closure $condition = true, float|Closure $duration = 0.5, float|Closure $offset = 1.5): static
+    public function transitions(bool|Closure $condition = true, float|Closure $duration = 0.5, float|Closure $offset = 1.5): static
     {
         $this->pageTransitions = $condition;
         $this->pageTransitionDuration = $duration;
@@ -175,23 +162,27 @@ class Theme implements Plugin
         return $this;
     }
 
-    public function primaryColour(array|string|null|Closure $colour): static
+    public function rails(bool|Closure $condition = true): static
     {
-        $this->primaryColour = $colour;
+        $this->rails = $condition;
 
         return $this;
     }
 
-    public function darkBackgroundColour(array|string|null|Closure $colour): static
+    public function primaryColour(array|string|null|Closure $dark, array|string|null|Closure $light): static
     {
-        $this->darkBackgroundColour = $colour;
+        $this->darkPrimaryColour = $dark;
+        $this->lightPrimaryColour = $light;
 
         return $this;
     }
 
-    public function lightBackgroundColour(array|string|null|Closure $colour): static
+    public function background(array|string|null|Closure $dark, array|string|null|Closure $light, bool $darkShaded = false, bool $lightShaded = false): static
     {
-        $this->lightBackgroundColour = $colour;
+        $this->darkBackgroundColour = $dark;
+        $this->lightBackgroundColour = $light;
+        $this->darkBackgroundColourShaded = $darkShaded;
+        $this->lightBackgroundColourShaded = $lightShaded;
 
         return $this;
     }
@@ -215,11 +206,16 @@ class Theme implements Plugin
                     'roundness' => $panel->evaluate($this->roundness),
                     'shadows' => $panel->evaluate($this->shadows),
                     'blooming' => $panel->evaluate($this->blooming),
+                    'darkPrimaryColour' => $this->getColourFromInput($panel->evaluate($this->darkPrimaryColour)),
                     'darkBackgroundColour' => $panel->evaluate($this->darkBackgroundColour),
+                    'darkBackgroundColourShaded' => $panel->evaluate($this->darkBackgroundColourShaded),
+                    'lightPrimaryColour' => $this->getColourFromInput($panel->evaluate($this->lightPrimaryColour)),
                     'lightBackgroundColour' => $panel->evaluate($this->lightBackgroundColour),
+                    'lightBackgroundColourShaded' => $panel->evaluate($this->lightBackgroundColourShaded),
                     'pageTransitions' => $panel->evaluate($this->pageTransitions),
                     'pageTransitionDuration' => $panel->evaluate($this->pageTransitionDuration),
                     'pageTransitionOffset' => $panel->evaluate($this->pageTransitionOffset),
+                    'rails' => $panel->evaluate($this->rails),
                 ])
             )
             ->when(
@@ -230,10 +226,10 @@ class Theme implements Plugin
                 $panel->evaluate($this->forceLightMode),
                 fn($panel) => $panel->darkMode(condition: false, isForced: true)
             )
-            ->when(
-                $primaryColour = $panel->evaluate($this->primaryColour),
-                fn($panel) => $panel->colors(['primary' => $this->getColourFromInput($primaryColour)]),
-            )
+//            ->when(
+//                $primaryColour = $panel->evaluate($this->darkPrimaryColour),
+//                fn($panel) => $panel->colors(['primary' => $this->getColourFromInput($primaryColour)]),
+//            )
             ->userMenuItems([
                 'profile' => fn($action) => $action
                     ->icon('tabler-user-key')

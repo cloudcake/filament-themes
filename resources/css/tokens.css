@@ -77,6 +77,25 @@
     --theme-shadow-xl:
             0 2px 4px color-mix(in oklab, var(--gray-950) 4%, transparent),
             0 32px 72px -20px color-mix(in oklab, var(--gray-950) 11%, transparent);
+
+    --theme-grain:
+            repeating-linear-gradient(
+                    0deg,
+                    color-mix(in oklab, white 1%, transparent) 0 1px,
+                    transparent 1px 5px
+            ),
+            repeating-linear-gradient(
+                    90deg,
+                    color-mix(in oklab, white 0.7%, transparent) 0 1px,
+                    transparent 1px 5px
+            );
+
+    --theme-stage: linear-gradient(
+            155deg,
+            color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%,
+            color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%,
+            color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%
+    );
 }
 
 .dark .fi-body {

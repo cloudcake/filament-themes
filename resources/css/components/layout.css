@@ -1,6 +1,3 @@
-.fi-body {
-    @apply bg-[var(--light-body-bg)] dark:bg-[var(--dark-body-bg)];
-}
 
 /*.fi-simple-main,*/
 /*.fi-simple-main-ctn,*/
@@ -16,6 +13,10 @@
     .fi-breadcrumbs-item-separator {
         @apply text-primary-400
     }
+}
+
+.fi-main-ctn {
+    @apply rounded-lg;
 }
 
 /* Wider gutters and a taller first fold than the framework default. */
