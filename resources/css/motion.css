@@ -112,3 +112,31 @@
             color var(--theme-duration, 260ms) var(--theme-ease, ease),
             text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }
+
+.fi-simple-main,
+.fi-theme-login-stage-inner {
+    animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
+}
+
+.fi-theme-login-stage-inner {
+    animation-delay: 60ms;
+}
+
+@keyframes theme-auth-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.75rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-simple-main,
+    .fi-theme-login-stage-inner {
+        animation: none;
+    }
+}

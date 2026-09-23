@@ -26,3 +26,32 @@
 .fi-icon-btn {
     @apply rounded-3xl;
 }
+
+
+.fi-simple-header::after {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-simple-main .fi-sc-section {
+    border-radius: var(--radius-xl, 0.9375rem);
+}
+
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+    border-radius: var(--radius-3xl, 1.75rem);
+}
+
+@media (max-width: 639px) {
+    .fi-simple-layout .fi-simple-main {
+        border-radius: var(--radius-2xl, 1.25rem);
+    }
+}
+
+.fi-theme-login-stage-inner::after {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
+    border-radius: var(--radius-2xl, 1.25rem);
+}

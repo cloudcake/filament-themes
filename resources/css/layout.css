@@ -40,3 +40,367 @@
         align-items: center;
     }
 }
+
+.fi-simple-header::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+}
+
+.fi-simple-layout .fi-logo {
+    justify-content: center;
+}
+
+.fi-simple-main .fi-fo-component-ctn {
+    row-gap: calc(1.25rem * var(--theme-density, 1));
+}
+
+@media (max-width: 639px) {
+    .fi-simple-layout .fi-simple-main {
+        padding: calc(1.75rem * var(--theme-density, 1));
+    }
+
+    /*
+     * Filament runs the card edge to edge below `sm` and drops its corners.
+     * The corners are kept here, so the card needs a margin to show them
+     * against — and `width: auto` because the element is otherwise 100% wide
+     * and would push past the viewport.
+     */
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        width: auto;
+        margin-inline: 0.875rem;
+    }
+}
+
+
+.fi-badge {
+    @apply px-[0.5rem] py-[0.1875rem];
+}
+
+.fi-fo-code-editor .cm-editor,
+.fi-fo-code-editor .cm-editor:where(.dark,.dark *),
+.ͼo {
+    @apply !px-5 !py-2;
+}
+
+.fi-wi-stats-overview-stat {
+    padding: calc(1.375rem * var(--theme-density, 1));
+}
+
+.fi-wi-stats-overview-stat-value,
+.fi-wi-stats-overview-stat-description {
+    margin-top: calc(0.375rem * var(--theme-density, 1));
+}
+
+.fi-btn {
+    padding: calc(0.5rem * var(--theme-density, 1)) calc(0.9375rem * var(--theme-density, 1));
+}
+
+.fi-btn.fi-size-sm {
+    padding: calc(0.375rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
+}
+
+.fi-btn.fi-size-lg,
+.fi-btn.fi-size-xl {
+    padding: calc(0.6875rem * var(--theme-density, 1)) calc(1.25rem * var(--theme-density, 1));
+}
+
+.fi-fieldset,.fi-fieldset:not(.fi-fieldset-not-contained) {
+    padding: calc(1.25rem * var(--theme-density, 1));
+}
+
+.fi-simple-header-subheading {
+    margin-top: calc(0.625rem * var(--theme-density, 1));
+}
+
+.fi-simple-header::after {
+    margin: calc(1.25rem * var(--theme-density, 1)) auto 0;
+}
+
+.fi-simple-main .fi-fo-field-wrp .fi-input-wrp .fi-input {
+    padding-block: calc(0.6875rem * var(--theme-density, 1));
+}
+
+.fi-simple-main .fi-fo-field-wrp-error-message {
+    margin-top: 0.4375rem;
+}
+
+/* The submit action fills the width and is the heaviest thing on the screen. */
+.fi-simple-main .fi-form-actions .fi-ac {
+    margin-top: calc(0.375rem * var(--theme-density, 1));
+}
+
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+    padding: calc(2.5rem * var(--theme-density, 1));
+}
+
+.fi-simple-main .fi-form-actions .fi-btn {
+    padding-block: calc(0.6875rem * var(--theme-density, 1));
+}
+
+@media (max-width: 639px) {
+    .fi-simple-layout .fi-simple-main {
+        padding: calc(1.75rem * var(--theme-density, 1));
+    }
+
+    /*
+     * Filament runs the card edge to edge below `sm` and drops its corners.
+     * The corners are kept here, so the card needs a margin to show them
+     * against — and `width: auto` because the element is otherwise 100% wide
+     * and would push past the viewport.
+     */
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        width: auto;
+        margin-inline: 0.875rem;
+    }
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
+    display: grid;
+    align-items: stretch;
+
+    /*
+     * Rows are stated rather than left to `grid-auto-rows`. A container this
+     * tall with two automatic rows distributes its leftover height between
+     * them, which would pull the mobile banner to half the viewport.
+     */
+    grid-template-rows: auto 1fr;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
+    margin-block: calc(3rem * var(--theme-density, 1));
+    padding-inline: 1.5rem;
+    max-width: 26rem;
+}
+
+/* The brand mark lives on the stage, so the one above the form goes. */
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header .fi-logo {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
+    .fi-simple-main-ctn {
+        align-items: flex-start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
+    .fi-simple-main {
+        margin-block: calc(2.5rem * var(--theme-density, 1)) 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    /* The form column keeps a hairline seam against the stage. */
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main-ctn {
+        padding-inline: clamp(1.5rem, 4vw, 4rem);
+    }
+}
+
+@media (max-width: 1023px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
+        display: none;
+    }
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-page-content {
+    row-gap: calc(2rem * var(--theme-density, 1));
+}
+
+.fi-theme-login-stage {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.fi-theme-login-stage-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.fi-theme-login-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+.fi-theme-login-stage::after {
+    content: '';
+    position: absolute;
+    right: 2%;
+    bottom: -4%;
+    width: 62%;
+    aspect-ratio: 100 / 100;
+    mask-image: var(--theme-sprig);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-image: var(--theme-sprig);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+}
+
+.fi-theme-login-stage-logo {
+    justify-content: flex-start;
+    margin-bottom: 2.25rem;
+}
+
+.fi-theme-login-stage-tagline {
+    margin-top: 1.25rem;
+    max-width: 26ch;
+}
+
+.fi-theme-login-stage-inner::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin-top: 2.25rem;
+}
+
+@media (min-width: 1024px) {
+    .fi-theme-login-stage-inner {
+        position: sticky;
+        top: 0;
+        min-height: 100dvh;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header::after {
+        margin-inline: 0 auto;
+    }
+}
+
+@media (max-width: 1023px) {
+    .fi-theme-login-stage {
+        padding-block: 0;
+    }
+
+    .fi-theme-login-stage-inner {
+        padding: 2rem 1.5rem 1.75rem;
+        width: 100%;
+    }
+
+    .fi-theme-login-stage-logo {
+        margin-bottom: 1.25rem;
+    }
+
+    .fi-theme-login-stage-tagline,
+    .fi-theme-login-stage::after {
+        display: none;
+    }
+
+    .fi-theme-login-stage-inner::after {
+        margin-top: 1.5rem;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
+        margin-block: calc(2.5rem * var(--theme-density, 1));
+    }
+}
+
+@media (min-width: 1024px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        max-width: 50rem;
+        padding: clamp(2.5rem, 3.5vw, 3.25rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        column-gap: clamp(2rem, 4vw, 3.25rem);
+        align-items: center;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header .fi-logo {
+        justify-content: flex-start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header::after {
+        margin-inline: 0 auto;
+    }
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
+    display: grid;
+    align-items: stretch;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main {
+    border: 0;
+    box-shadow: none;
+    max-width: 25rem;
+    padding-inline: 1.5rem;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header .fi-logo {
+    justify-content: flex-start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header::after {
+    margin-inline: 0 auto;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
+    background-image: none;
+    color: inherit;
+    align-items: center;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner {
+    padding-inline: clamp(2rem, 6vw, 6rem);
+    padding-block: 4rem;
+}
+
+
+@media (min-width: 1024px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main-ctn {
+        /*
+         * The form is placed first visually and the facing page second, which
+         * is the reverse of the document. The stage is marked decorative for
+         * this composition precisely because of that, so no reading order is
+         * being scrambled.
+         */
+        order: 1;
+        justify-content: flex-end;
+        padding-inline: clamp(2rem, 6vw, 6rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
+        order: 2;
+    }
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
+    max-width: 34ch;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
+    max-width: 23rem;
+    padding-inline: 1.5rem;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
+    box-sizing: content-box;
+    align-self: center;
+    margin-bottom: calc(1.75rem * var(--theme-density, 1));
+    padding: 1.375rem 1.625rem;
+    min-width: 4rem;
+}

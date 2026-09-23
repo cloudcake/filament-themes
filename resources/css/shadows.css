@@ -54,3 +54,15 @@
             0 2px 4px color-mix(in oklab, var(--gray-950) 8%, transparent),
             0 8px 18px -6px color-mix(in oklab, var(--color-600) 40%, transparent);
 }
+
+.fi-simple-main .fi-sc-section {
+    box-shadow: none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
+    box-shadow: none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
+    box-shadow: none;
+}

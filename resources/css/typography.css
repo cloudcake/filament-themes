@@ -165,3 +165,88 @@
     line-height: 1.6;
     text-wrap: pretty;
 }
+
+.fi-simple-main .fi-fo-field-wrp .fi-input-wrp .fi-input {
+    font-size: 0.9375rem;
+}
+
+.fi-simple-main .fi-fo-field-wrp-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.006em;
+}
+
+.fi-simple-main .fi-fo-field-wrp-error-message {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.fi-simple-main .fi-form-actions .fi-btn {
+    font-size: 0.9375rem;
+    letter-spacing: 0.004em;
+}
+
+.fi-simple-main .fi-fo-checkbox .fi-fo-field-wrp-label {
+    font-weight: 400;
+}
+
+.fi-theme-login-stage-name {
+    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
+    font-size: clamp(1.85rem, 1.5rem + 1.8vw, 2.5rem);
+    letter-spacing: -0.018em;
+    line-height: 1.05;
+    text-wrap: balance;
+    font-weight: 700;
+}
+
+.fi-theme-login-stage-tagline {
+    font-size: 1rem;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+.fi-theme-login-stage-tagline {
+    font-size: 1rem;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+@media (min-width: 1024px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header-heading,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header-subheading {
+        text-align: start;
+    }
+}
+
+@media (max-width: 1023px) {
+    .fi-theme-login-stage-name {
+        font-size: 1.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Room for the heading to run larger, which balances the two halves. */
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-heading {
+        font-size: clamp(2.25rem, 1.6rem + 1.6vw, 3rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-heading,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-subheading {
+        text-align: start;
+    }
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-heading,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-subheading {
+    text-align: start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-name {
+    font-size: clamp(3rem, 1rem + 5.4vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+}
