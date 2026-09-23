@@ -250,3 +250,56 @@
     line-height: 0.95;
     letter-spacing: -0.03em;
 }
+
+.fi-empty-state-heading,
+.fi-ta-empty-state-heading {
+    font-size: 1.375rem;
+    line-height: 1.3;
+}
+
+.fi-empty-state.fi-compact .fi-empty-state-heading,
+.fi-ta-empty-state.fi-compact .fi-ta-empty-state-heading {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.fi-empty-state-description,
+.fi-ta-empty-state-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.fi-ta-header-heading {
+    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
+    font-size: 1.25rem;
+}
+
+.fi-ta-header-cell, .fi-ta-actions-header-cell, th.fi-ta-selection-cell {
+    white-space: nowrap;
+}
+
+.fi-ta-cell {
+    font-feature-settings: 'tnum' 1, 'zero' 1, 'kern' 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.fi-ta-cell-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+}
+
+.fi-pagination-overview {
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.fi-pagination-item-btn {
+    font-variant-numeric: tabular-nums;
+}
+
+.fi-pagination-item.fi-active .fi-pagination-item-btn {
+    font-weight: 550;
+}

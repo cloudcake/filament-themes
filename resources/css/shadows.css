@@ -66,3 +66,15 @@
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
     box-shadow: none;
 }
+
+.fi-ta-ctn {
+    @apply shadow-lg;
+}
+
+.fi-ta-row:hover > *:first-child {
+    box-shadow: inset 2px 0 0 var(--primary-500);
+}
+
+[dir='rtl'] .fi-ta-row:hover > *:first-child {
+    box-shadow: inset -2px 0 0 var(--primary-500);
+}

@@ -65,3 +65,45 @@
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
     border: 1px solid var(--theme-hairline);
 }
+
+.fi-empty-state:not(.fi-empty-state-not-contained) {
+    border: 1px solid var(--theme-hairline);
+}
+
+.fi-ta-ctn {
+    @apply ring-0;
+}
+
+.fi-ta-header-toolbar {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-ta-header {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-ta-row > .fi-ta-cell,
+.fi-ta-row > .fi-ta-selection-cell,
+.fi-ta-row > .fi-ta-actions-cell {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-ta-row:last-child > * {
+    border-bottom: 0;
+}
+
+.fi-ta-table-stacked-on-mobile .fi-ta-record {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-ta-header-cell, .fi-ta-actions-header-cell, th.fi-ta-selection-cell {
+    @apply border-b-1;
+}
+
+.fi-pagination {
+    border-top: 1px solid var(--theme-hairline);
+}
+
+.fi-ta-filter-indicators {
+    border-top: 1px solid var(--theme-hairline);
+}

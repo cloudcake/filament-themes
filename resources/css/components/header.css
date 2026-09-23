@@ -1,10 +1,31 @@
-/*
- * Page headers and breadcrumbs.
- *
- * The heading is the one place the theme allows itself a flourish: a short
- * accent rule above it, then the display serif at a size that gives the serif
- * room to show its stroke contrast.
- */
+/* layout */
+
+
+
+/* roundness */
+
+
+
+/* colours */
+
+
+
+/* typography */
+
+
+
+/* shadows */
+
+
+
+/* borders */
+
+
+
+/* animation */
+
+
+
 
 .fi-header {
     position: relative;

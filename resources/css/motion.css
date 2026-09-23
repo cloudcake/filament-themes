@@ -140,3 +140,42 @@
         animation: none;
     }
 }
+
+.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg::after,
+.fi-ta-empty-state:not(.fi-compact) .fi-ta-empty-state-icon-bg::after {
+    animation: theme-sprig-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
+}
+
+@keyframes theme-sprig-in {
+    from {
+        opacity: 0;
+        transform: scale(0.94) rotate(-3deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.fi-ta-row > .fi-ta-cell,
+.fi-ta-row > .fi-ta-selection-cell,
+.fi-ta-row > .fi-ta-actions-cell {
+    transition: background-color 200ms var(--theme-ease, ease);
+}
+
+.fi-ta-actions {
+    transition: opacity 200ms var(--theme-ease, ease);
+}
+
+.fi-ta-content {
+    transition:
+            opacity var(--theme-duration, 260ms) var(--theme-ease, ease),
+            transform var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-pagination-item-btn {
+    transition:
+            background-color 200ms var(--theme-ease, ease),
+            color 200ms var(--theme-ease, ease);
+}

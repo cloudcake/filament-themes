@@ -1,12 +1,4 @@
-.fi-body:is(
-        .fi-header-heading,
-        .fi-modal-heading,
-        .fi-simple-header-heading,
-        .fi-ta-header-heading,
-        .fi-empty-state-heading,
-        .fi-ta-empty-state-heading,
-        .fi-logo
-    ),
+.fi-body:is(.fi-header-heading,.fi-modal-heading,.fi-simple-header-heading,.fi-ta-header-heading,.fi-empty-state-heading,.fi-ta-empty-state-heading,.fi-logo),
 .fi-topbar-item-btn:hover,
 .fi-wi-stats-overview-stat-value,
 .fi-in-text-item-content {
@@ -504,3 +496,125 @@
     background-color: var(--theme-surface-raised);
 }
 
+
+.fi-empty-state:not(.fi-empty-state-not-contained) {
+    background-color: var(--theme-surface);
+}
+
+.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg,
+.fi-ta-empty-state:not(.fi-compact) .fi-ta-empty-state-icon-bg {
+    background: radial-gradient(
+            circle at 50% 42%,
+            color-mix(in oklab, var(--primary-200) 62%, transparent) 0%,
+            color-mix(in oklab, var(--primary-100) 38%, transparent) 58%,
+            transparent 72%
+    );
+}
+
+.dark .fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg,
+.dark .fi-ta-empty-state:not(.fi-compact) .fi-ta-empty-state-icon-bg {
+    background: radial-gradient(
+            circle at 50% 42%,
+            color-mix(in oklab, var(--primary-500) 22%, transparent) 0%,
+            color-mix(in oklab, var(--primary-500) 10%, transparent) 58%,
+            transparent 72%
+    );
+}
+
+.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg::after,
+.fi-ta-empty-state:not(.fi-compact) .fi-ta-empty-state-icon-bg::after {
+    background: linear-gradient(
+            152deg,
+            var(--primary-400) 0%,
+            var(--primary-600) 52%,
+            var(--secondary-500) 100%
+    );
+}
+
+.fi-empty-state-description,
+.fi-ta-empty-state-description {
+    color: var(--theme-ink-muted);
+}
+
+.fi-ta-ctn {
+    background-color: var(--theme-surface);
+}
+
+.fi-ta-header-cell, .fi-ta-actions-header-cell, th.fi-ta-selection-cell {
+    @apply border-b-gray-200 dark:border-b-gray-700;
+    color: var(--theme-ink-muted);
+}
+
+.fi-ta-header-cell-label {
+    color: var(--theme-ink-muted);
+}
+
+.fi-ta-header-cell-sorted .fi-ta-header-cell-label {
+    color: var(--primary-700);
+}
+
+.dark .fi-ta-header-cell-sorted .fi-ta-header-cell-label {
+    color: var(--primary-300);
+}
+
+.fi-ta-row:hover > * {
+    background-color: color-mix(in oklab, var(--primary-200) 22%, transparent);
+}
+
+.dark .fi-ta-row:hover > * {
+    background-color: color-mix(in oklab, var(--primary-500) 9%, transparent);
+}
+
+.fi-ta-row.fi-selected > * {
+    background-color: var(--theme-accent-wash);
+}
+
+.fi-ta-actions {
+    opacity: 0.6;
+}
+
+.fi-ta-row:hover .fi-ta-actions,
+.fi-ta-actions:focus-within,
+.fi-ta-actions:hover {
+    opacity: 1;
+}
+
+.fi-ta-content[wire\:loading] {
+    opacity: 0.55;
+}
+
+@media (max-width: 767px) {
+
+    .fi-ta-content-ctn::after {
+        background: linear-gradient(
+                to left,
+                var(--theme-surface),
+                transparent
+        );
+    }
+
+    [dir='rtl'] .fi-ta-content-ctn::after {
+        background: linear-gradient(to right, var(--theme-surface), transparent);
+    }
+}
+
+.fi-ta-cell-label {
+    color: var(--theme-ink-muted);
+}
+
+.fi-pagination-overview {
+    color: var(--theme-ink-muted);
+}
+
+.fi-pagination-item.fi-active .fi-pagination-item-btn {
+    background-color: var(--theme-accent-wash);
+    color: var(--primary-700);
+}
+
+.dark .fi-pagination-item.fi-active .fi-pagination-item-btn {
+    color: var(--primary-200);
+}
+
+.fi-ta-filter-indicators {
+    background-color: var(--theme-surface-sunken);
+}

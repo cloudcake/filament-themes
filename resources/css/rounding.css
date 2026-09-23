@@ -55,3 +55,15 @@
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
     border-radius: var(--radius-2xl, 1.25rem);
 }
+
+.fi-empty-state:not(.fi-empty-state-not-contained) {
+    border-radius: var(--radius-2xl, 1.25rem);
+}
+
+.fi-ta-ctn {
+    border-radius: var(--radius-2xl, 1.25rem);
+}
+
+.fi-pagination-item-btn {
+    border-radius: var(--radius-md, 0.5rem);
+}
