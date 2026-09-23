@@ -19,10 +19,10 @@
                     <x-filament-panels::logo class="fi-theme-login-stage-logo"/>
                 @endif
 
-                <p class="fi-theme-login-stage-name">{{ filament()->getBrandName() }}</p>
+                <p class="fi-theme-login-stage-name select-none">{{ filament()->getBrandName() }}</p>
 
                 @if (filled($tagline))
-                    <p class="fi-theme-login-stage-tagline">{{ $tagline }}</p>
+                    <p class="fi-theme-login-stage-tagline select-none">{{ $tagline }}</p>
                 @endif
             </div>
         </div>

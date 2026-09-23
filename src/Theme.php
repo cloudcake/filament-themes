@@ -42,7 +42,7 @@ class Theme implements Plugin
     public static function make(): static
     {
         $instance = app(static::class);
-        $instance->roundness(Roundness::Moderate);
+        $instance->roundness(Roundness::Pill);
         $instance->shadows(Shadows::Dramatic);
         $instance->headingIcons();
         $instance->forceLightMode(false);
@@ -230,7 +230,7 @@ class Theme implements Plugin
             ->renderHook(
                 PanelsRenderHook::SIMPLE_LAYOUT_START,
                 fn() => view('cloudcake-themes::layouts.auth', [
-                    'layout' => AuthLayout::Editorial,
+                    'layout' => AuthLayout::Portal,
                     'tagline' => "To modify your application's authentication tagline, add the 'tagline' key to the ->auth() call when configuring the plugin."
                 ]),
             )

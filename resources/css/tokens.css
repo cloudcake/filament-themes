@@ -40,16 +40,8 @@
     --theme-heading-font: var(--font-sans);
 
     --theme-grain:
-            repeating-linear-gradient(
-                    0deg,
-                    color-mix(in oklab, white 1%, transparent) 0 1px,
-                    transparent 1px 15px
-            ),
-            repeating-linear-gradient(
-                    90deg,
-                    color-mix(in oklab, white 0.7%, transparent) 0 1px,
-                    transparent 1px 15px
-            );
+            repeating-linear-gradient(0deg, color-mix(in oklab, var(--primary-300) 2%, transparent) 0 1px, transparent 1px 5px),
+            repeating-linear-gradient(90deg,color-mix(in oklab, var(--primary-300) 1%, transparent) 0 1px,transparent 1px 5px);
 
     --theme-stage: linear-gradient(
             155deg,

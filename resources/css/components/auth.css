@@ -320,10 +320,13 @@
 
 .fi-theme-login-stage-name {
     font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
-    font-size: clamp(2.25rem, 1.5rem + 2.6vw, 3.5rem);
+    font-size: clamp(1.85rem, 1.5rem + 1.8vw, 2.5rem);
     letter-spacing: -0.018em;
     line-height: 1.05;
     text-wrap: balance;
+    font-weight: 700;
+
+    @apply !text-primary-gradient;
 }
 
 .fi-theme-login-stage-tagline {
@@ -643,12 +646,12 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
-    max-width: 30ch;
+    max-width: 34ch;
     color: var(--theme-ink-muted);
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner::after {
-    background-color: var(--theme-accent-line);
+    @apply bg-primary-400;
 }
 
 /* -------------------------------------------------------------------------

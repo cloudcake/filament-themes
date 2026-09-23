@@ -30,7 +30,7 @@
 @theme inline {
     --animate-background: background-move ease infinite;
     --animate-border: border 4s linear infinite;
-    --animate-gradient: gradient 12s linear infinite;
+    --animate-gradient: gradient 10s linear infinite;
 
     @keyframes gradient {
         from {
