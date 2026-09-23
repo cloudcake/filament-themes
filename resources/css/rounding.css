@@ -1,99 +1,56 @@
-.fi-fo-builder .fi-fo-builder-item,
-.fi-fo-repeater .fi-fo-repeater-item {
-    @apply rounded-md;
+.fi-avatar,
+.fi-badge,
+.fi-icon-btn {
+    @apply rounded-3xl;
 }
 
-.fi-btn {
+.fi-btn,
+.fi-section-header-icon-ctn {
     @apply rounded-lg;
 }
 
 .fi-btn.fi-size-lg,
 .fi-btn.fi-size-xl,
-.fi-fieldset,.fi-fieldset:not(.fi-fieldset-not-contained) {
+.fi-fieldset,
+.fi-fieldset:not(.fi-fieldset-not-contained) {
     @apply rounded-xl;
 }
 
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
-.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
-.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn:where(.dark,.dark *),
-.fi-wi-stats-overview-stat,
-.fi-wi-chart {
-    @apply rounded-2xl;
-}
-
-.fi-badge,
-.fi-avatar,
-.fi-icon-btn {
-    @apply rounded-3xl;
-}
-
-
-.fi-simple-header::after {
-    border-radius: var(--radius-3xl);
-}
-
-.fi-simple-main .fi-sc-section {
-    border-radius: var(--radius-xl, 0.9375rem);
-}
-
-.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-    border-radius: var(--radius-3xl, 1.75rem);
-}
-
-@media (max-width: 639px) {
-    .fi-simple-layout .fi-simple-main {
-        border-radius: var(--radius-2xl, 1.25rem);
-    }
-}
-
-.fi-theme-login-stage-inner::after {
-    border-radius: var(--radius-3xl);
-}
-
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
-    border-radius: var(--radius-2xl, 1.25rem);
-}
-
-.fi-empty-state:not(.fi-empty-state-not-contained) {
-    border-radius: var(--radius-2xl, 1.25rem);
-}
-
-.fi-ta-ctn {
-    border-radius: var(--radius-2xl, 1.25rem);
-}
-
+.fi-dropdown-list-item,
 .fi-pagination-item-btn {
     border-radius: var(--radius-md, 0.5rem);
 }
 
-.fi-header::before {
-    border-radius: var(--radius-3xl);
-}
-
-.fi-input-wrp {
-    border-radius: var(--radius-lg);
-}
-
-.fi-loading-section {
-    border-radius: var(--radius-2xl, 1.25rem);
-}
-
-.fi-skeleton {
-    border-radius: var(--radius-sm, 0.375rem);
-}
-
-.fi-dropdown-panel {
+.fi-dropdown-panel,
+.fi-no-notification,
+.fi-simple-main .fi-sc-section {
     border-radius: var(--radius-xl, 0.9375rem);
 }
 
-.fi-dropdown-list-item {
-    border-radius: var(--radius-md, 0.5rem);
+.fi-empty-state:not(.fi-empty-state-not-contained),
+.fi-loading-section,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo,
+.fi-ta-ctn {
+    border-radius: var(--radius-2xl, 1.25rem);
 }
 
-.fi-modal-window {
-    border-radius: var(--radius-3xl, 1.75rem);
+.fi-fo-builder .fi-fo-builder-item,
+.fi-fo-repeater .fi-fo-repeater-item {
+    @apply rounded-md;
+}
+
+.fi-global-search-field .fi-input-wrp,
+.fi-header::before,
+.fi-simple-header::after,
+.fi-tabs-item,
+.fi-theme-login-stage-inner::after,
+.fi-theme-switcher-btn {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-input-wrp,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
+    border-radius: var(--radius-lg);
 }
 
 .fi-modal-footer {
@@ -101,48 +58,37 @@
     border-end-end-radius: var(--radius-3xl, 1.75rem);
 }
 
-@media (max-width: 639px) {
-    .fi-modal-window {
-        border-radius: var(--radius-2xl, 1.25rem);
-    }
+.fi-modal-window,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
+    border-radius: var(--radius-3xl, 1.75rem);
 }
 
-.fi-no-notification {
-    border-radius: var(--radius-xl, 0.9375rem);
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn:where(.dark,.dark *),
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-wi-chart,
+.fi-wi-stats-overview-stat {
+    @apply rounded-2xl;
 }
 
-.fi-sidebar-item-btn {
+.fi-sidebar-item-btn,
+.fi-topbar-item-btn {
     border-radius: var(--radius-lg, 0.75rem);
 }
 
-.fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
-    border-radius: var(--radius-lg);
-}
-
-.fi-section-header-icon-ctn {
-    @apply rounded-lg;
-}
-
-.fi-tabs-item {
-    border-radius: var(--radius-3xl);
-}
-
-.fi-tabs-item {
-    border-radius: var(--radius-3xl);
+.fi-skeleton {
+    border-radius: var(--radius-sm, 0.375rem);
 }
 
 .fi-tabs-item.fi-active::after {
     border-radius: 64px;
 }
 
-.fi-topbar-item-btn {
-    border-radius: var(--radius-lg, 0.75rem);
-}
-
-.fi-theme-switcher-btn {
-    border-radius: var(--radius-3xl);
-}
-
-.fi-global-search-field .fi-input-wrp {
-    border-radius: var(--radius-3xl);
+@media (max-width: 639px) {
+    .fi-modal-window,
+    .fi-simple-layout .fi-simple-main {
+        border-radius: var(--radius-2xl, 1.25rem);
+    }
 }

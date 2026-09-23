@@ -1,128 +1,72 @@
-/* No Shadows */
-
 .fi-badge,
-.fi-btn.fi-outlined {
+.fi-btn.fi-outlined,
+.fi-section.fi-section-not-contained,
+.fi-sidebar,
+.fi-tabs,
+.fi-tabs.fi-contained:where(.dark,.dark *),
+.fi-tabs.fi-vertical.fi-contained,
+.fi-tabs:not(.fi-contained),
+.fi-tabs:not(.fi-contained):where(.dark,.dark *),
+nav.fi-topbar {
     @apply shadow-none;
 }
 
-/* Small shadows */
-
-.fi-btn:not(.fi-outlined):not(.fi-color):not(label) {
-    @apply shadow-sm;
-}
-
-/* Medium Shadows */
-
-.fi-wi-stats-overview-stat,
-.fi-wi-chart,
-.fi-empty-state:not(.fi-empty-state-not-contained),
-.fi-sc-wizard,
-.fi-simple-main-ctn,
-.fi-main-ctn {
-    @apply shadow-md;
-}
-
-/* Large Shadows */
-
-.fi-wi-stats-overview-stat:hover,
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained) {
-    @apply shadow-lg;
-}
-
-/* Extra Large Shadows */
-
-.fi-no-notification,
-.fi-simple-main,
-.fi-modal-window,
-.fi-dropdown-panel {
-    @apply shadow-xl;
-}
-
-/* Extra Extra Large Shadows */
-
-.fi-callout {
-    @apply shadow-2xl;
-}
-
-/* Accent buttons carry a warm shadow in their own hue rather than a grey one. */
 .fi-btn.fi-color:not(.fi-outlined):not(label) {
     box-shadow: 0 1px 2px color-mix(in oklab, var(--gray-950) 8%, transparent);
 }
 
 .fi-btn.fi-color:not(.fi-outlined):not(label):not(.fi-disabled):not([disabled]):hover {
-    box-shadow:
-            0 2px 4px color-mix(in oklab, var(--gray-950) 8%, transparent),
-            0 8px 18px -6px color-mix(in oklab, var(--color-600) 40%, transparent);
+    box-shadow: 0 2px 4px color-mix(in oklab, var(--gray-950) 8%, transparent), 0 8px 18px -6px color-mix(in oklab, var(--color-600) 40%, transparent);
 }
 
-.fi-simple-main .fi-sc-section {
+.fi-btn:not(.fi-outlined):not(.fi-color):not(label) {
+    @apply shadow-sm;
+}
+
+.fi-callout {
+    @apply shadow-2xl;
+}
+
+.fi-dropdown-panel,
+.fi-modal-window,
+.fi-no-notification,
+.fi-simple-main {
+    @apply shadow-xl;
+}
+
+.fi-empty-state:not(.fi-empty-state-not-contained),
+.fi-main-ctn,
+.fi-sc-wizard,
+.fi-simple-main-ctn,
+.fi-wi-chart,
+.fi-wi-stats-overview-stat {
+    @apply shadow-md;
+}
+
+.fi-global-search-field .fi-input-wrp,
+.fi-input-wrp,
+.fi-input-wrp.fi-disabled,
+.fi-input-wrp.fi-invalid,
+.fi-sidebar-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main,
+.fi-simple-main .fi-sc-section,
+.fi-tabs-item,
+body .fi-input-wrp:focus-within,
+body :is(.fi-input-wrp, .fi-btn):focus-visible {
     box-shadow: none;
 }
 
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
-    box-shadow: none;
-}
-
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
-    box-shadow: none;
-}
-
-.fi-ta-ctn {
-    @apply shadow-lg;
-}
-
-.fi-ta-row:hover > *:first-child {
-    box-shadow: inset 2px 0 0 var(--primary-500);
-}
-
-[dir='rtl'] .fi-ta-row:hover > *:first-child {
-    box-shadow: inset -2px 0 0 var(--primary-500);
-}
-
-.fi-input-wrp {
-    box-shadow: none;
-}
-
-.fi-input-wrp:not(.fi-disabled):not(:has(.fi-ac-action:focus)):focus-within {
-    box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary-500) 18%, transparent);
-}
-
-.fi-input-wrp.fi-invalid {
-    box-shadow: none;
+.fi-global-search-field .fi-input-wrp:focus-within {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary-500) 14%, transparent);
 }
 
 .fi-input-wrp.fi-invalid:not(.fi-disabled):focus-within {
     box-shadow: 0 0 0 4px color-mix(in oklab, var(--danger-500) 18%, transparent);
 }
 
-.fi-input-wrp.fi-disabled {
-    box-shadow: none;
-}
-
-/* Filament draws its own focus ring on these, so only the offset is tuned. */
-body :is(.fi-input-wrp, .fi-btn):focus-visible,
-body .fi-input-wrp:focus-within {
-    box-shadow: none;
-}
-
-.fi-sidebar {
-    @apply shadow-none;
-}
-
-.fi-sidebar-header {
-    box-shadow: none;
-}
-
-.fi-section.fi-section-not-contained {
-    @apply shadow-none;
-}
-
-.fi-tabs,
-.fi-tabs:not(.fi-contained),
-.fi-tabs:not(.fi-contained):where(.dark,.dark *),
-.fi-tabs.fi-contained:where(.dark,.dark *),
-.fi-tabs.fi-vertical.fi-contained {
-    @apply shadow-none;
+.fi-input-wrp:not(.fi-disabled):not(:has(.fi-ac-action:focus)):focus-within {
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary-500) 18%, transparent);
 }
 
 .fi-sc-tabs,
@@ -132,18 +76,16 @@ body .fi-input-wrp:focus-within {
     @apply !shadow-none;
 }
 
-.fi-tabs-item {
-    box-shadow: none;
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat:hover {
+    @apply shadow-lg;
 }
 
-.fi-global-search-field .fi-input-wrp:focus-within {
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary-500) 14%, transparent);
+.fi-ta-row:hover > *:first-child {
+    box-shadow: inset 2px 0 0 var(--primary-500);
 }
 
-nav.fi-topbar  {
-    @apply shadow-none;
-}
-
-.fi-global-search-field .fi-input-wrp {
-    box-shadow: none;
+[dir='rtl'] .fi-ta-row:hover > *:first-child {
+    box-shadow: inset -2px 0 0 var(--primary-500);
 }

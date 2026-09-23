@@ -1,3 +1,16 @@
+
+::-webkit-scrollbar {
+    @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary-200/20 dark:bg-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
 .fi-main-sidebar {
     ::-webkit-scrollbar {
         @apply w-[0.2rem];
@@ -6,16 +19,4 @@
     ::-webkit-scrollbar-track {
         @apply my-12 bg-transparent;
     }
-}
-
-::-webkit-scrollbar {
-    @apply w-2 h-2;
-}
-
-::-webkit-scrollbar-track {
-    @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    @apply bg-primary-200/20 dark:bg-primary-600 rounded-full;
 }

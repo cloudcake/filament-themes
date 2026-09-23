@@ -1,30 +1,21 @@
+s.css
+
+Files
 .fi-body {
     --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-
-    /*
-     * Filament paints a great many surfaces pure white. Warming Tailwind's own
-     * `--color-white` retunes all of them at once, and keeps them tied to the
-     * configured neutral instead of drifting from it.
-     */
     --color-white: color-mix(in oklab, var(--gray-50) 55%, white);
-
     --theme-sprig: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-shield-lock%22%3E%0A%09%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M12%203a12%2012%200%200%200%208.5%203a12%2012%200%200%201%20-8.5%2015a12%2012%200%200%201%20-8.5%20-15a12%2012%200%200%200%208.5%20-3%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M11%2011a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M12%2012l0%202.5%22%20%2F%3E%0A%3C%2Fsvg%3E");
-
-    /* The same corner treatment as plain numbers, for what Chart.js paints. */
     --theme-chart-line-tension: 0.35;
     --theme-chart-bar-radius: 4;
     --theme-chart-tooltip-radius: 12;
     --theme-chart-legend-swatch-radius: 3;
-
     --theme-density: 1;
     --theme-row-height: 3.5rem;
     --theme-section-gap: 2rem;
-
     --theme-ease: cubic-bezier(0.22, 0.61, 0.24, 1);
     --theme-duration: 260ms;
     --theme-duration-slow: 420ms;
     --theme-anim-duration: 520ms;
-
     --theme-canvas: var(--gray-50);
     --theme-surface: var(--color-white);
     --theme-surface-sunken: color-mix(in oklab, var(--gray-100) 70%, var(--color-white));
@@ -32,36 +23,12 @@
     --theme-hairline: color-mix(in oklab, var(--gray-300) 55%, transparent);
     --theme-hairline-strong: color-mix(in oklab, var(--gray-400) 55%, transparent);
     --theme-ink: var(--gray-950);
-
     --theme-ink-muted: var(--gray-600);
     --theme-accent-wash: color-mix(in oklab, var(--primary-200) 42%, transparent);
     --theme-accent-line: color-mix(in oklab, var(--primary-500) 55%, transparent);
-
     --theme-heading-font: var(--font-sans);
-
-    --theme-grain:
-            repeating-linear-gradient(0deg, color-mix(in oklab, var(--primary-300) 2%, transparent) 0 1px, transparent 1px 5px),
-            repeating-linear-gradient(90deg,color-mix(in oklab, var(--primary-300) 1%, transparent) 0 1px,transparent 1px 5px);
-
-    --theme-stage: linear-gradient(
-            155deg,
-            color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%,
-            color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%,
-            color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%
-    );
-}
-
-.dark body {
-    --theme-canvas: var(--gray-950);
-    --theme-surface: var(--gray-900);
-    --theme-surface-sunken: color-mix(in oklab, var(--gray-950) 60%, var(--gray-900));
-    --theme-surface-raised: var(--gray-800);
-    --theme-hairline: color-mix(in oklab, var(--gray-700) 62%, transparent);
-    --theme-hairline-strong: color-mix(in oklab, var(--gray-600) 70%, transparent);
-    --theme-ink: var(--color-white);
-    --theme-ink-muted: var(--gray-400);
-    --theme-accent-wash: color-mix(in oklab, var(--primary-500) 16%, transparent);
-    --theme-accent-line: color-mix(in oklab, var(--primary-400) 45%, transparent);
+    --theme-grain: repeating-linear-gradient(0deg, color-mix(in oklab, var(--primary-300) 2%, transparent) 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg,color-mix(in oklab, var(--primary-300) 1%, transparent) 0 1px,transparent 1px 5px);
+    --theme-stage: linear-gradient( 155deg, color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%, color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%, color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100% );
 }
 
 .fi-wi-chart {
@@ -69,25 +36,26 @@
     --chart-bar-border-radius: var(--theme-chart-bar-radius, 4);
     --chart-tooltip-corner-radius: var(--theme-chart-tooltip-radius, 12);
     --chart-legend-border-radius: var(--theme-chart-legend-swatch-radius, 3);
-
-    /*
-     * Chart.js draws no tooltip border at all unless a width is set, so the
-     * hairline above would never appear without this.
-     */
     --chart-tooltip-border-width: 1;
-
-    /* A smaller legend swatch, to sit with the tracked caps beside it. */
     --chart-legend-box-width: 10;
-
-    /*
-     * No dots on a line. The series reads as a drawn curve, and hover still
-     * works: Filament sets a hit radius independent of the visible one.
-     */
     --chart-point-radius: 0;
 }
 
-/* The sparkline in a stat is the same decision at a smaller size. */
 .fi-wi-stats-overview-stat-chart {
     --stat-chart-line-tension: var(--theme-chart-line-tension, 0.35);
 }
 
+.dark {
+    body {
+        --theme-canvas: var(--gray-950);
+        --theme-surface: var(--gray-900);
+        --theme-surface-sunken: color-mix(in oklab, var(--gray-950) 60%, var(--gray-900));
+        --theme-surface-raised: var(--gray-800);
+        --theme-hairline: color-mix(in oklab, var(--gray-700) 62%, transparent);
+        --theme-hairline-strong: color-mix(in oklab, var(--gray-600) 70%, transparent);
+        --theme-ink: var(--color-white);
+        --theme-ink-muted: var(--gray-400);
+        --theme-accent-wash: color-mix(in oklab, var(--primary-500) 16%, transparent);
+        --theme-accent-line: color-mix(in oklab, var(--primary-400) 45%, transparent);
+    }
+}
