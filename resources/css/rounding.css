@@ -1,0 +1,28 @@
+.fi-fo-builder .fi-fo-builder-item,
+.fi-fo-repeater .fi-fo-repeater-item {
+    @apply rounded-md;
+}
+
+.fi-btn {
+    @apply rounded-lg;
+}
+
+.fi-btn.fi-size-lg,
+.fi-btn.fi-size-xl,
+.fi-fieldset,.fi-fieldset:not(.fi-fieldset-not-contained) {
+    @apply rounded-xl;
+}
+
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn:where(.dark,.dark *),
+.fi-wi-stats-overview-stat,
+.fi-wi-chart {
+    @apply rounded-2xl;
+}
+
+.fi-badge,
+.fi-avatar,
+.fi-icon-btn {
+    @apply rounded-3xl;
+}

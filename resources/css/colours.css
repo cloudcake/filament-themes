@@ -1,18 +1,196 @@
-:root {
-    --dark-panel-bg: #1c1e2b;
-    --light-panel-bg: #FFFFFF;
+.fi-body:is(
+        .fi-header-heading,
+        .fi-modal-heading,
+        .fi-simple-header-heading,
+        .fi-ta-header-heading,
+        .fi-empty-state-heading,
+        .fi-ta-empty-state-heading,
+        .fi-logo
+    ),
+.fi-topbar-item-btn:hover,
+.fi-wi-stats-overview-stat-value,
+.fi-in-text-item-content {
+    color: var(--theme-ink);
 }
 
-/*.dark:root {*/
-/*    --gray-50: oklch(0.985 0 0);*/
-/*    --gray-100: oklch(0.967 0.001 286.375);*/
-/*    --gray-200: oklch(0.92 0.004 286.32);*/
-/*    --gray-300: oklch(0.871 0.006 286.286);*/
-/*    --gray-400: #9095b6;*/
-/*    --gray-500: #3e4259;*/
-/*    --gray-600: #373b50;*/
-/*    --gray-700: #262a39;*/
-/*    --gray-800: #1e222e;*/
-/*    --gray-900: #191b27;*/
-/*    --gray-950: #161822;*/
-/*}*/
+.fi-wi-stats-overview-stat-label,
+.fi-wi-stats-overview-stat-description,
+.fi-in-text-item-label,
+.fi-sc-entry-label,
+.fi-fieldset-label,
+.fi-wi-chart-text-color {
+    color: var(--theme-ink-muted);
+}
+
+.fi-topbar,
+.fi-sidebar {
+    @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2;
+}
+
+.fi-ac-icon-btn-action:not([class*="fi-color-"]):not(.fi-color) {
+    @apply text-gray-400;
+}
+
+.dark .fi-icon-btn:not(.fi-disabled):not([disabled]):hover {
+    background-color: color-mix(in oklab, var(--gray-50) 8%, transparent);
+}
+
+.fi-topbar-item-btn:hover {
+    background-color: color-mix(in oklab, var(--gray-400) 12%, transparent);
+}
+
+.fi-icon-btn:not(.fi-disabled):not([disabled]):hover {
+    background-color: color-mix(in oklab, var(--gray-400) 14%, transparent);
+}
+
+.fi-btn.fi-outlined.fi-color {
+    border-color: color-mix(in oklab, var(--color-500) 45%, transparent);
+}
+
+.dark .fi-topbar-item-btn,
+.dark .fi-badge:not(.fi-color) {
+    color: var(--gray-300);
+}
+
+/* Top navigation, when a panel uses it instead of the sidebar. */
+.fi-topbar-item.fi-active > .fi-topbar-item-btn {
+    background-color: var(--theme-accent-wash);
+    color: var(--primary-700);
+}
+
+.dark .fi-topbar-item.fi-active > .fi-topbar-item-btn {
+    color: var(--primary-200);
+}
+
+.dark .fi-badge:not(.fi-color) {
+    background-color: color-mix(in oklab, var(--gray-50) 8%, transparent);
+}
+
+.fi-badge.fi-color {
+    background-color: color-mix(in oklab, var(--color-200) 55%, transparent);
+    color: var(--color-800);
+}
+
+.fi-badge:not(.fi-color) {
+    background-color: color-mix(in oklab, var(--gray-400) 16%, transparent);
+    color: var(--gray-700);
+}
+
+.dark .fi-badge.fi-color {
+    background-color: color-mix(in oklab, var(--color-500) 18%, transparent);
+    color: var(--color-200);
+}
+
+.fi-callout {
+    @apply !text-gray-50 shadow-gray-400/50 dark:shadow-gray-900/50;
+}
+
+.fi-callout:not([class*="fi-color-"]):not(.fi-color) {
+    & {
+        @apply bg-gray-100 dark:bg-gray-800 ring-gray-300 dark:ring-gray-950;
+    }
+
+    .fi-callout-heading,
+    .fi-callout-description,
+    .fi-callout-heading:where(.dark,.dark *),
+    .fi-callout-description:where(.dark,.dark *) {
+        @apply text-gray-700 dark:text-gray-400;
+    }
+}
+
+.fi-callout.fi-color-primary {
+    @apply bg-primary-200 dark:bg-primary-600;
+}
+
+.fi-callout.fi-color-success {
+    @apply bg-success-200 dark:bg-success-700;
+}
+
+.fi-callout.fi-color-warning {
+    @apply bg-warning-100 dark:bg-warning-700;
+}
+
+.fi-callout.fi-color-info {
+    @apply bg-info-200 dark:bg-info-700;
+}
+
+.fi-callout.fi-color-danger {
+    @apply bg-danger-200 dark:bg-danger-900;
+}
+
+.fi-fo-code-editor .cm-editor,
+.fi-fo-code-editor .cm-editor:where(.dark,.dark *),
+.ͼo {
+    @apply !bg-gray-50 dark:!bg-[#1a1b26];
+}
+
+.fi-fo-code-editor .cm-editor .cm-gutters,
+.fi-fo-code-editor .cm-editor .cm-gutters:where(.dark,.dark *) {
+    @apply !bg-gray-50 dark:!bg-[#1a1b26];
+}
+
+.phiki {
+    @apply !bg-gray-50;
+}
+
+.dark .phiki {
+    @apply !bg-[#1a1b26];
+}
+
+.fi-wi-stats-overview-stat {
+    background-color: var(--theme-surface);
+}
+
+
+.fi-wi-chart {
+    background-color: var(--theme-surface);
+}
+
+.fi-theme-switcher-btn.fi-active {
+    color: var(--primary-600);
+}
+
+.dark .fi-theme-switcher-btn.fi-active {
+    color: var(--primary-400);
+}
+
+/* The compact variant keeps a small tinted disc, which suits an inline row. */
+.fi-empty-state.fi-compact .fi-empty-state-icon-bg,
+.fi-ta-empty-state.fi-compact .fi-ta-empty-state-icon-bg {
+    background-color: var(--theme-accent-wash);
+}
+
+.fi-empty-state.fi-compact .fi-empty-state-icon-bg > .fi-icon,
+.fi-ta-empty-state.fi-compact .fi-ta-empty-state-icon-bg > .fi-icon {
+    color: var(--primary-600);
+}
+
+.dark .fi-empty-state.fi-compact .fi-empty-state-icon-bg > .fi-icon,
+.dark .fi-ta-empty-state.fi-compact .fi-ta-empty-state-icon-bg > .fi-icon {
+    color: var(--primary-400);
+}
+
+
+.fi-wi-chart-grid-color {
+    color: var(--theme-hairline);
+}
+
+.fi-wi-chart-tooltip-bg-color {
+    color: var(--gray-900);
+}
+
+.dark .fi-wi-chart-tooltip-bg-color {
+    color: var(--gray-800);
+}
+
+.fi-wi-chart-tooltip-text-color {
+    color: var(--gray-50);
+}
+
+.fi-wi-chart-tooltip-border-color {
+    color: var(--theme-hairline-strong);
+}
+
+.fi-fieldset, .fi-fieldset:not(.fi-fieldset-not-contained) {
+    @apply !bg-transparent;
+}

@@ -9,13 +9,12 @@
 .fi-sidebar {
     border-inline-end: 1px solid var(--theme-hairline);
 
-    @apply bg-primary-50/2 dark:bg-primary-950/2 shadow-none;
+    @apply shadow-none;
 }
 
 /* Off-canvas on small screens, where it does need to be a solid surface. */
 @media (max-width: 1023px) {
     .fi-sidebar {
-        box-shadow: var(--theme-shadow-xl);
         border-inline-end: 1px solid var(--theme-hairline);
     }
 }
@@ -57,15 +56,12 @@
 
 .fi-sidebar-item-btn {
     position: relative;
-    border-radius: var(--theme-radius-lg, 0.75rem);
+    border-radius: var(--radius-lg, 0.75rem);
     padding: calc(0.5625rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
     gap: calc(0.75rem * var(--theme-density, 1));
     color: var(--gray-700);
     font-weight: 450;
     letter-spacing: -0.005em;
-    transition:
-            background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
-            color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }
 
 .dark .fi-sidebar-item-btn {
@@ -108,7 +104,7 @@
     inset-inline-start: 0;
     inset-block: 0%;
     width: 5px;
-    border-radius: var(--theme-radius-lg);
+    border-radius: var(--radius-lg);
     background-color: var(--primary-500);
 }
 
@@ -122,11 +118,9 @@
 
 .fi-sidebar-item-btn > .fi-icon {
     @apply dark:text-gray-700;
-
-    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }
 
-.fi-body .fi-sidebar-item-btn > .fi-icon {
+.fi-sidebar-item-btn > .fi-icon {
     @apply dark:text-gray-700;
 }
 
@@ -139,19 +133,6 @@
     padding: calc(0.75rem * var(--theme-density, 1));
 }
 
-/*
- * Filament disables the sidebar transition on desktop (`lg:transition-none`).
- * With the slow easing this theme uses, collapsing benefits from it, so it is
- * put back — and taken away again under `prefers-reduced-motion`, which is
- * handled globally in `motion.css`.
- */
-@media (min-width: 1024px) {
-    .fi-sidebar {
-        transition:
-                width var(--theme-duration-slow, 420ms) var(--theme-ease, ease),
-                transform var(--theme-duration-slow, 420ms) var(--theme-ease, ease);
-    }
-}
 
 /*
  * The collapsed rail.

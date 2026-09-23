@@ -1,23 +1,5 @@
-/*
- * Sections and cards.
- *
- * Filament separates surfaces from the page with a ring and a shadow. Here the
- * separation is a hairline and a very wide, very faint shadow, so a card looks
- * like a sheet resting on the page rather than a box drawn on it.
- */
-
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
-.fi-section:not(.fi-section-not-contained).fi-aside>.fi-section-content-ctn,
-.fi-section:not(.fi-section-not-contained).fi-aside>.fi-section-content-ctn:where(.dark,.dark *) {
-    @apply !shadow-[var(--theme-shadow-md)] rounded-2xl;
-
-    transition: box-shadow var(--theme-duration-slow, 420ms) var(--theme-ease, ease) !important;
-}
-
 .fi-section.fi-section-not-contained {
-    background-color: transparent;
-    border: 0;
-    box-shadow: none;
+    @apply bg-transparent border-none shadow-none;
 }
 
 .fi-section-header {
@@ -30,13 +12,11 @@
 }
 
 .fi-section-header-icon-ctn {
-    border-radius: var(--theme-radius-lg, 0.75rem);
-    background-color: var(--theme-accent-wash);
-    color: var(--primary-700);
+    @apply rounded-lg text-primary-700 bg-[var(--theme-access-wash)];
 }
 
 .dark .fi-section-header-icon-ctn {
-    color: var(--primary-300);
+    @apply text-primary-300;
 }
 
 .fi-section .fi-section-header-description {

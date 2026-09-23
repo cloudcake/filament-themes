@@ -1,3 +1,70 @@
+
+.fi-wi-stats-overview-stat {
+    @apply transition duration-200;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    @apply transition duration-200 -translate-y-3;
+}
+
+
+.fi-sidebar-item-btn {
+    transition:
+            background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
+            color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-link {
+    transition:
+            color 200ms var(--theme-ease, ease),
+            text-decoration-color 200ms var(--theme-ease, ease);
+}
+
+.fi-btn {
+    transition:
+            background-color 200ms var(--theme-ease, ease),
+            border-color 200ms var(--theme-ease, ease),
+            color 200ms var(--theme-ease, ease),
+            box-shadow 200ms var(--theme-ease, ease),
+            transform 200ms var(--theme-ease, ease);
+}
+
+.fi-icon-btn {
+    transition:
+            background-color 200ms var(--theme-ease, ease),
+            color 200ms var(--theme-ease, ease);
+}
+
+.fi-btn:not(.fi-disabled):not([disabled]):hover {
+    transform: translateY(-1px);
+}
+
+.fi-btn:not(.fi-disabled):not([disabled]):active {
+    transform: translateY(0);
+}
+
+.fi-simple-header-subheading a,
+.fi-simple-main .fi-fo-field-wrp-hint a,
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
+    transition:
+            color var(--theme-duration, 260ms) var(--theme-ease, ease),
+            text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+
+/*
+ * Filament disables the sidebar transition on desktop (`lg:transition-none`).
+ * With the slow easing this theme uses, collapsing benefits from it, so it is
+ * put back — and taken away again under `prefers-reduced-motion`.
+ */
+@media (min-width: 1024px) {
+    .fi-sidebar {
+        transition:
+                width var(--theme-duration-slow, 420ms) var(--theme-ease, ease),
+                transform var(--theme-duration-slow, 420ms) var(--theme-ease, ease);
+    }
+}
+
 /*
  * Honour the operating system's reduced-motion setting for everything this
  * theme adds.
@@ -9,30 +76,30 @@
  */
 @media (prefers-reduced-motion: reduce) {
     .fi-body,
-    .fi-body *,
-    .fi-body *::before,
-    .fi-body *::after {
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
 
-    .fi-body .fi-main > .fi-page,
-    .fi-body .fi-simple-main,
-    .fi-body .fi-empty-state-icon-bg::after {
+    .fi-main > .fi-page,
+    .fi-simple-main,
+    .fi-empty-state-icon-bg::after {
         animation: none !important;
         opacity: 1;
         transform: none;
     }
 
-    .fi-body .fi-btn:hover,
-    .fi-body .fi-wi-stats-overview-stat:hover {
+    .fi-btn:hover,
+    .fi-wi-stats-overview-stat:hover {
         transform: none !important;
     }
 
-    .fi-body .fi-loading-section::after,
-    .fi-body .fi-skeleton::after {
+    .fi-loading-section::after,
+    .fi-skeleton::after {
         animation: none !important;
         opacity: 0;
     }

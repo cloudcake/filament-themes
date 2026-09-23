@@ -1,36 +1,27 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
-@import 'colours.css';
 
-@import './tokens.css' layer(base);
-@import './base.css' layer(base);
-@import './typography.css' layer(base);
-@import './motion.css' layer(base);
+@import './base.css';
+@import './borders.css';
+@import './colours.css';
+@import './motion.css';
+@import './rounding.css';
+@import './scrollbar.css';
+@import './shadows.css';
+@import './spacing.css';
+@import './tokens.css';
+@import './typography.css';
 
-@import './components/layout.css' layer(components);
-@import './components/sidebar.css' layer(components);
-@import './components/topbar.css' layer(components);
-@import './components/header.css' layer(components);
-@import './components/section.css' layer(components);
-@import './components/button.css' layer(components);
-@import './components/table.css' layer(components);
-@import './components/badge.css' layer(components);
-@import './components/callout.css' layer(components);
-@import './components/overlay.css' layer(components);
-@import './components/empty-state.css' layer(components);
-@import './components/loading.css' layer(components);
-@import './components/auth.css' layer(components);
-@import './components/widget.css' layer(components);
-@import './components/input.css' layer(components);
-@import './components/builder.css' layer(components);
-@import './components/repeater.css' layer(components);
-@import './components/chart.css' layer(components);
-@import './components/code.css' layer(components);
-@import './components/tabs.css' layer(components);
-@import './components/fieldset.css' layer(components);
-@import './components/toggle.css' layer(components);
-@import './components/scrollbar.css' layer(components);
-
-
+@import './components/sidebar.css';
+@import './components/topbar.css';
+@import './components/header.css';
+@import './components/section.css';
+@import './components/table.css';
+@import './components/overlay.css';
+@import './components/empty-state.css';
+@import './components/loading.css';
+@import './components/auth.css';
+@import './components/input.css';
+@import './components/tabs.css';
 
 @source '../../views/**/*';
 @source '../../**/*';
@@ -50,24 +41,8 @@
     }
 }
 
-@utility bg-panel {
-    @apply bg-[var(--light-body-bg)] dark:bg-[var(--dark-panel-bg)];
-}
-
-@utility shadow-page {
-    @apply shadow-xl shadow-primary-950/10 dark:shadow-gray-500/50 border-0 ring-0 rounded-xl;
-}
-
-@utility shadow-panel {
-    @apply shadow-lg shadow-primary-950/10 dark:shadow-gray-950 border-0 ring-0 rounded-xl;
-}
-
 @utility border-rail {
     @apply border-1 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-double outline-primary-100 -outline-offset-8 dark:outline-primary-950;
-}
-
-@utility text-panel {
-    @apply text-[#151623] dark:text-[#6B7280]
 }
 
 @utility text-primary-gradient {

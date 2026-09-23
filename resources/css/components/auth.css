@@ -12,39 +12,7 @@
  * pushing layout into strings of runtime CSS.
  */
 
-/* -------------------------------------------------------------------------
- * Shared
- * ---------------------------------------------------------------------- */
-
-.fi-body {
-    /*
-     * A fine warm grain, laid over the gradients. Two hairline gratings at
-     * barely-there opacity, which read as paper rather than as pattern and
-     * cost nothing to paint.
-     */
-    --theme-grain:
-        repeating-linear-gradient(
-            0deg,
-            color-mix(in oklab, var(--gray-950) 1%, transparent) 0 1px,
-            transparent 1px 5px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            color-mix(in oklab, var(--gray-950) 0.7%, transparent) 0 1px,
-            transparent 1px 5px
-        );
-
-    /* The deep field the brand stage is painted in. */
-    --theme-stage: linear-gradient(
-        155deg,
-        color-mix(in oklab, var(--gray-950) 94%, var(--primary-900)) 0%,
-        color-mix(in oklab, var(--gray-900) 88%, var(--primary-800)) 58%,
-        color-mix(in oklab, var(--gray-950) 90%, var(--secondary-900)) 100%
-    );
-}
-
 .fi-simple-layout {
-    background-color: var(--theme-canvas);
     background-repeat: no-repeat;
 }
 
@@ -52,11 +20,11 @@
  * The marker the plugin injects. It carries the stage for the compositions
  * that use one, and is inert for the ones that do not.
  */
-.fi-mia-login {
+.fi-theme-login {
     display: contents;
 }
 
-.fi-mia-login:empty {
+.fi-theme-login:empty {
     display: none;
 }
 
@@ -66,9 +34,9 @@
  * page previews all five out of one piece of markup and switches between them
  * on the attribute alone.
  */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) .fi-mia-login-stage,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) .fi-mia-login-stage,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal']) .fi-mia-login-stage {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-theme-login-stage,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-theme-login-stage,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-theme-login-stage {
     display: none;
 }
 
@@ -80,8 +48,6 @@
 .fi-simple-header-heading {
     font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
     font-size: clamp(1.875rem, 1.55rem + 1.4vw, 2.375rem);
-    font-weight: var(--theme-heading-weight, 500);
-    letter-spacing: var(--theme-heading-tracking, -0.011em);
     line-height: 1.12;
     color: var(--theme-ink);
     text-wrap: balance;
@@ -115,11 +81,6 @@
 .fi-simple-main .fi-fo-field-wrp-hint a,
 .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
     color: var(--primary-700);
-    font-weight: 500;
-    text-decoration-line: underline;
-    text-decoration-color: color-mix(in oklab, var(--primary-500) 40%, transparent);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
     transition: color var(--theme-duration, 260ms) var(--theme-ease, ease),
         text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }
@@ -149,10 +110,9 @@
  * on the heading and subheading — so all three have to be undone, and on the
  * elements themselves rather than on their parent.
  */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='split']) .fi-simple-header,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-header,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) .fi-simple-header {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
     align-items: flex-start;
 }
 
@@ -162,10 +122,8 @@
      * has the full width to itself and reads better centred, and where the
      * bleed panel is a single column again.
      */
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
-        .fi-simple-header,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
         align-items: center;
     }
 }
@@ -177,7 +135,7 @@
     width: 2.5rem;
     height: 2px;
     margin: calc(1.25rem * var(--theme-density, 1)) auto 0;
-    border-radius: var(--theme-radius-3xl);
+    border-radius: var(--radius-3xl);
     background-color: var(--primary-500);
 }
 
@@ -248,7 +206,7 @@
 .fi-simple-main .fi-sc-section {
     background-color: var(--theme-surface-sunken);
     border-color: var(--theme-hairline);
-    border-radius: var(--theme-radius-xl, 0.9375rem);
+    border-radius: var(--radius-xl, 0.9375rem);
     box-shadow: none;
 }
 
@@ -259,8 +217,8 @@
  * This is the default, and the quietest of the five.
  * ---------------------------------------------------------------------- */
 
-.fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])),
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) {
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])),
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) {
     background-image:
         var(--theme-grain),
         radial-gradient(
@@ -275,8 +233,8 @@
         );
 }
 
-.dark .fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])),
-.dark .fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) {
+.dark .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])),
+.dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) {
     background-image:
         var(--theme-grain),
         radial-gradient(
@@ -295,51 +253,34 @@
  * The card itself, shared by `card` and `bleed`. Both float; they differ in
  * how much of the field behind them shows through.
  */
-.fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])) .fi-simple-main,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) .fi-simple-main,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) .fi-simple-main {
-    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+    /*background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);*/
     border: 1px solid var(--theme-hairline);
-    border-radius: var(--theme-radius-3xl, 1.75rem);
+    border-radius: var(--radius-3xl, 1.75rem);
     padding: calc(2.5rem * var(--theme-density, 1));
-
-    /*
-     * The diffuse warm shadow, plus a one-pixel highlight along the top edge.
-     * That highlight is what makes the card read as lit from above rather
-     * than as a rectangle with a border.
-     */
-    box-shadow:
-        inset 0 1px 0 color-mix(in oklab, white 55%, transparent),
-        var(--theme-shadow-xl);
-}
-
-.dark .fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])) .fi-simple-main,
-.dark .fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) .fi-simple-main,
-.dark .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) .fi-simple-main {
-    box-shadow:
-        inset 0 1px 0 color-mix(in oklab, white 7%, transparent),
-        var(--theme-shadow-xl);
 }
 
 @supports (backdrop-filter: blur(1px)) {
-    .fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])) .fi-simple-main,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) .fi-simple-main {
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
         backdrop-filter: blur(14px) saturate(140%);
     }
 }
 
 @supports not (backdrop-filter: blur(1px)) {
-    .fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])) .fi-simple-main,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='card']) .fi-simple-main,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) .fi-simple-main {
-        background-color: var(--theme-surface);
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        /*background-color: var(--theme-surface);*/
     }
 }
 
 @media (max-width: 639px) {
     .fi-simple-layout .fi-simple-main {
         padding: calc(1.75rem * var(--theme-density, 1));
-        border-radius: var(--theme-radius-2xl, 1.25rem);
+        border-radius: var(--radius-2xl, 1.25rem);
     }
 
     /*
@@ -348,10 +289,10 @@
      * against — and `width: auto` because the element is otherwise 100% wide
      * and would push past the viewport.
      */
-    .fi-simple-layout:not(:has(> .fi-mia-login[data-mia-login])) .fi-simple-main,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='card'])
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card'])
         .fi-simple-main,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed'])
         .fi-simple-main {
         width: auto;
         margin-inline: 0.875rem;
@@ -366,7 +307,7 @@
  * stage becomes a banner above the form.
  * ---------------------------------------------------------------------- */
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='split']) {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
     display: grid;
     align-items: stretch;
 
@@ -379,7 +320,7 @@
     background-image: var(--theme-grain);
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='split']) .fi-simple-main {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
     background-color: transparent;
     border: 0;
     box-shadow: none;
@@ -394,26 +335,25 @@
  * a gap about as tall as the banner between the two.
  */
 @media (max-width: 1023px) {
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
         .fi-simple-main-ctn {
         align-items: flex-start;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
         .fi-simple-main {
         margin-block: calc(2.5rem * var(--theme-density, 1)) 3rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split']) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         grid-template-rows: 1fr;
     }
 
     /* The form column keeps a hairline seam against the stage. */
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
-        .fi-simple-main-ctn {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main-ctn {
         padding-inline: clamp(1.5rem, 4vw, 4rem);
     }
 }
@@ -424,24 +364,20 @@
  * enough in value that the join goes soft without one.
  */
 .dark
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
-    .fi-mia-login-stage {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
     border-block-end: 1px solid var(--theme-hairline);
 }
 
 @media (min-width: 1024px) {
     .dark
-        .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
-        .fi-mia-login-stage {
+        .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
         border-block-end: 0;
         border-inline-end: 1px solid var(--theme-hairline);
     }
 }
 
 /* The brand mark lives on the stage, so the one above the form goes. */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
-    .fi-simple-header
-    .fi-logo {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header .fi-logo {
     display: none;
 }
 
@@ -450,15 +386,15 @@
  * the column, so a tall form — registration, or sign-in showing two errors —
  * scrolls past a brand panel that stays put.
  */
-.fi-mia-login-stage {
+.fi-theme-login-stage {
     position: relative;
     display: flex;
     overflow: hidden;
-    background-image: var(--theme-stage);
+    /*background-image: var(--theme-stage);*/
     color: color-mix(in oklab, var(--gray-50) 92%, white);
 }
 
-.fi-mia-login-stage-inner {
+.fi-theme-login-stage-inner {
     position: relative;
     z-index: 1;
     display: flex;
@@ -468,7 +404,7 @@
 }
 
 /* A halo of the accent, and the sprig, as the only ornament on the field. */
-.fi-mia-login-stage::before {
+.fi-theme-login-stage::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -476,16 +412,20 @@
         70% 55% at 18% 12%,
         color-mix(in oklab, var(--primary-400) 26%, transparent) 0%,
         transparent 72%
+    ), radial-gradient(
+            70% 55% at bottom right,
+            color-mix(in oklab, var(--primary-600) 16%, transparent) 0%,
+            transparent
     );
 }
 
-.fi-mia-login-stage::after {
+.fi-theme-login-stage::after {
     content: '';
     position: absolute;
-    right: -6%;
-    bottom: -12%;
+    right: 2%;
+    bottom: -4%;
     width: 62%;
-    aspect-ratio: 79 / 87;
+    aspect-ratio: 100 / 100;
     background-color: color-mix(in oklab, var(--primary-200) 14%, transparent);
     mask-image: var(--theme-sprig);
     mask-repeat: no-repeat;
@@ -495,7 +435,7 @@
     -webkit-mask-size: contain;
 }
 
-.fi-mia-login-stage-logo {
+.fi-theme-login-stage-logo {
     justify-content: flex-start;
     margin-bottom: 2.25rem;
 
@@ -508,16 +448,15 @@
     color: inherit;
 }
 
-.fi-mia-login-stage-name {
+.fi-theme-login-stage-name {
     font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
     font-size: clamp(2.25rem, 1.5rem + 2.6vw, 3.5rem);
-    font-weight: var(--theme-heading-weight, 500);
     letter-spacing: -0.018em;
     line-height: 1.05;
     text-wrap: balance;
 }
 
-.fi-mia-login-stage-tagline {
+.fi-theme-login-stage-tagline {
     margin-top: 1.25rem;
     max-width: 26ch;
     font-size: 1rem;
@@ -527,33 +466,33 @@
 }
 
 /* A short accent rule closing the brand block. */
-.fi-mia-login-stage-inner::after {
+.fi-theme-login-stage-inner::after {
     content: '';
     display: block;
     width: 3rem;
     height: 2px;
     margin-top: 2.25rem;
-    border-radius: var(--theme-radius-3xl);
+    border-radius: var(--radius-3xl);
     background-color: color-mix(in oklab, var(--primary-400) 80%, transparent);
 }
 
 @media (min-width: 1024px) {
-    .fi-mia-login-stage-inner {
+    .fi-theme-login-stage-inner {
         position: sticky;
         top: 0;
         min-height: 100dvh;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
         .fi-simple-header,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
         .fi-simple-header-heading,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
         .fi-simple-header-subheading {
         text-align: start;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split'])
         .fi-simple-header::after {
         margin-inline: 0 auto;
     }
@@ -565,34 +504,33 @@
  * width to read as anything but clutter.
  */
 @media (max-width: 1023px) {
-    .fi-mia-login-stage {
+    .fi-theme-login-stage {
         padding-block: 0;
     }
 
-    .fi-mia-login-stage-inner {
+    .fi-theme-login-stage-inner {
         padding: 2rem 1.5rem 1.75rem;
         width: 100%;
     }
 
-    .fi-mia-login-stage-name {
+    .fi-theme-login-stage-name {
         font-size: 1.75rem;
     }
 
-    .fi-mia-login-stage-logo {
+    .fi-theme-login-stage-logo {
         margin-bottom: 1.25rem;
     }
 
-    .fi-mia-login-stage-tagline,
-    .fi-mia-login-stage::after {
+    .fi-theme-login-stage-tagline,
+    .fi-theme-login-stage::after {
         display: none;
     }
 
-    .fi-mia-login-stage-inner::after {
+    .fi-theme-login-stage-inner::after {
         margin-top: 1.5rem;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='split'])
-        .fi-simple-main {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
         margin-block: calc(2.5rem * var(--theme-density, 1));
     }
 }
@@ -605,7 +543,7 @@
  * what happens to be behind it.
  * ---------------------------------------------------------------------- */
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) {
     background-image:
         var(--theme-grain),
         radial-gradient(
@@ -631,7 +569,7 @@
         );
 }
 
-.dark .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed']) {
+.dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) {
     background-image:
         var(--theme-grain),
         radial-gradient(
@@ -667,57 +605,45 @@
  * this needs no extra markup.
  */
 @media (min-width: 1024px) {
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-main {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
         max-width: 50rem;
         padding: clamp(2.5rem, 3.5vw, 3.25rem);
     }
 
     /* Room for the heading to run larger, which balances the two halves. */
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header-heading {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-heading {
         font-size: clamp(2.25rem, 1.6rem + 1.6vw, 3rem);
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-page-content {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content {
         grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
         column-gap: clamp(2rem, 4vw, 3.25rem);
         align-items: center;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header-heading,
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header-subheading {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-heading,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-subheading {
         text-align: start;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header
-        .fi-logo {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header .fi-logo {
         justify-content: flex-start;
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-header::after {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header::after {
         margin-inline: 0 auto;
     }
 
     /* Everything in the content grid that is not the header: the form. */
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-page-content
-        > :not(.fi-simple-header) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content > :not(.fi-simple-header) {
         padding-inline-start: clamp(2rem, 4vw, 3.25rem);
         border-inline-start: 1px solid var(--theme-hairline);
     }
 }
 
 @supports (backdrop-filter: blur(1px)) {
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-main {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
         /*
          * 82% in light and 86% in dark. Enough of the field reads through to
          * be unmistakably glass, and not enough to move the measured contrast
@@ -728,9 +654,7 @@
         backdrop-filter: blur(28px) saturate(180%);
     }
 
-    .dark
-        .fi-simple-layout:has(> .fi-mia-login[data-mia-login='bleed'])
-        .fi-simple-main {
+    .dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
         background-color: color-mix(in oklab, var(--theme-surface) 86%, transparent);
         border-color: color-mix(in oklab, white 12%, var(--theme-hairline));
     }
@@ -744,7 +668,7 @@
  * panel name at display size. A hairline runs between them.
  * ---------------------------------------------------------------------- */
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial']) {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
     display: grid;
     align-items: stretch;
     background-image:
@@ -757,7 +681,7 @@
         );
 }
 
-.dark .fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial']) {
+.dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
     background-image:
         var(--theme-grain),
         linear-gradient(
@@ -768,8 +692,7 @@
         );
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-main {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main {
     background-color: transparent;
     border: 0;
     box-shadow: none;
@@ -778,33 +701,26 @@
 }
 
 /* Flush left, and the heading rule aligned to the same margin as the fields. */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-header,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-header-heading,
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-header-subheading {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-heading,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-subheading {
     text-align: start;
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-header
-    .fi-logo {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header .fi-logo {
     justify-content: flex-start;
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-simple-header::after {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header::after {
     margin-inline: 0 auto;
 }
 
 @media (min-width: 1024px) {
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial']) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
         grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-        .fi-simple-main-ctn {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main-ctn {
         /*
          * The form is placed first visually and the facing page second, which
          * is the reverse of the document. The stage is marked decorative for
@@ -817,16 +733,14 @@
         border-inline-end: 1px solid var(--theme-hairline);
     }
 
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-        .fi-mia-login-stage {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
         order: 2;
     }
 }
 
 /* No width for a facing page, so it goes rather than stacking. */
 @media (max-width: 1023px) {
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-        .fi-mia-login-stage {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
         display: none;
     }
 }
@@ -836,41 +750,34 @@
  * because it is ornament and not content — it repeats the brand name a
  * screen reader has already met in the form's own heading.
  */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-mia-login-stage {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
     background-image: none;
     color: inherit;
     align-items: center;
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-mia-login-stage-inner {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner {
     padding-inline: clamp(2rem, 6vw, 6rem);
     padding-block: 4rem;
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-mia-login-stage-name {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-name {
     font-size: clamp(3rem, 1rem + 5.4vw, 6rem);
     line-height: 0.95;
     letter-spacing: -0.03em;
     color: color-mix(in oklab, var(--primary-700) 62%, transparent);
 }
 
-.dark
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-mia-login-stage-name {
+.dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-name {
     color: color-mix(in oklab, var(--primary-300) 42%, transparent);
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-mia-login-stage-tagline {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
     max-width: 30ch;
     color: var(--theme-ink-muted);
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='editorial'])
-    .fi-mia-login-stage-inner::after {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner::after {
     background-color: var(--theme-accent-line);
 }
 
@@ -881,7 +788,7 @@
  * edge at all. The canvas grades vertically.
  * ---------------------------------------------------------------------- */
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal']) {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) {
     background-image:
         var(--theme-grain),
         radial-gradient(
@@ -897,7 +804,7 @@
         );
 }
 
-.dark .fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal']) {
+.dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) {
     background-image:
         var(--theme-grain),
         radial-gradient(
@@ -913,7 +820,7 @@
         );
 }
 
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal']) .fi-simple-main {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
     background-color: transparent;
     border: 0;
     box-shadow: none;
@@ -926,9 +833,7 @@
  * around a wordmark as well as around a square logo, and around the plain
  * brand name Filament falls back to when no logo is configured.
  */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal'])
-    .fi-simple-header
-    .fi-logo {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
     box-sizing: content-box;
     align-self: center;
     margin-bottom: calc(1.75rem * var(--theme-density, 1));
@@ -936,29 +841,14 @@
     min-width: 4rem;
     background-color: var(--theme-surface-raised);
     border: 1px solid var(--theme-hairline);
-    border-radius: var(--theme-radius-2xl, 1.25rem);
-    box-shadow:
-        inset 0 1px 0 color-mix(in oklab, white 60%, transparent),
-        0 0 0 6px color-mix(in oklab, var(--primary-200) 26%, transparent),
-        var(--theme-shadow-lg);
-}
-
-.dark
-    .fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal'])
-    .fi-simple-header
-    .fi-logo {
-    box-shadow:
-        inset 0 1px 0 color-mix(in oklab, white 8%, transparent),
-        0 0 0 6px color-mix(in oklab, var(--primary-500) 14%, transparent),
-        var(--theme-shadow-lg);
+    border-radius: var(--radius-2xl, 1.25rem);
 }
 
 /*
  * With no card to separate it from the canvas, the form gets a hairline above
  * the fields to close the header block.
  */
-.fi-simple-layout:has(> .fi-mia-login[data-mia-login='portal'])
-    .fi-simple-page-content {
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-page-content {
     row-gap: calc(2rem * var(--theme-density, 1));
 }
 
@@ -967,16 +857,16 @@
  * ---------------------------------------------------------------------- */
 
 .fi-simple-main,
-.fi-mia-login-stage-inner {
-    animation: mia-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease)
+.fi-theme-login-stage-inner {
+    animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease)
         both;
 }
 
-.fi-mia-login-stage-inner {
+.fi-theme-login-stage-inner {
     animation-delay: 60ms;
 }
 
-@keyframes mia-auth-in {
+@keyframes theme-auth-in {
     from {
         opacity: 0;
         transform: translateY(0.75rem);
@@ -990,7 +880,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .fi-simple-main,
-    .fi-mia-login-stage-inner {
+    .fi-theme-login-stage-inner {
         animation: none;
     }
 }

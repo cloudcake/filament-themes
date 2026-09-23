@@ -53,6 +53,7 @@ class Styles extends Color
         foreach ($shades as $shade => $value)
             $str = $str->append("--gray-$shade: $value;")->append(PHP_EOL . "\t\t");
 
+        $str = $str->append('--theme-canvas: ' . $colour . ';')->append(PHP_EOL . "\t\t");
         $str = $str->append("background-color: $colour;")->append(PHP_EOL . "\t\t");
 
         return $str->toString();
@@ -167,7 +168,7 @@ class Styles extends Color
         $selects = [
             'rails' => [
                 '.fi-wi-stats-overview-stat',
-                '.fi-ta-main',
+                '.fi-ta-ctn',
                 '.fi-main-ctn',
                 '.fi-sc-wizard',
                 '.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained)',

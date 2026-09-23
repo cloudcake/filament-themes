@@ -19,7 +19,7 @@
 }
 
 .fi-tabs-item {
-    border-radius: var(--theme-radius-3xl);
+    border-radius: var(--radius-3xl);
     background-color: transparent;
     box-shadow: none;
     position: relative;

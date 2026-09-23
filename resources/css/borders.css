@@ -1,0 +1,24 @@
+.fi-topbar {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-badge {
+    @apply ring-0;
+}
+
+.fi-wi-stats-overview-stat,
+.fi-wi-chart,
+.fi-btn:not(.fi-outlined):not(.fi-color):not(label),
+.fi-fieldset,.fi-fieldset:not(.fi-fieldset-not-contained) {
+    border: 1px solid var(--theme-hairline);
+}
+
+.fi-btn.fi-outlined {
+    border: 1px solid var(--theme-hairline-strong);
+}
+
+.fi-fo-code-editor .cm-editor .cm-gutters,
+.fi-fo-code-editor .cm-editor .cm-gutters:where(.dark,.dark *),
+.fi-badge {
+    @apply !border-none;
+}

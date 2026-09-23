@@ -43,7 +43,7 @@ class Theme implements Plugin
     {
         $instance = app(static::class);
         $instance->roundness(Roundness::Moderate);
-        $instance->shadows(Shadows::Strong);
+        $instance->shadows(Shadows::Dramatic);
         $instance->headingIcons();
         $instance->forceLightMode(false);
         $instance->forceDarkMode(false);
@@ -59,7 +59,7 @@ class Theme implements Plugin
             duration: 0.5,
             offset: 1.5
         );
-        $instance->rails();
+        $instance->rails($instance->rails);
         $instance->blooming([
             new Bloom(
                 position: BloomPosition::UpperCenter,
@@ -227,6 +227,13 @@ class Theme implements Plugin
                     'rails' => $panel->evaluate($this->rails),
                 ])
             )
+            ->renderHook(
+                PanelsRenderHook::SIMPLE_LAYOUT_START,
+                fn() => view('cloudcake-themes::layouts.auth', [
+                    'layout' => AuthLayout::Editorial,
+                    'tagline' => 'test'
+                ]),
+            )
             ->when(
                 fn($panel) => $panel->evaluate($this->forceDarkMode),
                 fn($panel) => $panel->darkMode(isForced: true)
@@ -235,10 +242,6 @@ class Theme implements Plugin
                 $panel->evaluate($this->forceLightMode),
                 fn($panel) => $panel->darkMode(condition: false, isForced: true)
             )
-//            ->when(
-//                $primaryColour = $panel->evaluate($this->darkPrimaryColour),
-//                fn($panel) => $panel->colors(['primary' => $this->getColourFromInput($primaryColour)]),
-//            )
             ->userMenuItems([
                 'profile' => fn($action) => $action
                     ->icon('tabler-user-key')

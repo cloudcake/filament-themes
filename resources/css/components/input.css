@@ -14,7 +14,7 @@
 .fi-input-wrp {
     background-color: var(--theme-surface);
     border: 1px solid var(--theme-hairline-strong);
-    border-radius: var(--theme-radius-lg);
+    border-radius: var(--radius-lg);
     box-shadow: none;
     transition:
         background-color 200ms var(--theme-ease, ease),
@@ -117,7 +117,7 @@
 
 /* Checkboxes, radios and toggles pick up the same radius scale. */
 .fi-checkbox-input {
-    border-radius: var(--theme-radius-xs, 0.25rem);
+    border-radius: var(--radius-xs, 0.25rem);
     border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
     transition:
         background-color 200ms var(--theme-ease, ease),

@@ -1,0 +1,56 @@
+/* No Shadows */
+
+.fi-badge,
+.fi-btn.fi-outlined {
+    @apply shadow-none;
+}
+
+/* Small shadows */
+
+.fi-btn:not(.fi-outlined):not(.fi-color):not(label) {
+    @apply shadow-sm;
+}
+
+/* Medium Shadows */
+
+.fi-wi-stats-overview-stat,
+.fi-wi-chart,
+.fi-empty-state:not(.fi-empty-state-not-contained),
+.fi-sc-wizard,
+.fi-simple-main-ctn,
+.fi-main-ctn {
+    @apply shadow-md;
+}
+
+/* Large Shadows */
+
+.fi-wi-stats-overview-stat:hover,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained) {
+    @apply shadow-lg;
+}
+
+/* Extra Large Shadows */
+
+.fi-no-notification,
+.fi-simple-main,
+.fi-modal-window,
+.fi-dropdown-panel {
+    @apply shadow-xl;
+}
+
+/* Extra Extra Large Shadows */
+
+.fi-callout {
+    @apply shadow-2xl;
+}
+
+/* Accent buttons carry a warm shadow in their own hue rather than a grey one. */
+.fi-btn.fi-color:not(.fi-outlined):not(label) {
+    box-shadow: 0 1px 2px color-mix(in oklab, var(--gray-950) 8%, transparent);
+}
+
+.fi-btn.fi-color:not(.fi-outlined):not(label):not(.fi-disabled):not([disabled]):hover {
+    box-shadow:
+            0 2px 4px color-mix(in oklab, var(--gray-950) 8%, transparent),
+            0 8px 18px -6px color-mix(in oklab, var(--color-600) 40%, transparent);
+}
