@@ -104,3 +104,11 @@
         opacity: 0;
     }
 }
+
+.fi-simple-header-subheading a,
+.fi-simple-main .fi-fo-field-wrp-hint a,
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
+    transition:
+            color var(--theme-duration, 260ms) var(--theme-ease, ease),
+            text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}

@@ -1,0 +1,42 @@
+.fi-simple-layout {
+    background-repeat: no-repeat;
+}
+
+/*
+ * The marker the plugin injects. It carries the stage for the compositions
+ * that use one, and is inert for the ones that do not.
+ */
+.fi-theme-login {
+    display: contents;
+}
+
+.fi-theme-login:empty,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-theme-login-stage,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-theme-login-stage,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-theme-login-stage {
+    display: none;
+}
+
+/*
+ * Three of the compositions set their type flush left. Filament centres the
+ * header both ways — `items-center` on the flex container and `text-center`
+ * on the heading and subheading — so all three have to be undone, and on the
+ * elements themselves rather than on their parent.
+ */
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header,
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
+    align-items: flex-start;
+}
+
+@media (max-width: 1023px) {
+    /*
+     * Except on narrow screens, where the split banner sits above a form that
+     * has the full width to itself and reads better centred, and where the
+     * bleed panel is a single column again.
+     */
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
+        align-items: center;
+    }
+}

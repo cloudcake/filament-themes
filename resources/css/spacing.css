@@ -33,3 +33,7 @@
 .fi-fieldset,.fi-fieldset:not(.fi-fieldset-not-contained) {
     padding: calc(1.25rem * var(--theme-density, 1));
 }
+
+.fi-simple-header-subheading {
+    margin-top: calc(0.625rem * var(--theme-density, 1));
+}

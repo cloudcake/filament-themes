@@ -194,3 +194,36 @@
 .fi-fieldset, .fi-fieldset:not(.fi-fieldset-not-contained) {
     @apply !bg-transparent;
 }
+
+.fi-simple-header-heading {
+    color: var(--theme-ink);
+}
+
+.fi-simple-header-subheading {
+    color: var(--theme-ink-muted);
+}
+
+.fi-simple-header-subheading a:hover,
+.fi-simple-main .fi-fo-field-wrp-hint a:hover,
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover {
+    color: var(--primary-800);
+    text-decoration-color: var(--primary-500);
+}
+
+.dark .fi-simple-header-subheading a,
+.dark .fi-simple-main .fi-fo-field-wrp-hint a,
+.dark .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
+    color: var(--primary-300);
+}
+
+.dark .fi-simple-header-subheading a:hover,
+.dark .fi-simple-main .fi-fo-field-wrp-hint a:hover,
+.dark .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover {
+    color: var(--primary-200);
+}
+
+.fi-simple-header-subheading a,
+.fi-simple-main .fi-fo-field-wrp-hint a,
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
+    color: var(--primary-700);
+}

@@ -147,3 +147,21 @@
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
 }
+
+/* Heading, subheading and the rule beneath them. */
+.fi-simple-header {
+    text-align: center;
+}
+
+.fi-simple-header-heading {
+    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 1.55rem + 1.4vw, 2.375rem);
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.fi-simple-header-subheading {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    text-wrap: pretty;
+}
