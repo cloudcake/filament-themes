@@ -231,7 +231,7 @@ class Theme implements Plugin
                 PanelsRenderHook::SIMPLE_LAYOUT_START,
                 fn() => view('cloudcake-themes::layouts.auth', [
                     'layout' => AuthLayout::Editorial,
-                    'tagline' => 'test'
+                    'tagline' => "To modify your application's authentication tagline, add the 'tagline' key to the ->auth() call when configuring the plugin."
                 ]),
             )
             ->when(
