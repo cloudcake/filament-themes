@@ -43,12 +43,12 @@
             repeating-linear-gradient(
                     0deg,
                     color-mix(in oklab, white 1%, transparent) 0 1px,
-                    transparent 1px 5px
+                    transparent 1px 15px
             ),
             repeating-linear-gradient(
                     90deg,
                     color-mix(in oklab, white 0.7%, transparent) 0 1px,
-                    transparent 1px 5px
+                    transparent 1px 15px
             );
 
     --theme-stage: linear-gradient(
