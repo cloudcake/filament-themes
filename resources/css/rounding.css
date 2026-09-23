@@ -67,3 +67,82 @@
 .fi-pagination-item-btn {
     border-radius: var(--radius-md, 0.5rem);
 }
+
+.fi-header::before {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-input-wrp {
+    border-radius: var(--radius-lg);
+}
+
+.fi-loading-section {
+    border-radius: var(--radius-2xl, 1.25rem);
+}
+
+.fi-skeleton {
+    border-radius: var(--radius-sm, 0.375rem);
+}
+
+.fi-dropdown-panel {
+    border-radius: var(--radius-xl, 0.9375rem);
+}
+
+.fi-dropdown-list-item {
+    border-radius: var(--radius-md, 0.5rem);
+}
+
+.fi-modal-window {
+    border-radius: var(--radius-3xl, 1.75rem);
+}
+
+.fi-modal-footer {
+    border-end-start-radius: var(--radius-3xl, 1.75rem);
+    border-end-end-radius: var(--radius-3xl, 1.75rem);
+}
+
+@media (max-width: 639px) {
+    .fi-modal-window {
+        border-radius: var(--radius-2xl, 1.25rem);
+    }
+}
+
+.fi-no-notification {
+    border-radius: var(--radius-xl, 0.9375rem);
+}
+
+.fi-sidebar-item-btn {
+    border-radius: var(--radius-lg, 0.75rem);
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
+    border-radius: var(--radius-lg);
+}
+
+.fi-section-header-icon-ctn {
+    @apply rounded-lg;
+}
+
+.fi-tabs-item {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-tabs-item {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-tabs-item.fi-active::after {
+    border-radius: 64px;
+}
+
+.fi-topbar-item-btn {
+    border-radius: var(--radius-lg, 0.75rem);
+}
+
+.fi-theme-switcher-btn {
+    border-radius: var(--radius-3xl);
+}
+
+.fi-global-search-field .fi-input-wrp {
+    border-radius: var(--radius-3xl);
+}

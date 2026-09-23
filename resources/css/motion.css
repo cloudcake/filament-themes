@@ -158,6 +158,16 @@
     }
 }
 
+@keyframes theme-shimmer {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
 .fi-ta-row > .fi-ta-cell,
 .fi-ta-row > .fi-ta-selection-cell,
 .fi-ta-row > .fi-ta-actions-cell {
@@ -178,4 +188,73 @@
     transition:
             background-color 200ms var(--theme-ease, ease),
             color 200ms var(--theme-ease, ease);
+}
+
+.fi-breadcrumbs-item-label {
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-input-wrp {
+    transition:
+            background-color 200ms var(--theme-ease, ease),
+            border-color 200ms var(--theme-ease, ease),
+            box-shadow 200ms var(--theme-ease, ease);
+}
+
+.fi-toggle {
+    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-checkbox-input {
+    transition:
+            background-color 200ms var(--theme-ease, ease),
+            border-color 200ms var(--theme-ease, ease);
+}
+
+.fi-loading-section::after,
+.fi-skeleton::after {
+    /*
+     * Animated with `translateX`, not `background-position`. The transform is
+     * composited on the GPU; moving the background repaints every frame.
+     */
+    animation: theme-shimmer 1.7s var(--theme-ease, ease) infinite;
+    will-change: transform;
+}
+
+/*
+ * Anything Livewire is currently refreshing dims and settles rather than
+ * blanking out.
+ */
+[wire\:loading\.delay] {
+    transition: opacity var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-dropdown-list-item {
+    transition:
+            background-color 200ms var(--theme-ease, ease),
+            color 200ms var(--theme-ease, ease);
+}
+
+.fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
+    @apply transition duration-200;
+}
+
+.fi-tabs-item {
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-topbar-item-btn {
+    transition:
+            background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
+            color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-theme-switcher-btn {
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}
+
+.fi-global-search-field .fi-input-wrp {
+    transition:
+            background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
+            border-color var(--theme-duration, 260ms) var(--theme-ease, ease);
 }

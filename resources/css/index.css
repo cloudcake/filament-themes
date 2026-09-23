@@ -11,15 +11,6 @@
 @import './tokens.css';
 @import './typography.css';
 
-@import './components/sidebar.css';
-@import './components/topbar.css';
-@import './components/header.css';
-@import './components/section.css';
-@import './components/overlay.css';
-@import './components/loading.css';
-@import './components/input.css';
-@import './components/tabs.css';
-
 @source '../../views/**/*';
 @source '../../**/*';
 

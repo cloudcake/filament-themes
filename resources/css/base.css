@@ -1,30 +1,4 @@
 /*
- * Page canvas, type scale and focus treatment.
- */
-
-body {
-    /*
-     * The interface sans is set at a geometric, slightly wide rhythm. Enabling
-     * contextual and standard ligatures keeps that even at small sizes.
-     */
-    font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
-
-/* Filament draws its own focus ring on these, so only the offset is tuned. */
-body :is(.fi-input-wrp, .fi-btn):focus-visible,
-body .fi-input-wrp:focus-within {
-    box-shadow: none;
-}
-
-::selection {
-    background-color: color-mix(in oklab, var(--primary-300) 60%, transparent);
-    color: var(--gray-950);
-}
-
-/*
  * Scrollbars, warmed to match. Kept deliberately narrow and low-contrast so
  * they read as part of the page rather than as chrome.
  */
@@ -74,27 +48,4 @@ body .fi-input-wrp:focus-within {
     @apply rounded-lg;
 }
 
-/* Wider gutters and a taller first fold than the framework default. */
-.fi-main {
-    padding-inline: calc(1.5rem * var(--theme-density, 1));
-    padding-block: calc(2rem * var(--theme-density, 1));
-    row-gap: var(--theme-section-gap, 2rem);
-}
-
-@media (min-width: 768px) {
-    .fi-main {
-        padding-inline: calc(2.25rem * var(--theme-density, 1));
-        padding-block: calc(2.5rem * var(--theme-density, 1));
-    }
-}
-
-@media (min-width: 1280px) {
-    .fi-main {
-        padding-inline: calc(3rem * var(--theme-density, 1));
-    }
-}
-
-.fi-page {
-    row-gap: var(--theme-section-gap, 2rem);
-}
 

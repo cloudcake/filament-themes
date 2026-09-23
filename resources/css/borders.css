@@ -107,3 +107,80 @@
 .fi-ta-filter-indicators {
     border-top: 1px solid var(--theme-hairline);
 }
+
+.fi-input-wrp {
+    border: 1px solid var(--theme-hairline-strong);
+}
+
+.fi-loading-section {
+    border: 1px solid var(--theme-hairline);
+}
+
+.fi-dropdown-panel {
+    border: 1px solid var(--theme-hairline);
+}
+
+.fi-dropdown-header {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-modal-window {
+    border: 1px solid var(--theme-hairline);
+}
+
+.fi-modal-footer {
+    border-top: 1px solid var(--theme-hairline);
+}
+
+.fi-no-notification {
+    border: 1px solid var(--theme-hairline);
+}
+
+.fi-sidebar {
+    border-inline-end: 1px solid var(--theme-hairline);
+}
+
+@media (max-width: 1023px) {
+    .fi-sidebar {
+        border-inline-end: 1px solid var(--theme-hairline);
+    }
+}
+
+.fi-sidebar-header {
+    border-bottom: 1px solid var(--theme-hairline);
+}
+
+.fi-sidebar-group + .fi-sidebar-group {
+    border-top: 1px solid var(--theme-hairline);
+}
+
+.fi-sidebar-footer {
+    border-top: 1px solid var(--theme-hairline);
+}
+
+.fi-section.fi-section-not-contained {
+    @apply border-none;
+}
+
+.fi-tabs,
+.fi-tabs:not(.fi-contained),
+.fi-tabs:not(.fi-contained):where(.dark,.dark *),
+.fi-tabs.fi-contained:where(.dark,.dark *),
+.fi-tabs.fi-vertical.fi-contained {
+    @apply ring-0;
+}
+
+.fi-sc-tabs,
+.fi-sc-tabs-tab,
+.fi-sc-tabs.fi-contained,
+.fi-sc-tabs.fi-contained:where(.dark,.dark *) {
+    @apply !border-none !ring-0 !outline-0;
+}
+
+nav.fi-topbar  {
+    @apply ring-0;
+}
+
+.fi-global-search-field .fi-input-wrp {
+    border: 1px solid transparent;
+}

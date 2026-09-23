@@ -1,3 +1,14 @@
+body {
+    /*
+     * The interface sans is set at a geometric, slightly wide rhythm. Enabling
+     * contextual and standard ligatures keeps that even at small sizes.
+     */
+    font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 .fi-body:is(
         .fi-header-heading,
         .fi-modal-heading,
@@ -302,4 +313,101 @@
 
 .fi-pagination-item.fi-active .fi-pagination-item-btn {
     font-weight: 550;
+}
+
+.fi-breadcrumbs-item-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.fi-section-header-heading {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.008em;
+}
+
+.fi-section-header-description {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+.fi-fo-select-option-label {
+    font-size: 0.875rem;
+}
+
+.fi-input {
+    font-size: 0.875rem;
+}
+
+.fi-fo-field-lbl-content,
+.fi-fo-field-wrp-label {
+    font-size: 0.8125rem;
+    font-weight: 550;
+    letter-spacing: -0.002em;
+}
+
+.fi-fo-field-wrp-hint,
+.fi-fo-field-wrp-helper-text {
+    font-size: 0.75rem;
+    line-height: 1.55;
+}
+
+.fi-fo-field-wrp-error-message {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.fi-dropdown-header {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+}
+
+.fi-dropdown-list-item {
+    font-size: 0.8125rem;
+    font-weight: 450;
+}
+
+.fi-modal-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.fi-no-notification-title {
+    font-size: 0.875rem;
+    font-weight: 550;
+    letter-spacing: -0.004em;
+}
+
+.fi-no-notification-body {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+}
+
+.fi-sidebar-item-btn {
+    font-weight: 450;
+    letter-spacing: -0.005em;
+}
+
+.fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
+    font-weight: 550;
+}
+
+.fi-sidebar-item-label {
+    font-size: 0.875rem;
+}
+
+.fi-tabs-item {
+    font-weight: 450;
+}
+
+.fi-tabs-item.fi-active {
+    font-weight: 550;
+}
+
+.fi-topbar-item-btn {
+    font-weight: 450;
 }

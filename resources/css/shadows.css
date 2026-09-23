@@ -78,3 +78,72 @@
 [dir='rtl'] .fi-ta-row:hover > *:first-child {
     box-shadow: inset -2px 0 0 var(--primary-500);
 }
+
+.fi-input-wrp {
+    box-shadow: none;
+}
+
+.fi-input-wrp:not(.fi-disabled):not(:has(.fi-ac-action:focus)):focus-within {
+    box-shadow: 0 0 0 3.5px color-mix(in oklab, var(--primary-500) 18%, transparent);
+}
+
+.fi-input-wrp.fi-invalid {
+    box-shadow: none;
+}
+
+.fi-input-wrp.fi-invalid:not(.fi-disabled):focus-within {
+    box-shadow: 0 0 0 3.5px color-mix(in oklab, var(--danger-500) 18%, transparent);
+}
+
+.fi-input-wrp.fi-disabled {
+    box-shadow: none;
+}
+
+/* Filament draws its own focus ring on these, so only the offset is tuned. */
+body :is(.fi-input-wrp, .fi-btn):focus-visible,
+body .fi-input-wrp:focus-within {
+    box-shadow: none;
+}
+
+.fi-sidebar {
+    @apply shadow-none;
+}
+
+.fi-sidebar-header {
+    box-shadow: none;
+}
+
+.fi-section.fi-section-not-contained {
+    @apply shadow-none;
+}
+
+.fi-tabs,
+.fi-tabs:not(.fi-contained),
+.fi-tabs:not(.fi-contained):where(.dark,.dark *),
+.fi-tabs.fi-contained:where(.dark,.dark *),
+.fi-tabs.fi-vertical.fi-contained {
+    @apply shadow-none;
+}
+
+.fi-sc-tabs,
+.fi-sc-tabs-tab,
+.fi-sc-tabs.fi-contained,
+.fi-sc-tabs.fi-contained:where(.dark,.dark *) {
+    @apply !shadow-none;
+}
+
+.fi-tabs-item {
+    box-shadow: none;
+}
+
+.fi-global-search-field .fi-input-wrp:focus-within {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary-500) 14%, transparent);
+}
+
+nav.fi-topbar  {
+    @apply shadow-none;
+}
+
+.fi-global-search-field .fi-input-wrp {
+    box-shadow: none;
+}

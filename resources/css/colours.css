@@ -1,3 +1,8 @@
+::selection {
+    background-color: color-mix(in oklab, var(--primary-300) 60%, transparent);
+    color: var(--gray-950);
+}
+
 .fi-body:is(.fi-header-heading,.fi-modal-heading,.fi-simple-header-heading,.fi-ta-header-heading,.fi-empty-state-heading,.fi-ta-empty-state-heading,.fi-logo),
 .fi-topbar-item-btn:hover,
 .fi-wi-stats-overview-stat-value,
@@ -617,4 +622,378 @@
 
 .fi-ta-filter-indicators {
     background-color: var(--theme-surface-sunken);
+}
+
+.fi-header::before {
+    background-color: var(--primary-500);
+}
+
+.fi-breadcrumbs-item-label {
+    color: var(--theme-ink-muted);
+}
+
+.fi-breadcrumbs-item-label:hover {
+    color: var(--primary-600);
+}
+
+.dark .fi-breadcrumbs-item-label:hover {
+    color: var(--primary-400);
+}
+
+.fi-section-header-heading {
+    color: var(--theme-ink);
+}
+
+.fi-section-header-description {
+    color: var(--theme-ink-muted);
+}
+
+.fi-input-wrp {
+    background-color: var(--theme-surface);
+}
+
+.dark .fi-input-wrp {
+    background-color: color-mix(in oklab, var(--gray-50) 4%, transparent);
+    border-color: var(--theme-hairline-strong);
+}
+
+.fi-input-wrp:not(.fi-disabled):not(.fi-invalid):hover {
+    border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
+}
+
+.fi-input-wrp:not(.fi-disabled):not(:has(.fi-ac-action:focus)):focus-within {
+    border-color: var(--primary-500);
+}
+
+.dark .fi-input-wrp.fi-invalid {
+    border-color: var(--danger-500);
+}
+
+.dark .fi-fo-field-lbl-content,
+.dark .fi-fo-field-wrp-label {
+    color: var(--gray-300);
+}
+
+.dark .fi-fo-field-wrp-error-message {
+    color: var(--danger-400);
+}
+.fi-radio-input {
+    border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
+}
+
+.fi-select-input {
+    color: var(--theme-ink);
+}
+
+.fi-input-wrp.fi-invalid {
+    border-color: var(--danger-600);
+}
+
+.fi-input-wrp.fi-invalid:not(.fi-disabled):focus-within {
+    border-color: var(--danger-600);
+}
+
+.fi-input-wrp.fi-disabled {
+    background-color: var(--theme-surface-sunken);
+    border-color: var(--theme-hairline);
+}
+
+.dark .fi-input-wrp.fi-disabled {
+    background-color: color-mix(in oklab, var(--gray-950) 40%, transparent);
+}
+
+.fi-input-wrp .fi-input-wrp-prefix:not(.fi-inline),
+.fi-input-wrp .fi-input-wrp-suffix:not(.fi-inline) {
+    border-color: var(--theme-hairline);
+}
+
+.fi-input {
+    color: var(--theme-ink);
+}
+
+.fi-input::placeholder {
+    color: color-mix(in oklab, var(--gray-500) 72%, transparent);
+}
+
+.fi-fo-field-lbl-content,
+.fi-fo-field-wrp-label,
+.fi-fo-field-wrp-error-message{
+    color: var(--gray-700);
+}
+
+.fi-fo-field-wrp-hint,
+.fi-fo-field-wrp-helper-text {
+    color: var(--theme-ink-muted);
+}
+
+.fi-checkbox-input {
+    border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
+}
+
+.fi-loading-indicator {
+    color: var(--primary-500);
+}
+
+.fi-loading-section {
+    background-color: var(--theme-surface-sunken);
+}
+
+.fi-loading-section::after,
+.fi-skeleton::after {
+    background: linear-gradient(
+            90deg,
+            transparent 0%,
+            color-mix(in oklab, var(--primary-200) 42%, transparent) 50%,
+            transparent 100%
+    );
+}
+
+.dark .fi-loading-section::after,
+.dark .fi-skeleton::after {
+    background: linear-gradient(
+            90deg,
+            transparent 0%,
+            color-mix(in oklab, var(--primary-400) 12%, transparent) 50%,
+            transparent 100%
+    );
+}
+
+.dark .fi-skeleton {
+    background-color: color-mix(in oklab, var(--gray-50) 7%, transparent);
+}
+/* The top progress bar picks up the accent, matching the rest of the theme. */
+.fi-ta-table-loading-ctn {
+    background-color: color-mix(in oklab, var(--theme-surface) 62%, transparent);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-ta-table-loading-ctn {
+        backdrop-filter: blur(2px);
+    }
+}
+
+.fi-skeleton {
+    background-color: color-mix(in oklab, var(--gray-300) 42%, transparent);
+}
+
+.fi-dropdown-panel {
+    background-color: color-mix(in oklab, var(--theme-surface-raised) 92%, transparent);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-dropdown-panel {
+        backdrop-filter: blur(16px) saturate(150%);
+    }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .fi-dropdown-panel {
+        background-color: var(--theme-surface-raised);
+    }
+}
+
+.fi-dropdown-header {
+    color: var(--theme-ink-muted);
+}
+
+.fi-dropdown-list-item:hover {
+    background-color: color-mix(in oklab, var(--gray-400) 13%, transparent);
+}
+
+.dark .fi-dropdown-list-item:hover {
+    background-color: color-mix(in oklab, var(--gray-50) 7%, transparent);
+}
+
+.fi-modal-close-overlay {
+    background-color: color-mix(in oklab, var(--gray-900) 42%, transparent);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-modal-close-overlay {
+        backdrop-filter: blur(4px);
+    }
+}
+
+.dark .fi-modal-close-overlay {
+    background-color: color-mix(in oklab, var(--gray-950) 68%, transparent);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-no-notification {
+        backdrop-filter: blur(16px) saturate(150%);
+    }
+}
+
+.fi-no-notification:has(.fi-color-success)::before {
+    background-color: var(--success-500);
+}
+
+.fi-no-notification:has(.fi-color-danger)::before {
+    background-color: var(--danger-500);
+}
+
+.fi-no-notification:has(.fi-color-warning)::before {
+    background-color: var(--warning-500);
+}
+
+.fi-no-notification:has(.fi-color-info)::before {
+    background-color: var(--info-500);
+}
+
+.fi-modal-window {
+    background-color: var(--theme-surface);
+}
+
+.fi-modal-footer {
+    background-color: var(--theme-surface-sunken);
+}
+
+.fi-modal-description {
+    color: var(--theme-ink-muted);
+}
+
+.fi-no-notification {
+    background-color: color-mix(in oklab, var(--theme-surface-raised) 94%, transparent);
+}
+
+.fi-no-notification::before {
+    background-color: var(--primary-500);
+}
+
+.fi-no-notification-body {
+    color: var(--theme-ink-muted);
+}
+
+.fi-sidebar-header {
+    background-color: transparent;
+}
+
+.fi-sidebar-group-label {
+    color: var(--theme-ink-muted);
+}
+
+.dark .fi-sidebar-item-btn {
+    color: var(--gray-300);
+}
+
+.fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
+    background-color: color-mix(in oklab, var(--gray-400) 12%, transparent);
+    color: var(--theme-ink);
+}
+
+.dark .fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
+    background-color: color-mix(in oklab, var(--gray-50) 7%, transparent);
+    color: var(--theme-ink);
+}
+
+.fi-sidebar-item-btn {
+    color: var(--gray-700);
+}
+
+.fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
+    background-color: var(--theme-accent-wash);
+    color: var(--primary-700);
+}
+
+.dark .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    color: var(--primary-200);
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon {
+    @apply text-primary-600;
+}
+
+.dark .fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon {
+    @apply text-primary-400;
+}
+
+.fi-sidebar-item-btn > .fi-icon {
+    @apply dark:text-gray-700;
+}
+
+.fi-sidebar-item-btn > .fi-icon {
+    @apply dark:text-gray-700;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
+    background-color: var(--primary-500);
+}
+
+.fi-section.fi-section-not-contained {
+    @apply bg-transparent;
+}
+
+.fi-section .fi-section-header-description {
+    @apply text-sm dark:text-gray-400/50;
+}
+
+.dark .fi-section-header-icon-ctn {
+    @apply text-primary-300;
+}
+
+.fi-section-header-icon-ctn {
+    @apply text-primary-700 bg-[var(--theme-access-wash)];
+}
+
+.fi-tabs,
+.fi-tabs:not(.fi-contained),
+.fi-tabs:not(.fi-contained):where(.dark,.dark *),
+.fi-tabs.fi-contained:where(.dark,.dark *),
+.fi-tabs.fi-vertical.fi-contained {
+    @apply !bg-transparent;
+}
+
+.fi-sc-tabs,
+.fi-sc-tabs-tab,
+.fi-sc-tabs.fi-contained,
+.fi-sc-tabs.fi-contained:where(.dark,.dark *) {
+    @apply !bg-transparent;
+}
+
+.fi-tabs-item {
+    background-color: transparent;
+    color: var(--theme-ink-muted);
+}
+
+.fi-tabs-item:hover {
+    color: var(--theme-ink);
+    background-color: transparent;
+}
+
+.fi-tabs-item.fi-active {
+    background-color: transparent;
+    color: var(--primary-700);
+}
+
+.dark .fi-tabs-item.fi-active {
+    color: var(--primary-300);
+}
+
+.fi-tabs-item.fi-active::after {
+    background-color: var(--primary-500);
+}
+
+.dark .fi-global-search-field .fi-input-wrp {
+    background-color: color-mix(in oklab, var(--gray-50) 6%, transparent);
+}
+
+.fi-global-search-field .fi-input-wrp:hover {
+    border-color: var(--theme-hairline-strong);
+}
+
+.fi-global-search-field .fi-input-wrp:focus-within {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-accent-line);
+}
+
+.fi-logo {
+    color: var(--theme-ink);
+}
+
+.fi-topbar-item-btn {
+    color: var(--gray-700);
+}
+
+.fi-global-search-field .fi-input-wrp {
+    background-color: color-mix(in oklab, var(--gray-400) 9%, transparent);
 }
