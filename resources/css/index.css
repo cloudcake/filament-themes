@@ -55,9 +55,6 @@
     --theme-duration-slow: 420ms;
     --theme-anim-duration: 520ms;
     --theme-canvas: light-dark(var(--gray-50), var(--gray-950));
-    --theme-surface: light-dark(var(--color-white), var(--gray-900));
-    --theme-surface-sunken: light-dark(color-mix(in oklab, var(--gray-100) 70%, var(--color-white)), color-mix(in oklab, var(--gray-950) 60%, var(--gray-900)));
-    --theme-surface-raised: light-dark(var(--color-white), var(--gray-900));
     --theme-hairline: light-dark(color-mix(in oklab, var(--gray-300) 55%, transparent), color-mix(in oklab, var(--gray-700) 62%, transparent));
     --theme-hairline-strong: light-dark(color-mix(in oklab, var(--gray-400) 55%, transparent), color-mix(in oklab, var(--gray-600) 70%, transparent));
     --theme-ink: light-dark(var(--gray-950), var(--color-white));
@@ -72,10 +69,10 @@
 
     @keyframes gradient {
         from {
-            background-position: 0 0;
+            background-position: 0 50%;
         }
         to {
-            background-position: 200% 200%;
+            background-position: 200% 100%;
         }
     }
 }
@@ -85,5 +82,5 @@
 }
 
 @utility text-gradient-primary {
-    @apply animate-gradient from-primary-400 via-primary-100 dark:via-primary-100 to-primary-400 bg-[length:200%_100%] bg-linear-to-l bg-clip-text text-transparent;
+    @apply animate-gradient from-primary-400 via-primary-50 dark:via-primary-100 to-primary-400 bg-[length:300%_100%] bg-linear-to-l bg-clip-text text-transparent;
 }

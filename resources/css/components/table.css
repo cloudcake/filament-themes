@@ -216,10 +216,6 @@
     border-bottom: 0;
 }
 
-.fi-ta-table-loading-ctn {
-    background-color: color-mix(in oklab, var(--theme-surface) 62%, transparent);
-}
-
 [dir='rtl'] .fi-ta-row:hover > *:first-child {
     box-shadow: inset -2px 0 0 var(--primary-500);
 }
@@ -261,7 +257,6 @@ th.fi-ta-selection-cell {
     }
 
     .fi-ta-content-ctn::after {
-        background: linear-gradient( to left, var(--theme-surface), transparent );
         content: '';
         position: absolute;
         inset-block: 0;
@@ -269,11 +264,6 @@ th.fi-ta-selection-cell {
         width: 2rem;
         pointer-events: none;
     }
-
-    [dir='rtl'] .fi-ta-content-ctn::after {
-        background: linear-gradient(to right, var(--theme-surface), transparent);
-    }
-
 }
 
 @supports (backdrop-filter: blur(1px)) {

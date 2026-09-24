@@ -28,7 +28,6 @@
 
 .fi-dropdown-panel {
     @apply border border-solid border-[var(--theme-hairline)];
-    background-color: color-mix(in oklab, var(--theme-surface-raised) 92%, transparent);
     padding: 0.3125rem;
     border-radius: var(--radius-xl, 0.9375rem);
     @apply shadow-xl;
@@ -37,20 +36,6 @@
 .dark {
     .fi-dropdown-list-item:hover {
         background-color: color-mix(in oklab, var(--gray-50) 7%, transparent);
-    }
-
-}
-
-@supports (backdrop-filter: blur(1px)) {
-    .fi-dropdown-panel {
-        backdrop-filter: blur(16px) saturate(150%);
-    }
-
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-    .fi-dropdown-panel {
-        @apply bg-[var(--theme-surface-raised)];
     }
 
 }

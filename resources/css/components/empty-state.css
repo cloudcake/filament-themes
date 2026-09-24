@@ -68,7 +68,6 @@
 
 .fi-empty-state:not(.fi-empty-state-not-contained) {
     @apply border border-solid border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface)];
     border-radius: var(--radius-2xl, 1.25rem);
     @apply shadow-md;
 }

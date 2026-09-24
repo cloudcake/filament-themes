@@ -3,7 +3,6 @@
  */
 
 .fi-wi-chart {
-    @apply bg-[var(--theme-surface)];
     @apply rounded-2xl;
     @apply shadow-md;
     --chart-line-tension: var(--theme-chart-line-tension, 0.35);

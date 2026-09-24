@@ -4,7 +4,6 @@
 
 .fi-no-notification {
     @apply border border-solid border-[var(--theme-hairline)];
-    background-color: color-mix(in oklab, var(--theme-surface-raised) 94%, transparent);
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-xl, 0.9375rem);

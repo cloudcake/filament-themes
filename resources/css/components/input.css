@@ -11,7 +11,6 @@
 }
 
 .fi-global-search-field .fi-input-wrp:focus-within {
-    @apply bg-[var(--theme-surface)];
     @apply border-[var(--theme-accent-line)];
     box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary-500) 14%, transparent);
 }
@@ -28,7 +27,6 @@
 
 .fi-input-wrp {
     @apply border border-solid border-[var(--theme-hairline-strong)];
-    @apply bg-[var(--theme-surface)];
     @apply rounded-xl;
     @apply shadow-none;
 
@@ -45,7 +43,6 @@
 
 .fi-input-wrp.fi-disabled {
     @apply border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface-sunken)];
     @apply shadow-none;
 }
 

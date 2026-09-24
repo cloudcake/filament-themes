@@ -80,7 +80,6 @@
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
     @apply border border-solid border-[var(--theme-hairline)];
-    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
     padding: calc(2.5rem * var(--theme-density, 1));
     border-radius: var(--radius-3xl, 1.75rem);
 }
@@ -95,7 +94,6 @@
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
     @apply border border-solid border-[var(--theme-hairline)];
-    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
     padding: calc(2.5rem * var(--theme-density, 1));
     border-radius: var(--radius-3xl, 1.75rem);
 }
@@ -172,7 +170,6 @@
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
     @apply border border-solid border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface-raised)];
     box-sizing: content-box;
     align-self: center;
     margin-bottom: calc(1.75rem * var(--theme-density, 1));
@@ -227,7 +224,6 @@
 
 .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
     @apply border border-solid border-[var(--theme-hairline)];
-    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
     padding: calc(2.5rem * var(--theme-density, 1));
     border-radius: var(--radius-3xl, 1.75rem);
 }
@@ -292,7 +288,6 @@
 
 .fi-simple-main .fi-sc-section {
     @apply border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface-sunken)];
     border-radius: var(--radius-xl, 0.9375rem);
     @apply shadow-none;
 }
@@ -643,40 +638,12 @@
 
 @supports (backdrop-filter: blur(1px)) {
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-        background-color: color-mix(in oklab, var(--theme-surface) 82%, transparent);
         border-color: color-mix(in oklab, white 42%, var(--theme-hairline));
-        /*backdrop-filter: blur(28px) saturate(180%);*/
-    }
-
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
-        /*backdrop-filter: blur(14px) saturate(140%);*/
-    }
-
-    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-        /*backdrop-filter: blur(14px) saturate(140%);*/
     }
 
     .dark {
         .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-            background-color: color-mix(in oklab, var(--theme-surface) 86%, transparent);
             border-color: color-mix(in oklab, white 12%, var(--theme-hairline));
         }
-
     }
-
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-        @apply bg-[var(--theme-surface)];
-    }
-
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
-        @apply bg-[var(--theme-surface)];
-    }
-
-    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-        @apply bg-[var(--theme-surface)];
-    }
-
 }

@@ -18,7 +18,6 @@
 
 .fi-modal-footer {
     @apply border-t border-solid border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface-sunken)];
     padding: calc(1.25rem * var(--theme-density, 1)) calc(1.75rem * var(--theme-density, 1));
     margin-top: calc(1.25rem * var(--theme-density, 1));
     border-end-start-radius: var(--radius-3xl, 1.75rem);
@@ -36,7 +35,6 @@
 
 .fi-modal-window {
     @apply border border-solid border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface)];
     border-radius: var(--radius-3xl, 1.75rem);
     @apply shadow-xl;
 }
