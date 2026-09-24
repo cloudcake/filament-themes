@@ -1,0 +1,19 @@
+/*
+ *  Theme switcher
+ */
+
+.fi-theme-switcher-btn {
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    border-radius: var(--radius-3xl);
+}
+
+.fi-theme-switcher-btn.fi-active {
+    @apply text-primary-600;
+}
+
+.dark {
+    .fi-theme-switcher-btn.fi-active {
+        @apply text-primary-400;
+    }
+
+}

@@ -1,0 +1,52 @@
+/*
+ *  Stats overview
+ */
+
+.fi-wi-stats-overview-stat {
+    @apply bg-[var(--theme-surface)];
+    padding: calc(1.375rem * var(--theme-density, 1));
+    @apply transition duration-200;
+    @apply rounded-2xl;
+    @apply shadow-md;
+}
+
+.fi-wi-stats-overview-stat-chart {
+    --stat-chart-line-tension: var(--theme-chart-line-tension, 0.35);
+}
+
+.fi-wi-stats-overview-stat-description {
+    @apply text-[var(--theme-ink-muted)];
+    margin-top: calc(0.375rem * var(--theme-density, 1));
+    font-size: 0.75rem;
+}
+
+.fi-wi-stats-overview-stat-label {
+    @apply text-[var(--theme-ink-muted)];
+    font-weight: 600;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.085em;
+}
+
+.fi-wi-stats-overview-stat-value {
+    @apply text-[var(--theme-ink)];
+    margin-top: calc(0.375rem * var(--theme-density, 1));
+    font-weight: 500;
+    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
+    letter-spacing: -0.015em;
+    font-variant-numeric: tabular-nums;
+    font-size: 2.25rem;
+    line-height: 1.1;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    @apply transition duration-200 -translate-y-3;
+    @apply shadow-lg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-wi-stats-overview-stat:hover {
+        transform: none !important;
+    }
+
+}

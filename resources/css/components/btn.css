@@ -1,0 +1,81 @@
+/*
+ *  Buttons
+ */
+
+.fi-ac-icon-btn-action:not([class*="fi-color-"]):not(.fi-color) {
+    @apply text-gray-400;
+}
+
+.fi-btn {
+    padding: calc(0.5rem * var(--theme-density, 1)) calc(0.9375rem * var(--theme-density, 1));
+    transition: background-color 200ms var(--theme-ease, ease), border-color 200ms var(--theme-ease, ease), color 200ms var(--theme-ease, ease), box-shadow 200ms var(--theme-ease, ease), transform 200ms var(--theme-ease, ease);
+    @apply rounded-lg;
+    font-weight: 500;
+    letter-spacing: 0.004em;
+}
+
+.fi-btn.fi-color:not(.fi-outlined):not(label) {
+    box-shadow: 0 1px 2px color-mix(in oklab, var(--gray-950) 8%, transparent);
+}
+
+.fi-btn.fi-color:not(.fi-outlined):not(label):not(.fi-disabled):not([disabled]):hover {
+    box-shadow: 0 2px 4px color-mix(in oklab, var(--gray-950) 8%, transparent), 0 8px 18px -6px color-mix(in oklab, var(--color-600) 40%, transparent);
+}
+
+.fi-btn.fi-outlined {
+    @apply border border-solid border-[var(--theme-hairline-strong)];
+    @apply shadow-none;
+}
+
+.fi-btn.fi-outlined.fi-color {
+    border-color: color-mix(in oklab, var(--color-500) 45%, transparent);
+}
+
+.fi-btn.fi-size-lg {
+    padding: calc(0.6875rem * var(--theme-density, 1)) calc(1.25rem * var(--theme-density, 1));
+    @apply rounded-xl;
+}
+
+.fi-btn.fi-size-sm {
+    padding: calc(0.375rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
+}
+
+.fi-btn.fi-size-xl {
+    padding: calc(0.6875rem * var(--theme-density, 1)) calc(1.25rem * var(--theme-density, 1));
+    @apply rounded-xl;
+}
+
+.fi-btn:not(.fi-disabled):not([disabled]):active {
+    transform: translateY(0);
+}
+
+.fi-btn:not(.fi-disabled):not([disabled]):hover {
+    transform: translateY(-1px);
+}
+
+.fi-btn:not(.fi-outlined):not(.fi-color):not(label) {
+    @apply shadow-sm;
+}
+
+.fi-icon-btn {
+    transition: background-color 200ms var(--theme-ease, ease), color 200ms var(--theme-ease, ease);
+    @apply rounded-3xl;
+}
+
+.fi-icon-btn:not(.fi-disabled):not([disabled]):hover {
+    background-color: color-mix(in oklab, var(--gray-400) 14%, transparent);
+}
+
+.dark {
+    .fi-icon-btn:not(.fi-disabled):not([disabled]):hover {
+        background-color: color-mix(in oklab, var(--gray-50) 8%, transparent);
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-btn:hover {
+        transform: none !important;
+    }
+
+}

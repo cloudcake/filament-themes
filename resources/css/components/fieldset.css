@@ -1,0 +1,24 @@
+/*
+ *  Fieldset
+ */
+
+.fi-fieldset {
+    @apply border border-solid border-[var(--theme-hairline)];
+    @apply !bg-transparent;
+    padding: calc(1.25rem * var(--theme-density, 1));
+    @apply rounded-xl;
+}
+
+.fi-fieldset-label {
+    @apply text-[var(--theme-ink-muted)];
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+.fi-fieldset:not(.fi-fieldset-not-contained) {
+    @apply border border-solid border-[var(--theme-hairline)];
+    @apply !bg-transparent;
+    padding: calc(1.25rem * var(--theme-density, 1));
+    @apply rounded-xl;
+}

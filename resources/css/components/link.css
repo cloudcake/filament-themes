@@ -1,0 +1,15 @@
+/*
+ *  Links
+ */
+
+.fi-link {
+    transition: color 200ms var(--theme-ease, ease), text-decoration-color 200ms var(--theme-ease, ease);
+    text-decoration-color: color-mix(in oklab, var(--primary-500) 32%, transparent);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+.fi-link:hover {
+    text-decoration-color: var(--primary-500);
+}

@@ -1,0 +1,105 @@
+/*
+ *  Inputs
+ */
+
+.fi-global-search-field .fi-input-wrp {
+    @apply border border-solid border-transparent;
+    background-color: color-mix(in oklab, var(--gray-400) 9%, transparent);
+    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), border-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    border-radius: var(--radius-3xl);
+    @apply shadow-none;
+}
+
+.fi-global-search-field .fi-input-wrp:focus-within {
+    @apply bg-[var(--theme-surface)];
+    @apply border-[var(--theme-accent-line)];
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary-500) 14%, transparent);
+}
+
+.fi-global-search-field .fi-input-wrp:hover {
+    @apply border-[var(--theme-hairline-strong)];
+}
+
+.fi-input {
+    @apply text-[var(--theme-ink)];
+    padding-block: calc(0.5625rem * var(--theme-density, 1));
+    font-size: 0.875rem;
+}
+
+.fi-input-wrp {
+    @apply border border-solid border-[var(--theme-hairline-strong)];
+    @apply bg-[var(--theme-surface)];
+    @apply rounded-xl;
+    @apply shadow-none;
+
+    transition: background-color 200ms var(--theme-ease, ease), border-color 200ms var(--theme-ease, ease), box-shadow 200ms var(--theme-ease, ease);
+}
+
+.fi-input-wrp .fi-input-wrp-prefix:not(.fi-inline) {
+    @apply border-[var(--theme-hairline)];
+}
+
+.fi-input-wrp .fi-input-wrp-suffix:not(.fi-inline) {
+    @apply border-[var(--theme-hairline)];
+}
+
+.fi-input-wrp.fi-disabled {
+    @apply border-[var(--theme-hairline)];
+    @apply bg-[var(--theme-surface-sunken)];
+    @apply shadow-none;
+}
+
+.fi-input-wrp.fi-invalid {
+    @apply border-[var(--danger-600)];
+    @apply shadow-none;
+}
+
+.fi-input-wrp.fi-invalid:not(.fi-disabled):focus-within {
+    @apply border-[var(--danger-600)];
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--danger-500) 18%, transparent);
+}
+
+.fi-input-wrp:not(.fi-disabled):not(.fi-invalid):hover {
+    border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
+}
+
+.fi-input-wrp:not(.fi-disabled):not(:has(.fi-ac-action:focus)):focus-within {
+    @apply border-[var(--primary-500)];
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary-500) 18%, transparent);
+}
+
+.fi-input::placeholder {
+    color: color-mix(in oklab, var(--gray-500) 72%, transparent);
+}
+
+.fi-select-input {
+    @apply text-[var(--theme-ink)];
+}
+
+body .fi-input-wrp:focus-within {
+    @apply shadow-none;
+}
+
+body :is(.fi-input-wrp, .fi-btn):focus-visible {
+    @apply shadow-none;
+}
+
+.dark {
+    .fi-global-search-field .fi-input-wrp {
+        background-color: color-mix(in oklab, var(--gray-50) 6%, transparent);
+    }
+
+    .fi-input-wrp {
+        @apply border-[var(--theme-hairline-strong)];
+        background-color: color-mix(in oklab, var(--gray-50) 4%, transparent);
+    }
+
+    .fi-input-wrp.fi-disabled {
+        background-color: color-mix(in oklab, var(--gray-950) 40%, transparent);
+    }
+
+    .fi-input-wrp.fi-invalid {
+        @apply border-[var(--danger-500)];
+    }
+
+}

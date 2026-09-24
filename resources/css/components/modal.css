@@ -1,0 +1,63 @@
+/*
+ *  Modal
+ */
+
+.fi-modal-close-overlay {
+    background-color: color-mix(in oklab, var(--gray-900) 42%, transparent);
+}
+
+.fi-modal-content {
+    padding-inline: calc(1.75rem * var(--theme-density, 1));
+}
+
+.fi-modal-description {
+    @apply text-[var(--theme-ink-muted)];
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.fi-modal-footer {
+    @apply border-t border-solid border-[var(--theme-hairline)];
+    @apply bg-[var(--theme-surface-sunken)];
+    padding: calc(1.25rem * var(--theme-density, 1)) calc(1.75rem * var(--theme-density, 1));
+    margin-top: calc(1.25rem * var(--theme-density, 1));
+    border-end-start-radius: var(--radius-3xl, 1.75rem);
+    border-end-end-radius: var(--radius-3xl, 1.75rem);
+}
+
+.fi-modal-header {
+    padding: calc(1.625rem * var(--theme-density, 1)) calc(1.75rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
+}
+
+.fi-modal-heading {
+    font-size: 1.375rem;
+    line-height: 1.25;
+}
+
+.fi-modal-window {
+    @apply border border-solid border-[var(--theme-hairline)];
+    @apply bg-[var(--theme-surface)];
+    border-radius: var(--radius-3xl, 1.75rem);
+    @apply shadow-xl;
+}
+
+.dark {
+    .fi-modal-close-overlay {
+        background-color: color-mix(in oklab, var(--gray-950) 68%, transparent);
+    }
+
+}
+
+@media (max-width: 639px) {
+    .fi-modal-window {
+        border-radius: var(--radius-2xl, 1.25rem);
+    }
+
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-modal-close-overlay {
+        backdrop-filter: blur(4px);
+    }
+
+}

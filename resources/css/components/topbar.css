@@ -1,0 +1,47 @@
+/*
+ *  Topbar
+ */
+
+.fi-topbar {
+    @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2;
+}
+
+.fi-topbar-end {
+    gap: calc(0.625rem * var(--theme-density, 1));
+}
+
+.fi-topbar-item-btn {
+    @apply text-[var(--gray-700)];
+    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    border-radius: var(--radius-lg, 0.75rem);
+    font-weight: 450;
+}
+
+.fi-topbar-item-btn:hover {
+    @apply text-[var(--theme-ink)];
+    background-color: color-mix(in oklab, var(--gray-400) 12%, transparent);
+}
+
+.fi-topbar-item.fi-active > .fi-topbar-item-btn {
+    @apply bg-[var(--theme-accent-wash)];
+    @apply text-primary-700;
+}
+
+.fi-topbar-start {
+    gap: calc(0.625rem * var(--theme-density, 1));
+}
+
+nav.fi-topbar {
+    @apply shadow-none;
+}
+
+.dark {
+    .fi-topbar-item-btn {
+        @apply text-[var(--gray-300)];
+    }
+
+    .fi-topbar-item.fi-active > .fi-topbar-item-btn {
+        @apply text-primary-200;
+    }
+
+}

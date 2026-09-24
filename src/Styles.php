@@ -29,24 +29,26 @@ class Styles extends Color
     }
 
 
-    private static function backgroundShades(string $colour)
+    private static function backgroundShades(string $colour, string $tint = 'skyblue')
     {
         if (static::isLight($colour))
             return [];
 
         $shades = [];
 
-        for ($i = 3; $i < 10; $i++) {
-            $mixValue = min((($i + 1) / 10) * 100, 99);
-            $shades[$i * 100] = "color-mix(in oklab, $colour $mixValue%, skyblue)";
+        $clamp = 94;
+
+        for ($i = 5; $i < 10; $i++) {
+            $mixValue = min(($i / 9) * $clamp, $clamp);
+            $shades[$i * 100] = "color-mix(in oklab, $colour $mixValue%, $tint)";
         }
 
         return $shades;
     }
 
-    public static function backgroundTokens(string|Color $colour): string
+    public static function backgroundTokens(string|Color $colour, string|Color $tint): string
     {
-        $shades = static::backgroundShades($colour);
+        $shades = static::backgroundShades($colour, $tint);
 
         $str = str('/* Cloudcake Background Shades */' . PHP_EOL . PHP_EOL . "\t\t");
 

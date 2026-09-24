@@ -1,0 +1,61 @@
+/*
+ *  Section
+ */
+
+.fi-section .fi-section-header-description {
+    @apply text-sm dark:text-gray-400/50;
+}
+
+.fi-section-content {
+    padding: calc(1.5rem * var(--theme-density, 1));
+}
+
+.fi-section-header {
+    padding: calc(1.375rem * var(--theme-density, 1)) calc(1.5rem * var(--theme-density, 1));
+    gap: calc(0.875rem * var(--theme-density, 1));
+}
+
+.fi-section-header-description {
+    @apply text-[var(--theme-ink-muted)];
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+.fi-section-header-heading {
+    @apply text-[var(--theme-ink)];
+    font-weight: 600;
+    font-size: 0.9375rem;
+    font-family: var(--font-sans);
+    letter-spacing: -0.008em;
+}
+
+.fi-section-header-icon-ctn {
+    @apply text-primary-700 bg-[var(--theme-access-wash)];
+    @apply rounded-lg;
+}
+
+.fi-section.fi-section-not-contained {
+    @apply border-none;
+    @apply bg-transparent;
+    @apply shadow-none;
+}
+
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn {
+    @apply rounded-2xl;
+}
+
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn:where(.dark,.dark *) {
+    @apply rounded-2xl;
+}
+
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained) {
+    @apply rounded-2xl;
+    @apply shadow-lg;
+}
+
+.dark {
+    .fi-section-header-icon-ctn {
+        @apply text-primary-300;
+    }
+
+}

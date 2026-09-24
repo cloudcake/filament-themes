@@ -1,0 +1,105 @@
+/*
+ *  Empty state
+ */
+
+.fi-empty-state {
+    padding-block: calc(4rem * var(--theme-density, 1));
+}
+
+.fi-empty-state-description {
+    @apply text-[var(--theme-ink-muted)];
+    margin-top: calc(0.5rem * var(--theme-density, 1));
+    max-width: 26rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.fi-empty-state-footer {
+    margin-top: calc(1.75rem * var(--theme-density, 1));
+}
+
+.fi-empty-state-heading {
+    font-size: 1.375rem;
+    line-height: 1.3;
+}
+
+.fi-empty-state.fi-compact .fi-empty-state-heading {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    font-family: var(--font-sans);
+}
+
+.fi-empty-state.fi-compact .fi-empty-state-icon-bg {
+    @apply bg-[var(--theme-accent-wash)];
+}
+
+.fi-empty-state.fi-compact .fi-empty-state-icon-bg > .fi-icon {
+    @apply text-primary-600;
+}
+
+.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg {
+    background: radial-gradient(circle at 50% 42%, color-mix(in oklab, var(--primary-200) 62%, transparent) 0%, color-mix(in oklab, var(--primary-100) 38%, transparent) 58%, transparent 72%);
+    padding: 0;
+    position: relative;
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-bottom: calc(1.5rem * var(--theme-density, 1));
+}
+
+.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg > .fi-icon {
+    display: none;
+}
+
+.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg::after {
+    background: linear-gradient(152deg, var(--primary-400) 0%, var(--primary-600) 52%, var(--secondary-500) 100%);
+    content: '';
+    position: absolute;
+    inset: 1.25rem;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-image: var(--theme-sprig);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-image: var(--theme-sprig);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    animation: theme-sprig-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
+}
+
+.fi-empty-state:not(.fi-empty-state-not-contained) {
+    @apply border border-solid border-[var(--theme-hairline)];
+    @apply bg-[var(--theme-surface)];
+    border-radius: var(--radius-2xl, 1.25rem);
+    @apply shadow-md;
+}
+
+.dark {
+    .fi-empty-state.fi-compact .fi-empty-state-icon-bg > .fi-icon {
+        @apply text-primary-400;
+    }
+
+    .fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg {
+        background: radial-gradient(circle at 50% 42%, color-mix(in oklab, var(--primary-500) 22%, transparent) 0%, color-mix(in oklab, var(--primary-500) 10%, transparent) 58%, transparent 72%);
+    }
+
+}
+
+@keyframes theme-sprig-in {
+    from {
+        opacity: 0;
+        transform: scale(0.94) rotate(-3deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-empty-state-icon-bg::after {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+
+}

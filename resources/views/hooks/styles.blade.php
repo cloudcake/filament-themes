@@ -25,13 +25,13 @@ use Cloudcake\Themes\Shadows;
         {!! Styles::roundnessTokens($roundness) !!}
         {!! Styles::shadowTokens($shadows) !!}
         {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
-        {!! Styles::backgroundTokens($lightBackgroundColour) !!}
+        {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
         {!! Styles::borderRails(active: $rails, dark: false) !!}
     }
     .dark body {
         {!! Styles::bloomTokens(blooming: $blooming, dark: true) !!}
         {!! Styles::shadeTokens($darkPrimaryColour, 'primary') !!}
-        {!! Styles::backgroundTokens($darkBackgroundColour) !!}
+        {!! Styles::backgroundTokens($darkBackgroundColour, $darkBackgroundShadeColour) !!}
         {!! Styles::borderRails(active: $rails, dark: true) !!}
     }
     {!! Styles::pageTransitions($pageTransitions, $pageTransitionDuration, $pageTransitionOffset) !!}

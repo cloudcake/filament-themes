@@ -1,0 +1,72 @@
+/*
+ *  Tabs
+ */
+
+.fi-tabs {
+    @apply !bg-transparent;
+    @apply !p-0 overflow-y-hidden;
+    @apply shadow-none;
+}
+
+.fi-tabs-item {
+    @apply text-[var(--theme-ink-muted)];
+    background-color: transparent;
+    position: relative;
+    padding-block: calc(0.75rem * var(--theme-density, 1));
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    border-radius: var(--radius-3xl);
+    @apply shadow-none;
+    font-weight: 450;
+}
+
+.fi-tabs-item.fi-active {
+    @apply text-primary-700;
+    background-color: transparent;
+    font-weight: 550;
+}
+
+.fi-tabs-item.fi-active::after {
+    @apply bg-primary-500;
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 3px;
+    border-radius: 64px;
+}
+
+.fi-tabs-item:hover {
+    @apply text-[var(--theme-ink)];
+    background-color: transparent;
+}
+
+.fi-tabs.fi-contained:where(.dark,.dark *) {
+    @apply !bg-transparent;
+    @apply !p-0 overflow-y-hidden;
+    @apply shadow-none;
+}
+
+.fi-tabs.fi-vertical.fi-contained {
+    @apply !bg-transparent;
+    @apply !p-0 overflow-y-hidden;
+    @apply shadow-none;
+}
+
+.fi-tabs:not(.fi-contained) {
+    @apply !bg-transparent;
+    @apply !p-0 overflow-y-hidden;
+    @apply shadow-none;
+}
+
+.fi-tabs:not(.fi-contained):where(.dark,.dark *) {
+    @apply !bg-transparent;
+    @apply !p-0 overflow-y-hidden;
+    @apply shadow-none;
+}
+
+.dark {
+    .fi-tabs-item.fi-active {
+        @apply text-primary-300;
+    }
+
+}

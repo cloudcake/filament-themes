@@ -1,0 +1,676 @@
+/*
+ *  Auth / simple layout
+ */
+
+.fi-simple-header {
+    text-align: center;
+}
+
+.fi-simple-header-heading {
+    @apply text-[var(--theme-ink)];
+    font-weight: 500;
+    letter-spacing: -0.011em;
+    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 1.55rem + 1.4vw, 2.375rem);
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.fi-simple-header-subheading {
+    @apply text-[var(--theme-ink-muted)];
+    margin-top: calc(0.625rem * var(--theme-density, 1));
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    text-wrap: pretty;
+}
+
+.fi-simple-header-subheading a {
+    @apply text-primary-700;
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease), text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    font-weight: 500;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in oklab, var(--primary-500) 40%, transparent);
+}
+
+.fi-simple-header-subheading a:hover {
+    @apply text-primary-800 decoration-[var(--primary-500)];
+}
+
+.fi-simple-header::after {
+    @apply bg-primary-500;
+    content: '';
+    height: 2px;
+    width: 2.5rem;
+    margin: calc(1.25rem * var(--theme-density, 1)) auto 0;
+    display: block;
+    border-radius: var(--radius-3xl);
+}
+
+.fi-simple-layout {
+    background-repeat: no-repeat;
+}
+
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
+    @apply text-primary-700;
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease), text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    font-weight: 500;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in oklab, var(--primary-500) 40%, transparent);
+}
+
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover {
+    @apply text-primary-800 decoration-[var(--primary-500)];
+}
+
+.fi-simple-layout .fi-logo {
+    justify-content: center;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) {
+    background-image: var(--theme-grain), radial-gradient( 48% 42% at 14% 12%, color-mix(in oklab, var(--primary-300) 72%, transparent) 0%, transparent 70% ), radial-gradient( 44% 40% at 86% 20%, color-mix(in oklab, var(--secondary-300) 62%, transparent) 0%, transparent 72% ), radial-gradient( 56% 48% at 74% 88%, color-mix(in oklab, var(--primary-400) 44%, transparent) 0%, transparent 74% ), linear-gradient( 168deg, color-mix(in oklab, var(--secondary-100) 70%, var(--theme-canvas)) 0%, var(--theme-canvas) 55%, color-mix(in oklab, var(--primary-100) 78%, var(--theme-canvas)) 100% );
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
+    align-items: flex-start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+    @apply border border-solid border-[var(--theme-hairline)];
+    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
+    padding: calc(2.5rem * var(--theme-density, 1));
+    border-radius: var(--radius-3xl, 1.75rem);
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-theme-login-stage {
+    display: none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) {
+    background-image: var(--theme-grain), radial-gradient( 60% 50% at 22% 18%, color-mix(in oklab, var(--primary-200) 46%, transparent) 0%, transparent 68% ), radial-gradient( 55% 45% at 82% 82%, color-mix(in oklab, var(--secondary-200) 40%, transparent) 0%, transparent 70% );
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
+    @apply border border-solid border-[var(--theme-hairline)];
+    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
+    padding: calc(2.5rem * var(--theme-density, 1));
+    border-radius: var(--radius-3xl, 1.75rem);
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-theme-login-stage {
+    display: none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
+    background-image: var(--theme-grain), linear-gradient( 100deg, var(--theme-canvas) 0%, var(--theme-canvas) 52%, color-mix(in oklab, var(--primary-100) 62%, var(--theme-canvas)) 100% );
+    display: grid;
+    align-items: stretch;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header {
+    align-items: flex-start;
+    text-align: start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header .fi-logo {
+    justify-content: flex-start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-heading {
+    text-align: start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-subheading {
+    text-align: start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header::after {
+    margin-inline: 0 auto;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    max-width: 25rem;
+    padding-inline: 1.5rem;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
+    background-image: none;
+    color: inherit;
+    align-items: center;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner {
+    padding-inline: clamp(2rem, 6vw, 6rem);
+    padding-block: 4rem;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner::after {
+    @apply bg-primary-400;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-name {
+    color: color-mix(in oklab, var(--primary-700) 62%, transparent);
+    font-size: clamp(3rem, 1rem + 5.4vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
+    @apply text-[var(--theme-ink-muted)];
+    max-width: 34ch;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) {
+    background-image: var(--theme-grain), radial-gradient( 85% 42% at 50% 0%, color-mix(in oklab, var(--primary-200) 52%, transparent) 0%, transparent 72% ), linear-gradient( 180deg, color-mix(in oklab, var(--secondary-100) 46%, var(--theme-canvas)) 0%, var(--theme-canvas) 42%, color-mix(in oklab, var(--gray-100) 76%, var(--theme-canvas)) 100% );
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
+    @apply border border-solid border-[var(--theme-hairline)];
+    @apply bg-[var(--theme-surface-raised)];
+    box-sizing: content-box;
+    align-self: center;
+    margin-bottom: calc(1.75rem * var(--theme-density, 1));
+    padding: 1.375rem 1.625rem;
+    min-width: 4rem;
+    border-radius: var(--radius-2xl, 1.25rem);
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
+    border: 0;
+    background-color: transparent;
+    padding-inline: 1.5rem;
+    max-width: 23rem;
+    @apply shadow-none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-page-content {
+    row-gap: calc(2rem * var(--theme-density, 1));
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-theme-login-stage {
+    display: none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
+    background-image: var(--theme-grain);
+    display: grid;
+    align-items: stretch;
+    grid-template-rows: auto 1fr;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header {
+    align-items: flex-start;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header .fi-logo {
+    display: none;
+}
+
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
+    border: 0;
+    background-color: transparent;
+    max-width: 26rem;
+    padding-inline: 1.5rem;
+    margin-block: calc(3rem * var(--theme-density, 1));
+    @apply shadow-none;
+}
+
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) {
+    background-image: var(--theme-grain), radial-gradient( 60% 50% at 22% 18%, color-mix(in oklab, var(--primary-200) 46%, transparent) 0%, transparent 68% ), radial-gradient( 55% 45% at 82% 82%, color-mix(in oklab, var(--secondary-200) 40%, transparent) 0%, transparent 70% );
+}
+
+.fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
+    @apply border border-solid border-[var(--theme-hairline)];
+    background-color: color-mix(in oklab, var(--theme-surface) 88%, transparent);
+    padding: calc(2.5rem * var(--theme-density, 1));
+    border-radius: var(--radius-3xl, 1.75rem);
+}
+
+.fi-simple-main {
+    animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
+    @apply rounded-2xl rounded-b-none;
+    @apply shadow-xl;
+}
+
+.fi-simple-main .fi-fo-checkbox .fi-fo-field-wrp-label {
+    @apply text-[var(--theme-ink-muted)];
+    font-weight: 400;
+}
+
+.fi-simple-main .fi-fo-component-ctn {
+    row-gap: calc(1.25rem * var(--theme-density, 1));
+}
+
+.fi-simple-main .fi-fo-field-wrp .fi-input-wrp .fi-input {
+    padding-block: calc(0.6875rem * var(--theme-density, 1));
+    font-size: 0.9375rem;
+}
+
+.fi-simple-main .fi-fo-field-wrp-error-message {
+    margin-top: 0.4375rem;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+.fi-simple-main .fi-fo-field-wrp-hint a {
+    @apply text-primary-700;
+    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease), text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+    font-weight: 500;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in oklab, var(--primary-500) 40%, transparent);
+}
+
+.fi-simple-main .fi-fo-field-wrp-hint a:hover {
+    @apply text-primary-800 decoration-[var(--primary-500)];
+}
+
+.fi-simple-main .fi-fo-field-wrp-label {
+    @apply text-[var(--theme-ink)];
+    font-weight: 500;
+    font-size: 0.8125rem;
+    letter-spacing: 0.006em;
+}
+
+.fi-simple-main .fi-form-actions .fi-ac {
+    margin-top: calc(0.375rem * var(--theme-density, 1));
+}
+
+.fi-simple-main .fi-form-actions .fi-btn {
+    padding-block: calc(0.6875rem * var(--theme-density, 1));
+    letter-spacing: 0.004em;
+    font-size: 0.9375rem;
+}
+
+.fi-simple-main .fi-sc-section {
+    @apply border-[var(--theme-hairline)];
+    @apply bg-[var(--theme-surface-sunken)];
+    border-radius: var(--radius-xl, 0.9375rem);
+    @apply shadow-none;
+}
+
+.fi-simple-main-ctn {
+    @apply rounded-2xl rounded-b-none;
+    @apply shadow-md;
+}
+
+.fi-theme-login {
+    display: contents;
+}
+
+.fi-theme-login-stage {
+    background-image: var(--theme-stage);
+    color: color-mix(in oklab, var(--gray-50) 92%, white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.fi-theme-login-stage-inner {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
+    animation-delay: 60ms;
+}
+
+.fi-theme-login-stage-inner::after {
+    background-color: color-mix(in oklab, var(--primary-400) 80%, transparent);
+    content: '';
+    height: 2px;
+    display: block;
+    width: 3rem;
+    margin-top: 2.25rem;
+    border-radius: var(--radius-3xl);
+}
+
+.fi-theme-login-stage-logo {
+    color: inherit;
+    justify-content: flex-start;
+    margin-bottom: 2.25rem;
+}
+
+.fi-theme-login-stage-name {
+    @apply !text-primary-gradient;
+    font-weight: 700;
+    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
+    text-wrap: balance;
+    font-size: clamp(1.85rem, 1.5rem + 1.8vw, 2.5rem);
+    letter-spacing: -0.018em;
+    line-height: 1.05;
+}
+
+.fi-theme-login-stage-tagline {
+    color: color-mix(in oklab, var(--gray-50) 74%, transparent);
+    margin-top: 1.25rem;
+    max-width: 26ch;
+    text-wrap: pretty;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.fi-theme-login-stage::after {
+    background-color: color-mix(in oklab, var(--primary-200) 14%, transparent);
+    content: '';
+    position: absolute;
+    mask-image: var(--theme-sprig);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-image: var(--theme-sprig);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    right: 2%;
+    bottom: -4%;
+    width: 62%;
+    aspect-ratio: 100 / 100;
+}
+
+.fi-theme-login-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient( 70% 55% at 18% 12%, color-mix(in oklab, var(--primary-400) 26%, transparent) 0%, transparent 72% ), radial-gradient( 70% 55% at bottom right, color-mix(in oklab, var(--primary-600) 16%, transparent) 0%, transparent );
+}
+
+.fi-theme-login:empty {
+    display: none;
+}
+
+.dark {
+    .fi-simple-header-subheading a {
+        @apply text-primary-300;
+    }
+
+    .fi-simple-header-subheading a:hover {
+        @apply text-primary-200;
+    }
+
+    .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600 {
+        @apply text-primary-300;
+    }
+
+    .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover {
+        @apply text-primary-200;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) {
+        background-image: var(--theme-grain), radial-gradient( 48% 42% at 14% 12%, color-mix(in oklab, var(--primary-500) 26%, transparent) 0%, transparent 70% ), radial-gradient( 44% 40% at 86% 20%, color-mix(in oklab, var(--secondary-500) 20%, transparent) 0%, transparent 72% ), radial-gradient( 56% 48% at 74% 88%, color-mix(in oklab, var(--primary-600) 24%, transparent) 0%, transparent 74% ), linear-gradient( 168deg, color-mix(in oklab, var(--gray-900) 62%, var(--theme-canvas)) 0%, var(--theme-canvas) 60%, color-mix(in oklab, var(--gray-900) 45%, var(--theme-canvas)) 100% );
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) {
+        background-image: var(--theme-grain), radial-gradient( 60% 50% at 22% 18%, color-mix(in oklab, var(--primary-500) 12%, transparent) 0%, transparent 68% ), radial-gradient( 55% 45% at 82% 82%, color-mix(in oklab, var(--secondary-500) 9%, transparent) 0%, transparent 70% );
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
+        background-image: var(--theme-grain), linear-gradient( 100deg, var(--theme-canvas) 0%, var(--theme-canvas) 52%, color-mix(in oklab, var(--gray-900) 70%, var(--theme-canvas)) 100% );
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-name {
+        color: color-mix(in oklab, var(--primary-300) 42%, transparent);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) {
+        background-image: var(--theme-grain), radial-gradient( 85% 42% at 50% 0%, color-mix(in oklab, var(--primary-500) 16%, transparent) 0%, transparent 72% ), linear-gradient( 180deg, color-mix(in oklab, var(--gray-900) 52%, var(--theme-canvas)) 0%, var(--theme-canvas) 45%, color-mix(in oklab, var(--gray-950) 60%, var(--theme-canvas)) 100% );
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
+        @apply border-b border-solid border-[var(--theme-hairline)];
+    }
+
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) {
+        background-image: var(--theme-grain), radial-gradient( 60% 50% at 22% 18%, color-mix(in oklab, var(--primary-500) 12%, transparent) 0%, transparent 68% ), radial-gradient( 55% 45% at 82% 82%, color-mix(in oklab, var(--secondary-500) 9%, transparent) 0%, transparent 70% );
+    }
+
+    .fi-simple-main .fi-fo-field-wrp-hint a {
+        @apply text-primary-300;
+    }
+
+    .fi-simple-main .fi-fo-field-wrp-hint a:hover {
+        @apply text-primary-200;
+    }
+
+}
+
+@keyframes theme-auth-in {
+    from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    }
+    to {
+    opacity: 1;
+    transform: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
+        align-items: center;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
+        display: none;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header {
+        align-items: center;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
+        margin-block: calc(2.5rem * var(--theme-density, 1));
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main-ctn {
+        align-items: flex-start;
+    }
+
+    .fi-theme-login-stage {
+        padding-block: 0;
+    }
+
+    .fi-theme-login-stage-inner {
+        padding: 2rem 1.5rem 1.75rem;
+        width: 100%;
+    }
+
+    .fi-theme-login-stage-inner::after {
+        margin-top: 1.5rem;
+    }
+
+    .fi-theme-login-stage-logo {
+        margin-bottom: 1.25rem;
+    }
+
+    .fi-theme-login-stage-name {
+        font-size: 1.75rem;
+    }
+
+    .fi-theme-login-stage-tagline {
+        display: none;
+    }
+
+    .fi-theme-login-stage::after {
+        display: none;
+    }
+
+}
+
+@media (max-width: 639px) {
+    .fi-simple-layout .fi-simple-main {
+        padding: calc(1.75rem * var(--theme-density, 1));
+        border-radius: var(--radius-2xl, 1.25rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        width: auto;
+        margin-inline: 0.875rem;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
+        width: auto;
+        margin-inline: 0.875rem;
+    }
+
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
+        width: auto;
+        margin-inline: 0.875rem;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
+        text-align: start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header .fi-logo {
+        justify-content: flex-start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-heading {
+        text-align: start;
+        font-size: clamp(2.25rem, 1.6rem + 1.6vw, 3rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-subheading {
+        text-align: start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header::after {
+        margin-inline: 0 auto;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        max-width: 50rem;
+        padding: clamp(2.5rem, 3.5vw, 3.25rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content {
+        align-items: center;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        column-gap: clamp(2rem, 4vw, 3.25rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content> :not(.fi-simple-header) {
+        @apply border-s border-solid border-[var(--theme-hairline)];
+        padding-inline-start: clamp(2rem, 4vw, 3.25rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main-ctn {
+        @apply border-e border-solid border-[var(--theme-hairline)];
+        order: 1;
+        justify-content: flex-end;
+        padding-inline: clamp(2rem, 6vw, 6rem);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
+        order: 2;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header {
+        text-align: start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header-heading {
+        text-align: start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header-subheading {
+        text-align: start;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header::after {
+        margin-inline: 0 auto;
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main-ctn {
+        padding-inline: clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .fi-theme-login-stage-inner {
+        position: sticky;
+        top: 0;
+        min-height: 100dvh;
+    }
+
+    .dark {
+        .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
+            @apply border-e border-solid border-[var(--theme-hairline)];
+            border-block-end: 0;
+        }
+
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-simple-main {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .fi-theme-login-stage-inner {
+        animation: none;
+    }
+
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        background-color: color-mix(in oklab, var(--theme-surface) 82%, transparent);
+        border-color: color-mix(in oklab, white 42%, var(--theme-hairline));
+        backdrop-filter: blur(28px) saturate(180%);
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
+        backdrop-filter: blur(14px) saturate(140%);
+    }
+
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
+        backdrop-filter: blur(14px) saturate(140%);
+    }
+
+    .dark {
+        .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+            background-color: color-mix(in oklab, var(--theme-surface) 86%, transparent);
+            border-color: color-mix(in oklab, white 12%, var(--theme-hairline));
+        }
+
+    }
+
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
+        @apply bg-[var(--theme-surface)];
+    }
+
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
+        @apply bg-[var(--theme-surface)];
+    }
+
+    .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
+        @apply bg-[var(--theme-surface)];
+    }
+
+}

@@ -1,0 +1,7 @@
+/*
+ *  Avatar
+ */
+
+.fi-avatar {
+    @apply rounded-3xl;
+}

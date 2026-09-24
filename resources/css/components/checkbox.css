@@ -1,0 +1,16 @@
+/*
+ *  Checkbox, radio, toggle
+ */
+
+.fi-checkbox-input {
+    border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
+    transition: background-color 200ms var(--theme-ease, ease), border-color 200ms var(--theme-ease, ease);
+}
+
+.fi-radio-input {
+    border-color: color-mix(in oklab, var(--gray-500) 65%, transparent);
+}
+
+.fi-toggle {
+    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease);
+}

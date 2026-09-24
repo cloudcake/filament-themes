@@ -1,0 +1,56 @@
+/*
+ *  Notifications
+ */
+
+.fi-no-notification {
+    @apply border border-solid border-[var(--theme-hairline)];
+    background-color: color-mix(in oklab, var(--theme-surface-raised) 94%, transparent);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl, 0.9375rem);
+    @apply shadow-xl;
+}
+
+.fi-no-notification-body {
+    @apply text-[var(--theme-ink-muted)];
+    font-size: 0.8125rem;
+    line-height: 1.55;
+}
+
+.fi-no-notification-title {
+    font-size: 0.875rem;
+    font-weight: 550;
+    letter-spacing: -0.004em;
+}
+
+.fi-no-notification::before {
+    @apply bg-primary-500;
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    width: 3px;
+    inset-block: 0;
+}
+
+.fi-no-notification:has(.fi-color-danger)::before {
+    @apply bg-[var(--danger-500)];
+}
+
+.fi-no-notification:has(.fi-color-info)::before {
+    @apply bg-[var(--info-500)];
+}
+
+.fi-no-notification:has(.fi-color-success)::before {
+    @apply bg-[var(--success-500)];
+}
+
+.fi-no-notification:has(.fi-color-warning)::before {
+    @apply bg-[var(--warning-500)];
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .fi-no-notification {
+        backdrop-filter: blur(16px) saturate(150%);
+    }
+
+}

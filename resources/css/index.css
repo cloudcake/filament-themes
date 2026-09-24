@@ -1,15 +1,37 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
 
-@import './base.css';
-@import 'concerns/borders.css';
-@import 'concerns/colours.css';
-@import 'concerns/layout.css';
-@import 'concerns/motion.css';
-@import 'concerns/rounding.css';
-@import 'concerns/scrollbar.css';
-@import 'concerns/shadows.css';
-@import 'concerns/tokens.css';
-@import 'concerns/typography.css';
+@import 'components/tokens.css';
+@import 'components/base.css';
+@import 'components/scrollbar.css';
+@import 'components/auth.css';
+@import 'components/btn.css';
+@import 'components/input.css';
+@import 'components/checkbox.css';
+@import 'components/fieldset.css';
+@import 'components/field.css';
+@import 'components/code-editor.css';
+@import 'components/badge.css';
+@import 'components/avatar.css';
+@import 'components/sidebar.css';
+@import 'components/table.css';
+@import 'components/modal.css';
+@import 'components/dropdown.css';
+@import 'components/notification.css';
+@import 'components/empty-state.css';
+@import 'components/tabs.css';
+@import 'components/topbar.css';
+@import 'components/breadcrumbs.css';
+@import 'components/section.css';
+@import 'components/header.css';
+@import 'components/callout.css';
+@import 'components/stats.css';
+@import 'components/chart.css';
+@import 'components/loading.css';
+@import 'components/logo.css';
+@import 'components/link.css';
+@import 'components/theme-switcher.css';
+@import 'components/page.css';
+@import 'components/misc.css';
 
 @source '../../views/**/*';
 @source '../../**/*';
@@ -17,7 +39,7 @@
 @theme inline {
     --animate-background: background-move ease infinite;
     --animate-border: border 4s linear infinite;
-    --animate-gradient: gradient 10s linear infinite;
+    --animate-gradient: gradient 10s ease-in-out infinite;
 
     @keyframes gradient {
         from {
@@ -34,5 +56,5 @@
 }
 
 @utility text-primary-gradient {
-    @apply animate-gradient bg-[length:200%_100%] bg-linear-to-r from-primary-500 via-primary-800 dark:via-primary-50 to-primary-500 bg-clip-text text-transparent;
+    @apply animate-gradient bg-[length:200%_100%] bg-linear-to-r from-primary-400 via-primary-600 dark:via-primary-50 to-primary-400 bg-clip-text text-transparent;
 }

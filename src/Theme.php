@@ -30,9 +30,9 @@ class Theme implements Plugin
     protected null|array|string|Closure $darkPrimaryColour = null;
     protected null|array|string|Closure $lightPrimaryColour = null;
     protected null|array|string|Closure $darkBackgroundColour = null;
-    protected bool|Closure $darkBackgroundColourShaded = true;
+    protected null|array|string|Closure $darkBackgroundTintColour = null;
     protected null|array|string|Closure $lightBackgroundColour = null;
-    protected bool|Closure $lightBackgroundColourShaded = true;
+    protected null|array|string|Closure $lightBackgroundTintColour = null;
 
     /**
      * Make an instance of the plugin.
@@ -47,12 +47,12 @@ class Theme implements Plugin
         $instance->headingIcons();
         $instance->forceLightMode(false);
         $instance->forceDarkMode(false);
-        $instance->primaryColour(Color::Indigo, Color::Indigo);
+        $instance->primaryColour(fn(Panel $panel) => $panel->getColors()['primary'] ?? Color::Indigo);
         $instance->background(
             dark: '#11111a',
             light: '#F1F5F8',
-            darkShaded: true,
-            lightShaded: true
+            darkTint: '#6D8196',
+            lightTint: 'skyblue'
         );
         $instance->transitions(
             condition: true,
@@ -178,20 +178,25 @@ class Theme implements Plugin
         return $this;
     }
 
-    public function primaryColour(array|string|null|Closure $dark, array|string|null|Closure $light): static
+    public function primaryColour(array|string|null|Closure $dark, array|string|null|Closure $light = null): static
     {
         $this->darkPrimaryColour = $dark;
-        $this->lightPrimaryColour = $light;
+        $this->lightPrimaryColour = $light ?? $dark;
 
         return $this;
     }
 
-    public function background(array|string|null|Closure $dark, array|string|null|Closure $light, bool $darkShaded = false, bool $lightShaded = false): static
+    public function background(
+        array|string|null|Closure $dark,
+        array|string|null|Closure $light,
+        array|string|null|Closure $darkTint = null,
+        array|string|null|Closure $lightTint = null
+    ): static
     {
         $this->darkBackgroundColour = $dark;
         $this->lightBackgroundColour = $light;
-        $this->darkBackgroundColourShaded = $darkShaded;
-        $this->lightBackgroundColourShaded = $lightShaded;
+        $this->darkBackgroundTintColour = $darkTint;
+        $this->lightBackgroundTintColour = $lightTint;
 
         return $this;
     }
@@ -217,10 +222,10 @@ class Theme implements Plugin
                     'blooming' => $panel->evaluate($this->blooming),
                     'darkPrimaryColour' => $this->getColourFromInput($panel->evaluate($this->darkPrimaryColour)),
                     'darkBackgroundColour' => $panel->evaluate($this->darkBackgroundColour),
-                    'darkBackgroundColourShaded' => $panel->evaluate($this->darkBackgroundColourShaded),
+                    'darkBackgroundShadeColour' => $panel->evaluate($this->darkBackgroundTintColour),
                     'lightPrimaryColour' => $this->getColourFromInput($panel->evaluate($this->lightPrimaryColour)),
                     'lightBackgroundColour' => $panel->evaluate($this->lightBackgroundColour),
-                    'lightBackgroundColourShaded' => $panel->evaluate($this->lightBackgroundColourShaded),
+                    'lightBackgroundShadeColour' => $panel->evaluate($this->lightBackgroundTintColour),
                     'pageTransitions' => $panel->evaluate($this->pageTransitions),
                     'pageTransitionDuration' => $panel->evaluate($this->pageTransitionDuration),
                     'pageTransitionOffset' => $panel->evaluate($this->pageTransitionOffset),
@@ -230,7 +235,7 @@ class Theme implements Plugin
             ->renderHook(
                 PanelsRenderHook::SIMPLE_LAYOUT_START,
                 fn() => view('cloudcake-themes::layouts.auth', [
-                    'layout' => AuthLayout::Portal,
+                    'layout' => AuthLayout::Editorial,
                     'tagline' => "To modify your application's authentication tagline, add the 'tagline' key to the ->auth() call when configuring the plugin."
                 ]),
             )
