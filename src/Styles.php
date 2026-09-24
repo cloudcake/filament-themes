@@ -71,6 +71,14 @@ class Styles extends Color
         return $str->toString();
     }
 
+    public static function transitionTokens(float $duration, float $offset): string
+    {
+        return str('/* Cloudcake Transitions */' . PHP_EOL . PHP_EOL . "\t\t")
+            ->append("--theme-transition-duration: {$duration}s;")->append(PHP_EOL . "\t\t")
+            ->append("--theme-transition-offset: {$offset}rem;")->append(PHP_EOL . "\t\t")
+            ->toString();
+    }
+
     /**
      * @param array<Bloom> $blooming
      * @param bool $dark
@@ -157,32 +165,5 @@ class Styles extends Color
         }
 
         return $str->toString();
-    }
-
-    public static function pageTransitions(bool $active, float $duration = 1.5, float $offset = 1.5): string
-    {
-        if (!$active)
-            return '';
-
-        $selects = [
-            'targets' => [
-                '.fi-body .fi-main > .fi-page, .fi-body .fi-simple-main'
-            ],
-            'keyframes' => [
-                '@keyframes theme-rise'
-            ]
-        ];
-
-        $modifiers = [
-            'targets' => [
-                "animation: theme-rise {$duration}s;",
-            ],
-            'keyframes' => [
-                "from {opacity: 0; transform: translateY({$offset}rem);}",
-                'to {opacity: 1; transform: translateY(0);}'
-            ]
-        ];
-
-        return static::selectorRules($selects, $modifiers, 'Cloudcake Page Transitions');
     }
 }

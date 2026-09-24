@@ -1,4 +1,4 @@
-.rails {
+.theme-rails {
     .fi-sidebar,
     .fi-topbar {
         @apply border-none ring-0 outline-0;

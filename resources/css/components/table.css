@@ -74,7 +74,6 @@
 }
 
 .fi-ta-ctn {
-    @apply bg-[var(--theme-surface)];
     border-radius: var(--radius-2xl, 1.25rem);
     @apply shadow-lg;
 }
@@ -145,7 +144,6 @@
 
 .fi-ta-filter-indicators {
     @apply border-t border-solid border-[var(--theme-hairline)];
-    @apply bg-[var(--theme-surface-sunken)];
     padding: calc(0.625rem * var(--theme-density, 1)) calc(1.5rem * var(--theme-density, 1));
 }
 

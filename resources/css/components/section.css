@@ -7,7 +7,7 @@
 }
 
 .fi-section-content {
-    padding: calc(1.5rem * var(--theme-density, 1));
+    gap: calc(1.5rem * var(--theme-density, 1));
 }
 
 .fi-section-header {

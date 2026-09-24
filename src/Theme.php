@@ -23,8 +23,8 @@ class Theme implements Plugin
     protected bool|Closure $pageTransitions = true;
     protected bool|Closure $rails = true;
 
-    protected float|Closure $pageTransitionDuration = 0;
-    protected float|Closure $pageTransitionOffset = 0;
+    protected float|Closure $pageTransitionDuration = 0.5;
+    protected float|Closure $pageTransitionOffset = 1.5;
 
     protected array|false|Closure $blooming = [];
 
@@ -238,7 +238,18 @@ class Theme implements Plugin
                     PanelsRenderHook::BODY_START,
                     fn () => new HtmlString(
                         '<script>
-                            document.body.classList.add("rails");
+                            document.body.classList.add("theme-rails");
+                        </script>'
+                    ),
+                )
+            )
+            ->when(
+                fn($panel) => $panel->evaluate($this->pageTransitions),
+                fn($panel) => $panel->renderHook(
+                    PanelsRenderHook::BODY_START,
+                    fn () => new HtmlString(
+                        '<script>
+                            document.body.classList.add("theme-transitions");
                         </script>'
                     ),
                 )

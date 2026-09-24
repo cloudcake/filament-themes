@@ -342,13 +342,14 @@
 }
 
 .fi-theme-login-stage-name {
-    @apply !text-primary-gradient;
     font-weight: 700;
     font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
     text-wrap: balance;
     font-size: clamp(1.85rem, 1.5rem + 1.8vw, 2.5rem);
     letter-spacing: -0.018em;
     line-height: 1.05;
+
+    @apply text-gradient-primary;
 }
 
 

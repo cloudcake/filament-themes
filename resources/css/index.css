@@ -1,6 +1,5 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
 
-@import 'components/tokens.css';
 @import 'components/base.css';
 @import 'components/scrollbar.css';
 @import 'components/auth.css';
@@ -32,22 +31,51 @@
 @import 'components/theme-switcher.css';
 @import 'components/page.css';
 @import 'components/misc.css';
-@import 'components/rails.css';
+
+@import 'optional/rails.css';
+@import 'optional/transitions.css';
 
 @source '../../views/**/*';
 @source '../../**/*';
 
-@theme inline {
-    --animate-background: background-move ease infinite;
-    --animate-border: border 4s linear infinite;
-    --animate-gradient: gradient 10s ease-in-out infinite;
+@theme {
+    --animate-gradient: gradient 12s linear infinite;
+    --color-white: color-mix(in oklab, var(--gray-50) 55%, white);
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --theme-sprig: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-shield-lock%22%3E%0A%09%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M12%203a12%2012%200%200%200%208.5%203a12%2012%200%200%201%20-8.5%2015a12%2012%200%200%201%20-8.5%20-15a12%2012%200%200%200%208.5%20-3%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M11%2011a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M12%2012l0%202.5%22%20%2F%3E%0A%3C%2Fsvg%3E");
+    --theme-chart-line-tension: 0.35;
+    --theme-chart-bar-radius: 4;
+    --theme-chart-tooltip-radius: 12;
+    --theme-chart-legend-swatch-radius: 3;
+    --theme-density: 1;
+    --theme-row-height: 3.5rem;
+    --theme-section-gap: 2rem;
+    --theme-ease: cubic-bezier(0.22, 0.61, 0.24, 1);
+    --theme-duration: 260ms;
+    --theme-duration-slow: 420ms;
+    --theme-anim-duration: 520ms;
+    --theme-canvas: light-dark(var(--gray-50), var(--gray-950));
+    --theme-surface: light-dark(var(--color-white), var(--gray-900));
+    --theme-surface-sunken: light-dark(color-mix(in oklab, var(--gray-100) 70%, var(--color-white)), color-mix(in oklab, var(--gray-950) 60%, var(--gray-900)));
+    --theme-surface-raised: light-dark(var(--color-white), var(--gray-900));
+    --theme-hairline: light-dark(color-mix(in oklab, var(--gray-300) 55%, transparent), color-mix(in oklab, var(--gray-700) 62%, transparent));
+    --theme-hairline-strong: light-dark(color-mix(in oklab, var(--gray-400) 55%, transparent), color-mix(in oklab, var(--gray-600) 70%, transparent));
+    --theme-ink: light-dark(var(--gray-950), var(--color-white));
+    --theme-ink-muted: light-dark(var(--gray-600), var(--gray-400));
+    --theme-accent-wash: light-dark(color-mix(in oklab, var(--primary-200) 42%, transparent), color-mix(in oklab, var(--primary-500) 16%, transparent));
+    --theme-accent-line: light-dark(color-mix(in oklab, var(--primary-500) 55%, transparent), color-mix(in oklab, var(--primary-400) 45%, transparent));
+    --theme-heading-font: var(--font-sans);
+    --theme-grain: repeating-linear-gradient(0deg, color-mix(in oklab, var(--primary-300) 2%, transparent) 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, color-mix(in oklab, var(--primary-300) 1%, transparent) 0 1px, transparent 1px 5px);
+    --theme-stage: linear-gradient(155deg, color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%, color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%, color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%);
+    --theme-transition-offset: 1.5rem;
+    --theme-transition-duration: 0.5s;
 
     @keyframes gradient {
         from {
-            background-position: 0 50%;
+            background-position: 0 0;
         }
         to {
-            background-position: 600% 50%;
+            background-position: 200% 200%;
         }
     }
 }
@@ -56,6 +84,6 @@
     @apply border-2 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-primary-100 outline-offset-16 dark:outline-primary-950;
 }
 
-@utility text-primary-gradient {
-    @apply animate-gradient bg-[length:200%_100%] bg-linear-to-r from-primary-400 via-primary-600 dark:via-primary-50 to-primary-400 bg-clip-text text-transparent;
+@utility text-gradient-primary {
+    @apply animate-gradient from-primary-600 via-primary-900 dark:via-primary-100 to-primary-600 bg-[length:100%_100%] bg-linear-to-l bg-clip-text text-transparent;
 }

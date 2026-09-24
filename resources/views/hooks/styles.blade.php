@@ -25,11 +25,11 @@ use Cloudcake\Themes\Shadows;
         {!! Styles::shadowTokens($shadows) !!}
         {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
         {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
+        {!! Styles::transitionTokens($pageTransitionDuration, $pageTransitionOffset) !!}
     }
     .dark body {
         {!! Styles::bloomTokens(blooming: $blooming, dark: true) !!}
         {!! Styles::shadeTokens($darkPrimaryColour, 'primary') !!}
         {!! Styles::backgroundTokens($darkBackgroundColour, $darkBackgroundShadeColour) !!}
     }
-    {!! Styles::pageTransitions($pageTransitions, $pageTransitionDuration, $pageTransitionOffset) !!}
 </style>

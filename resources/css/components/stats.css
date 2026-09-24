@@ -3,7 +3,6 @@
  */
 
 .fi-wi-stats-overview-stat {
-    @apply bg-[var(--theme-surface)];
     padding: calc(1.375rem * var(--theme-density, 1));
     @apply transition duration-200;
     @apply rounded-2xl;
