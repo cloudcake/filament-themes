@@ -645,15 +645,15 @@
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
         background-color: color-mix(in oklab, var(--theme-surface) 82%, transparent);
         border-color: color-mix(in oklab, white 42%, var(--theme-hairline));
-        backdrop-filter: blur(28px) saturate(180%);
+        /*backdrop-filter: blur(28px) saturate(180%);*/
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
-        backdrop-filter: blur(14px) saturate(140%);
+        /*backdrop-filter: blur(14px) saturate(140%);*/
     }
 
     .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-        backdrop-filter: blur(14px) saturate(140%);
+        /*backdrop-filter: blur(14px) saturate(140%);*/
     }
 
     .dark {
