@@ -85,5 +85,5 @@
 }
 
 @utility text-gradient-primary {
-    @apply animate-gradient from-primary-600 via-primary-900 dark:via-primary-100 to-primary-600 bg-[length:100%_100%] bg-linear-to-l bg-clip-text text-transparent;
+    @apply animate-gradient from-primary-600 via-primary-100 dark:via-primary-100 to-primary-600 bg-[length:100%_100%] bg-linear-to-l bg-clip-text text-transparent;
 }
