@@ -6,7 +6,7 @@
 
 .fi-btn.fi-outlined,
 .fi-input-wrp {
-    border: 1px solid var(--theme-hairline-strong);
+    @apply border border-solid border-[var(--theme-hairline-strong)];
 }
 
 .fi-dropdown-panel,
@@ -20,11 +20,11 @@
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo,
 .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-    border: 1px solid var(--theme-hairline);
+    @apply border border-solid border-[var(--theme-hairline)];
 }
 
 .fi-global-search-field .fi-input-wrp {
-    border: 1px solid transparent;
+    @apply border border-solid border-transparent;
 }
 
 .fi-modal-footer,
@@ -32,7 +32,7 @@
 .fi-sidebar-footer,
 .fi-sidebar-group+.fi-sidebar-group,
 .fi-ta-filter-indicators {
-    border-top: 1px solid var(--theme-hairline);
+    @apply border-t border-solid border-[var(--theme-hairline)];
 }
 
 .fi-sc-tabs,
@@ -47,7 +47,7 @@
 }
 
 .fi-sidebar {
-    border-inline-end: 1px solid var(--theme-hairline);
+    @apply border-e border-solid border-[var(--theme-hairline)];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main,
@@ -67,29 +67,29 @@ th.fi-ta-selection-cell {
 
 .dark {
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
-        border-block-end: 1px solid var(--theme-hairline);
+        @apply border-b border-solid border-[var(--theme-hairline)];
     }
 }
 
 @media (max-width: 1023px) {
     .fi-sidebar {
-        border-inline-end: 1px solid var(--theme-hairline);
+        @apply border-e border-solid border-[var(--theme-hairline)];
     }
 }
 
 @media (min-width: 1024px) {
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content> :not(.fi-simple-header) {
+        @apply border-s border-solid border-[var(--theme-hairline)];
         padding-inline-start: clamp(2rem, 4vw, 3.25rem);
-        border-inline-start: 1px solid var(--theme-hairline);
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main-ctn {
-        border-inline-end: 1px solid var(--theme-hairline);
+        @apply border-e border-solid border-[var(--theme-hairline)];
     }
 
     .dark {
         .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
-            border-inline-end: 1px solid var(--theme-hairline);
+            @apply border-e border-solid border-[var(--theme-hairline)];
             border-block-end: 0;
         }
     }

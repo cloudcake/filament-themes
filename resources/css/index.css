@@ -1,15 +1,15 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
 
 @import './base.css';
-@import './borders.css';
-@import './colours.css';
-@import './layout.css';
-@import './motion.css';
-@import './rounding.css';
-@import './scrollbar.css';
-@import './shadows.css';
-@import './tokens.css';
-@import './typography.css';
+@import 'concerns/borders.css';
+@import 'concerns/colours.css';
+@import 'concerns/layout.css';
+@import 'concerns/motion.css';
+@import 'concerns/rounding.css';
+@import 'concerns/scrollbar.css';
+@import 'concerns/shadows.css';
+@import 'concerns/tokens.css';
+@import 'concerns/typography.css';
 
 @source '../../views/**/*';
 @source '../../**/*';

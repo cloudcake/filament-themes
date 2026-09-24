@@ -3,8 +3,8 @@
 }
 
 .fi-badge.fi-color {
+    @apply text-[var(--color-800)];
     background-color: color-mix(in oklab, var(--color-200) 55%, transparent);
-    color: var(--color-800);
 }
 
 .fi-badge:not(.fi-color) {
@@ -17,7 +17,7 @@
 .fi-fo-field-wrp-label,
 .fi-sidebar-item-btn,
 .fi-topbar-item-btn {
-    color: var(--gray-700);
+    @apply text-[var(--gray-700)];
 }
 
 .fi-body:is(.fi-header-heading,.fi-modal-heading,.fi-simple-header-heading,.fi-ta-header-heading,.fi-empty-state-heading,.fi-ta-empty-state-heading,.fi-logo),
@@ -32,7 +32,7 @@
 .fi-tabs-item:hover,
 .fi-topbar-item-btn:hover,
 .fi-wi-stats-overview-stat-value {
-    color: var(--theme-ink);
+    @apply text-[var(--theme-ink)];
 }
 
 .fi-breadcrumbs-item-label,
@@ -61,14 +61,14 @@
 .fi-wi-stats-overview-stat-description,
 .fi-wi-stats-overview-stat-label,
 th.fi-ta-selection-cell {
-    color: var(--theme-ink-muted);
+    @apply text-[var(--theme-ink-muted)];
 }
 
 .fi-breadcrumbs-item-label:hover,
 .fi-empty-state.fi-compact .fi-empty-state-icon-bg > .fi-icon,
 .fi-ta-empty-state.fi-compact .fi-ta-empty-state-icon-bg > .fi-icon,
 .fi-theme-switcher-btn.fi-active {
-    color: var(--primary-600);
+    @apply text-primary-600;
 }
 
 .fi-btn.fi-outlined.fi-color {
@@ -131,7 +131,7 @@ th.fi-ta-selection-cell {
 .fi-ta-empty-state.fi-compact .fi-ta-empty-state-icon-bg,
 .fi-ta-row.fi-selected > *,
 .fi-topbar-item.fi-active > .fi-topbar-item-btn {
-    background-color: var(--theme-accent-wash);
+    @apply bg-[var(--theme-accent-wash)];
 }
 
 .fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg,
@@ -161,7 +161,7 @@ th.fi-ta-selection-cell {
 .fi-ta-ctn,
 .fi-wi-chart,
 .fi-wi-stats-overview-stat {
-    background-color: var(--theme-surface);
+    @apply bg-[var(--theme-surface)];
 }
 
 .fi-fieldset,
@@ -191,11 +191,11 @@ th.fi-ta-selection-cell {
 }
 
 .fi-global-search-field .fi-input-wrp:focus-within {
-    border-color: var(--theme-accent-line);
+    @apply border-[var(--theme-accent-line)];
 }
 
 .fi-global-search-field .fi-input-wrp:hover {
-    border-color: var(--theme-hairline-strong);
+    @apply border-[var(--theme-hairline-strong)];
 }
 
 .fi-header::before,
@@ -203,7 +203,7 @@ th.fi-ta-selection-cell {
 .fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before,
 .fi-simple-header::after,
 .fi-tabs-item.fi-active::after {
-    background-color: var(--primary-500);
+    @apply bg-primary-500;
 }
 
 .fi-icon-btn:not(.fi-disabled):not([disabled]):hover {
@@ -214,7 +214,7 @@ th.fi-ta-selection-cell {
 .fi-input-wrp .fi-input-wrp-suffix:not(.fi-inline),
 .fi-input-wrp.fi-disabled,
 .fi-simple-main .fi-sc-section {
-    border-color: var(--theme-hairline);
+    @apply border-[var(--theme-hairline)];
 }
 
 .fi-input-wrp.fi-disabled,
@@ -222,16 +222,16 @@ th.fi-ta-selection-cell {
 .fi-modal-footer,
 .fi-simple-main .fi-sc-section,
 .fi-ta-filter-indicators {
-    background-color: var(--theme-surface-sunken);
+    @apply bg-[var(--theme-surface-sunken)];
 }
 
 .fi-input-wrp.fi-invalid,
 .fi-input-wrp.fi-invalid:not(.fi-disabled):focus-within {
-    border-color: var(--danger-600);
+    @apply border-[var(--danger-600)];
 }
 
 .fi-input-wrp:not(.fi-disabled):not(:has(.fi-ac-action:focus)):focus-within {
-    border-color: var(--primary-500);
+    @apply border-[var(--primary-500)];
 }
 
 .fi-input::placeholder {
@@ -239,7 +239,7 @@ th.fi-ta-selection-cell {
 }
 
 .fi-loading-indicator {
-    color: var(--primary-500);
+    @apply text-primary-500;
 }
 
 .fi-loading-section::after,
@@ -261,19 +261,19 @@ th.fi-ta-selection-cell {
 }
 
 .fi-no-notification:has(.fi-color-danger)::before {
-    background-color: var(--danger-500);
+    @apply bg-[var(--danger-500)];
 }
 
 .fi-no-notification:has(.fi-color-info)::before {
-    background-color: var(--info-500);
+    @apply bg-[var(--info-500)];
 }
 
 .fi-no-notification:has(.fi-color-success)::before {
-    background-color: var(--success-500);
+    @apply bg-[var(--success-500)];
 }
 
 .fi-no-notification:has(.fi-color-warning)::before {
-    background-color: var(--warning-500);
+    @apply bg-[var(--warning-500)];
 }
 
 .fi-pagination-item.fi-active .fi-pagination-item-btn,
@@ -284,7 +284,7 @@ th.fi-ta-selection-cell {
 .fi-ta-header-cell-sorted .fi-ta-header-cell-label,
 .fi-tabs-item.fi-active,
 .fi-topbar-item.fi-active > .fi-topbar-item-btn {
-    color: var(--primary-700);
+    @apply text-primary-700;
 }
 
 .fi-section .fi-section-header-description {
@@ -334,8 +334,7 @@ th.fi-ta-selection-cell {
 .fi-simple-header-subheading a:hover,
 .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover,
 .fi-simple-main .fi-fo-field-wrp-hint a:hover {
-    color: var(--primary-800);
-    text-decoration-color: var(--primary-500);
+    @apply text-primary-800 decoration-[var(--primary-500)];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) {
@@ -422,7 +421,7 @@ th.fi-ta-selection-cell {
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
-    background-color: var(--theme-surface-raised);
+    @apply bg-[var(--theme-surface-raised)];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
@@ -502,19 +501,19 @@ th.fi-ta-selection-cell {
 }
 
 .fi-wi-chart-grid-color {
-    color: var(--theme-hairline);
+    @apply text-[var(--theme-hairline)];
 }
 
 .fi-wi-chart-tooltip-bg-color {
-    color: var(--gray-900);
+    @apply text-[var(--gray-900)];
 }
 
 .fi-wi-chart-tooltip-border-color {
-    color: var(--theme-hairline-strong);
+    @apply text-[var(--theme-hairline-strong)];
 }
 
 .fi-wi-chart-tooltip-text-color {
-    color: var(--gray-50);
+    @apply text-[var(--gray-50)];
 }
 
 .phiki {
@@ -522,14 +521,14 @@ th.fi-ta-selection-cell {
 }
 
 ::selection {
+    @apply text-[var(--gray-950)];
     background-color: color-mix(in oklab, var(--primary-300) 60%, transparent);
-    color: var(--gray-950);
 }
 
 .dark {
     .fi-badge.fi-color {
+        @apply text-[var(--color-200)];
         background-color: color-mix(in oklab, var(--color-500) 18%, transparent);
-        color: var(--color-200);
     }
 
     .fi-badge:not(.fi-color),
@@ -537,7 +536,7 @@ th.fi-ta-selection-cell {
     .fi-fo-field-wrp-label,
     .fi-sidebar-item-btn,
     .fi-topbar-item-btn {
-        color: var(--gray-300);
+        @apply text-[var(--gray-300)];
     }
 
     .fi-badge:not(.fi-color),
@@ -549,7 +548,7 @@ th.fi-ta-selection-cell {
     .fi-empty-state.fi-compact .fi-empty-state-icon-bg > .fi-icon,
     .fi-ta-empty-state.fi-compact .fi-ta-empty-state-icon-bg > .fi-icon,
     .fi-theme-switcher-btn.fi-active {
-        color: var(--primary-400);
+        @apply text-primary-400;
     }
 
     .fi-dropdown-list-item:hover,
@@ -569,7 +568,7 @@ th.fi-ta-selection-cell {
     }
 
     .fi-fo-field-wrp-error-message {
-        color: var(--danger-400);
+        @apply text-[var(--danger-400)];
     }
 
     .fi-global-search-field .fi-input-wrp {
@@ -577,7 +576,7 @@ th.fi-ta-selection-cell {
     }
 
     .fi-input-wrp {
-        border-color: var(--theme-hairline-strong);
+        @apply border-[var(--theme-hairline-strong)];
     }
 
     .fi-input-wrp {
@@ -589,7 +588,7 @@ th.fi-ta-selection-cell {
     }
 
     .fi-input-wrp.fi-invalid {
-        border-color: var(--danger-500);
+        @apply border-[var(--danger-500)];
     }
 
     .fi-loading-section::after,
@@ -612,7 +611,7 @@ th.fi-ta-selection-cell {
     .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover,
     .fi-simple-main .fi-fo-field-wrp-hint a:hover,
     .fi-topbar-item.fi-active > .fi-topbar-item-btn {
-        color: var(--primary-200);
+        @apply text-primary-200;
     }
 
     .fi-section-header-icon-ctn {
@@ -624,7 +623,7 @@ th.fi-ta-selection-cell {
     }
 
     .fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
-        color: var(--theme-ink);
+        @apply text-[var(--theme-ink)];
     }
 
     .fi-simple-header-subheading a,
@@ -632,7 +631,7 @@ th.fi-ta-selection-cell {
     .fi-simple-main .fi-fo-field-wrp-hint a,
     .fi-ta-header-cell-sorted .fi-ta-header-cell-label,
     .fi-tabs-item.fi-active {
-        color: var(--primary-300);
+        @apply text-primary-300;
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) {
@@ -713,7 +712,7 @@ th.fi-ta-selection-cell {
     }
 
     .fi-wi-chart-tooltip-bg-color {
-        color: var(--gray-800);
+        @apply text-[var(--gray-800)];
     }
 
     .phiki {
@@ -785,12 +784,12 @@ th.fi-ta-selection-cell {
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main,
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
     .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-        background-color: var(--theme-surface);
+        @apply bg-[var(--theme-surface)];
     }
 }
 
 @supports not (backdrop-filter: blur(1px)) {
     .fi-dropdown-panel {
-        background-color: var(--theme-surface-raised);
+        @apply bg-[var(--theme-surface-raised)];
     }
 }
