@@ -127,42 +127,7 @@ class Styles extends Color
         $str = str('/* Cloudcake Shadows */' . PHP_EOL . PHP_EOL . "\t\t");
 
         foreach ($shadows->tokens() as $variable => $value)
-            $str = $str->append("--$variable: $value;" . PHP_EOL . "\t\t");
-
-        return $str->toString();
-    }
-
-    private static function selectorRules(
-        array  $selects = [],
-        array  $modifiers = [],
-        string $comment = 'Cloudcake Modifications'): string
-    {
-        $str = str("/* $comment */" . PHP_EOL . PHP_EOL . "\t\t");
-
-        foreach ($selects as $name => $selectors) {
-
-            $end = count($selectors);
-
-            foreach ($selectors as $index => $selector) {
-                $str = $str->append($selector);
-
-                if ($index < $end - 1)
-                    $str = $str->append(',' . PHP_EOL . "\t\t");
-            }
-
-            $str = $str->append(' {' . PHP_EOL . "\t\t\t");
-
-            $end = count($modifiers[$name]);
-
-            foreach ($modifiers[$name] as $index => $modifier) {
-                $str = $str->append($modifier . PHP_EOL);
-
-                if ($index < $end - 1)
-                    $str = $str->append("\t\t\t");
-            }
-
-            $str = $str->append("\t\t}" . PHP_EOL . "\t\t");
-        }
+            $str = $str->append("--$variable: $value var(--theme-shadow-colour);" . PHP_EOL . "\t\t");
 
         return $str->toString();
     }

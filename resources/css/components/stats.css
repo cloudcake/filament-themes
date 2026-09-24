@@ -6,7 +6,7 @@
     padding: calc(1.375rem * var(--theme-density, 1));
     @apply transition duration-200;
     @apply rounded-2xl;
-    @apply shadow-md;
+    @apply shadow-lg;
 }
 
 .fi-wi-stats-overview-stat-chart {

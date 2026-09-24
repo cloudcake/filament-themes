@@ -66,6 +66,7 @@
     --theme-stage: linear-gradient(155deg, color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%, color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%, color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%);
     --theme-transition-offset: 1.5rem;
     --theme-transition-duration: 0.5s;
+    --theme-shadow-colour: var(--primary-950);
 
     @keyframes gradient {
         from {
@@ -83,4 +84,46 @@
 
 @utility text-gradient-primary {
     @apply animate-gradient from-primary-400 via-primary-50 dark:via-primary-100 to-primary-400 bg-[length:300%_100%] bg-linear-to-l bg-clip-text text-transparent;
+}
+
+
+/* Shadow overrides are required because of the global --tw-shadow variable set per component */
+
+@utility shadow-color {
+    --tw-shadow-color: var(--theme-shadow-colour);
+}
+
+@utility shadow-2xs {
+    --tw-shadow: var(--shadow-2xs);
+    @apply shadow-color;
+}
+
+@utility shadow-xs {
+    --tw-shadow: var(--shadow-xs);
+    @apply shadow-color;
+}
+
+@utility shadow-sm {
+    --tw-shadow: var(--shadow-sm);
+    @apply shadow-color;
+}
+
+@utility shadow-md {
+    --tw-shadow: var(--shadow-md);
+    @apply shadow-color;
+}
+
+@utility shadow-lg {
+    --tw-shadow: var(--shadow-lg);
+    @apply shadow-color;
+}
+
+@utility shadow-xl {
+    --tw-shadow: var(--shadow-xl);
+    @apply shadow-color;
+}
+
+@utility shadow-2xl {
+    --tw-shadow: var(--shadow-2xl);
+    @apply shadow-color;
 }

@@ -14,12 +14,8 @@
     letter-spacing: 0.004em;
 }
 
-.fi-btn.fi-color:not(.fi-outlined):not(label) {
-    box-shadow: 0 1px 2px color-mix(in oklab, var(--gray-950) 8%, transparent);
-}
-
 .fi-btn.fi-color:not(.fi-outlined):not(label):not(.fi-disabled):not([disabled]):hover {
-    box-shadow: 0 2px 4px color-mix(in oklab, var(--gray-950) 8%, transparent), 0 8px 18px -6px color-mix(in oklab, var(--color-600) 40%, transparent);
+    @apply shadow-primary-600;
 }
 
 .fi-btn.fi-outlined {

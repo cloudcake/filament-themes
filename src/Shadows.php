@@ -5,7 +5,7 @@ namespace Cloudcake\Themes;
 enum Shadows
 {
     case None;
-    case Slight;
+    case Default;
     case Moderate;
     case Strong;
     case Dramatic;
@@ -23,14 +23,14 @@ enum Shadows
                 'shadow-3xl' => 'var(--shadow-none)',
                 'shadow-4xl' => 'var(--shadow-none)',
             ],
-            self::Slight => [
-                'shadow-2xs' => '0 1px rgb(0 0 0 / 0.01)',
-                'shadow-xs' => '0 1px 2px 0 rgb(0 0 0 / 0.02)',
-                'shadow-sm' => '0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05)',
-                'shadow-md' => '0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05)',
-                'shadow-lg' => '0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05)',
-                'shadow-xl' => '0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05)',
-                'shadow-2xl' => '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+            self::Default => [
+                'shadow-2xs' => '0 1px 0 0',
+                'shadow-xs' => '0 1px 2px 0',
+                'shadow-sm' => '0 1px 3px 0',
+                'shadow-md' => '0 4px 6px -1px',
+                'shadow-lg' => '0 10px 15px -3px',
+                'shadow-xl' => '0 20px 25px -5px',
+                'shadow-2xl' => '0 25px 50px -12px',
             ],
             self::Moderate => [
                 'shadow-2xs' => '0 2px rgb(0 0 0 / 0.05)',
@@ -42,22 +42,22 @@ enum Shadows
                 'shadow-2xl' => '0 50px 100px -24px rgb(0 0 0 / 0.25)',
             ],
             self::Strong => [
-                'shadow-2xs' => '0 3px rgb(0 0 0 / 0.092)',
-                'shadow-xs' => '0 4px 8px 0 rgb(0 0 0 / 0.092)',
-                'shadow-sm' => '0 4px 12px 0 rgb(0 0 0 / 0.092), 0 2px 4px -2px rgb(0 0 0 / 0.092)',
-                'shadow-md' => '0 16px 24px -2px rgb(0 0 0 / 0.08), 0 4px 8px -4px rgb(0 0 0 / 0.08)',
-                'shadow-lg' => '0 40px 60px -6px rgb(0 0 0 / 0.092), 0 8px 12px -8px rgb(0 0 0 / 0.092)',
-                'shadow-xl' => '0 80px 100px -10px rgb(0 0 0 / 0.092), 0 16px 20px -12px rgb(0 0 0 / 0.092)',
-                'shadow-2xl' => '0 100px 200px -48px rgb(0 0 0 / 0.25)',
+                'shadow-2xs' => '0 3px',
+                'shadow-xs' => '0 4px 8px',
+                'shadow-sm' => '0 4px 12px',
+                'shadow-md' => '0 16px 24px -2px',
+                'shadow-lg' => '0 40px 60px -6px',
+                'shadow-xl' => '0 80px 100px -10px',
+                'shadow-2xl' => '0 100px 200px -48px',
             ],
             self::Dramatic => [
-                'shadow-2xs' => '0 3px 4px rgb(0 0 0 / 0.18)',
-                'shadow-xs' => '0 4px 8px 0 rgb(0 0 0 / 0.18)',
-                'shadow-sm' => '0 4px 12px 0 rgb(0 0 0 / 0.18), 0 2px 4px -2px rgb(0 0 0 / 0.18)',
-                'shadow-md' => '0 16px 46px -2px rgb(0 0 0 / 0.18), 0 4px 8px -4px rgb(0 0 0 / 0.08)',
-                'shadow-lg' => '0 40px 60px -6px rgb(0 0 0 / 0.18), 0 8px 12px -8px rgb(0 0 0 / 0.18)',
-                'shadow-xl' => '0 80px 100px -10px rgb(0 0 0 / 0.18), 0 16px 20px -12px rgb(0 0 0 / 0.18)',
-                'shadow-2xl' => '0 100px 200px -48px rgb(0 0 0 / 0.25)',
+                'shadow-2xs' => '0 3px 0',
+                'shadow-xs' => '0 4px 8px',
+                'shadow-sm' => '0 4px 12px',
+                'shadow-md' => '0 16px 24px',
+                'shadow-lg' => '0 40px 60px',
+                'shadow-xl' => '0 80px 100px',
+                'shadow-2xl' => '0 100px 200px',
             ]
         };
     }

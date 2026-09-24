@@ -35,13 +35,11 @@
 }
 
 .fi-section.fi-section-not-contained {
-    @apply border-none;
-    @apply bg-transparent;
-    @apply shadow-none;
+    @apply border-none bg-transparent;
 }
 
 .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn {
-    @apply rounded-2xl;
+    @apply rounded-2xl shadow-lg;
 }
 
 .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn:where(.dark,.dark *) {
@@ -49,8 +47,7 @@
 }
 
 .fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained) {
-    @apply rounded-2xl;
-    @apply shadow-lg;
+    @apply rounded-2xl shadow-lg;
 }
 
 .dark {

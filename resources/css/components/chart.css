@@ -4,7 +4,6 @@
 
 .fi-wi-chart {
     @apply rounded-2xl;
-    @apply shadow-md;
     --chart-line-tension: var(--theme-chart-line-tension, 0.35);
     --chart-bar-border-radius: var(--theme-chart-bar-radius, 4);
     --chart-tooltip-corner-radius: var(--theme-chart-tooltip-radius, 12);

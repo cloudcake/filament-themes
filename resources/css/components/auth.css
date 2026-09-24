@@ -132,7 +132,6 @@
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main {
     background-color: transparent;
     border: 0;
-    box-shadow: none;
     max-width: 25rem;
     padding-inline: 1.5rem;
 }
