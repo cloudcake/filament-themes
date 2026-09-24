@@ -14,25 +14,25 @@ use Filament\View\PanelsRenderHook;
 class Theme implements Plugin
 {
     protected Roundness $roundness = Roundness::Moderate;
-    protected Shadows $shadows = Shadows::Dramatic;
+    protected Shadows $shadows = Shadows::Moderate;
 
     protected bool|Closure $headingIcons = false;
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
     protected bool|Closure $pageTransitions = true;
-    protected bool|Closure $rails = true;
+    protected bool|Closure $rails = false;
 
     protected float|Closure $pageTransitionDuration = 0;
     protected float|Closure $pageTransitionOffset = 0;
 
     protected array|false|Closure $blooming = [];
 
-    protected null|array|string|Closure $darkPrimaryColour = null;
-    protected null|array|string|Closure $lightPrimaryColour = null;
-    protected null|array|string|Closure $darkBackgroundColour = null;
-    protected null|array|string|Closure $darkBackgroundTintColour = null;
-    protected null|array|string|Closure $lightBackgroundColour = null;
-    protected null|array|string|Closure $lightBackgroundTintColour = null;
+    protected null|array|string|Closure $darkPrimaryColour = Color::Indigo;
+    protected null|array|string|Closure $lightPrimaryColour = Color::Indigo;
+    protected null|array|string|Closure $darkBackgroundColour = '#11111a';
+    protected null|array|string|Closure $darkBackgroundTintColour = '#6D8196';
+    protected null|array|string|Closure $lightBackgroundColour = '#F1F5F8';
+    protected null|array|string|Closure $lightBackgroundTintColour = 'skyblue';
 
     /**
      * Make an instance of the plugin.
@@ -42,22 +42,22 @@ class Theme implements Plugin
     public static function make(): static
     {
         $instance = app(static::class);
-        $instance->roundness(Roundness::Pill);
-        $instance->shadows(Shadows::Dramatic);
-        $instance->headingIcons();
+        $instance->roundness($instance->roundness);
+        $instance->shadows($instance->shadows);
+        $instance->headingIcons($instance->headingIcons);
         $instance->forceLightMode(false);
         $instance->forceDarkMode(false);
-        $instance->primaryColour(fn(Panel $panel) => $panel->getColors()['primary'] ?? Color::Indigo);
+        $instance->primaryColour(fn(Panel $panel) => $panel->getColors()['primary'] ?? $instance->darkPrimaryColour);
         $instance->background(
-            dark: '#11111a',
-            light: '#F1F5F8',
-            darkTint: '#6D8196',
-            lightTint: 'skyblue'
+            dark: $instance->darkBackgroundColour,
+            light: $instance->lightBackgroundColour,
+            darkTint: $instance->darkBackgroundTintColour,
+            lightTint: $instance->lightBackgroundTintColour
         );
         $instance->transitions(
-            condition: true,
-            duration: 0.5,
-            offset: 1.5
+            condition: $instance->pageTransitions,
+            duration: $instance->pageTransitionDuration,
+            offset: $instance->pageTransitionOffset
         );
         $instance->rails($instance->rails);
         $instance->blooming([

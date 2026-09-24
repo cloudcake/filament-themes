@@ -351,14 +351,6 @@
     line-height: 1.05;
 }
 
-.fi-theme-login-stage-tagline {
-    color: color-mix(in oklab, var(--gray-50) 74%, transparent);
-    margin-top: 1.25rem;
-    max-width: 26ch;
-    text-wrap: pretty;
-    font-size: 1rem;
-    line-height: 1.65;
-}
 
 .fi-theme-login-stage::after {
     background-color: color-mix(in oklab, var(--primary-200) 14%, transparent);
@@ -386,6 +378,16 @@
 .fi-theme-login:empty {
     display: none;
 }
+
+.fi-theme-login-stage-tagline {
+    color: var(--theme-ink-muted);
+    margin-top: 1.25rem;
+    max-width: 26ch;
+    text-wrap: pretty;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
 
 .dark {
     .fi-simple-header-subheading a {
@@ -440,6 +442,9 @@
         @apply text-primary-200;
     }
 
+    .fi-theme-login-stage-tagline {
+        color: color-mix(in oklab, var(--gray-50) 74%, transparent);
+    }
 }
 
 @keyframes theme-auth-in {
