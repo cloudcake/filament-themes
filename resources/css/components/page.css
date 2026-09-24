@@ -10,7 +10,7 @@
 
 .fi-main-ctn {
     @apply rounded-2xl rounded-b-none rounded-tr-none;
-    @apply border-1 border-primary-200 dark:border-gray-900;
+    @apply border-1 border-primary-200 dark:border-gray-800;
 }
 
 .fi-main-sidebar {
