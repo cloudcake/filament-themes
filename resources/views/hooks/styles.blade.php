@@ -12,7 +12,6 @@ use Cloudcake\Themes\Shadows;
 * @var array<int,string>|null $lightPrimaryColour
 * @var array|null $darkBackgroundColour
 * @var array|null $lightBackgroundColour
-* @var bool $rails
 * @var bool $pageTransitions
 * @var float $pageTransitionDuration
 * @var float $pageTransitionOffset
