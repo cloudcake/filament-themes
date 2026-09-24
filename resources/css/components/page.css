@@ -9,9 +9,9 @@
 }
 
 .fi-main-ctn {
-    @apply rounded-2xl rounded-b-none;
+    @apply rounded-2xl rounded-b-none rounded-tr-none;
     @apply rounded-lg;
-    @apply shadow-md;
+    @apply border-1 border-primary-200 dark:border-gray-900;
 }
 
 .fi-main-sidebar {

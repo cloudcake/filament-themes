@@ -32,6 +32,7 @@
 @import 'components/theme-switcher.css';
 @import 'components/page.css';
 @import 'components/misc.css';
+@import 'components/rails.css';
 
 @source '../../views/**/*';
 @source '../../**/*';
@@ -52,7 +53,7 @@
 }
 
 @utility border-rail {
-    @apply border-1 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-double outline-primary-100 -outline-offset-8 dark:outline-primary-950;
+    @apply border-2 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-primary-100 outline-offset-16 dark:outline-primary-950;
 }
 
 @utility text-primary-gradient {

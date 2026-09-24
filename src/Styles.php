@@ -73,6 +73,7 @@ class Styles extends Color
 
     /**
      * @param array<Bloom> $blooming
+     * @param bool $dark
      * @return string
      */
     public static function bloomTokens(array $blooming, bool $dark): string
@@ -156,49 +157,6 @@ class Styles extends Color
         }
 
         return $str->toString();
-    }
-
-    public static function borderRails(bool $active, bool $dark): string
-    {
-        if (!$active)
-            return '';
-
-        $colour = $dark ? '--gray-700' : '--primary-200';
-        $opacityOuter = $dark ? '30' : 80;
-        $opacityInner = $dark ? '20' : 50;
-
-        $selects = [
-            'rails' => [
-                '.fi-wi-stats-overview-stat',
-                '.fi-ta-ctn',
-                '.fi-main-ctn',
-                '.fi-sc-wizard',
-                '.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained)',
-                '.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn',
-                '.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn:where(.dark,.dark *)',
-            ],
-            'borderless' => [
-                '.fi-sidebar',
-                '.fi-topbar',
-            ]
-        ];
-
-        $modifiers = [
-            'rails' => [
-                '--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);',
-                '--tw-outline-style: double;',
-                "border: 1px solid color-mix(in oklab, var($colour) $opacityOuter%, transparent) !important;",
-                'outline-offset: -8px;',
-                'outline-width: 1px;',
-                "outline-color: color-mix(in oklab, var($colour) $opacityInner%, transparent) !important;",
-                'outline-style: double;',
-            ],
-            'borderless' => [
-                'border: none;',
-            ]
-        ];
-
-        return static::selectorRules($selects, $modifiers,'Cloudcake Border Rails');
     }
 
     public static function pageTransitions(bool $active, float $duration = 1.5, float $offset = 1.5): string

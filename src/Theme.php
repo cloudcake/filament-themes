@@ -10,17 +10,18 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Colors\Color;
 use Filament\View\PanelsRenderHook;
+use Illuminate\Support\HtmlString;
 
 class Theme implements Plugin
 {
-    protected Roundness $roundness = Roundness::Moderate;
+    protected Roundness $roundness = Roundness::Pill;
     protected Shadows $shadows = Shadows::Moderate;
 
-    protected bool|Closure $headingIcons = false;
+    protected bool|Closure $headingIcons = true;
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
     protected bool|Closure $pageTransitions = true;
-    protected bool|Closure $rails = false;
+    protected bool|Closure $rails = true;
 
     protected float|Closure $pageTransitionDuration = 0;
     protected float|Closure $pageTransitionOffset = 0;
@@ -208,7 +209,7 @@ class Theme implements Plugin
                 Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
             ])
             ->when(
-                fn($panel) => $panel->evaluate($this->headingIcons) === true,
+                fn($panel) => $panel->evaluate($this->headingIcons),
                 fn($panel) => $panel->renderHook(
                     PanelsRenderHook::PAGE_HEADER_HEADING_BEFORE,
                     fn() => view('cloudcake-themes::hooks.heading-icon')
@@ -229,8 +230,18 @@ class Theme implements Plugin
                     'pageTransitions' => $panel->evaluate($this->pageTransitions),
                     'pageTransitionDuration' => $panel->evaluate($this->pageTransitionDuration),
                     'pageTransitionOffset' => $panel->evaluate($this->pageTransitionOffset),
-                    'rails' => $panel->evaluate($this->rails),
                 ])
+            )
+            ->when(
+                fn($panel) => $panel->evaluate($this->rails),
+                fn($panel) => $panel->renderHook(
+                    PanelsRenderHook::BODY_START,
+                    fn () => new HtmlString(
+                        '<script>
+                            document.body.classList.add("rails");
+                        </script>'
+                    ),
+                )
             )
             ->renderHook(
                 PanelsRenderHook::SIMPLE_LAYOUT_START,
