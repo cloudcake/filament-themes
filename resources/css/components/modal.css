@@ -39,13 +39,13 @@
 
 .fi-modal-slide-over-from-end {
     .fi-modal-window {
-        @apply overflow-x-hidden rounded-r-none;
+        @apply overflow-x-hidden rounded-sm rounded-r-none;
     }
 }
 
 .fi-modal-slide-over-from-start {
     .fi-modal-window {
-        @apply overflow-x-hidden rounded-l-none;
+        @apply overflow-x-hidden rounded-sm rounded-l-none;
     }
 }
 
