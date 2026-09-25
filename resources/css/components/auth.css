@@ -446,10 +446,6 @@
     .fi-simple-main .fi-fo-field-wrp-hint a:hover {
         @apply text-primary-200;
     }
-
-    .fi-theme-login-stage-tagline {
-        color: color-mix(in oklab, var(--gray-50) 74%, transparent);
-    }
 }
 
 @keyframes theme-auth-in {
