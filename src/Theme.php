@@ -21,10 +21,10 @@ use Illuminate\Support\HtmlString;
 
 class Theme implements Plugin
 {
-    protected Roundness $roundness = Roundness::None;
+    protected Roundness $roundness = Roundness::Pill;
     protected Shadows $shadows = Shadows::Default;
-    protected BorderStyle $borderStyle = BorderStyle::Rails;
-    protected int $borderWidth = 8;
+    protected BorderStyle $borderStyle = BorderStyle::Gradient;
+    protected int $borderWidth = 16;
 
     protected bool|Closure $headingIcons = true;
     protected bool|Closure $forceLightMode = false;
