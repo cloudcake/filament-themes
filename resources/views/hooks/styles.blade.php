@@ -19,13 +19,18 @@ use Cloudcake\Themes\Shadows;
 @endphp
 
 <style>
+    :root {
+        {!! Styles::shadowTokens($shadows) !!}
+    }
     body {
         {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
         {!! Styles::roundnessTokens($roundness) !!}
-        {!! Styles::shadowTokens($shadows) !!}
+
         {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
         {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
         {!! Styles::transitionTokens($pageTransitionDuration, $pageTransitionOffset) !!}
+
+        --shadow-opacity: 1;
     }
     .dark body {
         {!! Styles::bloomTokens(blooming: $blooming, dark: true) !!}

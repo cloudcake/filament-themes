@@ -4,6 +4,7 @@
 
 .fi-topbar {
     @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2;
+    box-shadow: none !important;
 }
 
 .fi-topbar-end {
@@ -29,10 +30,6 @@
 
 .fi-topbar-start {
     gap: calc(0.625rem * var(--theme-density, 1));
-}
-
-nav.fi-topbar {
-    @apply shadow-none;
 }
 
 .dark {

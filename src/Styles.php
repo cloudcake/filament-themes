@@ -127,7 +127,7 @@ class Styles extends Color
         $str = str('/* Cloudcake Shadows */' . PHP_EOL . PHP_EOL . "\t\t");
 
         foreach ($shadows->tokens() as $variable => $value)
-            $str = $str->append("--$variable: $value var(--theme-shadow-colour);" . PHP_EOL . "\t\t");
+            $str = $str->append("--runtime-$variable: $value;" . PHP_EOL . "\t\t");
 
         return $str->toString();
     }
