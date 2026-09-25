@@ -64,13 +64,31 @@
     --theme-accent-wash: light-dark(color-mix(in oklab, var(--primary-200) 42%, transparent), color-mix(in oklab, var(--primary-500) 16%, transparent));
     --theme-accent-line: light-dark(color-mix(in oklab, var(--primary-500) 55%, transparent), color-mix(in oklab, var(--primary-400) 45%, transparent));
     --theme-heading-font: var(--font-sans);
-    --theme-grain: repeating-linear-gradient(0deg, color-mix(in oklab, var(--primary-300) 2%, transparent) 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, color-mix(in oklab, var(--primary-300) 1%, transparent) 0 1px, transparent 1px 5px);
     --theme-stage: linear-gradient(155deg, color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%, color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%, color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%);
     --theme-transition-offset: 1.5rem;
     --theme-transition-duration: 0.5s;
     --theme-text-gradient-from-colour: light-dark(var(--primary-400),var(--primary-400));
     --theme-text-gradient-via-colour: light-dark(var(--primary-50), var(--primary-100));
     --theme-text-gradient-to-colour: light-dark(var(--primary-400), var(--primary-400));
+    --theme-grain:
+            repeating-linear-gradient(
+                    0deg,
+                    color-mix(
+                            in oklab,
+                            light-dark(var(--primary-950), var(--primary-100)) 2%,
+                            transparent
+                    ) 0 1px,
+                    transparent 1px 5px
+            ),
+            repeating-linear-gradient(
+                    90deg,
+                    color-mix(
+                            in oklab,
+                            light-dark(var(--primary-950), var(--primary-100)) 1%,
+                            transparent
+                    ) 0 1px,
+                    transparent 1px 5px
+            );
     
     --border-tail-colour: var(--primary-400);
     --border-tail-mix: var(--primary-400);
