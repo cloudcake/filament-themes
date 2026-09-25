@@ -27,7 +27,7 @@ class Theme implements Plugin
     protected AuthLayout|Closure $authLayout = AuthLayout::Editorial;
     protected string|null|Closure $authTagline = "To modify your application's authentication tagline, add the 'tagline' property to the ->auth() call when configuring the plugin.";
 
-    protected int $borderWidth = 16;
+    protected int $borderWidth = 2;
 
     protected bool|Closure $headingIcons = true;
     protected bool|Closure $forceLightMode = false;
