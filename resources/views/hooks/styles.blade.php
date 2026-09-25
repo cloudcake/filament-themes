@@ -21,16 +21,13 @@ use Cloudcake\Themes\Shadows;
 <style>
     :root {
         {!! Styles::shadowTokens($shadows) !!}
-    }
-    body {
-        {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
         {!! Styles::roundnessTokens($roundness) !!}
-
         {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
         {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
         {!! Styles::transitionTokens($pageTransitionDuration, $pageTransitionOffset) !!}
-
-        --shadow-opacity: 1;
+    }
+    body {
+        {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
     }
     .dark body {
         {!! Styles::bloomTokens(blooming: $blooming, dark: true) !!}

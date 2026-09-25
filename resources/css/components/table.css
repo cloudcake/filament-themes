@@ -3,7 +3,6 @@
  */
 
 .fi-pagination {
-    @apply border-t border-solid border-[var(--theme-hairline)];
     padding: calc(0.875rem * var(--theme-density, 1)) calc(1.5rem * var(--theme-density, 1));
 }
 

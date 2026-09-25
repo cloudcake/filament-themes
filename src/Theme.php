@@ -5,6 +5,7 @@
 namespace Cloudcake\Themes;
 
 use Closure;
+use Cloudcake\Themes\Livewire\DatabaseNotifications;
 use Filament\Support\Assets\Css;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
@@ -34,6 +35,7 @@ class Theme implements Plugin
     protected null|array|string|Closure $darkBackgroundTintColour = '#6D8196';
     protected null|array|string|Closure $lightBackgroundColour = '#F1F5F8';
     protected null|array|string|Closure $lightBackgroundTintColour = 'skyblue';
+
 
     /**
      * Make an instance of the plugin.
@@ -119,6 +121,8 @@ class Theme implements Plugin
 
     public function boot(Panel $panel): void
     {
+        DatabaseNotifications::defaultTab('unread');
+        DatabaseNotifications::confirmDelete(true);
     }
 
     public function roundness(Closure|Roundness $roundness): static
@@ -204,6 +208,8 @@ class Theme implements Plugin
 
     private function registerTheme(Panel $panel): static
     {
+        $panel->databaseNotificationsLivewireComponent(DatabaseNotifications::class);
+
         $panel
             ->assets([
                 Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
