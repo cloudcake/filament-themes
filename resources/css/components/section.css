@@ -6,8 +6,9 @@
     @apply text-sm dark:text-gray-400/50;
 }
 
-.fi-section-content {
+.fi-section-content:not(:has(.fi-wi-stats-overview-stat)):not(:has(.fi-wi-chart-frame)) {
     gap: calc(1.5rem * var(--theme-density, 1));
+    @apply bg-white dark:bg-gray-900;
 }
 
 .fi-section-header {

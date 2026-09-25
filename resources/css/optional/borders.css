@@ -1,0 +1,37 @@
+.fi-wi-stats-overview-stat,
+.fi-ta-ctn,
+.fi-sc-wizard,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-section-content-ctn,
+.fi-section-content {
+    @apply rounded-lg;
+}
+
+.theme-borders-rails {
+    .fi-sidebar,
+    .fi-topbar {
+        @apply border-none ring-0 outline-0;
+    }
+
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !border-[length:var(--theme-border-width)] border-gray-50 dark:border-gray-900;
+        @apply !ring-1 !ring-primary-200 dark:!ring-gray-800;
+        @apply !outline-1 !-outline-offset-[length:var(--theme-border-width)] !outline-primary-200 dark:!outline-gray-800;
+    }
+}
+
+.theme-borders-gradient:not(:has(.fi-loading-section)) {
+    div:has(> .fi-wi-stats-overview-stat),
+    div:has(> .fi-ta-ctn),
+    div:has(> .fi-sc-wizard),
+    div:has(> .fi-section):not(:has(.fi-wi-stats-overview-stat)):not(:has(.fi-aside)):not(.fi-section-not-contained),
+    .fi-section-content-ctn:not(:has(.fi-wi-stats-overview-stat)):not(:has(.fi-wi-chart-frame))
+    {
+        @apply rounded-lg bg-gradient-to-b p-[var(--theme-border-width)] from-primary-300 to-primary-100 dark:from-primary-950 dark:to-primary-900/20;
+    }
+}

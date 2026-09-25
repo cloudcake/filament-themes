@@ -32,7 +32,7 @@
 @import 'components/page.css';
 @import 'components/misc.css';
 
-@import 'optional/rails.css';
+@import 'optional/borders.css';
 @import 'optional/transitions.css';
 
 @source '../../views/**/*';

@@ -1,6 +1,8 @@
 <?php
 
-namespace Cloudcake\Themes;
+namespace Cloudcake\Themes\Settings;
+
+use Cloudcake\Themes\Enums\BloomPosition;
 
 readonly class Bloom
 {

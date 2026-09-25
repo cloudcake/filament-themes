@@ -1,21 +1,18 @@
 @php
-use Cloudcake\Themes\Bloom;
-use Cloudcake\Themes\Styles;
-use Cloudcake\Themes\Roundness;
-use Cloudcake\Themes\Shadows;
+    use Cloudcake\Themes\Enums\Roundness;use Cloudcake\Themes\Enums\Shadows;use Cloudcake\Themes\Settings\Bloom;use Cloudcake\Themes\Settings\Styles;
 
-/**
-* @var array<Bloom>|false|null $blooming
-* @var Roundness $roundness
-* @var Shadows $shadows
-* @var array<int,string>|null $darkPrimaryColour
-* @var array<int,string>|null $lightPrimaryColour
-* @var array|null $darkBackgroundColour
-* @var array|null $lightBackgroundColour
-* @var bool $pageTransitions
-* @var float $pageTransitionDuration
-* @var float $pageTransitionOffset
-*/
+    /**
+    * @var array<Bloom>|false|null $blooming
+    * @var Roundness $roundness
+    * @var Shadows $shadows
+    * @var array<int,string>|null $darkPrimaryColour
+    * @var array<int,string>|null $lightPrimaryColour
+    * @var array|null $darkBackgroundColour
+    * @var array|null $lightBackgroundColour
+    * @var bool $pageTransitions
+    * @var float $pageTransitionDuration
+    * @var float $pageTransitionOffset
+    */
 @endphp
 
 <style>
@@ -25,10 +22,13 @@ use Cloudcake\Themes\Shadows;
         {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
         {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
         {!! Styles::transitionTokens($pageTransitionDuration, $pageTransitionOffset) !!}
+        --theme-border-width: {{$borderWidth}}px;
     }
+
     body {
-        {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
+    {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
     }
+
     .dark body {
         {!! Styles::bloomTokens(blooming: $blooming, dark: true) !!}
         {!! Styles::shadeTokens($darkPrimaryColour, 'primary') !!}

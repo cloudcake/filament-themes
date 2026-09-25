@@ -1,7 +1,9 @@
 <?php
 
-namespace Cloudcake\Themes;
+namespace Cloudcake\Themes\Settings;
 
+use Cloudcake\Themes\Enums\Roundness;
+use Cloudcake\Themes\Enums\Shadows;
 use Filament\Support\Colors\Color;
 
 class Styles extends Color

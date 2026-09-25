@@ -1,5 +1,5 @@
 @php
-    use Cloudcake\Themes\AuthLayout;
+    use Cloudcake\Themes\Enums\AuthLayout;
 
     /** @var AuthLayout $layout */
     $hasStage = $layout->hasStage();

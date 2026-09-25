@@ -5,24 +5,31 @@
 namespace Cloudcake\Themes;
 
 use Closure;
+use Cloudcake\Themes\Enums\AuthLayout;
+use Cloudcake\Themes\Enums\BloomPosition;
+use Cloudcake\Themes\Enums\BorderStyle;
+use Cloudcake\Themes\Enums\Roundness;
+use Cloudcake\Themes\Enums\Shadows;
 use Cloudcake\Themes\Livewire\DatabaseNotifications;
-use Filament\Support\Assets\Css;
+use Cloudcake\Themes\Settings\Bloom;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Assets\Css;
 use Filament\Support\Colors\Color;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\HtmlString;
 
 class Theme implements Plugin
 {
-    protected Roundness $roundness = Roundness::Pill;
+    protected Roundness $roundness = Roundness::None;
     protected Shadows $shadows = Shadows::Default;
+    protected BorderStyle $borderStyle = BorderStyle::Rails;
+    protected int $borderWidth = 8;
 
     protected bool|Closure $headingIcons = true;
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
     protected bool|Closure $pageTransitions = true;
-    protected bool|Closure $rails = true;
 
     protected float|Closure $pageTransitionDuration = 0.5;
     protected float|Closure $pageTransitionOffset = 1.5;
@@ -62,7 +69,7 @@ class Theme implements Plugin
             duration: $instance->pageTransitionDuration,
             offset: $instance->pageTransitionOffset
         );
-        $instance->rails($instance->rails);
+        $instance->borders($instance->borderStyle, $instance->borderWidth);
         $instance->blooming([
             new Bloom(
                 position: BloomPosition::UpperCenter,
@@ -139,6 +146,14 @@ class Theme implements Plugin
         return $this;
     }
 
+    public function borders(Closure|BorderStyle $style, int $width = 8): static
+    {
+        $this->borderStyle = $style;
+        $this->borderWidth = $width;
+
+        return $this;
+    }
+
     public function blooming(Closure|array|false $blooming): static
     {
         $this->blooming = $blooming;
@@ -172,13 +187,6 @@ class Theme implements Plugin
         $this->pageTransitions = $condition;
         $this->pageTransitionDuration = $duration;
         $this->pageTransitionOffset = $offset;
-
-        return $this;
-    }
-
-    public function rails(bool|Closure $condition = true): static
-    {
-        $this->rails = $condition;
 
         return $this;
     }
@@ -227,6 +235,7 @@ class Theme implements Plugin
                     'roundness' => $panel->evaluate($this->roundness),
                     'shadows' => $panel->evaluate($this->shadows),
                     'blooming' => $panel->evaluate($this->blooming),
+                    'borderWidth' => $this->borderWidth,
                     'darkPrimaryColour' => $this->getColourFromInput($panel->evaluate($this->darkPrimaryColour)),
                     'darkBackgroundColour' => $panel->evaluate($this->darkBackgroundColour),
                     'darkBackgroundShadeColour' => $panel->evaluate($this->darkBackgroundTintColour),
@@ -238,16 +247,17 @@ class Theme implements Plugin
                     'pageTransitionOffset' => $panel->evaluate($this->pageTransitionOffset),
                 ])
             )
+            ->renderHook(
+                PanelsRenderHook::BODY_START,
+                function () {
+                    $borderStyle = strtolower($this->borderStyle->name);
+
+                    return new HtmlString("<script>document.body.classList.add('theme-borders-$borderStyle');</script>");
+                },
+            )
             ->when(
-                fn($panel) => $panel->evaluate($this->rails),
-                fn($panel) => $panel->renderHook(
-                    PanelsRenderHook::BODY_START,
-                    fn () => new HtmlString(
-                        '<script>
-                            document.body.classList.add("theme-rails");
-                        </script>'
-                    ),
-                )
+                fn($panel) => $panel->evaluate($this->borderStyle) == BorderStyle::Rails,
+                fn($panel) => $panel
             )
             ->when(
                 fn($panel) => $panel->evaluate($this->pageTransitions),

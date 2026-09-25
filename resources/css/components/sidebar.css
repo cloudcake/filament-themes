@@ -3,7 +3,6 @@
  */
 
 .fi-sidebar {
-    @apply border-e border-solid border-[var(--theme-hairline)];
     @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2;
     @apply shadow-none;
 }
@@ -51,10 +50,11 @@
 }
 
 .fi-sidebar-item-btn > .fi-icon {
-    @apply dark:text-gray-700;
+    @apply text-gray-400/80 dark:text-gray-600;
 }
 
 .fi-sidebar-item-label {
+    @apply text-gray-900 dark:text-gray-50;
     font-size: 0.875rem;
 }
 
@@ -62,14 +62,12 @@
     @apply text-primary-600;
 }
 
-.fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
-    @apply bg-primary-500;
-    content: '';
-    position: absolute;
-    inset-inline-start: 0;
-    inset-block: 0;
-    width: 5px;
-    border-radius: var(--radius-lg);
+.fi-sidebar-item > .fi-sidebar-item-btn {
+    @apply border-l-5 border-transparent;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    @apply border-l-5 border-l-primary-500 rounded-lg;
 }
 
 .fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
@@ -78,21 +76,17 @@
 }
 
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
-    @apply bg-[var(--theme-accent-wash)];
-    @apply text-primary-700;
-    @apply pl-4;
-    @apply transition duration-200;
-    font-weight: 550;
+    @apply text-primary-700 bg-[var(--theme-accent-wash)] rounded-lg  transition duration-200 font-semibold;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    @apply !rounded-xs bg-[var(--theme-accent-wash)];
 }
 
 .fi-sidebar-nav {
     padding: calc(1rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
     scrollbar-gutter: stable;
     gap: calc(0.375rem * var(--theme-density, 1));
-}
-
-.fi-sidebar-sub-group-items .fi-sidebar-item > .fi-sidebar-item-btn {
-    @apply pl-4;
 }
 
 .fi-theme-rail-only {
@@ -136,10 +130,6 @@
 
     .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-header {
         padding-inline: 0;
-    }
-
-    .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-item.fi-active > .fi-sidebar-item-btn::before {
-        display: none;
     }
 
     .fi-body-has-sidebar-collapsible-on-desktop:not(.fi-body-has-top-navigation) .fi-sidebar:not(.fi-sidebar-open) .fi-sidebar-nav {

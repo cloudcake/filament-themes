@@ -1,6 +1,6 @@
 <?php
 
-namespace Cloudcake\Themes;
+namespace Cloudcake\Themes\Enums;
 
 enum AuthLayout: string
 {

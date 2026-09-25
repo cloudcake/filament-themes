@@ -13,6 +13,10 @@
     --chart-point-radius: 0;
 }
 
+.fi-wi-chart-frame {
+    @apply border-none rounded-none;
+}
+
 .fi-wi-chart-grid-color {
     @apply text-[var(--theme-hairline)];
 }
