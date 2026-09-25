@@ -160,7 +160,7 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
-    @apply text-primary-100;
+    @apply !text-primary-100;
     max-width: 54ch;
 }
 
@@ -376,7 +376,7 @@
 }
 
 .fi-theme-login-stage-tagline {
-    @apply text-primary-100;
+    @apply !text-primary-100;
     margin-top: 1.25rem;
     max-width: 26ch;
     text-wrap: pretty;
