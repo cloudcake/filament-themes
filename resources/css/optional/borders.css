@@ -19,7 +19,7 @@
     .fi-section:not(.fi-aside):not(.fi-section-not-contained),
     .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
     .fi-wi-stats-overview-stat {
-        @apply !border-[length:var(--theme-border-width)] border-gray-50 dark:border-gray-900;
+        @apply !border-[length:var(--theme-border-width)] border-white dark:border-gray-900;
         @apply !ring-1 !ring-primary-200 dark:!ring-gray-800;
         @apply !outline-1 !-outline-offset-[length:var(--theme-border-width)] !outline-primary-200 dark:!outline-gray-800;
     }
