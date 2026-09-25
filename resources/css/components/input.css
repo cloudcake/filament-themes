@@ -3,11 +3,8 @@
  */
 
 .fi-global-search-field .fi-input-wrp {
-    @apply border border-solid border-transparent;
-    background-color: color-mix(in oklab, var(--gray-400) 9%, transparent);
-    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), border-color var(--theme-duration, 260ms) var(--theme-ease, ease);
-    border-radius: var(--radius-3xl);
-    @apply shadow-none;
+    @apply border border-solid border-transparent rounded-3xl shadow-none bg-gray-600/9;
+    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), border-color var(--theme-duration, 260ms) var(--theme-ease, ease);;
 }
 
 .fi-global-search-field .fi-input-wrp:focus-within {
@@ -21,16 +18,11 @@
 
 .fi-input {
     @apply text-[var(--theme-ink)];
-    padding-block: calc(0.5625rem * var(--theme-density, 1));
     font-size: 0.875rem;
 }
 
 .fi-input-wrp {
-    @apply border border-solid border-[var(--theme-hairline-strong)];
-    @apply rounded-xl;
-    @apply shadow-none;
-
-    transition: background-color 200ms var(--theme-ease, ease), border-color 200ms var(--theme-ease, ease), box-shadow 200ms var(--theme-ease, ease);
+    @apply ring-1 ring-gray-300 dark:ring-gray-600 rounded-2xl;
 }
 
 .fi-input-wrp .fi-input-wrp-prefix:not(.fi-inline) {
