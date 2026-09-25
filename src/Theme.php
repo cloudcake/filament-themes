@@ -14,7 +14,7 @@ use Illuminate\Support\HtmlString;
 
 class Theme implements Plugin
 {
-    protected Roundness $roundness = Roundness::Pill;
+    protected Roundness $roundness = Roundness::Strong;
     protected Shadows $shadows = Shadows::Default;
 
     protected bool|Closure $headingIcons = true;

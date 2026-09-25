@@ -5,6 +5,9 @@ namespace Cloudcake\Themes;
 enum Shadows
 {
     case None;
+    case Faint;
+    case Whisper;
+    case Soft;
     case Slight;
     case Default;
     case Moderate;
@@ -25,6 +28,42 @@ enum Shadows
                 'shadow-2xl' => 'var(--shadow-none)',
                 'shadow-3xl' => 'var(--shadow-none)',
                 'shadow-4xl' => 'var(--shadow-none)',
+            ],
+
+            self::Faint => [
+                'shadow-2xs' => '0 1px 0 var(--tw-shadow-color, rgb(0 0 0 / 1%))',
+                'shadow-xs' => '0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 1%))',
+                'shadow-sm' => '0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 3%)), 0 1px 1px -1px var(--tw-shadow-color, rgb(0 0 0 / 3%))',
+                'shadow-md' => '0 2px 4px -1px var(--tw-shadow-color, rgb(0 0 0 / 3%)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 3%))',
+                'shadow-lg' => '0 5px 8px -2px var(--tw-shadow-color, rgb(0 0 0 / 3%)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 3%))',
+                'shadow-xl' => '0 10px 14px -4px var(--tw-shadow-color, rgb(0 0 0 / 3%)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 3%))',
+                'shadow-2xl' => '0 15px 30px -10px var(--tw-shadow-color, rgb(0 0 0 / 8%))',
+                'shadow-3xl' => '0 20px 36px -12px var(--tw-shadow-color, rgb(0 0 0 / 10%))',
+                'shadow-4xl' => '0 28px 48px -15px var(--tw-shadow-color, rgb(0 0 0 / 12%))',
+            ],
+
+            self::Whisper => [
+                'shadow-2xs' => '0 1px 0 var(--tw-shadow-color, rgb(0 0 0 / 2%))',
+                'shadow-xs' => '0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 2%))',
+                'shadow-sm' => '0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 4%)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 4%))',
+                'shadow-md' => '0 3px 5px -1px var(--tw-shadow-color, rgb(0 0 0 / 4%)), 0 2px 3px -2px var(--tw-shadow-color, rgb(0 0 0 / 4%))',
+                'shadow-lg' => '0 7px 11px -3px var(--tw-shadow-color, rgb(0 0 0 / 4%)), 0 3px 5px -4px var(--tw-shadow-color, rgb(0 0 0 / 4%))',
+                'shadow-xl' => '0 14px 18px -5px var(--tw-shadow-color, rgb(0 0 0 / 4%)), 0 6px 8px -6px var(--tw-shadow-color, rgb(0 0 0 / 4%))',
+                'shadow-2xl' => '0 20px 40px -12px var(--tw-shadow-color, rgb(0 0 0 / 10%))',
+                'shadow-3xl' => '0 28px 48px -15px var(--tw-shadow-color, rgb(0 0 0 / 12%))',
+                'shadow-4xl' => '0 36px 64px -20px var(--tw-shadow-color, rgb(0 0 0 / 14%))',
+            ],
+
+            self::Soft => [
+                'shadow-2xs' => '0 1px 0 var(--tw-shadow-color, rgb(0 0 0 / 3%))',
+                'shadow-xs' => '0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 3%))',
+                'shadow-sm' => '0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 6%)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 6%))',
+                'shadow-md' => '0 3px 5px -1px var(--tw-shadow-color, rgb(0 0 0 / 6%)), 0 2px 3px -2px var(--tw-shadow-color, rgb(0 0 0 / 6%))',
+                'shadow-lg' => '0 8px 12px -3px var(--tw-shadow-color, rgb(0 0 0 / 6%)), 0 3px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 6%))',
+                'shadow-xl' => '0 16px 20px -5px var(--tw-shadow-color, rgb(0 0 0 / 6%)), 0 6px 9px -6px var(--tw-shadow-color, rgb(0 0 0 / 6%))',
+                'shadow-2xl' => '0 22px 44px -12px var(--tw-shadow-color, rgb(0 0 0 / 15%))',
+                'shadow-3xl' => '0 30px 52px -15px var(--tw-shadow-color, rgb(0 0 0 / 17%))',
+                'shadow-4xl' => '0 40px 68px -20px var(--tw-shadow-color, rgb(0 0 0 / 20%))',
             ],
 
             self::Slight => [
@@ -53,7 +92,7 @@ enum Shadows
 
             self::Moderate => [
                 'shadow-2xs' => '0 1px 1px var(--tw-shadow-color, rgb(0 0 0 / 7%))',
-                'shadow-xs' => '0 2px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 8%))',
+                'shadow-xs' => '0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 8%))',
                 'shadow-sm' => '0 2px 5px 0 var(--tw-shadow-color, rgb(0 0 0 / 12%)), 0 2px 3px -1px var(--tw-shadow-color, rgb(0 0 0 / 12%))',
                 'shadow-md' => '0 5px 9px -1px var(--tw-shadow-color, rgb(0 0 0 / 13%)), 0 3px 6px -2px var(--tw-shadow-color, rgb(0 0 0 / 13%))',
                 'shadow-lg' => '0 12px 18px -3px var(--tw-shadow-color, rgb(0 0 0 / 14%)), 0 5px 9px -4px var(--tw-shadow-color, rgb(0 0 0 / 14%))',
