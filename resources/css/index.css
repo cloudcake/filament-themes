@@ -35,7 +35,7 @@
 @import 'optional/borders.css';
 @import 'optional/transitions.css';
 
-@source '../../views/**/*';
+@source '../views/**/*.blade.php';
 @source '../../**/*';
 
 @theme {
@@ -68,6 +68,9 @@
     --theme-stage: linear-gradient(155deg, color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%, color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%, color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%);
     --theme-transition-offset: 1.5rem;
     --theme-transition-duration: 0.5s;
+    --theme-text-gradient-from-colour: light-dark(var(--primary-400),var(--primary-400));
+    --theme-text-gradient-via-colour: light-dark(var(--primary-50), var(--primary-100));
+    --theme-text-gradient-to-colour: light-dark(var(--primary-400), var(--primary-400));
     
     --border-tail-colour: var(--primary-400);
     --border-tail-mix: var(--primary-400);
@@ -104,6 +107,10 @@
 
 @utility border-rail {
     @apply border-1 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-primary-100 outline-offset-16 dark:outline-primary-950;
+}
+
+@utility text-gradient {
+    @apply from-[var(--theme-text-gradient-from-colour)] via-[var(--theme-text-gradient-via-colour)] to-[var(--theme-text-gradient-to-colour)] bg-[length:200%_100%] bg-linear-to-l bg-clip-text text-transparent;
 }
 
 @utility text-gradient-primary {

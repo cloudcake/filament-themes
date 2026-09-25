@@ -8,9 +8,8 @@
     row-gap: var(--theme-section-gap, 2rem);
 }
 
-.fi-main-ctn {
-    @apply rounded-2xl rounded-b-none rounded-tr-none;
-    @apply border-1 border-primary-200 dark:border-gray-800;
+.fi-page .fi-main-ctn {
+    @apply border-1 border-primary-200 dark:border-gray-800 rounded-2xl rounded-b-none rounded-tr-none;
 }
 
 .fi-main-sidebar {

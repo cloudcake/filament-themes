@@ -24,6 +24,9 @@ class Theme implements Plugin
     protected Roundness $roundness = Roundness::Pill;
     protected Shadows $shadows = Shadows::Default;
     protected BorderStyle $borderStyle = BorderStyle::Gradient;
+    protected AuthLayout|Closure $authLayout = AuthLayout::Editorial;
+    protected string|null|Closure $authTagline = "To modify your application's authentication tagline, add the 'tagline' property to the ->auth() call when configuring the plugin.";
+
     protected int $borderWidth = 16;
 
     protected bool|Closure $headingIcons = true;
@@ -58,6 +61,7 @@ class Theme implements Plugin
         $instance->forceLightMode(false);
         $instance->forceDarkMode(false);
         $instance->primaryColour(fn(Panel $panel) => $panel->getColors()['primary'] ?? $instance->darkPrimaryColour);
+        $instance->auth($instance->authLayout, $instance->authTagline);
         $instance->background(
             dark: $instance->darkBackgroundColour,
             light: $instance->lightBackgroundColour,
@@ -182,6 +186,13 @@ class Theme implements Plugin
         return $this;
     }
 
+    public function auth(AuthLayout|Closure $layout, string|null|Closure $tagline = null) : static {
+        $this->authLayout = $layout;
+        $this->authTagline = $tagline;
+
+        return $this;
+    }
+
     public function transitions(bool|Closure $condition = true, float|Closure $duration = 0.5, float|Closure $offset = 1.5): static
     {
         $this->pageTransitions = $condition;
@@ -230,6 +241,10 @@ class Theme implements Plugin
                 ),
             )
             ->renderHook(
+                name: PanelsRenderHook::SIMPLE_LAYOUT_END,
+                hook: fn () => view('cloudcake-themes::hooks.light-switch')
+            )
+            ->renderHook(
                 PanelsRenderHook::STYLES_AFTER,
                 fn() => view('cloudcake-themes::hooks.styles', [
                     'roundness' => $panel->evaluate($this->roundness),
@@ -273,8 +288,8 @@ class Theme implements Plugin
             ->renderHook(
                 PanelsRenderHook::SIMPLE_LAYOUT_START,
                 fn() => view('cloudcake-themes::layouts.auth', [
-                    'layout' => AuthLayout::Editorial,
-                    'tagline' => "To modify your application's authentication tagline, add the 'tagline' key to the ->auth() call when configuring the plugin."
+                    'layout' => $panel->evaluate($this->authLayout),
+                    'tagline' => $panel->evaluate($this->authTagline),
                 ]),
             )
             ->when(

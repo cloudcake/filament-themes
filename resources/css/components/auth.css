@@ -2,6 +2,10 @@
  *  Auth / simple layout
  */
 
+.fi-main-content {
+    @apply !border-none !ring-0 !outline-0;
+}
+
 .fi-simple-header {
     text-align: center;
 }
@@ -79,7 +83,6 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-    @apply border border-solid border-[var(--theme-hairline)];
     padding: calc(2.5rem * var(--theme-density, 1));
     border-radius: var(--radius-3xl, 1.75rem);
 }
@@ -93,7 +96,6 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
-    @apply border border-solid border-[var(--theme-hairline)];
     padding: calc(2.5rem * var(--theme-density, 1));
     border-radius: var(--radius-3xl, 1.75rem);
 }
@@ -130,8 +132,7 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main {
-    background-color: transparent;
-    border: 0;
+    @apply border-none bg-transparent;
     max-width: 25rem;
     padding-inline: 1.5rem;
 }
@@ -160,7 +161,7 @@
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
     @apply text-[var(--theme-ink-muted)];
-    max-width: 34ch;
+    max-width: 54ch;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) {
@@ -222,14 +223,12 @@
 }
 
 .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-    @apply border border-solid border-[var(--theme-hairline)];
     padding: calc(2.5rem * var(--theme-density, 1));
     border-radius: var(--radius-3xl, 1.75rem);
 }
 
 .fi-simple-main {
     animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
-    @apply rounded-2xl rounded-b-none;
     @apply shadow-xl;
 }
 
@@ -286,14 +285,12 @@
 }
 
 .fi-simple-main .fi-sc-section {
-    @apply border-[var(--theme-hairline)];
     border-radius: var(--radius-xl, 0.9375rem);
     @apply shadow-none;
 }
 
 .fi-simple-main-ctn {
-    @apply rounded-2xl rounded-b-none;
-    @apply shadow-md;
+    @apply shadow-md border-e border-primary-200/50 dark:border-primary-900/50;
 }
 
 .fi-theme-login {
@@ -322,10 +319,10 @@
 .fi-theme-login-stage-inner::after {
     background-color: color-mix(in oklab, var(--primary-400) 80%, transparent);
     content: '';
-    height: 2px;
+    height: 3px;
     display: block;
     width: 3rem;
-    margin-top: 2.25rem;
+    margin-top: 1.25rem;
     border-radius: var(--radius-3xl);
 }
 
@@ -343,7 +340,11 @@
     letter-spacing: -0.018em;
     line-height: 1.05;
 
-    @apply text-gradient-primary;
+    --theme-text-gradient-from-colour: light-dark(var(--color-white),var(--color-white));
+    --theme-text-gradient-via-colour: light-dark(var(--primary-950), var(--primary-800));
+    --theme-text-gradient-to-colour: light-dark(var(--color-white), var(--primary-50));
+
+    @apply text-gradient animate-gradient [animation-duration:22s];
 }
 
 
@@ -375,12 +376,21 @@
 }
 
 .fi-theme-login-stage-tagline {
-    color: var(--theme-ink-muted);
+    @apply text-[var(--theme-ink-muted)];
     margin-top: 1.25rem;
     max-width: 26ch;
     text-wrap: pretty;
-    font-size: 1rem;
-    line-height: 1.65;
+    font-weight: 600;
+    font-size: 0.8875rem;
+    letter-spacing: 0.085em;
+}
+
+.fi-simple-main {
+    @apply outline-0 ring-0 shadow-none;
+}
+
+.fi-light-switch {
+    @apply rounded-3xl bg-gray-50 dark:bg-gray-950;
 }
 
 
@@ -571,7 +581,6 @@
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main-ctn {
-        @apply border-e border-solid border-[var(--theme-hairline)];
         order: 1;
         justify-content: flex-end;
         padding-inline: clamp(2rem, 6vw, 6rem);
@@ -619,7 +628,6 @@
         }
 
     }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -633,16 +641,4 @@
         animation: none;
     }
 
-}
-
-@supports (backdrop-filter: blur(1px)) {
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-        border-color: color-mix(in oklab, white 42%, var(--theme-hairline));
-    }
-
-    .dark {
-        .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-            border-color: color-mix(in oklab, white 12%, var(--theme-hairline));
-        }
-    }
 }
