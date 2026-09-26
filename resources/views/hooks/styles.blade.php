@@ -19,14 +19,14 @@
     :root {
         {!! Styles::shadowTokens($shadows) !!}
         {!! Styles::roundnessTokens($roundness) !!}
-        {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
-        {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
         {!! Styles::transitionTokens($pageTransitionDuration, $pageTransitionOffset) !!}
         --theme-border-width: {{$borderWidth}}px;
     }
 
     body {
-    {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
+        {!! Styles::bloomTokens(blooming: $blooming, dark: false) !!}
+        {!! Styles::shadeTokens($lightPrimaryColour, 'primary') !!}
+        {!! Styles::backgroundTokens($lightBackgroundColour, $lightBackgroundShadeColour) !!}
     }
 
     .dark body {

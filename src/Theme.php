@@ -8,6 +8,7 @@ use Closure;
 use Cloudcake\Themes\Enums\AuthLayout;
 use Cloudcake\Themes\Enums\BloomPosition;
 use Cloudcake\Themes\Enums\BorderStyle;
+use Cloudcake\Themes\Enums\Preset;
 use Cloudcake\Themes\Enums\Roundness;
 use Cloudcake\Themes\Enums\Shadows;
 use Cloudcake\Themes\Livewire\DatabaseNotifications;
@@ -25,6 +26,7 @@ class Theme implements Plugin
     protected Shadows $shadows = Shadows::Default;
     protected BorderStyle $borderStyle = BorderStyle::Default;
     protected AuthLayout|Closure $authLayout = AuthLayout::Default;
+    protected Preset|Closure|null $preset = null;
     protected string|null|Closure $authTagline = "To modify your application's authentication tagline, add the 'tagline' property to the ->auth() call when configuring the plugin.";
 
     protected int $borderWidth = 11;
@@ -65,8 +67,10 @@ class Theme implements Plugin
         $instance->background(
             dark: $instance->darkBackgroundColour,
             light: $instance->lightBackgroundColour,
-            darkTint: $instance->darkBackgroundTintColour,
-            lightTint: $instance->lightBackgroundTintColour
+        );
+        $instance->tint(
+            dark: $instance->darkBackgroundTintColour,
+            light: $instance->lightBackgroundTintColour
         );
         $instance->transitions(
             condition: $instance->pageTransitions,
@@ -186,7 +190,8 @@ class Theme implements Plugin
         return $this;
     }
 
-    public function auth(AuthLayout|Closure $layout, string|null|Closure $tagline = null) : static {
+    public function auth(AuthLayout|Closure $layout, string|null|Closure $tagline = null): static
+    {
         $this->authLayout = $layout;
         $this->authTagline = $tagline;
 
@@ -212,15 +217,29 @@ class Theme implements Plugin
 
     public function background(
         array|string|null|Closure $dark,
-        array|string|null|Closure $light,
-        array|string|null|Closure $darkTint = null,
-        array|string|null|Closure $lightTint = null
+        array|string|null|Closure $light
     ): static
     {
         $this->darkBackgroundColour = $dark;
         $this->lightBackgroundColour = $light;
-        $this->darkBackgroundTintColour = $darkTint;
-        $this->lightBackgroundTintColour = $lightTint;
+
+        return $this;
+    }
+
+    public function tint(
+        array|string|null|Closure $dark = null,
+        array|string|null|Closure $light = null
+    ): static
+    {
+        $this->darkBackgroundTintColour = $dark;
+        $this->lightBackgroundTintColour = $light;
+
+        return $this;
+    }
+
+    public function preset(Preset|Closure|null $preset): static
+    {
+        $this->preset = $preset;
 
         return $this;
     }
@@ -230,6 +249,10 @@ class Theme implements Plugin
         $panel->databaseNotificationsLivewireComponent(DatabaseNotifications::class);
 
         $panel
+            ->when(
+                fn($panel) => $panel->evaluate($this->preset) !== null,
+                fn($panel) => $panel->evaluate($this->preset)->apply($this)
+            )
             ->assets([
                 Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
             ])
@@ -242,7 +265,7 @@ class Theme implements Plugin
             )
             ->renderHook(
                 name: PanelsRenderHook::SIMPLE_LAYOUT_END,
-                hook: fn () => view('cloudcake-themes::hooks.light-switch')
+                hook: fn() => view('cloudcake-themes::hooks.light-switch')
             )
             ->renderHook(
                 PanelsRenderHook::STYLES_AFTER,
@@ -278,7 +301,7 @@ class Theme implements Plugin
                 fn($panel) => $panel->evaluate($this->pageTransitions),
                 fn($panel) => $panel->renderHook(
                     PanelsRenderHook::BODY_START,
-                    fn () => new HtmlString(
+                    fn() => new HtmlString(
                         '<script>
                             document.body.classList.add("theme-transitions");
                         </script>'

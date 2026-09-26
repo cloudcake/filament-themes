@@ -144,7 +144,7 @@
     @apply
     border-[length:var(--theme-border-width)]
     border-dotted
-    border-primary-200/50 dark:border-gray-800
+    border-gray-300 dark:border-gray-800
     ring-0
     outline-0
 }
@@ -153,21 +153,21 @@
     @apply
     border-1
     border-dotted
-    border-primary-200/50 dark:border-gray-800
+    border-gray-300 dark:border-gray-800
     ring-[length:var(--theme-border-width)]
     ring-inset
     ring-transparent
     outline-1
     outline-dotted
     -outline-offset-[length:var(--theme-border-width)]
-    outline-primary-200/50 dark:outline-gray-800;
+    outline-primary-400/50 dark:outline-gray-800;
 }
 
 @utility theme-border-rails {
     @apply
     border-1
     border-solid
-    border-primary-200/50 dark:border-gray-800
+    border-gray-300 dark:border-gray-800
     ring-[length:var(--theme-border-width)]
     ring-inset
     ring-transparent
@@ -177,11 +177,11 @@
     outline-primary-200/50 dark:outline-gray-800;
 }
 
-@utility theme-border-dotted {
+@utility theme-border-dashed {
     @apply
     border-[length:var(--theme-border-width)]
     border-dashed
-    border-primary-200/50 dark:border-gray-800
+    border-gray-300 dark:border-gray-800
     ring-0
     outline-0
 }
@@ -191,7 +191,7 @@
     @apply
     border-1
     border-dashed
-    border-primary-200/50 dark:border-gray-800
+    border-primary-400/50 dark:border-gray-800
     ring-[length:var(--theme-border-width)]
     ring-inset
     ring-transparent
