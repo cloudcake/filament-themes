@@ -29,10 +29,10 @@ class Theme implements Plugin
 
     protected int $borderWidth = 11;
 
-    protected bool|Closure $headingIcons = true;
+    protected bool|Closure $headingIcons = false;
     protected bool|Closure $forceLightMode = false;
     protected bool|Closure $forceDarkMode = false;
-    protected bool|Closure $pageTransitions = true;
+    protected bool|Closure $pageTransitions = false;
 
     protected float|Closure $pageTransitionDuration = 0.5;
     protected float|Closure $pageTransitionOffset = 1.5;

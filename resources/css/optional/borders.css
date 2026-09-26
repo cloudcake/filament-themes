@@ -35,14 +35,14 @@
     }
 }
 
-.theme-borders-rails {
+.theme-borders-dashed {
     .fi-main-ctn,
     .fi-ta-ctn,
     .fi-sc-wizard,
     .fi-section:not(.fi-aside):not(.fi-section-not-contained),
     .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
     .fi-wi-stats-overview-stat {
-        @apply !theme-border-rails;
+        @apply !theme-border-dashed;
     }
 }
 
@@ -54,5 +54,16 @@
     .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
     .fi-wi-stats-overview-stat {
         @apply !theme-border-dashedrails;
+    }
+}
+
+.theme-borders-rails {
+    .fi-main-ctn,
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !theme-border-rails;
     }
 }

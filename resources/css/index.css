@@ -177,6 +177,16 @@
     outline-primary-200/50 dark:outline-gray-800;
 }
 
+@utility theme-border-dotted {
+    @apply
+    border-[length:var(--theme-border-width)]
+    border-dashed
+    border-primary-200/50 dark:border-gray-800
+    ring-0
+    outline-0
+}
+
+
 @utility theme-border-dashedrails {
     @apply
     border-1
