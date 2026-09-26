@@ -1,8 +1,52 @@
 /* All Notifications */
 
 .fi-no-notification {
+    @apply shadow-md !bg-white dark:!bg-gray-900;
+}
+
+.fi-no-notification:not([class*="fi-color-"]) {
+    .fi-no-notification-icon,
+    .fi-no-notification-title {
+        @apply text-primary-400;
+    }
+}
+
+/* Only Page Notifications */
+.fi-no-notification:not(.fi-no-database *) {
     & {
-        @apply shadow-md rounded-sm !bg-white dark:!bg-gray-800;
+        @apply border-t-3 border-t-primary-500;
+
+        &:has(.fi-color-danger) {
+            @apply border-t-danger-500;
+
+            .fi-no-notification-title {
+                @apply text-danger-400;
+            }
+        }
+
+        &:has(.fi-color-info) {
+            @apply border-t-info-500;
+
+            .fi-no-notification-title {
+                @apply text-info-400;
+            }
+        }
+
+        &:has(.fi-color-success) {
+            @apply border-t-success-500;
+
+            .fi-no-notification-title {
+                @apply text-success-400;
+            }
+        }
+
+        &:has(.fi-color-warning) {
+            @apply border-t-warning-500;
+
+            .fi-no-notification-title {
+                @apply text-warning-400;
+            }
+        }
     }
 
     .fi-no-notification-body {
@@ -16,6 +60,12 @@
         font-weight: 550;
         letter-spacing: -0.004em;
     }
+}
+
+.fi-no-notification,
+.fi-no-notification-read-ctn,
+.fi-no-notification-unread-ctn {
+    @apply rounded-md;
 }
 
 /* Database Notifications */
@@ -40,33 +90,100 @@
 
     .fi-no-notification-unread-ctn {
         & {
-            --border-tail-colour: var(--primary-400);
+            @apply bg-gradient-to-b p-[0.08rem] from-primary-400 to-primary-100 dark:to-primary-800/30;
 
-            @apply rounded-md border-tail border-b-2 border-t-2 border-r-2 dark:border-b-1 dark:border-r-1 dark:border-t-1 border-l-8 animate-border [animation-duration:12s];
-        }
-
-        &:has(.fi-color-primary) {
-            --border-tail-colour: light-dark(var(--primary-400), var(--primary-400));
+            .fi-no-notification-title {
+                @apply text-primary-400;
+            }
         }
 
         &:has(.fi-color-danger) {
-            --border-tail-colour: light-dark(var(--danger-400),var(--danger-400));
+            @apply from-danger-400 to-danger-100 dark:to-danger-800/30;
+
+            .fi-no-notification-title {
+                @apply text-danger-400;
+            }
         }
 
         &:has(.fi-color-info) {
-            --border-tail-colour: light-dark(var(--info-400),var(--info-400));
+            @apply from-info-400 to-info-100 dark:to-info-800/30;
+
+            .fi-no-notification-title {
+                @apply text-info-400;
+            }
         }
 
         &:has(.fi-color-success) {
-            --border-tail-colour: light-dark(var(--success-400),var(--success-400));
+            @apply from-success-400 to-success-100 dark:to-success-800/30;
+
+            .fi-no-notification-title {
+                @apply text-success-400;
+            }
         }
 
         &:has(.fi-color-warning) {
-            --border-tail-colour: light-dark(var(--warning-400),var(--warning-400));
+            @apply from-warning-400 to-warning-100 dark:to-warning-800/30;
+
+            .fi-no-notification-title {
+                @apply text-warning-400;
+            }
         }
 
         .fi-no-notification {
-            @apply rounded-sm rounded-l-none;
+            @apply bg-transparent !border-none ring-0 outline-0;
+        }
+    }
+
+    .fi-no-notification-read-ctn {
+        & {
+            --border-tail-colour: var(--primary-400);
+
+            @apply grayscale-25 bg-gradient-to-r p-px from-primary-400/30 to-primary-100 dark:to-primary-800/30;
+
+            .fi-no-notification-title,
+            .fi-no-notification-icon {
+                @apply text-primary-400/60;
+            }
+        }
+
+        &:has(.fi-color-danger) {
+            @apply from-danger-400/30 to-danger-100 dark:to-danger-800/30;
+
+            .fi-no-notification-title,
+            .fi-no-notification-icon {
+                @apply text-danger-400/60;
+            }
+        }
+
+        &:has(.fi-color-info) {
+            @apply from-info-400/30 to-info-100 dark:to-info-800/30;
+
+            .fi-no-notification-title,
+            .fi-no-notification-icon {
+                @apply text-info-400/60;
+            }
+        }
+
+        &:has(.fi-color-success) {
+            @apply from-success-400/30 to-success-100 dark:to-success-800/30;
+
+            .fi-no-notification-title,
+            .fi-no-notification-icon {
+                @apply text-success-400/60;
+            }
+        }
+
+        &:has(.fi-color-warning) {
+            @apply from-warning-400/30 to-warning-100 dark:to-warning-800/30;
+
+            .fi-no-notification-title,
+            .fi-no-notification-icon {
+                @apply text-warning-400/60;
+            }
+        }
+
+        .fi-no-notification {
+            @apply bg-transparent !border-none ring-0 outline-0;
         }
     }
 
@@ -76,6 +193,6 @@
     }
 
     .fi-modal-content {
-        @apply overflow-x-hidden my-0.5;
+        @apply overflow-x-hidden my-px;
     }
 }
