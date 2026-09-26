@@ -89,6 +89,30 @@
                     ) 0 1px,
                     transparent 1px 5px
             );
+
+    --theme-grain-lg:
+            repeating-linear-gradient(
+                    0deg,
+                    color-mix(in oklab, var(--gray-400) 10%, transparent) 0 1px,
+                    transparent 1px 4px
+            ),
+            repeating-linear-gradient(
+                    90deg,
+                    color-mix(in oklab, var(--gray-400) 8%, transparent) 0 1px,
+                    transparent 1px 4px
+            );
+
+    --theme-grain-lg-dark:
+            repeating-linear-gradient(
+                    0deg,
+                    color-mix(in oklab,var(--gray-800) 10%, transparent) 0 1px,
+                    transparent 1px 4px
+            ),
+            repeating-linear-gradient(
+                    90deg,
+                    color-mix(in oklab, var(--gray-800) 8%, transparent) 0 1px,
+                    transparent 1px 4px
+            );
     
     --border-tail-colour: var(--primary-400);
     --border-tail-mix: var(--primary-400);

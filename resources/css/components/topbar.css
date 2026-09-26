@@ -3,8 +3,9 @@
  */
 
 .fi-topbar {
-    @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2;
-    box-shadow: none !important;
+    @apply backdrop-blur-[2px];
+    @apply !bg-transparent;
+    @apply shadow-none;
 }
 
 .fi-topbar-end {

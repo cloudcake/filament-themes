@@ -27,7 +27,7 @@ enum Preset
                 ->headingIcons()
                 ->transitions(duration: 0.825, offset: 0.825)
                 ->primaryColour(dark: Color::Lime, light: Color::Lime)
-                ->background(dark: '#11111a', light: '#F1F5F8')
+                ->background(dark: '#11111a', light: '#FFFFFF')
             ->tint(dark: '#6D8196', light: 'skyblue')
         };
     }

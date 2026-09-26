@@ -3,7 +3,8 @@
  */
 
 .fi-sidebar {
-    @apply backdrop-blur bg-primary-50/2 dark:bg-primary-950/2;
+    @apply backdrop-blur-[2px];
+    @apply !bg-transparent;
     @apply shadow-none;
 }
 
