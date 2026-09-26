@@ -5,6 +5,7 @@ namespace Cloudcake\Themes\Enums;
 enum Roundness
 {
     case None;
+    case Default;
     case Slight;
     case Moderate;
     case Strong;
@@ -13,6 +14,7 @@ enum Roundness
     public function tokens() : array
     {
         return match($this) {
+            self::Default => [],
             self::None => [
                 'radius-xs' => '0',
                 'radius-sm' => '0',
@@ -52,7 +54,7 @@ enum Roundness
             self::Pill => [
                 'radius-xs' => '0.5rem',
                 'radius-sm' => '0.75rem',
-                'radius-md' => '1rem',
+                'radius-md' => '0.9rem',
                 'radius-lg' => '1.25rem',
                 'radius-xl' => '1.75rem',
                 'radius-2xl' => '2.5rem',

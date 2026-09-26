@@ -21,13 +21,13 @@ use Illuminate\Support\HtmlString;
 
 class Theme implements Plugin
 {
-    protected Roundness $roundness = Roundness::Pill;
+    protected Roundness $roundness = Roundness::Default;
     protected Shadows $shadows = Shadows::Default;
-    protected BorderStyle $borderStyle = BorderStyle::Gradient;
-    protected AuthLayout|Closure $authLayout = AuthLayout::Editorial;
+    protected BorderStyle $borderStyle = BorderStyle::Default;
+    protected AuthLayout|Closure $authLayout = AuthLayout::Default;
     protected string|null|Closure $authTagline = "To modify your application's authentication tagline, add the 'tagline' property to the ->auth() call when configuring the plugin.";
 
-    protected int $borderWidth = 2;
+    protected int $borderWidth = 11;
 
     protected bool|Closure $headingIcons = true;
     protected bool|Closure $forceLightMode = false;
@@ -285,12 +285,15 @@ class Theme implements Plugin
                     ),
                 )
             )
-            ->renderHook(
-                PanelsRenderHook::SIMPLE_LAYOUT_START,
-                fn() => view('cloudcake-themes::layouts.auth', [
-                    'layout' => $panel->evaluate($this->authLayout),
-                    'tagline' => $panel->evaluate($this->authTagline),
-                ]),
+            ->when(
+                fn($panel) => $panel->evaluate($this->authLayout) !== AuthLayout::Default,
+                fn($panel) => $panel->renderHook(
+                    PanelsRenderHook::SIMPLE_LAYOUT_START,
+                    fn() => view('cloudcake-themes::layouts.auth', [
+                        'layout' => $panel->evaluate($this->authLayout),
+                        'tagline' => $panel->evaluate($this->authTagline),
+                    ]),
+                )
             )
             ->when(
                 fn($panel) => $panel->evaluate($this->forceDarkMode),

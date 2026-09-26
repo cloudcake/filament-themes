@@ -4,6 +4,8 @@ namespace Cloudcake\Themes\Enums;
 
 enum AuthLayout: string
 {
+    case Default = '';
+
     /**
      * A single card centred on the canvas, over two very soft pools of warm
      * light. The quietest of the five, and the default.

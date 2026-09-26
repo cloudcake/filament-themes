@@ -3,7 +3,7 @@
  */
 
 .fi-global-search-field .fi-input-wrp {
-    @apply border border-solid border-transparent rounded-3xl shadow-none bg-gray-600/9;
+    @apply border border-solid border-transparent rounded-xl shadow-none bg-gray-600/9;
     transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), border-color var(--theme-duration, 260ms) var(--theme-ease, ease);;
 }
 
@@ -22,7 +22,11 @@
 }
 
 .fi-input-wrp {
-    @apply ring-1 ring-gray-300 dark:ring-gray-600 rounded-2xl;
+    @apply ring-1 ring-gray-300 dark:ring-gray-600 rounded-lg;
+}
+
+.fi-input-wrp .fi-input {
+    @apply rounded-2xl;
 }
 
 .fi-input-wrp .fi-input-wrp-prefix:not(.fi-inline) {
