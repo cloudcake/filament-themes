@@ -8,7 +8,7 @@ use Filament\Panel;
 
 trait ConfiguresPreset
 {
-    protected Preset|Closure|null $preset = null;
+    protected Preset|Closure|null $preset = Preset::Default;
 
     public function preset(Preset|Closure|null $preset): static
     {

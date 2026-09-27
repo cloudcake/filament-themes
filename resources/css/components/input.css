@@ -25,6 +25,14 @@
     @apply ring-1 ring-gray-300 dark:ring-gray-600 rounded-lg;
 }
 
+.fi-input-wrap:has(.fi-input-wrp-prefix) {
+    @apply rounded-l-none;
+}
+
+.fi-input-wrap:has(.fi-input-wrp-suffix) {
+    @apply rounded-r-none;
+}
+
 .fi-input-wrp .fi-input {
     @apply rounded-2xl;
 }

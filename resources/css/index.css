@@ -102,15 +102,15 @@
                     transparent 1px 4px
             );
 
-    --theme-grain-lg-dark:
+    --theme-grain-dark:
             repeating-linear-gradient(
                     0deg,
-                    color-mix(in oklab,var(--gray-800) 10%, transparent) 0 1px,
+                    color-mix(in oklab,var(--gray-600) 5%, transparent) 0 1px,
                     transparent 1px 4px
             ),
             repeating-linear-gradient(
                     90deg,
-                    color-mix(in oklab, var(--gray-800) 8%, transparent) 0 1px,
+                    color-mix(in oklab, var(--gray-600) 3%, transparent) 0 1px,
                     transparent 1px 4px
             );
     
@@ -137,6 +137,17 @@
     @keyframes border {
         to {
             --border-angle: 1080deg;
+        }
+    }
+
+    @keyframes theme-auth-in {
+        from {
+            opacity: 0;
+            transform: translateY(2.75rem);
+        }
+        to {
+            opacity: 1;
+            transform: none;
         }
     }
 }

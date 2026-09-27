@@ -6,8 +6,10 @@
     background-image: var(--theme-grain);
 }
 
-.dark .fi-main-ctn {
-    background-image: var(--theme-grain-dark);
+.dark {
+    .fi-main-ctn {
+        background-image: var(--theme-grain-dark);
+    }
 }
 
 .fi-main {
@@ -21,7 +23,14 @@
 }
 
 .fi-main-sidebar {
-    ::-webkit-scrollbar { @apply w-[0.2rem]; } ::-webkit-scrollbar-track { @apply my-12 bg-transparent; };
+    ::-webkit-scrollbar {
+        @apply w-[0.2rem];
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply my-12 bg-transparent;
+    }
+;
 }
 
 .fi-page {
@@ -30,10 +39,11 @@
 
 .fi-main-sidebar {
     ::-webkit-scrollbar {
-    @apply w-[0.2rem];
+        @apply w-[0.2rem];
     }
+
     ::-webkit-scrollbar-track {
-    @apply my-12 bg-transparent;
+        @apply my-12 bg-transparent;
     }
 }
 

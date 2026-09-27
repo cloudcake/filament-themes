@@ -63,6 +63,11 @@ trait ConfiguresColours
         $panel->renderHook(
             PanelsRenderHook::STYLES_AFTER,
             function () use ($panel) {
+                $lightBloomTokens = '';
+                $lightShadeTokens = '';
+                $darkBloomTokens = '';
+                $darkShadeTokens = '';
+
                 $blooming = $panel->evaluate($this->blooming);
 
                 if ($blooming !== false && is_array($blooming) && blank($blooming))
@@ -103,23 +108,29 @@ trait ConfiguresColours
                 if ($blooming !== false) {
                     $lightBloomTokens = Styles::bloomTokens($blooming, dark: false);
                     $darkBloomTokens = Styles::bloomTokens($blooming, dark: true);
-                } else {
-                    $lightBloomTokens = '';
-                    $darkBloomTokens = '';
                 }
 
-                $lightPrimaryColour = $this->getColourFromInput($panel->evaluate($this->lightPrimaryColour));
+                $lightPrimaryColour = $panel->evaluate($this->lightPrimaryColour) ?? false;
+
+                if ($lightPrimaryColour) {
+                    $lightPrimaryColour = $this->getColourFromInput($panel->evaluate($this->lightPrimaryColour));
+                    $lightShadeTokens = Styles::shadeTokens($lightPrimaryColour, 'primary');
+                }
+
                 $lightBackgroundColour = $panel->evaluate($this->lightBackgroundColour);
                 $lightTintingColour = $panel->evaluate($this->lightBackgroundTintColour);
 
-                $lightShadeTokens = Styles::shadeTokens($lightPrimaryColour, 'primary');
                 $lightBackgroundTokens = Styles::backgroundTokens($lightBackgroundColour, $lightTintingColour);
 
-                $darkPrimaryColour = $this->getColourFromInput($panel->evaluate($this->darkPrimaryColour));
+                $darkPrimaryColour = $panel->evaluate($this->lightPrimaryColour) ?? false;
+
+                if ($darkPrimaryColour) {
+                    $darkPrimaryColour = $this->getColourFromInput($panel->evaluate($this->darkPrimaryColour));
+                    $darkShadeTokens = Styles::shadeTokens($darkPrimaryColour, 'primary');
+                }
+
                 $darkBackgroundColour = $panel->evaluate($this->darkBackgroundColour);
                 $darkTintingColour = $panel->evaluate($this->darkBackgroundTintColour);
-
-                $darkShadeTokens = Styles::shadeTokens($darkPrimaryColour, 'primary');
                 $darkBackgroundTokens = Styles::backgroundTokens($darkBackgroundColour, $darkTintingColour);
 
                 return new HtmlString(

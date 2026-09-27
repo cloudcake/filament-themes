@@ -6,6 +6,7 @@ use Closure;
 use Cloudcake\Themes\Enums\AuthLayout;
 use Filament\Panel;
 use Filament\View\PanelsRenderHook;
+use Illuminate\Support\Facades\Blade;
 
 trait ConfiguresHeadings
 {
@@ -44,27 +45,20 @@ trait ConfiguresHeadings
                         'iconSize' => $panel->evaluate($this->headingIconSize),
                     ])
                 )
-                ->renderHook(
-                    PanelsRenderHook::STYLES_AFTER,
-                    fn() => view('cloudcake-themes::hooks.style-heading-icon', [
-                        'iconColour' => $panel->evaluate($this->headingIconColour),
-                        'iconSize' => $panel->evaluate($this->headingIconSize),
-                    ])
-                ),
         );
 
-        $panel->when(
-            fn($panel) => $panel->evaluate($this->headingUnderline),
-            fn($panel) => $panel
-                ->renderHook(
-                    PanelsRenderHook::STYLES_AFTER,
-                    fn() => view('cloudcake-themes::hooks.style-heading-underline', [
-                        'underlineColour' => $panel->evaluate($this->headingUnderlineColour),
-                        'underlineThickness' => $panel->evaluate($this->headingUnderlineThickness),
-                        'underlineLength' => $panel->evaluate($this->headingUnderlineLength),
-                    ])
-                ),
-        );
+//        $panel->when(
+//            fn($panel) => $panel->evaluate($this->headingUnderline),
+//            fn($panel) => $panel
+//                ->renderHook(
+//                    PanelsRenderHook::STYLES_AFTER,
+//                    fn() => view('cloudcake-themes::hooks.style-heading-underline', [
+//                        'underlineColour' => $panel->evaluate($this->headingUnderlineColour),
+//                        'underlineThickness' => $panel->evaluate($this->headingUnderlineThickness),
+//                        'underlineLength' => $panel->evaluate($this->headingUnderlineLength),
+//                    ])
+//                ),
+//        );
 
         return $this;
     }

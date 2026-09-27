@@ -2,8 +2,6 @@
 
 namespace Cloudcake\Themes;
 
-use Cloudcake\Themes\Enums\BloomPosition;
-use Cloudcake\Themes\Settings\Bloom;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Assets\Css;
@@ -29,10 +27,7 @@ class Theme implements Plugin
      */
     public static function make(): static
     {
-        $instance = app(static::class);
-        $instance->primaryColour(fn(Panel $panel) => $panel->getColors()['primary'] ?? $instance->darkPrimaryColour);
-
-        return $instance;
+        return app(static::class);
     }
 
     public function getId(): string
@@ -47,13 +42,13 @@ class Theme implements Plugin
         ]);
 
         $this
+            ->applyPreset($panel)
             ->applyAuthTheme($panel)
             ->applyBorders($panel)
             ->applyColours($panel)
             ->applyTransitions($panel)
             ->applyHeadings($panel)
             ->applyLightMode($panel)
-            ->applyPreset($panel)
             ->applyNotifications($panel)
             ->applyShadows($panel);
     }
@@ -62,6 +57,4 @@ class Theme implements Plugin
     {
         // Implemented, not used.
     }
-
-
 }
