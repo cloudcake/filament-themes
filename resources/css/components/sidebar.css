@@ -80,12 +80,11 @@
         .fi-sidebar-item-label {
             @apply font-semibold underline underline-offset-4 decoration-primary-500 dark:decoration-primary-400 decoration-2
         }
-    }
-}
 
-/* Active Icon */
-.fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon {
-    @apply text-primary-600;
+        > .fi-icon {
+            @apply text-primary-400 dark:text-primary-500;
+        }
+    }
 }
 
 .fi-sidebar-nav {

@@ -3,11 +3,11 @@
  */
 
 .fi-main-ctn {
-    background-image: var(--theme-grain-lg);
+    background-image: var(--theme-grain);
 }
 
 .dark .fi-main-ctn {
-    background-image: var(--theme-grain-lg-dark);
+    background-image: var(--theme-grain-dark);
 }
 
 .fi-main {

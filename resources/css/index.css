@@ -70,7 +70,7 @@
     --theme-text-gradient-from-colour: light-dark(var(--primary-400),var(--primary-400));
     --theme-text-gradient-via-colour: light-dark(var(--primary-50), var(--primary-100));
     --theme-text-gradient-to-colour: light-dark(var(--primary-400), var(--primary-400));
-    --theme-grain:
+    --theme-grain-xs:
             repeating-linear-gradient(
                     0deg,
                     color-mix(
@@ -90,15 +90,15 @@
                     transparent 1px 5px
             );
 
-    --theme-grain-lg:
+    --theme-grain:
             repeating-linear-gradient(
                     0deg,
-                    color-mix(in oklab, var(--gray-400) 10%, transparent) 0 1px,
+                    color-mix(in oklab, var(--gray-400) 5%, transparent) 0 1px,
                     transparent 1px 4px
             ),
             repeating-linear-gradient(
                     90deg,
-                    color-mix(in oklab, var(--gray-400) 8%, transparent) 0 1px,
+                    color-mix(in oklab, var(--gray-400) 3%, transparent) 0 1px,
                     transparent 1px 4px
             );
 
@@ -116,7 +116,7 @@
     
     --border-tail-colour: var(--primary-400);
     --border-tail-mix: var(--primary-400);
-    
+
     --shadow-2xs: var(--runtime-shadow-2xs);
     --shadow-xs: var(--runtime-shadow-xs);
     --shadow-sm: var(--runtime-shadow-sm);
@@ -152,11 +152,23 @@
 }
 
 @utility text-gradient {
-    @apply from-[var(--theme-text-gradient-from-colour)] via-[var(--theme-text-gradient-via-colour)] to-[var(--theme-text-gradient-to-colour)] bg-[length:200%_100%] bg-linear-to-l bg-clip-text text-transparent;
+    @apply animate-gradient from-[var(--theme-text-gradient-from-colour)] via-[var(--theme-text-gradient-via-colour)] to-[var(--theme-text-gradient-to-colour)] bg-[length:200%_100%] bg-linear-to-l bg-clip-text text-transparent;
 }
 
 @utility text-gradient-primary {
-    @apply animate-gradient from-primary-400 via-primary-50 dark:via-primary-100 to-primary-400 bg-[length:300%_100%] bg-linear-to-l bg-clip-text text-transparent;
+    --theme-text-gradient-from-colour: light-dark(var(--primary-400),var(--primary-400));
+    --theme-text-gradient-via-colour: light-dark(var(--primary-50), var(--primary-100));
+    --theme-text-gradient-to-colour: light-dark(var(--primary-400), var(--primary-400));
+
+    @apply text-gradient;
+}
+
+@utility text-gradient-danger {
+    --theme-text-gradient-from-colour: light-dark(var(--danger-400),var(--danger-400));
+    --theme-text-gradient-via-colour: light-dark(var(--danger-50), var(--danger-100));
+    --theme-text-gradient-to-colour: light-dark(var(--danger-400), var(--danger-400));
+
+    @apply text-gradient;
 }
 
 @utility border-tail {

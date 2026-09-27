@@ -11,7 +11,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->bootLanguage();
         $this->bootViews();
-        $this->bootLivewire();
     }
 
     private function bootLanguage(): void
@@ -22,10 +21,5 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     private function bootViews(): void
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'cloudcake-themes');
-    }
-
-    private function bootLivewire() : void
-    {
-        Livewire::component('filament-notifications-tabs.database-notifications', DatabaseNotifications::class);
     }
 }
