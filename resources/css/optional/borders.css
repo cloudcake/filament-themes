@@ -10,7 +10,11 @@
 
 .fi-sidebar,
 .fi-topbar {
-    @apply border-none ring-0 outline-0;
+    @apply border-none ring-0 outline-0 shadow-none;
+}
+
+.fi-sidebar:not(.fi-body-has-topbar .fi-sidebar) {
+    @apply border-gray-200 dark:border-gray-800 border-r-1 border-solid;
 }
 
 .theme-borders-dotted {

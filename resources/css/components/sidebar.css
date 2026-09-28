@@ -4,8 +4,10 @@
 
 .fi-sidebar {
     @apply backdrop-blur-[2px];
-    @apply !bg-transparent;
-    @apply shadow-none;
+}
+
+.fi-sidebar-nav-groups {
+    row-gap: calc(var(--spacing) * 4);
 }
 
 .fi-sidebar-footer {
@@ -15,6 +17,11 @@
 
 .fi-sidebar-group + .fi-sidebar-group {
     margin-top: calc(0.5rem * var(--theme-density, 1));
+    padding-top: calc(0.5rem * var(--theme-density, 1));
+}
+
+.fi-sidebar-group + .fi-sidebar-group:not(.fi-sidebar-open .fi-sidebar-group) {
+    padding-top: calc(2.5rem * var(--theme-density, 1));
 }
 
 .fi-sidebar-group + .fi-sidebar-group {
@@ -26,7 +33,7 @@
 }
 
 .fi-sidebar-group-label {
-    @apply text-[var(--theme-ink-muted)];
+    @apply text-[var(--theme-ink-muted)] uppercase;
     padding-inline: calc(0.75rem * var(--theme-density, 1));
     padding-block: calc(0.875rem * var(--theme-density, 1)) calc(0.5rem * var(--theme-density, 1));
 }
@@ -40,31 +47,29 @@
 }
 
 .fi-sidebar-item-btn {
+    --tw-font-weight: 500;
     @apply text-[var(--gray-700)];
     position: relative;
     padding: calc(0.5625rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
-    gap: calc(0.75rem * var(--theme-density, 1));
+    gap: calc(1.05rem * var(--theme-density, 1));
     transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), color var(--theme-duration, 260ms) var(--theme-ease, ease);
     border-radius: var(--radius-lg, 0.75rem);
-    font-weight: 450;
     letter-spacing: -0.005em;
+    font-weight: 500 !important;
 }
 
 .fi-sidebar-item-btn > .fi-icon {
     @apply text-gray-400/80 dark:text-gray-600;
 }
 
-.fi-sidebar-item-label {
-    @apply text-gray-900 dark:text-gray-50 overflow-visible;
-    font-size: 0.875rem;
-}
+.fi-sidebar-item, .fi-sidebar-item-btn, .fi-sidebar-item-label {
 
-.fi-sidebar-item > .fi-sidebar-item-btn {
-    @apply !border-none;
+
+    @apply text-gray-700 dark:text-gray-50 overflow-visible text-[0.825rem]
 }
 
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
-    @apply text-primary-700 duration-500 font-semibold;
+    @apply text-primary-700;
 }
 
 .fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
@@ -75,11 +80,7 @@
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn,
 .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
     & {
-        @apply bg-gray-200/30 dark:bg-gray-800/30 rounded-lg;
-
-        .fi-sidebar-item-label {
-            @apply font-semibold underline underline-offset-4 decoration-primary-500 dark:decoration-primary-400 decoration-2
-        }
+        @apply bg-gray-200/30 dark:bg-gray-800/30 rounded-lg before:absolute before:w-full before:h-full before:border-l-3 before:border-l-primary-500 before:rounded-none;
 
         > .fi-icon {
             @apply text-primary-400 dark:text-primary-500;

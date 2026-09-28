@@ -22,7 +22,7 @@
 
 .fi-body:is(.fi-sidebar-group-label,.fi-ta-header-cell,.fi-ta-header-group-cell,.fi-fieldset-label) {
     font-weight: 600;
-    font-size: 0.6875rem;
+    font-size: 0.5875rem;
     text-transform: uppercase;
     font-family: var(--font-sans), ui-serif, Georgia, serif;
     letter-spacing: 0.085em;

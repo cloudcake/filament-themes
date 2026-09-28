@@ -28,7 +28,6 @@
 @import 'components/loading.css';
 @import 'components/logo.css';
 @import 'components/link.css';
-@import 'components/theme-switcher.css';
 @import 'components/page.css';
 @import 'components/misc.css';
 
@@ -148,6 +147,17 @@
         to {
             opacity: 1;
             transform: none;
+        }
+    }
+
+    @keyframes theme-rise {
+        from {
+            opacity: 0;
+            transform: translateY(var(--theme-transition-offset))
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 }

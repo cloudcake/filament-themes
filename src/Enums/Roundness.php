@@ -7,6 +7,7 @@ enum Roundness
     case None;
     case Default;
     case Slight;
+    case Minor;
     case Moderate;
     case Strong;
     case Pill;
@@ -25,6 +26,15 @@ enum Roundness
                 'radius-3xl' => '0',
             ],
             self::Slight => [
+                'radius-xs' => '0.0325rem',
+                'radius-sm' => '0.075rem',
+                'radius-md' => '0.09rem',
+                'radius-lg' => '0.13rem',
+                'radius-xl' => '0.175rem',
+                'radius-2xl' => '0.25rem',
+                'radius-3xl' => '0.3rem',
+            ],
+            self::Minor => [
                 'radius-xs' => '0.0625rem',
                 'radius-sm' => '0.125rem',
                 'radius-md' => '0.1875rem',

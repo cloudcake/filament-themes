@@ -21,7 +21,7 @@ trait ConfiguresPreset
     {
         $panel->when(
             fn($panel) => $panel->evaluate($this->preset) !== null,
-            fn($panel) => $panel->evaluate($this->preset)->apply($this)
+            fn($panel) => $panel->evaluate($this->preset)->apply($this, $panel)
         );
 
         return $this;

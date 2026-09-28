@@ -6,39 +6,16 @@ use Cloudcake\Themes\Enums\Roundness;
 use Cloudcake\Themes\Enums\Shadows;
 use Filament\Support\Colors\Color;
 
-class Styles extends Color
+class Styles
 {
-    public const Black = [
-        50 => 'oklch(0.985 0.002 247.839)',
-        100 => 'oklch(0.967 0.003 264.542)',
-        200 => 'oklch(0.928 0.006 264.531)',
-        300 => 'oklch(0.872 0.01 258.338)',
-        400 => 'oklch(0.707 0.022 261.325)',
-        500 => 'oklch(0.551 0.027 264.364)',
-        600 => 'oklch(0.446 0.03 256.802)',
-        700 => 'oklch(0.373 0.034 259.733)',
-        800 => 'oklch(0.278 0.033 256.848)',
-        900 => 'oklch(0.21 0.034 264.665)',
-        950 => 'oklch(0.13 0.028 261.692)',
-    ];
-
-    public static function all(): array
+    private static function backgroundShades(string $colour, string $tint = 'skyblue'): array
     {
-        $base = parent::all();
-        $base['black'] = static::Black;
-
-        return $base;
-    }
-
-
-    private static function backgroundShades(string $colour, string $tint = 'skyblue')
-    {
-        if (static::isLight($colour))
+        if (Color::isLight($colour))
             return [];
 
         $shades = [];
 
-        $clamp = 94;
+        $clamp = 90;
 
         for ($i = 5; $i < 10; $i++) {
             $mixValue = min(($i / 9) * $clamp, $clamp);
@@ -63,29 +40,6 @@ class Styles extends Color
         return $str->toString();
     }
 
-    public static function shadeTokens(array $shades, string $prefix): string
-    {
-        $str = str("/* Cloudcake '$prefix' Shades */" . PHP_EOL . PHP_EOL . "\t\t");
-
-        foreach ($shades as $shade => $value)
-            $str = $str->append("--$prefix-$shade: $value;")->append(PHP_EOL . "\t\t");
-
-        return $str->toString();
-    }
-
-    public static function transitionTokens(float $duration, float $offset): string
-    {
-        return str('/* Cloudcake Transitions */' . PHP_EOL . PHP_EOL . "\t\t")
-            ->append("--theme-transition-duration: {$duration}s;")->append(PHP_EOL . "\t\t")
-            ->append("--theme-transition-offset: {$offset}rem;")->append(PHP_EOL . "\t\t")
-            ->toString();
-    }
-
-    /**
-     * @param array<Bloom> $blooming
-     * @param bool $dark
-     * @return string
-     */
     public static function bloomTokens(array $blooming, bool $dark): string
     {
         $str = str('/* Cloudcake Blooming */' . PHP_EOL . PHP_EOL . "\t\t")
@@ -124,6 +78,31 @@ class Styles extends Color
         return $str->toString();
     }
 
+    public static function shadeTokens(string $color, string $prefix): string
+    {
+        $color = trim($color);
+
+        $shades = [];
+        $shades[50] = "color-mix(in oklab, $color 30%, #FFFFFF)";
+        $shades[100] = "color-mix(in oklab, $color 40%, #FFFFFF)";
+        $shades[200] = "color-mix(in oklab, $color 60%, #FFFFFF)";
+        $shades[300] = "color-mix(in oklab, $color 80%, #FFFFFF)";
+        $shades[400] = "color-mix(in oklab, $color 90%, #FFFFFF)";
+        $shades[500] = $color;
+        $shades[600] = "color-mix(in oklab, $color 90%, #000000)";
+        $shades[700] = "color-mix(in oklab, $color 80%, #000000)";
+        $shades[800] = "color-mix(in oklab, $color 70%, #000000)";
+        $shades[900] = "color-mix(in oklab, $color 60%, #000000)";
+        $shades[950] = "color-mix(in oklab, $color 50%, #000000)";
+
+        $str = str("/* Cloudcake '$prefix' Shades */" . PHP_EOL . PHP_EOL . "\t\t");
+
+        foreach ($shades as $shade => $value)
+            $str = $str->append("--$prefix-$shade: $value;")->append(PHP_EOL . "\t\t");
+
+        return $str->toString();
+    }
+
     public static function shadowTokens(Shadows $shadows): string
     {
         $str = str('/* Cloudcake Shadows */' . PHP_EOL . PHP_EOL . "\t\t");
@@ -132,5 +111,13 @@ class Styles extends Color
             $str = $str->append("--runtime-$variable: $value;" . PHP_EOL . "\t\t");
 
         return $str->toString();
+    }
+
+    public static function transitionTokens(float $duration, float $offset): string
+    {
+        return str('/* Cloudcake Transitions */' . PHP_EOL . PHP_EOL . "\t\t")
+            ->append("--theme-transition-duration: {$duration}s;")->append(PHP_EOL . "\t\t")
+            ->append("--theme-transition-offset: {$offset}rem;")->append(PHP_EOL . "\t\t")
+            ->toString();
     }
 }

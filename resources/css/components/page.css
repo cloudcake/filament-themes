@@ -2,24 +2,14 @@
  *  Page / main frame
  */
 
-.fi-main-ctn {
-    background-image: var(--theme-grain);
-}
-
-.dark {
-    .fi-main-ctn {
-        background-image: var(--theme-grain-dark);
-    }
-}
-
 .fi-main {
     padding-inline: calc(1.5rem * var(--theme-density, 1));
     padding-block: calc(2rem * var(--theme-density, 1));
     row-gap: var(--theme-section-gap, 2rem);
 }
 
-.fi-main-ctn {
-    @apply border-1 border-primary-200 dark:border-gray-800 rounded-2xl rounded-b-none rounded-tr-none;
+.fi-body-has-topbar .fi-main-ctn {
+    @apply border-1 border-gray-200 dark:border-gray-800 rounded-2xl rounded-b-none rounded-tr-none;
 }
 
 .fi-main-sidebar {

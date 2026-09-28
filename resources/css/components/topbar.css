@@ -4,8 +4,6 @@
 
 .fi-topbar {
     @apply backdrop-blur-[2px];
-    @apply !bg-transparent;
-    @apply shadow-none;
 }
 
 .fi-topbar-end {
@@ -31,6 +29,12 @@
 
 .fi-topbar-start {
     gap: calc(0.625rem * var(--theme-density, 1));
+}
+
+.fi-topbar {
+    .fi-user-menu-trigger {
+        @apply relative isolate py-1 px-0.5 before:absolute before:inset-0 before:-skew-x-16 before:bg-primary-200 before:dark:bg-primary-950 before:-z-10;
+    }
 }
 
 .dark {

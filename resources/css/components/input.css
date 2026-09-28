@@ -26,15 +26,11 @@
 }
 
 .fi-input-wrap:has(.fi-input-wrp-prefix) {
-    @apply rounded-l-none;
+    @apply !rounded-l-none;
 }
 
 .fi-input-wrap:has(.fi-input-wrp-suffix) {
-    @apply rounded-r-none;
-}
-
-.fi-input-wrp .fi-input {
-    @apply rounded-2xl;
+    @apply !rounded-r-none;
 }
 
 .fi-input-wrp .fi-input-wrp-prefix:not(.fi-inline) {

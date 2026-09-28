@@ -11,6 +11,8 @@ class Theme implements Plugin
 {
     use
         PluginConcerns\ConfiguresAuthTheme,
+        PluginConcerns\ConfiguresBackgrounds,
+        PluginConcerns\ConfiguresBlooming,
         PluginConcerns\ConfiguresBorders,
         PluginConcerns\ConfiguresColours,
         PluginConcerns\ConfiguresNotifications,
@@ -44,17 +46,19 @@ class Theme implements Plugin
         $this
             ->applyPreset($panel)
             ->applyAuthTheme($panel)
+            ->applyBackgrounds($panel)
             ->applyBorders($panel)
+            ->applyBlooming($panel)
             ->applyColours($panel)
             ->applyTransitions($panel)
             ->applyHeadings($panel)
             ->applyLightMode($panel)
-            ->applyNotifications($panel)
-            ->applyShadows($panel);
+            ->applyShadows($panel)
+            ->applyNotifications($panel);
+
     }
 
     public function boot(Panel $panel): void
     {
-        // Implemented, not used.
     }
 }
