@@ -11,7 +11,7 @@
 }
 
 .fi-sidebar-footer {
-    @apply border-t border-solid border-[var(--theme-hairline)];
+    @apply border-t border-solid border-[var(--theme-navigation-border-color)];
     padding: calc(0.75rem * var(--theme-density, 1));
 }
 
@@ -47,7 +47,6 @@
 }
 
 .fi-sidebar-item-btn {
-    --tw-font-weight: 500;
     @apply text-[var(--gray-700)];
     position: relative;
     padding: calc(0.5625rem * var(--theme-density, 1)) calc(0.75rem * var(--theme-density, 1));
@@ -55,7 +54,6 @@
     transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), color var(--theme-duration, 260ms) var(--theme-ease, ease);
     border-radius: var(--radius-lg, 0.75rem);
     letter-spacing: -0.005em;
-    font-weight: 500 !important;
 }
 
 .fi-sidebar-item-btn > .fi-icon {
@@ -63,9 +61,7 @@
 }
 
 .fi-sidebar-item, .fi-sidebar-item-btn, .fi-sidebar-item-label {
-
-
-    @apply text-gray-700 dark:text-gray-50 overflow-visible text-[0.825rem]
+    @apply text-gray-700 dark:text-gray-50 text-[0.825rem] font-semibold;
 }
 
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn {
@@ -80,7 +76,7 @@
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn,
 .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
     & {
-        @apply bg-gray-200/30 dark:bg-gray-800/30 rounded-lg before:absolute before:w-full before:h-full before:border-l-3 before:border-l-primary-500 before:rounded-none;
+        @apply bg-primary-400/20 dark:bg-primary-600/20 rounded-lg before:absolute before:w-full before:h-full before:border-l-3 before:border-l-primary-500 before:rounded-none;
 
         > .fi-icon {
             @apply text-primary-400 dark:text-primary-500;

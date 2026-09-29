@@ -62,6 +62,10 @@
     background-color: color-mix(in oklab, var(--gray-400) 14%, transparent);
 }
 
+.fi-icon-btn {
+    margin: var(--spacing);
+}
+
 .dark {
     .fi-icon-btn:not(.fi-disabled):not([disabled]):hover {
         background-color: color-mix(in oklab, var(--gray-50) 8%, transparent);

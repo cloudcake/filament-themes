@@ -4,6 +4,8 @@ namespace Cloudcake\Themes\Concerns\Plugin;
 
 use Cloudcake\Themes\Livewire\DatabaseNotifications;
 use Filament\Panel;
+use Filament\View\PanelsRenderHook;
+use Illuminate\Support\Facades\Blade;
 use Livewire\Livewire;
 
 trait ConfiguresNotifications

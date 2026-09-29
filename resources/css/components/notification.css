@@ -65,15 +65,13 @@
 .fi-no-notification,
 .fi-no-notification-read-ctn,
 .fi-no-notification-unread-ctn {
-    @apply rounded-md;
+    @apply rounded-xs;
 }
 
 /* Database Notifications */
 .fi-no-database {
     .fi-no-notification {
-        & {
-            @apply !border-none !ring-0;
-        }
+        @apply !bg-white/94 dark:!bg-black/90 !border-none ring-0 outline-0;
     }
 
     .fi-no-notification-unread-ctn::before {
@@ -90,7 +88,7 @@
 
     .fi-no-notification-unread-ctn {
         & {
-            @apply bg-gradient-to-b p-[0.08rem] from-primary-400 to-primary-100 dark:to-primary-800/30;
+            @apply bg-gradient-to-r p-px from-primary-400 to-gray-50 dark:to-gray-800;
 
             .fi-no-notification-title {
                 @apply text-primary-400;
@@ -98,7 +96,7 @@
         }
 
         &:has(.fi-color-danger) {
-            @apply from-danger-400 to-danger-100 dark:to-danger-800/30;
+            @apply from-danger-400;
 
             .fi-no-notification-title {
                 @apply text-danger-400;
@@ -106,7 +104,7 @@
         }
 
         &:has(.fi-color-info) {
-            @apply from-info-400 to-info-100 dark:to-info-800/30;
+            @apply from-info-400;
 
             .fi-no-notification-title {
                 @apply text-info-400;
@@ -114,7 +112,7 @@
         }
 
         &:has(.fi-color-success) {
-            @apply from-success-400 to-success-100 dark:to-success-800/30;
+            @apply from-success-400;
 
             .fi-no-notification-title {
                 @apply text-success-400;
@@ -122,15 +120,11 @@
         }
 
         &:has(.fi-color-warning) {
-            @apply from-warning-400 to-warning-100 dark:to-warning-800/30;
+            @apply from-warning-400;
 
             .fi-no-notification-title {
                 @apply text-warning-400;
             }
-        }
-
-        .fi-no-notification {
-            @apply bg-transparent !border-none ring-0 outline-0;
         }
     }
 
@@ -138,7 +132,7 @@
         & {
             --border-tail-colour: var(--primary-400);
 
-            @apply grayscale-25 bg-gradient-to-r p-px from-primary-400/30 to-primary-100 dark:to-primary-800/30;
+            @apply grayscale-25 bg-gradient-to-r p-px from-primary-400/30 to-gray-50 dark:to-gray-800;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -147,7 +141,7 @@
         }
 
         &:has(.fi-color-danger) {
-            @apply from-danger-400/30 to-danger-100 dark:to-danger-800/30;
+            @apply from-danger-400/30;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -156,7 +150,7 @@
         }
 
         &:has(.fi-color-info) {
-            @apply from-info-400/30 to-info-100 dark:to-info-800/30;
+            @apply from-info-400/30;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -165,7 +159,7 @@
         }
 
         &:has(.fi-color-success) {
-            @apply from-success-400/30 to-success-100 dark:to-success-800/30;
+            @apply from-success-400/30;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -174,25 +168,12 @@
         }
 
         &:has(.fi-color-warning) {
-            @apply from-warning-400/30 to-warning-100 dark:to-warning-800/30;
+            @apply from-warning-400/30;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
                 @apply text-warning-400/60;
             }
         }
-
-        .fi-no-notification {
-            @apply bg-transparent !border-none ring-0 outline-0;
-        }
-    }
-
-
-    .fi-modal-header {
-        @apply pb-0 border-none;
-    }
-
-    .fi-modal-content {
-        @apply overflow-x-hidden my-px;
     }
 }

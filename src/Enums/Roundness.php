@@ -5,6 +5,7 @@ namespace Cloudcake\Themes\Enums;
 enum Roundness
 {
     case None;
+    case Minimal;
     case Default;
     case Slight;
     case Minor;
@@ -24,6 +25,15 @@ enum Roundness
                 'radius-xl' => '0',
                 'radius-2xl' => '0',
                 'radius-3xl' => '0',
+            ],
+            self::Minimal => [
+                'radius-xs' => '0.0175rem',
+                'radius-sm' => '0.037rem',
+                'radius-md' => '0.045rem',
+                'radius-lg' => '0.065rem',
+                'radius-xl' => '0.0975rem',
+                'radius-2xl' => '0.125rem',
+                'radius-3xl' => '0.15rem',
             ],
             self::Slight => [
                 'radius-xs' => '0.0325rem',

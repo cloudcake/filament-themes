@@ -52,8 +52,12 @@ trait ConfiguresBackgrounds
 
                 return new HtmlString(
                     <<<HTML
-                    <style>           
-                        body {
+                    <style>         
+                        :root {
+                            --theme-navigation-background-color: $lightNavigationColour;
+                        }  
+                        
+                        .fi-main-ctn {
                             background-color: $lightBodyColour;
                         }                                 
                                         
@@ -61,31 +65,18 @@ trait ConfiguresBackgrounds
                         .fi-topbar {
                             background-color: $lightNavigationColour;
                         }
-                        
-                        .fi-ta-ctn,
-                            .fi-sc-wizard,
-                            .fi-section:not(.fi-aside):not(.fi-section-not-contained),
-                            .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
-                            .fi-wi-stats-overview-stat {
-                                background-color: $lightPanelColour;
-                        }
                   
                         .dark {
-                            body {
+                            --theme-navigation-background-color: $darkNavigationColour;
+                            --gray-900: $darkPanelColour;
+                            
+                            .fi-main-ctn {
                                 background-color: $darkBodyColour;
                             }
                             
                             .fi-sidebar,
                             .fi-topbar {
                                 background-color: $darkNavigationColour;
-                            }
-                        
-                            .fi-ta-ctn,
-                            .fi-sc-wizard,
-                            .fi-section:not(.fi-aside):not(.fi-section-not-contained),
-                            .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
-                            .fi-wi-stats-overview-stat {
-                                background-color: $darkPanelColour;
                             }
                         }
                     </style>

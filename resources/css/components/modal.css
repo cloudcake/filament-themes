@@ -49,6 +49,16 @@
     }
 }
 
+.fi-no-database {
+    .fi-modal-header {
+        @apply pb-0 border-none;
+    }
+
+    .fi-modal-content {
+        @apply overflow-x-hidden my-px;
+    }
+}
+
 @media (max-width: 639px) {
     .fi-modal-window {
         border-radius: var(--radius-2xl, 1.25rem);

@@ -1,0 +1,15 @@
+.fi-announcement-banner {
+    @apply
+        bg-[var(--theme-navigation-background-color)]
+        border-b-1 border-b-[var(--theme-navigation-border-color)]
+        shadow-md shadow-primary-900
+        text-xs;
+}
+
+.fi-theme-toolbar {
+    @apply
+    bg-[var(--theme-navigation-background-color)]
+    border-b-1 border-b-[var(--theme-navigation-border-color)]
+    shadow-md shadow-primary-900
+    text-xs;
+}

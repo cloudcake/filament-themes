@@ -3,6 +3,7 @@
 namespace Cloudcake\Themes;
 
 use Filament\Contracts\Plugin;
+use Filament\Enums\GlobalSearchPosition;
 use Filament\Panel;
 use Filament\Support\Assets\Css;
 use Cloudcake\Themes\Concerns\Plugin as PluginConcerns;
@@ -20,6 +21,7 @@ class Theme implements Plugin
         PluginConcerns\ConfiguresLightMode,
         PluginConcerns\ConfiguresPreset,
         PluginConcerns\ConfiguresShadows,
+        PluginConcerns\ConfiguresTopbar,
         PluginConcerns\ConfiguresTransitions;
 
     /**
@@ -54,11 +56,15 @@ class Theme implements Plugin
             ->applyHeadings($panel)
             ->applyLightMode($panel)
             ->applyShadows($panel)
-            ->applyNotifications($panel);
+            ->applyNotifications($panel)
+            ->applyTopbar($panel);
 
     }
 
     public function boot(Panel $panel): void
     {
+        $panel
+            ->globalSearch(position: GlobalSearchPosition::Topbar)
+            ->themeSwitcher(fn() => $panel->hasTopbar());
     }
 }

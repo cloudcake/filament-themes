@@ -2,6 +2,11 @@
  *  Page / main frame
  */
 
+body {
+    /* Required for curved corner of main content */
+    @apply bg-[var(--theme-navigation-background-color)];
+}
+
 .fi-main {
     padding-inline: calc(1.5rem * var(--theme-density, 1));
     padding-block: calc(2rem * var(--theme-density, 1));

@@ -10,6 +10,14 @@
     gap: calc(0.625rem * var(--theme-density, 1));
 }
 
+.fi-topless-bar-search {
+    @apply opacity-0 transition-all duration-[500ms];
+}
+
+.fi-topless-bar-search.open {
+    @apply opacity-100 transition-all duration-[500ms];
+}
+
 .fi-topbar-item-btn {
     @apply text-[var(--gray-700)];
     transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease), color var(--theme-duration, 260ms) var(--theme-ease, ease);
@@ -32,8 +40,11 @@
 }
 
 .fi-topbar {
-    .fi-user-menu-trigger {
-        @apply relative isolate py-1 px-0.5 before:absolute before:inset-0 before:-skew-x-16 before:bg-primary-200 before:dark:bg-primary-950 before:-z-10;
+    .fi-icon-btn, .fi-user-menu-trigger {
+        @apply
+        rounded-xl
+        border-1
+        border-gray-200 bg-gray-50 dark:bg-gray-950 dark:border-gray-800;
     }
 }
 

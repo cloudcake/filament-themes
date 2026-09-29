@@ -29,14 +29,14 @@ trait ConfiguresColours
                 $lightShadeTokens = '';
                 $darkShadeTokens = '';
 
-                $lightPrimaryColour = $panel->evaluate($this->lightPrimaryColour) ?? $panel->getColors()['primary'] ?? false;
+                $lightPrimaryColour = $panel->evaluate($this->lightPrimaryColour);
 
                 if ($lightPrimaryColour) {
                     $lightPrimaryColour = $panel->evaluate($this->lightPrimaryColour);
                     $lightShadeTokens = Styles::shadeTokens($lightPrimaryColour, 'primary');
                 }
 
-                $darkPrimaryColour = $panel->evaluate($this->darkPrimaryColour) ?? $panel->getColors()['primary'] ?? false;
+                $darkPrimaryColour = $panel->evaluate($this->darkPrimaryColour);
 
                 if ($darkPrimaryColour) {
                     $darkPrimaryColour = $panel->evaluate($this->darkPrimaryColour);
@@ -46,12 +46,16 @@ trait ConfiguresColours
 
                 return new HtmlString(
                     <<<HTML
-                        <style>                    
+                        <style>
                             body {
-                                $lightShadeTokens
-                            }
-                        
+                                --livewire-progress-bar-color: $lightPrimaryColour;
+                                
+                                $lightShadeTokens 
+                            }                    
+                                                   
                             .dark body {
+                                --livewire-progress-bar-color: $darkPrimaryColour;
+                                
                                 $darkShadeTokens
                             }
                         </style>
