@@ -119,6 +119,11 @@
     @apply bg-[var(var(--theme-navigation-background-color))]
 }
 
+/* Skip to content toggle */
+.fi-skip-link {
+    @apply hidden;
+}
+
 @media (max-width: 1023px) {
     .fi-sidebar {
         @apply border-e border-solid border-[var(--theme-hairline)];
