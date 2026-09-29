@@ -116,7 +116,7 @@
 
 /* Mobile Topbar */
 .fi-layout-sidebar-toggle-btn-ctn {
-    @apply bg-[var(var(--theme-navigation-background-color))]
+    @apply bg-[var(--theme-navigation-background-color)];
 }
 
 /* Skip to content toggle */
