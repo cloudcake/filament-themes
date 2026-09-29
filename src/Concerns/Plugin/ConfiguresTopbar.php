@@ -2,12 +2,23 @@
 
 namespace Cloudcake\Themes\Concerns\Plugin;
 
+use Closure;
 use Filament\Panel;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\HtmlString;
 
 trait ConfiguresTopbar
 {
+    protected string|null|HtmlString|Closure $toolbarAdvertisement = null;
+
+    public function toolbarAdvertisement(string|null|HtmlString|Closure $content): static
+    {
+        $this->toolbarAdvertisement = $content;
+
+        return $this;
+    }
+
     protected function applyTopbar(Panel $panel): static
     {
         $render = str('');
@@ -50,9 +61,10 @@ trait ConfiguresTopbar
                         :label="__('filament-panels::global-search.field.label')"
                     />
                 </div>
-           BLADE);
+           BLADE
+            );
 
-                $render = $render->append(<<<'BLADE'
+            $render = $render->append(<<<'BLADE'
                 
                 @php
                     $unread = (int) filament()->auth()->user()?->unreadNotifications->count();
@@ -117,11 +129,16 @@ trait ConfiguresTopbar
             $render = $render->wrap('<div class="fi-theme-toolbar w-full">', '</div>');
         }
 
-        $render = $render->append(
-            str('Version 1.2.3 is <b>now out</b>!')
-                ->wrap('<div class="fi-announcement-banner w-full px-4 py-2">', '</div>')
-                ->toString()
-        );
+        $advertisement = $panel->evaluate($this->toolbarAdvertisement);
+
+        if (!blank($advertisement)) {
+
+            $render = $render->append(
+                str($advertisement)
+                    ->wrap('<div class="fi-announcement-banner w-full px-4 py-px">', '</div>')
+                    ->toString()
+            );
+        }
 
         if (!blank($render))
             $panel->renderHook(

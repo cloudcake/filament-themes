@@ -114,11 +114,15 @@
 
 }
 
+/* Mobile Topbar */
+.fi-layout-sidebar-toggle-btn-ctn {
+    @apply bg-[var(var(--theme-navigation-background-color))]
+}
+
 @media (max-width: 1023px) {
     .fi-sidebar {
         @apply border-e border-solid border-[var(--theme-hairline)];
     }
-
 }
 
 @media (min-width: 1024px) {
@@ -166,5 +170,4 @@
     .fi-sidebar {
         transition: width var(--theme-duration-slow, 420ms) var(--theme-ease, ease), transform var(--theme-duration-slow, 420ms) var(--theme-ease, ease);
     }
-
 }
