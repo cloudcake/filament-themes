@@ -1,15 +1,25 @@
-.fi-announcement-banner {
-    @apply
+.fi-theme-topbar-wrp {
+    .fi-announcement-banner {
+        @apply
         bg-[var(--theme-navigation-background-color)]
         border-b-1 border-b-[var(--theme-navigation-border-color)]
         shadow-md shadow-primary-900
         text-xs;
-}
+    }
 
-.fi-theme-toolbar {
-    @apply
-    bg-[var(--theme-navigation-background-color)]
-    border-b-1 border-b-[var(--theme-navigation-border-color)]
-    shadow-md shadow-primary-900
-    text-xs;
+    .fi-theme-toolbar {
+        @apply
+        bg-[var(--theme-navigation-background-color)]
+        border-b-1 border-b-[var(--theme-navigation-border-color)]
+        shadow-md shadow-primary-900
+        text-xs;
+    }
+
+    .fi-toolbar-search-ctn {
+        @apply opacity-0 transition-all duration-[500ms];
+    }
+
+    .fi-toolbar-search-ctn.open {
+        @apply opacity-100 transition-all duration-[500ms];
+    }
 }

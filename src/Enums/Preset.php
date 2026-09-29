@@ -148,6 +148,11 @@ enum Preset
                         lightPanels: '#FFFFFF',
                         lightNavigation: '#FFFFFF90',
                     );
+
+                $panel
+                    ->font('Inter Tight')
+                    ->topNavigation()
+                    ->topbar(true);
             }
         };
 

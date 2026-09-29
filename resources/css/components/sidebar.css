@@ -115,8 +115,8 @@
 }
 
 /* Mobile Topbar */
-.fi-layout-sidebar-toggle-btn-ctn {
-    @apply bg-[var(--theme-navigation-background-color)];
+.fi-body>.fi-layout-sidebar-toggle-btn-ctn {
+    @apply bg-[var(--theme-navigation-background-color)] py-1 px-2;
 }
 
 /* Skip to content toggle */

@@ -48,7 +48,7 @@ trait ConfiguresTopbar
                     <div
                         x-cloak
                         x-bind:class="{ 'open': open }" 
-                        class="fi-topless-bar-search" 
+                        class="fi-toolbar-search-ctn" 
                     >
                         @livewire(\Filament\Livewire\GlobalSearch::class)
                     </div>
@@ -135,7 +135,7 @@ trait ConfiguresTopbar
 
             $render = $render->append(
                 str($advertisement)
-                    ->wrap('<div class="fi-announcement-banner w-full px-4 py-px">', '</div>')
+                    ->wrap('<div class="fi-announcement-banner w-full px-4 py-2">', '</div>')
                     ->toString()
             );
         }
