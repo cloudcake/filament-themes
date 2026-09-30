@@ -33,8 +33,7 @@
     @apply text-primary-600 dark:text-primary-400;
 }
 
-.fi-empty-state .fi-empty-state-icon-bg,
-.fi-empty-state .fi-empty-state-icon-bg.fi-color:where(.dark, .dark *),
+.fi-empty-state-icon-bg,
 .fi-ta-empty-state-icon-bg {
     @apply
     p-0
