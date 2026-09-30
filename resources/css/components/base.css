@@ -1,3 +1,9 @@
+body {
+    @apply antialiased scroll-smooth;
+    font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
+    text-rendering: optimizeLegibility;
+}
+
 .fi-body:is(.fi-header-heading,.fi-modal-heading,.fi-simple-header-heading,.fi-ta-header-heading,.fi-empty-state-heading,.fi-ta-empty-state-heading,.fi-logo) {
     @apply text-[var(--theme-ink)]
     font-medium
@@ -19,12 +25,6 @@
 
 [wire\:loading\.delay] {
     @apply transition-opacity duration-[260ms];
-}
-
-body {
-    @apply antialiased;
-    font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
-    text-rendering: optimizeLegibility;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -37,11 +37,11 @@ trait ConfiguresBlooming
                 return new HtmlString(
                     <<<HTML
                     <style>                    
-                        body {
+                        .fi-layout {
                             $lightBloomTokens
                         }
                     
-                        .dark body {
+                        .dark .fi-layout {
                             $darkBloomTokens
                         }
                     </style>

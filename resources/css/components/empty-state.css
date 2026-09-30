@@ -43,6 +43,8 @@
     mb-[calc(1.5rem_*_var(--theme-density,_1))]
     bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-200)_62%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-100)_38%,_transparent)_58%,_transparent_72%)]
     dark:bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-500)_22%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-500)_10%,_transparent)_58%,_transparent_72%)]
+    hover:bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-800)_62%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-100)_38%,_transparent)_58%,_transparent_72%)]
+    hover:dark:bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-200)_22%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-500)_10%,_transparent)_58%,_transparent_72%)]
     [mask-image:var(--theme-icon-empty-state)]
     [mask-repeat:no-repeat]
     [mask-size:contain]

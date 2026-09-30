@@ -126,7 +126,7 @@ trait ConfiguresTopbar
             }
 
             $render = $render->wrap('<div class="flex items-center w-full justify-end">', '</div>');
-            $render = $render->wrap('<div class="fi-theme-toolbar w-full">', '</div>');
+            $render = $render->wrap('<div class="fi-theme-toolbar py-1 w-full">', '</div>');
         }
 
         $advertisement = $panel->evaluate($this->toolbarAdvertisement);

@@ -3,13 +3,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-primary-200/20
-    dark:bg-primary-600
+    @apply bg-primary-200/20 dark:bg-primary-600
     rounded-3xl
-    border-[3px]
-    border-transparent
+    border-[3px] border-transparent
     bg-clip-content;
-    background-color: var(--theme-hairline-strong);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -17,7 +14,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+    @apply bg-transparent border-none;
 }
 
 :is(*, *::before, *::after) {

@@ -3,7 +3,7 @@
         @apply
         bg-[var(--theme-navigation-background-color)]
         border-b-1 border-b-[var(--theme-navigation-border-color)]
-        shadow-md shadow-primary-900
+        shadow-xs shadow-primary-900
         text-xs;
     }
 

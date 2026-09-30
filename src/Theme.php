@@ -4,6 +4,7 @@ namespace Cloudcake\Themes;
 
 use Filament\Contracts\Plugin;
 use Filament\Enums\GlobalSearchPosition;
+use Filament\Livewire\GlobalSearch;
 use Filament\Panel;
 use Filament\Support\Assets\Css;
 use Cloudcake\Themes\Concerns\Plugin as PluginConcerns;
@@ -41,9 +42,13 @@ class Theme implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel->assets([
-            Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
-        ]);
+        $panel
+            ->sidebarCollapsibleOnDesktop()
+            ->topbar(false)
+            ->font('Inter Tight')
+            ->assets([
+                Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
+            ]);
 
         $this
             ->applyPreset($panel)
@@ -64,6 +69,10 @@ class Theme implements Plugin
     public function boot(Panel $panel): void
     {
         $panel
+            ->when(
+                fn($panel) => $panel->hasTopNavigation(),
+                fn($panel) => $panel->sidebarCollapsibleOnDesktop(false)->sidebarFullyCollapsibleOnDesktop(false)
+            )
             ->globalSearch(position: GlobalSearchPosition::Topbar)
             ->themeSwitcher(fn() => $panel->hasTopbar());
     }

@@ -3,7 +3,6 @@
 namespace Cloudcake\Themes\Concerns\Plugin;
 
 use Closure;
-use Cloudcake\Themes\Settings\Styles;
 use Filament\Panel;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\HtmlString;
@@ -57,7 +56,7 @@ trait ConfiguresBackgrounds
                             --theme-navigation-background-color: $lightNavigationColour;
                         }  
                         
-                        .fi-main-ctn {
+                        body {
                             background-color: $lightBodyColour;
                         }                                 
                                         
@@ -70,7 +69,7 @@ trait ConfiguresBackgrounds
                             --theme-navigation-background-color: $darkNavigationColour;
                             --gray-900: $darkPanelColour;
                             
-                            .fi-main-ctn {
+                            body {
                                 background-color: $darkBodyColour;
                             }
                             

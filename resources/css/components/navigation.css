@@ -1,6 +1,6 @@
 .fi-topbar,
 .fi-sidebar {
-    @apply backdrop-blur-[2px];
+    @apply backdrop-blur-[2px] shadow-none;
 }
 
 .fi-topbar-end {

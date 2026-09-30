@@ -68,7 +68,7 @@ enum Preset
                             spreadX: 40,
                             spreadY: 30,
                             darkIntensity: 15,
-                            darkColour: 'var(--primary-950)',
+                            darkColour: 'var(--primary-700)',
                             lightColour: 'var(--primary-400)',
                             lightIntensity: 30,
                         ),
@@ -84,10 +84,6 @@ enum Preset
                         lightPanels: '#FFFFFF',
                         lightNavigation: '#FFFFFF',
                     );
-
-                $panel
-                    ->font('Inter Tight')
-                    ->topbar(false);
             },
 
             self::Pristine => function (Theme $theme, Panel $panel) {
@@ -107,7 +103,7 @@ enum Preset
                             position: BloomPosition::UpperCenter,
                             spreadX: 80,
                             spreadY: 30,
-                            darkIntensity: 20,
+                            darkIntensity: 24,
                             darkColour: 'var(--primary-900)',
                             lightColour: 'var(--primary-400)',
                             lightIntensity: 20,
@@ -117,7 +113,7 @@ enum Preset
                             position: BloomPosition::BottomLeft,
                             spreadX: 70,
                             spreadY: 40,
-                            darkIntensity: 11,
+                            darkIntensity: 15,
                             darkColour: 'var(--primary-900)',
                             lightColour: 'var(--primary-400)',
                             lightIntensity: 20,
@@ -127,8 +123,8 @@ enum Preset
                             position: BloomPosition::BottomRight,
                             spreadX: 40,
                             spreadY: 30,
-                            darkIntensity: 15,
-                            darkColour: 'var(--primary-950)',
+                            darkIntensity: 7,
+                            darkColour: 'var(--primary-700)',
                             lightColour: 'var(--primary-400)',
                             lightIntensity: 30,
                         ),
@@ -148,10 +144,6 @@ enum Preset
                         lightPanels: '#FFFFFF',
                         lightNavigation: '#FFFFFF90',
                     );
-
-                $panel
-                    ->font('Inter Tight')
-                    ->topbar(false);
             }
         };
 
