@@ -1,7 +1,9 @@
 /* All Notifications */
 
 .fi-no-notification {
-    @apply shadow-md !bg-white dark:!bg-gray-900;
+    @apply shadow-md
+    !bg-white
+    dark:!bg-gray-900;
 }
 
 .fi-no-notification:not([class*="fi-color-"]) {
@@ -13,52 +15,51 @@
 
 /* Only Page Notifications */
 .fi-no-notification:not(.fi-no-database *) {
-    & {
-        @apply border-t-3 border-t-primary-500;
+    @apply border-t-[3px]
+    border-t-primary-500;
 
-        &:has(.fi-color-danger) {
-            @apply border-t-danger-500;
+    &:has(.fi-color-danger) {
+        @apply border-t-danger-500;
 
-            .fi-no-notification-title {
-                @apply text-danger-400;
-            }
+        .fi-no-notification-title {
+            @apply text-danger-400;
         }
+    }
 
-        &:has(.fi-color-info) {
-            @apply border-t-info-500;
+    &:has(.fi-color-info) {
+        @apply border-t-info-500;
 
-            .fi-no-notification-title {
-                @apply text-info-400;
-            }
+        .fi-no-notification-title {
+            @apply text-info-400;
         }
+    }
 
-        &:has(.fi-color-success) {
-            @apply border-t-success-500;
+    &:has(.fi-color-success) {
+        @apply border-t-success-500;
 
-            .fi-no-notification-title {
-                @apply text-success-400;
-            }
+        .fi-no-notification-title {
+            @apply text-success-400;
         }
+    }
 
-        &:has(.fi-color-warning) {
-            @apply border-t-warning-500;
+    &:has(.fi-color-warning) {
+        @apply border-t-warning-500;
 
-            .fi-no-notification-title {
-                @apply text-warning-400;
-            }
+        .fi-no-notification-title {
+            @apply text-warning-400;
         }
     }
 
     .fi-no-notification-body {
-        @apply text-[var(--theme-ink-muted)];
-        font-size: 0.8125rem;
-        line-height: 1.55;
+        @apply text-[var(--theme-ink-muted)]
+        text-[0.8125rem]
+        leading-[1.55];
     }
 
     .fi-no-notification-title {
-        font-size: 0.875rem;
-        font-weight: 550;
-        letter-spacing: -0.004em;
+        @apply text-[0.875rem]
+        font-[550]
+        tracking-[-0.004em];
     }
 }
 
@@ -71,28 +72,30 @@
 /* Database Notifications */
 .fi-no-database {
     .fi-no-notification {
-        @apply !bg-white/94 dark:!bg-black/90 !border-none ring-0 outline-0;
+        @apply !bg-white/94
+        dark:!bg-black/90
+        !border-0
+        ring-0
+        outline-0;
     }
 
-    .fi-no-notification-unread-ctn::before {
-        @apply hidden;
+    .fi-no-notification-unread-ctn {
+        @apply before:hidden;
     }
 
     .fi-no-database-notification-ctn {
         @apply mt-2;
     }
 
-    /*.fi-no-notification-unread-ctn .fi-no-notification {*/
-    /*    @apply border-b-primary-500/70 border;*/
-    /*}*/
-
     .fi-no-notification-unread-ctn {
-        & {
-            @apply bg-gradient-to-r p-px from-primary-400 to-gray-50 dark:to-gray-800;
+        @apply bg-gradient-to-r
+        p-px
+        from-primary-400
+        to-gray-50
+        dark:to-gray-800;
 
-            .fi-no-notification-title {
-                @apply text-primary-400;
-            }
+        .fi-no-notification-title {
+            @apply text-primary-400;
         }
 
         &:has(.fi-color-danger) {
@@ -129,19 +132,22 @@
     }
 
     .fi-no-notification-read-ctn {
-        & {
-            --border-tail-colour: var(--primary-400);
+        --border-tail-colour: var(--primary-400);
 
-            @apply grayscale-25 bg-gradient-to-r p-px from-primary-400/30 to-gray-50 dark:to-gray-800;
+        @apply grayscale-25
+        bg-gradient-to-r
+        p-px
+        from-primary-400/30
+        to-gray-50
+        dark:to-gray-800;
 
-            .fi-no-notification-title,
-            .fi-no-notification-icon {
-                @apply text-primary-400/60;
-            }
+        .fi-no-notification-title,
+        .fi-no-notification-icon {
+            @apply text-primary-400/60;
         }
 
         &:has(.fi-color-danger) {
-            @apply from-danger-400/30;
+            @apply from-danger-400;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -150,7 +156,7 @@
         }
 
         &:has(.fi-color-info) {
-            @apply from-info-400/30;
+            @apply from-info-400;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -159,7 +165,7 @@
         }
 
         &:has(.fi-color-success) {
-            @apply from-success-400/30;
+            @apply from-success-400;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {
@@ -168,7 +174,7 @@
         }
 
         &:has(.fi-color-warning) {
-            @apply from-warning-400/30;
+            @apply from-warning-400;
 
             .fi-no-notification-title,
             .fi-no-notification-icon {

@@ -1,36 +1,27 @@
-/*
- *  Modal
- */
-
 .fi-modal-close-overlay {
-    background-color: color-mix(in oklab, var(--gray-900) 42%, transparent);
+    @apply bg-[color-mix(in_oklab,_var(--gray-900)_42%,_transparent)]
+    dark:bg-[color-mix(in_oklab,_var(--gray-950)_68%,_transparent)];
 }
 
 .fi-modal-content {
-    padding-inline: calc(1.75rem * var(--theme-density, 1));
+    @apply px-[calc(1.75rem_*_var(--theme-density,_1))];
 }
 
 .fi-modal-description {
-    @apply text-[var(--theme-ink-muted)];
-    font-size: 0.875rem;
-    line-height: 1.6;
+    @apply text-[var(--theme-ink-muted)]
+    text-sm
+    leading-[1.6];
 }
 
 .fi-modal-heading {
-    font-size: 1.375rem;
-    line-height: 1.25;
+    @apply text-[1.375rem]
+    leading-[1.25];
 }
 
 .fi-modal-window {
-    @apply border border-solid border-[var(--theme-hairline)];
-    border-radius: var(--radius-3xl, 1.75rem);
-    @apply shadow-xl;
-}
-
-.dark {
-    .fi-modal-close-overlay {
-        background-color: color-mix(in oklab, var(--gray-950) 68%, transparent);
-    }
+    @apply border border-solid border-[var(--theme-hairline)]
+    rounded-md
+    shadow-xl;
 }
 
 .fi-modal-footer .fi-pagination {
@@ -39,19 +30,23 @@
 
 .fi-modal-slide-over-from-end {
     .fi-modal-window {
-        @apply overflow-x-hidden rounded-sm rounded-r-none;
+        @apply overflow-x-hidden
+        rounded-sm
+        rounded-r-none;
     }
 }
 
 .fi-modal-slide-over-from-start {
     .fi-modal-window {
-        @apply overflow-x-hidden rounded-sm rounded-l-none;
+        @apply overflow-x-hidden
+        rounded-sm
+        rounded-l-none;
     }
 }
 
 .fi-no-database {
     .fi-modal-header {
-        @apply pb-0 border-none;
+        @apply pb-0 border-0;
     }
 
     .fi-modal-content {
@@ -61,6 +56,6 @@
 
 @media (max-width: 639px) {
     .fi-modal-window {
-        border-radius: var(--radius-2xl, 1.25rem);
+        @apply rounded-2xl;
     }
 }

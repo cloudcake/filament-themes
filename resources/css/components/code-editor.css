@@ -1,42 +1,42 @@
-/*
- *  Code editor
- */
-
 .fi-fo-code-editor .cm-editor {
-    @apply !bg-gray-50 dark:!bg-[#1a1b26];
-    @apply !px-5 !py-2;
+    @apply !bg-gray-50
+    dark:!bg-[#1a1b26]
+    !px-5
+    !py-2;
 }
 
 .fi-fo-code-editor .cm-editor .cm-gutters {
-    @apply border-none ring-0;
-    @apply !bg-gray-50 dark:!bg-[#1a1b26];
+    @apply border-0
+    ring-0
+    !bg-gray-50
+    dark:!bg-[#1a1b26];
 }
 
 .fi-fo-code-editor .cm-editor .cm-gutters:where(.dark, .dark *) {
-    @apply border-none ring-0;
+    @apply border-0
+    ring-0;
 }
 
-.fi-fo-code-editor .cm-editor .cm-gutters:where(.dark,.dark *) {
-    @apply !bg-gray-50 dark:!bg-[#1a1b26];
+.fi-fo-code-editor .cm-editor .cm-gutters:where(.dark, .dark *) {
+    @apply !bg-gray-50
+    dark:!bg-[#1a1b26];
 }
 
-.fi-fo-code-editor .cm-editor:where(.dark,.dark *) {
-    @apply !bg-gray-50 dark:!bg-[#1a1b26];
-    @apply !px-5 !py-2;
+.fi-fo-code-editor .cm-editor:where(.dark, .dark *) {
+    @apply !bg-gray-50
+    dark:!bg-[#1a1b26]
+    !px-5
+    !py-2;
 }
 
 .phiki {
-    @apply !bg-gray-50;
+    @apply !bg-gray-50
+    dark:!bg-[#1a1b26];
 }
 
 .ͼo {
-    @apply !bg-gray-50 dark:!bg-[#1a1b26];
-    @apply !px-5 !py-2;
-}
-
-.dark {
-    .phiki {
-        @apply !bg-[#1a1b26];
-    }
-
+    @apply !bg-gray-50
+    dark:!bg-[#1a1b26]
+    !px-5
+    !py-2;
 }

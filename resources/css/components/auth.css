@@ -1,90 +1,64 @@
-/* Auth / simple layout — Tailwind @apply with preserved variant behavior */
-
-:is(
-    .fi-simple-header-subheading a:hover,
-    .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover,
-    .fi-simple-main .fi-fo-field-wrp-hint a:hover
-) {
-    @apply text-primary-800 decoration-[var(--primary-500)];
-}
-
 :is(
     .fi-simple-header-subheading a,
     .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600,
     .fi-simple-main .fi-fo-field-wrp-hint a
 ) {
-    @apply text-primary-700;
-    transition: color var(--theme-duration, 260ms) var(--theme-ease, ease), text-decoration-color var(--theme-duration, 260ms) var(--theme-ease, ease);
-    @apply font-medium;
-    @apply underline;
-    @apply decoration-1;
-    text-underline-offset: 0.2em;
-    text-decoration-color: color-mix(in oklab, var(--primary-500) 40%, transparent);
+    @apply text-primary-700
+    font-medium
+    underline
+    underline-offset-2
+    decoration-1
+    decoration-primary-500/40
+    transition
+    duration-[260ms]
+    hover:text-primary-800;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login]) {
-
     .fi-simple-main {
-        @apply shadow-none border-none ring-0 outline-0;
+        @apply shadow-none border-0 ring-0 outline-0;
     }
 
-    .fi-simple-main-ctn, .fi-theme-login-stage {
-        background-image: var(--theme-grain), linear-gradient(100deg, var(--theme-canvas) 0%, var(--theme-canvas) 52%, color-mix(in oklab, var(--primary-50) 32%, var(--theme-canvas)) 100%);
+    .fi-simple-main-ctn,
+    .fi-theme-login-stage {
+        @apply [background:var(--theme-grain),_linear-gradient(100deg,var(--theme-canvas)_0%,var(--theme-canvas)_52%,color-mix(in_oklab,var(--primary-50)_32%,var(--theme-canvas))_100%)]
+        dark:[background:var(--theme-grain-dark),_linear-gradient(100deg,var(--theme-canvas)_0%,var(--theme-canvas)_52%,color-mix(in_oklab,var(--primary-800)_20%,var(--theme-canvas))_100%)];
     }
 
-    .fi-theme-login-stage::before {
-        content: '';
-        @apply absolute;
-        @apply inset-0;
-        background-image: radial-gradient(70% 55% at top left, color-mix(in oklab, var(--primary-400) 13%, transparent) 0%, transparent 72%),
-        radial-gradient(70% 55% at bottom right, color-mix(in oklab, var(--primary-600) 16%, transparent) 0%, transparent);
-    }
-}
-
-.dark .fi-simple-layout:has(> .fi-theme-login[data-theme-login]) {
-    .fi-simple-main-ctn, .fi-theme-login-stage {
-        background-image: var(--theme-grain-dark), linear-gradient(100deg, var(--theme-canvas) 0%, var(--theme-canvas) 52%, color-mix(in oklab, var(--primary-800) 20%, var(--theme-canvas)) 100%) !important;
-    }
-
-    .fi-theme-login-stage::before {
-        content: '';
-        @apply absolute;
-        @apply inset-0;
-        background-image: radial-gradient(70% 55% at top left, color-mix(in oklab, var(--primary-600) 13%, transparent) 0%, transparent 72%),
-        radial-gradient(70% 55% at bottom right, color-mix(in oklab, var(--primary-600) 16%, transparent) 0%, transparent);
+    .fi-theme-login-stage {
+        @apply before:absolute
+        before:inset-0
+        before:[background:radial-gradient(70%_55%_at_top_left,color-mix(in_oklab,var(--primary-400)_13%,transparent)_0%,transparent_72%,70%_55%_at_bottom_right,color-mix(in_oklab,var(--primary-600)_16%,transparent)_0%,transparent)]
+        dark:before:[background:radial-gradient(70%_55%_at_top_left,color-mix(in_oklab,var(--primary-600)_13%,transparent)_0%,transparent_72%),radial-gradient(70%_55%_at_bottom_right,color-mix(in_oklab,var(--primary-600)_16%,transparent)_0%,transparent)];
     }
 }
 
 .fi-simple-header {
-    @apply text-center;
+    @apply text-center
+    after:block
+    after:h-0.5
+    after:w-10
+    after:mx-auto
+    after:mt-[calc(1.25rem_*_var(--theme-density,_1))]
+    after:rounded-3xl
+    after:bg-primary-500
+    after:content-[''];
 }
 
 .fi-simple-header-heading {
-    @apply text-[var(--theme-ink)];
-    @apply font-medium;
-    letter-spacing: -0.011em;
-    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
-    font-size: clamp(1.875rem, 1.55rem + 1.4vw, 2.375rem);
-    line-height: 1.12;
-    text-wrap: balance;
+    @apply text-[var(--theme-ink)]
+    text-balance
+    text-[clamp(1.875rem,1.55rem_+_1.4vw,2.375rem)]
+    font-medium
+    leading-[1.12];
 }
 
 .fi-simple-header-subheading {
-    @apply text-[var(--theme-ink-muted)];
-    margin-top: calc(0.625rem * var(--theme-density, 1));
-    line-height: 1.6;
-    font-size: 0.9375rem;
-    text-wrap: pretty;
-}
-
-.fi-simple-header::after {
-    @apply bg-primary-500;
-    content: '';
-    height: 2px;
-    width: 2.5rem;
-    margin: calc(1.25rem * var(--theme-density, 1)) auto 0;
-    @apply block;
-    border-radius: var(--radius-3xl);
+    @apply text-[var(--theme-ink-muted)]
+    text-[0.9375rem]
+    text-pretty
+    mt-[calc(0.625rem_*_var(--theme-density,_1))]
+    leading-[1.6];
 }
 
 .fi-simple-layout {
@@ -98,101 +72,82 @@
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main,
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
 .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-    padding: calc(2.5rem * var(--theme-density, 1));
-    border-radius: var(--radius-3xl, 1.75rem);
+    @apply p-[calc(2.5rem_*_var(--theme-density,_1))]
+    rounded-3xl;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
     @apply items-start;
 }
 
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-theme-login-stage {
-    @apply hidden;
-}
-
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-theme-login-stage,
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-theme-login-stage {
     @apply hidden;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
-    @apply grid;
-    @apply items-stretch;
-}
+    & {
+        @apply grid items-stretch;
+    }
 
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header {
-    @apply items-start;
-    @apply text-start;
-}
+    .fi-simple-header {
+        @apply items-start text-start after:ml-0 after:mr-auto;
+    }
 
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header .fi-logo {
-    @apply justify-start;
-}
+    .fi-simple-header .fi-logo {
+        @apply justify-start;
+    }
 
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-heading {
-    @apply text-start;
-}
-
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header-subheading {
-    @apply text-start;
-}
-
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-header::after {
-    margin-inline: 0 auto;
+    .fi-simple-header-heading,
+    .fi-simple-header-subheading {
+        @apply text-start;
+    }
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main {
-    @apply border-none bg-transparent;
-    max-width: 25rem;
-    padding-inline: 1.5rem;
+    @apply border-0 bg-transparent max-w-100 px-6;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
-    background-image: none;
-    color: inherit;
-    @apply items-center;
+    @apply bg-none text-inherit items-center;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner {
-    padding-inline: clamp(2rem, 6vw, 6rem);
-    padding-block: 4rem;
+    @apply px-[clamp(2rem,6vw,6rem)] py-16;
 }
 
-.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner::after {
-    @apply bg-primary-400;
+.fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-inner {
+    @apply after:bg-primary-400;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-name {
-    color: color-mix(in oklab, var(--primary-700) 62%, transparent);
-    font-size: clamp(3rem, 1rem + 5.4vw, 6rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
+    @apply [color:color-mix(in_oklab,var(--primary-700)_62%,transparent)]
+    text-[clamp(3rem,1rem_+_5.4vw,6rem)]
+    leading-[0.95]
+    tracking-[-0.03em];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage-tagline {
-    @apply text-primary-950 dark:text-primary-100;
-    max-width: 54ch;
+    @apply text-primary-950 dark:text-primary-100 max-w-[54ch];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-header .fi-logo {
-    @apply border border-solid border-[var(--theme-hairline)];
-    @apply box-content;
-    align-self: center;
-    margin-bottom: calc(1.75rem * var(--theme-density, 1));
-    padding: 1.375rem 1.625rem;
-    min-width: 4rem;
-    border-radius: var(--radius-2xl, 1.25rem);
+    @apply border border-solid border-[var(--theme-hairline)]
+    box-content
+    self-center
+    mb-[calc(1.75rem_*_var(--theme-density,_1))]
+    px-[1.625rem]
+    py-[1.375rem]
+    min-w-16
+    rounded-2xl;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-main {
-    @apply border-0;
-    @apply bg-transparent;
-    padding-inline: 1.5rem;
-    max-width: 23rem;
-    @apply shadow-none;
+    @apply border-0 bg-transparent px-6 max-w-92 shadow-none;
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-simple-page-content {
-    row-gap: calc(2rem * var(--theme-density, 1));
+    @apply gap-y-[calc(2rem_*_var(--theme-density,_1))];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='portal']) .fi-theme-login-stage {
@@ -200,9 +155,7 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
-    @apply grid;
-    @apply items-stretch;
-    grid-template-rows: auto 1fr;
+    @apply grid items-stretch grid-rows-[auto_1fr];
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header {
@@ -214,60 +167,58 @@
 }
 
 .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
-    @apply border-0;
-    @apply bg-transparent;
-    max-width: 26rem;
-    padding-inline: 1.5rem;
-    margin-block: calc(3rem * var(--theme-density, 1));
-    @apply shadow-none;
+    @apply border-0
+    bg-transparent
+    max-w-104
+    px-6
+    my-[calc(3rem_*_var(--theme-density,_1))]
+    shadow-none;
 }
 
 .fi-simple-main {
-    animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
-    @apply shadow-xl;
+    @apply shadow-xl
+    animate-[theme-auth-in_var(--theme-anim-duration\,_520ms)_var(--theme-ease\,_ease)_both];
 }
 
 .fi-simple-main .fi-fo-checkbox .fi-fo-field-wrp-label {
-    @apply text-[var(--theme-ink-muted)];
-    @apply font-normal;
+    @apply text-[var(--theme-ink-muted)] font-normal;
 }
 
 .fi-simple-main .fi-fo-component-ctn {
-    row-gap: calc(1.25rem * var(--theme-density, 1));
+    @apply gap-y-[calc(1.25rem_*_var(--theme-density,_1))];
 }
 
 .fi-simple-main .fi-fo-field-wrp .fi-input-wrp .fi-input {
-    padding-block: calc(0.6875rem * var(--theme-density, 1));
-    font-size: 0.9375rem;
+    @apply py-[calc(0.6875rem_*_var(--theme-density,_1))]
+    text-[0.9375rem];
 }
 
 .fi-simple-main .fi-fo-field-wrp-error-message {
-    margin-top: 0.4375rem;
-    @apply font-medium;
-    font-size: 0.8125rem;
-    line-height: 1.5;
+    @apply mt-[0.4375rem]
+    font-medium
+    text-[0.8125rem]
+    leading-[1.5];
 }
 
 .fi-simple-main .fi-fo-field-wrp-label {
-    @apply text-[var(--theme-ink)];
-    @apply font-medium;
-    font-size: 0.8125rem;
-    letter-spacing: 0.006em;
+    @apply text-[var(--theme-ink)]
+    font-medium
+    text-[0.8125rem]
+    tracking-[0.006em];
 }
 
 .fi-simple-main .fi-form-actions .fi-ac {
-    margin-top: calc(0.375rem * var(--theme-density, 1));
+    @apply mt-[calc(0.375rem_*_var(--theme-density,_1))];
 }
 
 .fi-simple-main .fi-form-actions .fi-btn {
-    padding-block: calc(0.6875rem * var(--theme-density, 1));
-    letter-spacing: 0.004em;
-    font-size: 0.9375rem;
+    @apply py-[calc(0.6875rem_*_var(--theme-density,_1))]
+    tracking-[0.004em]
+    text-[0.9375rem];
 }
 
 .fi-simple-main .fi-sc-section {
-    border-radius: var(--radius-xl, 0.9375rem);
-    @apply shadow-none;
+    @apply rounded-xl shadow-none;
 }
 
 .fi-theme-login {
@@ -275,52 +226,49 @@
 }
 
 .fi-theme-login-stage {
-    background-image: var(--theme-stage);
-    color: color-mix(in oklab, var(--gray-50) 92%, white);
-    @apply relative;
-    @apply overflow-hidden;
-    @apply flex;
+    @apply relative overflow-hidden flex
+    [background-image:var(--theme-stage)]
+    [color:color-mix(in_oklab,var(--gray-50)_92%,white)];
 }
 
 .fi-theme-login-stage-inner {
-    @apply relative;
-    @apply justify-center;
-    @apply flex;
-    z-index: 1;
-    @apply flex-col;
-    padding: clamp(2rem, 5vw, 4.5rem);
-    animation: theme-auth-in var(--theme-anim-duration, 520ms) var(--theme-ease, ease) both;
-    animation-delay: 60ms;
+    @apply relative
+    justify-center
+    flex
+    z-[1]
+    flex-col
+    p-[clamp(2rem,5vw,4.5rem)]
+    animate-[theme-auth-in_var(--theme-anim-duration\,_520ms)_var(--theme-ease\,_ease)_both]
+    delay-[60ms];
 }
 
-.fi-theme-login-stage-inner::after {
-    background-color: color-mix(in oklab, var(--primary-400) 80%, transparent);
-    content: '';
-    height: 3px;
-    @apply block;
-    width: 3rem;
-    margin-top: 1.25rem;
-    border-radius: var(--radius-3xl);
+.fi-theme-login-stage-inner {
+    @apply after:block
+    after:h-[3px]
+    after:w-12
+    after:mt-5
+    after:rounded-3xl
+    after:bg-[color-mix(in_oklab,var(--primary-400)_80%,transparent)]
+    after:content-[''];
 }
 
 .fi-theme-login-stage-logo {
-    color: inherit;
-    @apply justify-start;
-    margin-bottom: 2.25rem;
+    @apply text-inherit justify-start mb-9;
 }
 
 .fi-theme-login-stage-name {
-    @apply font-bold;
-    text-wrap: balance;
-    font-size: clamp(1.85rem, 1.5rem + 1.8vw, 2.5rem);
-    letter-spacing: -0.018em;
-    line-height: 1.05;
-
     --theme-text-gradient-from-colour: light-dark(var(--color-white), var(--color-white));
     --theme-text-gradient-via-colour: light-dark(var(--primary-950), var(--primary-800));
     --theme-text-gradient-to-colour: light-dark(var(--color-white), var(--primary-50));
 
-    @apply text-gradient animate-gradient [animation-duration:22s];
+    @apply font-bold
+    text-balance
+    text-[clamp(1.85rem,1.5rem_+_1.8vw,2.5rem)]
+    tracking-[-0.018em]
+    leading-[1.05]
+    text-gradient
+    animate-gradient
+    [animation-duration:22s];
 }
 
 .fi-theme-login:empty {
@@ -328,33 +276,26 @@
 }
 
 .fi-theme-login-stage-tagline {
-    @apply text-primary-950 dark:text-primary-100;
-    margin-top: 1.25rem;
-    max-width: 26ch;
-    text-wrap: pretty;
-    @apply font-semibold;
-    font-size: 0.8875rem;
-    letter-spacing: 0.085em;
+    @apply text-primary-950
+    dark:text-primary-100
+    mt-5
+    max-w-[26ch]
+    text-pretty
+    font-semibold
+    text-[0.8875rem]
+    tracking-[0.085em];
 }
 
-.fi-light-switch {
-    @apply rounded-3xl bg-gray-50 dark:bg-gray-950;
+.fi-simple-header-subheading a,
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600,
+.fi-simple-main .fi-fo-field-wrp-hint a {
+    @apply dark:text-primary-300;
 }
 
-.dark :is(
-    .fi-simple-header-subheading a,
-    .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600,
-    .fi-simple-main .fi-fo-field-wrp-hint a
-) {
-    @apply text-primary-300;
-}
-
-.dark :is(
-    .fi-simple-header-subheading a:hover,
-    .fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover,
-    .fi-simple-main .fi-fo-field-wrp-hint a:hover
-) {
-    @apply text-primary-200;
+.fi-simple-header-subheading a:hover,
+.fi-simple-layout .fi-link.fi-color-primary.fi-text-color-600:hover,
+.fi-simple-main .fi-fo-field-wrp-hint a:hover {
+    @apply dark:text-primary-200;
 }
 
 @media (max-width: 1023px) {
@@ -371,7 +312,7 @@
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main {
-        margin-block: calc(2.5rem * var(--theme-density, 1));
+        @apply my-[calc(2.5rem_*_var(--theme-density,_1))];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main-ctn {
@@ -379,73 +320,62 @@
     }
 
     .fi-theme-login-stage {
-        padding-block: 0;
+        @apply py-0;
     }
 
     .fi-theme-login-stage-inner {
-        padding: 2rem 1.5rem 1.75rem;
-        width: 100%;
+        @apply pt-8 px-6 pb-7 w-full;
     }
 
-    .fi-theme-login-stage-inner::after {
-        margin-top: 1.5rem;
+    .fi-theme-login-stage-inner {
+        @apply after:mt-6;
     }
 
     .fi-theme-login-stage-logo {
-        margin-bottom: 1.25rem;
+        @apply mb-5;
     }
 
     .fi-theme-login-stage-name {
-        font-size: 1.75rem;
+        @apply text-3xl;
     }
 
     .fi-theme-login-stage-tagline {
         @apply hidden;
     }
 
-    .fi-theme-login-stage::after {
-        @apply hidden;
+    .fi-theme-login-stage {
+        @apply after:hidden;
     }
-
 }
 
-.fi-theme-login-stage::after {
-    background-color: color-mix(in oklab, var(--primary-200) 14%, transparent);
-    content: '';
-    position: absolute;
-    mask-image: var(--theme-sprig);
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    -webkit-mask-image: var(--theme-sprig);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    right: 2%;
-    bottom: -4%;
-    width: 62%;
-    aspect-ratio: 100 / 100;
+.fi-theme-login-stage {
+    @apply after:bg-[color-mix(in_oklab,var(--primary-200)_14%,transparent)]
+    after:content-['']
+    after:absolute
+    after:[mask-image:var(--theme-icon-auth)]
+    after:[mask-repeat:no-repeat]
+    after:[mask-size:contain]
+    after:[-webkit-mask-image:var(--theme-icon-auth)]
+    after:[-webkit-mask-repeat:no-repeat]
+    after:[-webkit-mask-size:contain]
+    after:right-[10%]
+    after:bottom-[4%]
+    after:w-[62%]
+    after:opacity-50
+    after:aspect-square;
 }
 
 @media (max-width: 639px) {
     .fi-simple-layout .fi-simple-main {
-        padding: calc(1.75rem * var(--theme-density, 1));
-        border-radius: var(--radius-2xl, 1.25rem);
+        @apply p-[calc(1.75rem_*_var(--theme-density,_1))]
+        rounded-2xl;
     }
 
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-        width: auto;
-        margin-inline: 0.875rem;
-    }
-
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main {
-        width: auto;
-        margin-inline: 0.875rem;
-    }
-
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main,
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='card']) .fi-simple-main,
     .fi-simple-layout:not(:has(> .fi-theme-login[data-theme-login])) .fi-simple-main {
-        width: auto;
-        margin-inline: 0.875rem;
+        @apply w-auto mx-[0.875rem];
     }
-
 }
 
 @media (min-width: 1024px) {
@@ -458,42 +388,41 @@
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-heading {
-        @apply text-start;
-        font-size: clamp(2.25rem, 1.6rem + 1.6vw, 3rem);
+        @apply text-start
+        text-[clamp(2.25rem,1.6rem_+_1.6vw,3rem)];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header-subheading {
         @apply text-start;
     }
 
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header::after {
-        margin-inline: 0 auto;
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-header {
+        @apply after:ml-0 after:mr-auto;
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-main {
-        max-width: 50rem;
-        padding: clamp(2.5rem, 3.5vw, 3.25rem);
+        @apply max-w-200 p-[clamp(2.5rem,3.5vw,3.25rem)];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content {
-        @apply items-center;
-        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-        column-gap: clamp(2rem, 4vw, 3.25rem);
+        @apply items-center
+        grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]
+        gap-x-[clamp(2rem,4vw,3.25rem)];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='bleed']) .fi-simple-page-content > :not(.fi-simple-header) {
-        @apply border-s border-solid border-[var(--theme-hairline)];
-        padding-inline-start: clamp(2rem, 4vw, 3.25rem);
+        @apply border-s border-solid border-[var(--theme-hairline)]
+        ps-[clamp(2rem,4vw,3.25rem)];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) {
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        @apply grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-simple-main-ctn {
-        @apply order-1;
-        @apply justify-end;
-        padding-inline: clamp(2rem, 6vw, 6rem);
+        @apply order-1
+        justify-end
+        px-[clamp(2rem,6vw,6rem)];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='editorial']) .fi-theme-login-stage {
@@ -501,8 +430,8 @@
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-rows: 1fr;
+        @apply grid-cols-[minmax(0,1fr)_minmax(0,1fr)]
+        grid-rows-[1fr];
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header {
@@ -517,38 +446,22 @@
         @apply text-start;
     }
 
-    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header::after {
-        margin-inline: 0 auto;
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-header {
+        @apply after:ml-0 after:mr-auto;
     }
 
     .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-simple-main-ctn {
-        padding-inline: clamp(1.5rem, 4vw, 4rem);
+        @apply px-[clamp(1.5rem,4vw,4rem)];
     }
 
     .fi-theme-login-stage-inner {
-        position: sticky;
-        top: 0;
-        min-height: 100dvh;
+        @apply sticky top-0 min-h-dvh;
     }
 
-    .dark {
-        .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
-            @apply border-e border-solid border-[var(--theme-hairline)];
-            border-block-end: 0;
-        }
-
+    .fi-simple-layout:has(> .fi-theme-login[data-theme-login='split']) .fi-theme-login-stage {
+        @apply dark:border-e
+        dark:border-solid
+        dark:border-[var(--theme-hairline)]
+        dark:border-b-0;
     }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .fi-simple-main {
-        @apply animate-none;
-        @apply opacity-100;
-        @apply transform-none;
-    }
-
-    .fi-theme-login-stage-inner {
-        @apply animate-none;
-    }
-
 }

@@ -1,15 +1,14 @@
-/*
- *  Links
- */
-
 .fi-link {
-    transition: color 200ms var(--theme-ease, ease), text-decoration-color 200ms var(--theme-ease, ease);
-    text-decoration-color: color-mix(in oklab, var(--primary-500) 32%, transparent);
-    text-decoration-line: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
+    @apply underline
+    decoration-[color-mix(in_oklab,_var(--primary-500)_32%,_transparent)]
+    decoration-1
+    underline-offset-[0.2em]
+    transition
+    duration-[200ms];
+    transition-property: color, text-decoration-color;
+    transition-timing-function: var(--theme-ease, ease);
 }
 
 .fi-link:hover {
-    text-decoration-color: var(--primary-500);
+    @apply decoration-primary-500;
 }

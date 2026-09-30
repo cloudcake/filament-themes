@@ -23,3 +23,7 @@
         @apply opacity-100 transition-all duration-[500ms];
     }
 }
+
+.fi-light-switch {
+    @apply rounded-3xl bg-gray-50 dark:bg-gray-950;
+}

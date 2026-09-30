@@ -1,11 +1,6 @@
-/*
- *  Logo
- */
-
 .fi-logo {
-    @apply text-[var(--theme-ink)];
-    font-weight: 500;
-    font-size: 1.5rem;
-    font-family: var(--theme-heading-font, ui-serif, Georgia, serif);
-    letter-spacing: -0.015em;
+    @apply text-[var(--theme-ink)]
+    font-medium
+    text-2xl
+    tracking-[-0.015em];
 }

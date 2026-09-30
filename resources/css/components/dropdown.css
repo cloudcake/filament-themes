@@ -1,41 +1,30 @@
-/*
- *  Dropdown
- */
-
 .fi-dropdown-header {
-    @apply text-[var(--theme-ink-muted)];
-    font-weight: 600;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.075em;
+    @apply
+    text-[var(--theme-ink-muted)] text-[0.6875rem]/5
+    font-semibold
+    uppercase
+    tracking-[0.075em];
 }
 
 .fi-dropdown-list {
-    gap: 0.0625rem;
-    padding: 0;
+    @apply
+    gap-[0.0625rem]
+    p-0;
 }
 
 .fi-dropdown-list-item {
-    transition: background-color 200ms var(--theme-ease, ease), color 200ms var(--theme-ease, ease);
-    border-radius: var(--radius-md, 0.5rem);
-    font-size: 0.8125rem;
-    font-weight: 450;
-}
-
-.fi-dropdown-list-item:hover {
-    background-color: color-mix(in oklab, var(--gray-400) 13%, transparent);
+    @apply
+    transition duration-200
+    rounded-md
+    text-[0.8125rem]
+    font-normal
+    hover:bg-gray-400/13 hover:dark:bg-gray-50/7;
 }
 
 .fi-dropdown-panel {
-    @apply border border-solid border-[var(--theme-hairline)];
-    padding: 0.3125rem;
-    border-radius: var(--radius-xl, 0.9375rem);
-    @apply shadow-xl;
-}
-
-.dark {
-    .fi-dropdown-list-item:hover {
-        background-color: color-mix(in oklab, var(--gray-50) 7%, transparent);
-    }
-
+    @apply
+    border border-solid border-[var(--theme-hairline)]
+    p-[0.3125rem]
+    rounded-md
+    shadow-xl;
 }

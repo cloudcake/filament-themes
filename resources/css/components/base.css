@@ -1,69 +1,42 @@
-/*
- *  Document defaults
- */
-
-.fi-body:is(
-        .fi-header-heading,
-        .fi-modal-heading,
-        .fi-simple-header-heading,
-        .fi-ta-header-heading,
-        .fi-empty-state-heading,
-        .fi-ta-empty-state-heading,
-        .fi-logo
-    ) {
-    font-family: var(--theme-heading-font), ui-serif, Georgia, serif;
-}
-
 .fi-body:is(.fi-header-heading,.fi-modal-heading,.fi-simple-header-heading,.fi-ta-header-heading,.fi-empty-state-heading,.fi-ta-empty-state-heading,.fi-logo) {
-    @apply text-[var(--theme-ink)];
-    font-weight: 500;
-    letter-spacing: -0.011em;
+    @apply text-[var(--theme-ink)]
+    font-medium
+    tracking-[-0.011em];
 }
 
 .fi-body:is(.fi-sidebar-group-label,.fi-ta-header-cell,.fi-ta-header-group-cell,.fi-fieldset-label) {
-    font-weight: 600;
-    font-size: 0.5875rem;
-    text-transform: uppercase;
-    font-family: var(--font-sans), ui-serif, Georgia, serif;
-    letter-spacing: 0.085em;
+    @apply font-semibold
+    text-[0.5875rem]
+    uppercase
+    font-[var(--font-sans),_ui-serif,_Georgia,_serif]
+    tracking-[0.085em];
 }
 
 ::selection {
-    @apply text-[var(--gray-950)];
-    background-color: color-mix(in oklab, var(--primary-300) 60%, transparent);
+    @apply text-[var(--gray-950)]
+    bg-[color-mix(in_oklab,_var(--primary-300)_60%,_transparent)];
 }
 
 [wire\:loading\.delay] {
-    transition: opacity var(--theme-duration, 260ms) var(--theme-ease, ease);
+    @apply transition-opacity duration-[260ms];
 }
 
 body {
+    @apply antialiased;
     font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
 
 @media (prefers-reduced-motion: reduce) {
     * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        @apply [animation-duration:0.01ms] [animation-iteration-count:1] [transition-duration:0.01ms] [scroll-behavior:auto];
     }
 
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        @apply [animation-duration:0.01ms] [animation-iteration-count:1] [transition-duration:0.01ms] [scroll-behavior:auto];
     }
 
     *::before {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        @apply [animation-duration:0.01ms] [animation-iteration-count:1] [transition-duration:0.01ms] [scroll-behavior:auto];
     }
-
 }

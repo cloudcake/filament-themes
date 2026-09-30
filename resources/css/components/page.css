@@ -1,20 +1,21 @@
-/*
- *  Page / main frame
- */
-
 body {
     /* Required for curved corner of main content */
     @apply bg-[var(--theme-navigation-background-color)];
 }
 
 .fi-main {
-    padding-inline: calc(1.5rem * var(--theme-density, 1));
-    padding-block: calc(2rem * var(--theme-density, 1));
-    row-gap: var(--theme-section-gap, 2rem);
+    @apply px-[calc(1.5rem_*_var(--theme-density,_1))]
+    py-[calc(2rem_*_var(--theme-density,_1))]
+    gap-y-[var(--theme-section-gap,_2rem)];
 }
 
 .fi-body-has-topbar .fi-main-ctn {
-    @apply border-1 border-gray-200 dark:border-gray-800 rounded-2xl rounded-b-none rounded-tr-none;
+    @apply border
+    border-gray-200
+    dark:border-gray-800
+    rounded-2xl
+    rounded-b-none
+    rounded-tr-none;
 }
 
 .fi-main-sidebar {
@@ -25,11 +26,10 @@ body {
     ::-webkit-scrollbar-track {
         @apply my-12 bg-transparent;
     }
-;
 }
 
 .fi-page {
-    row-gap: var(--theme-section-gap, 2rem);
+    @apply gap-y-[var(--theme-section-gap,_2rem)];
 }
 
 .fi-main-sidebar {
@@ -44,31 +44,28 @@ body {
 
 @media (min-width: 1280px) {
     .fi-main {
-        padding-inline: calc(3rem * var(--theme-density, 1));
+        @apply px-[calc(3rem_*_var(--theme-density,_1))];
     }
-
 }
 
 @media (min-width: 768px) {
     .fi-main {
-        padding-inline: calc(2.25rem * var(--theme-density, 1));
-        padding-block: calc(2.5rem * var(--theme-density, 1));
+        @apply px-[calc(2.25rem_*_var(--theme-density,_1))]
+        py-[calc(2.5rem_*_var(--theme-density,_1))];
     }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
     .fi-body {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+        @apply [animation-duration:0.01ms]
+        [animation-iteration-count:1]
+        [transition-duration:0.01ms]
+        [scroll-behavior:auto];
     }
 
     .fi-main > .fi-page {
-        animation: none !important;
-        opacity: 1;
-        transform: none;
+        @apply animate-none
+        opacity-100
+        transform-none;
     }
-
 }

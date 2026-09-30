@@ -10,15 +10,13 @@
 @import 'components/field.css';
 @import 'components/code-editor.css';
 @import 'components/badge.css';
-@import 'components/avatar.css';
-@import 'components/sidebar.css';
+@import 'components/navigation.css';
 @import 'components/table.css';
 @import 'components/modal.css';
 @import 'components/dropdown.css';
 @import 'components/notification.css';
 @import 'components/empty-state.css';
 @import 'components/tabs.css';
-@import 'components/topbar.css';
 @import 'components/breadcrumbs.css';
 @import 'components/section.css';
 @import 'components/header.css';
@@ -31,9 +29,9 @@
 @import 'components/page.css';
 @import 'components/misc.css';
 
-@import 'optional/borders.css';
-@import 'optional/components.css';
-@import 'optional/transitions.css';
+@import 'configurable/borders.css';
+@import 'configurable/components.css';
+@import 'configurable/transitions.css';
 
 @source '../views/**/*.blade.php';
 @source '../../**/*';
@@ -44,7 +42,8 @@
 
     --color-white: color-mix(in oklab, var(--gray-50) 55%, white);
     --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --theme-sprig: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-shield-lock%22%3E%0A%09%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M12%203a12%2012%200%200%200%208.5%203a12%2012%200%200%201%20-8.5%2015a12%2012%200%200%201%20-8.5%20-15a12%2012%200%200%200%208.5%20-3%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M11%2011a1%201%200%201%200%202%200a1%201%200%201%200%20-2%200%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M12%2012l0%202.5%22%20%2F%3E%0A%3C%2Fsvg%3E");
+    --theme-icon-auth: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-user-key%22%3E%0A%09%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M8%207a4%204%200%201%200%208%200a4%204%200%200%200%20-8%200%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M6%2021v-2a4%204%200%200%201%204%20-4h5%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M18.5%2018.5l-3.5%203.5l-1.5%20-1.5%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M18.554%2018.414a2%202%200%201%201%202.828%20-2.828a2%202%200%200%201%20-2.828%202.828%22%20%2F%3E%0A%09%3Cpath%20d%3D%22M16%2019l1%201%22%20%2F%3E%0A%3C%2Fsvg%3E");
+    --theme-icon-empty-state: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20class%3D%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-leaf%22%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M5%2021c.5%20-4.5%202.5%20-8%207%20-10%22%2F%3E%3Cpath%20d%3D%22M9%2018c6.218%200%2010.5%20-3.288%2011%20-12v-2h-4.014c-9%200%20-11.986%204%20-12%209c0%201%200%203%202%205h3l.014%200%22%2F%3E%3C%2Fsvg%3E");
     --theme-chart-line-tension: 0.35;
     --theme-chart-bar-radius: 4;
     --theme-chart-tooltip-radius: 12;
@@ -162,6 +161,27 @@
         to {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    @keyframes theme-shimmer {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+    @keyframes theme-icon-in {
+        from {
+            opacity: 0;
+            transform: scale(0.94) rotate(-3deg);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
         }
     }
 }

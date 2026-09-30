@@ -1,16 +1,12 @@
-/*
- *  Misc
- */
-
 .fi-in-text-item-content {
-    @apply text-[var(--theme-ink)];
-    font-size: 0.875rem;
+    @apply text-[var(--theme-ink)]
+    text-sm;
 }
 
-/*.fi-in-text-item-label {*/
-/*    @apply text-[var(--theme-ink-muted)];*/
-/*    font-weight: 600;*/
-/*    font-size: 0.6875rem;*/
-/*    text-transform: uppercase;*/
-/*    letter-spacing: 0.075em;*/
-/*}*/
+.fi-in-text-item-label {
+    @apply text-[var(--theme-ink-muted)]
+    font-semibold
+    text-[0.6875rem]
+    uppercase
+    tracking-[0.075em];
+}

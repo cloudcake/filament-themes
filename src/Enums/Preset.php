@@ -151,8 +151,7 @@ enum Preset
 
                 $panel
                     ->font('Inter Tight')
-                    ->topNavigation()
-                    ->topbar(true);
+                    ->topbar(false);
             }
         };
 

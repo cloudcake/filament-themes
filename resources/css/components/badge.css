@@ -1,38 +1,25 @@
-/*
- *  Badge
- */
-
 .fi-badge {
-    @apply border-none ring-0;
-    @apply px-[0.5rem] py-[0.1875rem];
-    @apply rounded-3xl;
-    @apply shadow-none;
-    letter-spacing: 0.055em;
-    line-height: 1.35;
-    font-weight: 600;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
+    @apply border-0 ring-0
+    px-[0.5rem] py-[0.1875rem]
+    rounded-3xl
+    shadow-none
+    tracking-[0.055em]
+    leading-[1.35]
+    font-semibold
+    text-[0.6875rem]
+    uppercase;
 }
 
 .fi-badge.fi-color {
-    @apply text-[var(--color-800)];
-    background-color: color-mix(in oklab, var(--color-200) 55%, transparent);
+    @apply text-[var(--color-800)]
+    bg-[color-mix(in_oklab,_var(--color-200)_55%,_transparent)]
+    dark:text-[var(--color-200)]
+    dark:bg-[color-mix(in_oklab,_var(--color-500)_18%,_transparent)];
 }
 
 .fi-badge:not(.fi-color) {
-    background-color: color-mix(in oklab, var(--gray-400) 16%, transparent);
-    @apply text-[var(--gray-700)];
-}
-
-.dark {
-    .fi-badge.fi-color {
-        @apply text-[var(--color-200)];
-        background-color: color-mix(in oklab, var(--color-500) 18%, transparent);
-    }
-
-    .fi-badge:not(.fi-color) {
-        @apply text-[var(--gray-300)];
-        background-color: color-mix(in oklab, var(--gray-50) 8%, transparent);
-    }
-
+    @apply text-[var(--gray-700)]
+    bg-[color-mix(in_oklab,_var(--gray-400)_16%,_transparent)]
+    dark:text-[var(--gray-300)]
+    dark:bg-[color-mix(in_oklab,_var(--gray-50)_8%,_transparent)];
 }

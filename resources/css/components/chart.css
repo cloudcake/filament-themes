@@ -1,7 +1,3 @@
-/*
- *  Charts
- */
-
 .fi-wi-chart {
     @apply rounded-2xl;
     --chart-line-tension: var(--theme-chart-line-tension, 0.35);

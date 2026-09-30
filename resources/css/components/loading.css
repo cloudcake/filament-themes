@@ -1,76 +1,33 @@
-/*
- *  Loading & skeleton
- */
-
 .fi-loading-indicator {
     @apply text-primary-500;
 }
 
 .fi-loading-section {
-    @apply border border-solid border-[var(--theme-hairline)];
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-2xl, 1.25rem);
-}
+    @apply
+        border border-solid border-[var(--theme-hairline)]
+        relative
+        overflow-hidden
+        rounded-2xl
 
-.fi-loading-section::after {
-    background: linear-gradient( 90deg, transparent 0%, color-mix(in oklab, var(--primary-200) 42%, transparent) 50%, transparent 100% );
-    content: '';
-    position: absolute;
-    inset: 0;
-    animation: theme-shimmer 1.7s var(--theme-ease, ease) infinite;
-    will-change: transform;
+        after:absolute
+        after:inset-0
+        after:[background:linear-gradient(90deg,transparent_0%,color-mix(in_oklab,var(--primary-200)_42%,transparent)_50%,transparent_100%)]
+        after:animate-[theme-shimmer_1.7s_var(--theme-ease,_ease)_infinite]
+        after:will-change-transform
+        after:dark:[background:linear-gradient(90deg,transparent_0%,color-mix(in_oklab,var(--primary-400)_12%,transparent)_50%,transparent_100%)];
 }
 
 .fi-skeleton {
-    background-color: color-mix(in oklab, var(--gray-300) 42%, transparent);
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-sm, 0.375rem);
-}
+    @apply
+        [background-color:color-mix(in_oklab,var(--gray-300)_42%,transparent)] dark:[background-color:color-mix(in_oklab,var(--gray-50)_7%,transparent)]
+        relative
+        overflow-hidden
+        rounded-sm
 
-.fi-skeleton::after {
-    background: linear-gradient( 90deg, transparent 0%, color-mix(in oklab, var(--primary-200) 42%, transparent) 50%, transparent 100% );
-    content: '';
-    position: absolute;
-    inset: 0;
-    animation: theme-shimmer 1.7s var(--theme-ease, ease) infinite;
-    will-change: transform;
-}
-
-.dark {
-    .fi-loading-section::after {
-        background: linear-gradient( 90deg, transparent 0%, color-mix(in oklab, var(--primary-400) 12%, transparent) 50%, transparent 100% );
-    }
-
-    .fi-skeleton {
-        background-color: color-mix(in oklab, var(--gray-50) 7%, transparent);
-    }
-
-    .fi-skeleton::after {
-        background: linear-gradient( 90deg, transparent 0%, color-mix(in oklab, var(--primary-400) 12%, transparent) 50%, transparent 100% );
-    }
-
-}
-
-@keyframes theme-shimmer {
-    from {
-    transform: translateX(-100%);
-    }
-    to {
-    transform: translateX(100%);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .fi-loading-section::after {
-        animation: none !important;
-        opacity: 0;
-    }
-
-    .fi-skeleton::after {
-        animation: none !important;
-        opacity: 0;
-    }
-
+        after:[background:linear-gradient(90deg,transparent_0%,color-mix(in_oklab,var(--primary-200)_42%,transparent)_50%,transparent_100%)]
+        after:absolute
+        after:inset-0
+        after:animate-[theme-shimmer_1.7s_var(--theme-ease,_ease)_infinite]
+        after:will-change-transform
+        after:dark:[background:linear-gradient(90deg,transparent_0%,color-mix(in_oklab,var(--primary-400)_12%,transparent)_50%,transparent_100%)];
 }
