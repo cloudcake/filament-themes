@@ -42,9 +42,6 @@
     mb-[calc(1.5rem_*_var(--theme-density,_1))]
     dark:bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-500)_22%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-500)_10%,_transparent)_58%,_transparent_72%)]
     after:absolute
-    after:inset-5
-    after:block
-    after:bg-[linear-gradient(152deg,_var(--primary-400)_0%,_var(--primary-600)_52%,_var(--secondary-500)_100%)]
     after:content-['']
     after:absolute
     after:[mask-image:var(--theme-icon-auth)]
