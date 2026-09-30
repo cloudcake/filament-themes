@@ -34,7 +34,8 @@
 }
 
 .fi-empty-state .fi-empty-state-icon-bg,
-.fi-empty-state .fi-empty-state-icon-bg.fi-color:where(.dark, .dark *) {
+.fi-empty-state .fi-empty-state-icon-bg.fi-color:where(.dark, .dark *),
+.fi-ta-empty-state-icon-bg {
     @apply
     p-0
     relative
