@@ -33,28 +33,23 @@
     @apply text-primary-600 dark:text-primary-400;
 }
 
-.fi-empty-state:not(.fi-compact) .fi-empty-state-icon-bg {
-    @apply bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-200)_62%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-100)_38%,_transparent)_58%,_transparent_72%)]
+.fi-empty-state .fi-empty-state-icon-bg,
+.fi-empty-state .fi-empty-state-icon-bg.fi-color:where(.dark, .dark *) {
+    @apply
     p-0
     relative
     w-30
     h-30
     mb-[calc(1.5rem_*_var(--theme-density,_1))]
+    bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-200)_62%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-100)_38%,_transparent)_58%,_transparent_72%)]
     dark:bg-[radial-gradient(circle_at_50%_42%,_color-mix(in_oklab,_var(--primary-500)_22%,_transparent)_0%,_color-mix(in_oklab,_var(--primary-500)_10%,_transparent)_58%,_transparent_72%)]
-    after:absolute
-    after:content-['']
-    after:absolute
-    after:[mask-image:var(--theme-icon-auth)]
-    after:[mask-repeat:no-repeat]
-    after:[mask-size:contain]
-    after:[-webkit-mask-image:var(--theme-icon-auth)]
-    after:[-webkit-mask-repeat:no-repeat]
-    after:[-webkit-mask-size:contain]
-    after:right-[10%]
-    after:bottom-[4%]
-    after:w-[62%]
-    after:opacity-50
-    after:aspect-square;
+    [mask-image:var(--theme-icon-empty-state)]
+    [mask-repeat:no-repeat]
+    [mask-size:contain]
+    [-webkit-mask-image:var(--theme-icon-empty-state)]
+    [-webkit-mask-repeat:no-repeat]
+    [-webkit-mask-size:contain]
+    aspect-square;
 
     > .fi-icon {
         @apply hidden;
@@ -65,10 +60,4 @@
     @apply border border-solid border-[var(--theme-hairline)]
     rounded-2xl
     shadow-md;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .fi-empty-state-icon-bg::after {
-        @apply !animate-none opacity-100 transform-none;
-    }
 }
