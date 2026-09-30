@@ -45,16 +45,19 @@
     after:inset-5
     after:block
     after:bg-[linear-gradient(152deg,_var(--primary-400)_0%,_var(--primary-600)_52%,_var(--secondary-500)_100%)]
-    after:[mask-position:center]
-    after:[-webkit-mask-position:center]
-    after:[mask-image:var(--theme-icon)]
+    after:content-['']
+    after:absolute
+    after:[mask-image:var(--theme-icon-auth)]
     after:[mask-repeat:no-repeat]
     after:[mask-size:contain]
-    after:[-webkit-mask-image:var(--theme-icon)]
+    after:[-webkit-mask-image:var(--theme-icon-auth)]
     after:[-webkit-mask-repeat:no-repeat]
     after:[-webkit-mask-size:contain]
-    after:animate-[theme-icon-in_var(--theme-anim-duration\,_520ms)_var(--theme-ease\,_ease)_both]
-    after:content-[''];
+    after:right-[10%]
+    after:bottom-[4%]
+    after:w-[62%]
+    after:opacity-50
+    after:aspect-square;
 
     > .fi-icon {
         @apply hidden;
