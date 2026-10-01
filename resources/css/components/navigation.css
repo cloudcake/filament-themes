@@ -123,15 +123,17 @@
 
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn,
 .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
-    @apply bg-primary-400/20
-    dark:bg-primary-600/20
-    rounded-lg
+    @apply
+    bg-transparent
+    rounded-md
     before:absolute
     before:w-full
     before:h-full
-    before:border-l-[3px]
-    before:border-l-primary-500
-    before:rounded-none;
+    before:left-1
+    before:border-l-3
+    before:border-l-primary-500/80
+    before:bg-linear-to-r before:from-primary-500/30 before:via-primary-500/10 before:to-transparent
+    before:rounded-md;
 
     > .fi-icon {
         @apply text-primary-400 dark:text-primary-500;

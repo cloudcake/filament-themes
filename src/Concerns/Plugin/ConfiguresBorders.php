@@ -40,7 +40,9 @@ trait ConfiguresBorders
             function () {
                 $borderStyle = strtolower($this->borderStyle->name);
 
-                return new HtmlString("<script>document.body.classList.add('theme-borders-$borderStyle');</script>");
+                return new HtmlString("<script>
+                    document.body.classList.add('theme-borders-$borderStyle');
+                </script>");
             },
         );
 

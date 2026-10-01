@@ -142,7 +142,7 @@ enum Preset
                         darkNavigation: '#090a1290',
                         lightBody: '#F1F5F8',
                         lightPanels: '#FFFFFF',
-                        lightNavigation: '#FFFFFF90',
+                        lightNavigation: '#FFFFFF95',
                     );
             }
         };

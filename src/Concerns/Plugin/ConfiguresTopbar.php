@@ -3,6 +3,7 @@
 namespace Cloudcake\Themes\Concerns\Plugin;
 
 use Closure;
+use Filament\Enums\GlobalSearchPosition;
 use Filament\Panel;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Blade;
@@ -21,10 +22,21 @@ trait ConfiguresTopbar
 
     protected function applyTopbar(Panel $panel): static
     {
-        $render = str('');
+        $panel
+            ->globalSearch(position: GlobalSearchPosition::Topbar)
+            ->themeSwitcher(fn() => $panel->hasTopbar())
+            ->when(
+                fn($panel) => $panel->hasTopNavigation(),
+                fn($panel) => $panel->topbar()->sidebarCollapsibleOnDesktop(false)->sidebarFullyCollapsibleOnDesktop(false),
+                function ($panel) {
 
-        if (!$panel->hasTopbar()) {
-            $render = $render->append(<<<'BLADE'
+                    $panel->topbar(false)
+                        ->sidebarCollapsibleOnDesktop();
+
+                    $render = str('');
+
+                    if (!$panel->hasTopbar()) {
+                        $render = $render->append(<<<'BLADE'
                   <div
                         x-data="{ open: false }"
                         x-on:toggle-search="
@@ -62,9 +74,9 @@ trait ConfiguresTopbar
                     />
                 </div>
            BLADE
-            );
+                        );
 
-            $render = $render->append(<<<'BLADE'
+                        $render = $render->append(<<<'BLADE'
                 
                 @php
                     $unread = (int) filament()->auth()->user()?->unreadNotifications->count();
@@ -81,10 +93,10 @@ trait ConfiguresTopbar
                         :label="__('filament-panels::layout.actions.open_database_notifications.label')"
                     />
                 BLADE
-            );
+                        );
 
-            if ($panel->hasDarkMode() && !$panel->hasDarkModeForced()) {
-                $render = $render->append(<<<'BLADE'
+                        if ($panel->hasDarkMode() && !$panel->hasDarkModeForced()) {
+                            $render = $render->append(<<<'BLADE'
                     <div x-data="{
                                 theme: null,
                                 init() {
@@ -122,34 +134,35 @@ trait ConfiguresTopbar
                             />
                     </div>
                 BLADE
-                );
-            }
+                            );
+                        }
 
-            $render = $render->wrap('<div class="flex items-center w-full justify-end">', '</div>');
-            $render = $render->wrap('<div class="fi-theme-toolbar py-1 w-full">', '</div>');
-        }
+                        $render = $render->wrap('<div class="flex items-center w-full justify-end">', '</div>');
+                        $render = $render->wrap('<div class="fi-theme-toolbar py-1 w-full">', '</div>');
+                    }
 
-        $advertisement = $panel->evaluate($this->toolbarAdvertisement);
+                    $advertisement = $panel->evaluate($this->toolbarAdvertisement);
 
-        if (!blank($advertisement)) {
+                    if (!blank($advertisement)) {
 
-            $render = $render->append(
-                str($advertisement)
-                    ->wrap('<div class="fi-announcement-banner w-full px-4 py-2">', '</div>')
-                    ->toString()
-            );
-        }
+                        $render = $render->append(
+                            str($advertisement)
+                                ->wrap('<div class="fi-announcement-banner w-full px-4 py-2">', '</div>')
+                                ->toString()
+                        );
+                    }
 
-        if (!blank($render))
-            $panel->renderHook(
-                PanelsRenderHook::CONTENT_BEFORE,
-                fn() => Blade::render(
-                    $render
-                        ->wrap('<div class="fi-theme-topbar-ctn w-full">', '</div>')
-                        ->wrap('<div class="fi-theme-topbar-wrp backdrop-blur sticky top-0 left-0 right-0 z-10">', '</div>')
-                        ->toString()
-                ),
-            );
+                    if (!blank($render))
+                        $panel->renderHook(
+                            PanelsRenderHook::CONTENT_BEFORE,
+                            fn() => Blade::render(
+                                $render
+                                    ->wrap('<div class="fi-theme-topbar-ctn w-full">', '</div>')
+                                    ->wrap('<div class="fi-theme-topbar-wrp backdrop-blur sticky top-0 left-0 right-0 z-10">', '</div>')
+                                    ->toString()
+                            ),
+                        );
+                });
 
         return $this;
     }

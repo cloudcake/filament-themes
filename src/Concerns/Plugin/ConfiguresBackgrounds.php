@@ -51,28 +51,27 @@ trait ConfiguresBackgrounds
 
                 return new HtmlString(
                     <<<HTML
-                    <style>         
-                        :root {
+                    <style>                                 
+                        body:not(.dark body) {
                             --theme-navigation-background-color: $lightNavigationColour;
-                        }  
-                        
-                        body {
+                            --color-white: $lightPanelColour;
+                            --gray-50: $lightPanelColour;
+                            
                             background-color: $lightBodyColour;
+                            
+                            .fi-sidebar,
+                            .fi-topbar {
+                                background-color: $lightNavigationColour;
+                            }
                         }                                 
-                                        
-                        .fi-sidebar,
-                        .fi-topbar {
-                            background-color: $lightNavigationColour;
-                        }
                   
-                        .dark {
+                        .dark body {
                             --theme-navigation-background-color: $darkNavigationColour;
+                            --color-white: #fff;
                             --gray-900: $darkPanelColour;
                             
-                            body {
-                                background-color: $darkBodyColour;
-                            }
-                            
+                            background-color: $darkBodyColour;
+                                                       
                             .fi-sidebar,
                             .fi-topbar {
                                 background-color: $darkNavigationColour;
