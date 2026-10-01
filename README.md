@@ -1,3 +1,5 @@
+![banner](./art/banner.svg)
+
 ## Installation
 
 ### Add the cloudcake composer registry to your project's composer.json file:
