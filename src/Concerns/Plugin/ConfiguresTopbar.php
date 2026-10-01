@@ -22,6 +22,8 @@ trait ConfiguresTopbar
 
     protected function applyTopbar(Panel $panel): static
     {
+        return $this;
+
         $panel
             ->globalSearch(position: GlobalSearchPosition::Topbar)
             ->themeSwitcher(fn() => $panel->hasTopbar())

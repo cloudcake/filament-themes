@@ -15,6 +15,12 @@
 
 `composer require cloudcake/filament-themes`
 
+### Publish Filament assets
+
+`php artisan filament:assets`
+
+You're now done installing the package.
+
 ## Usage
 
 Register the plugin on a Filament panel and configure it with the fluent methods below. Every method returns the plugin instance, so calls can be chained.
@@ -27,29 +33,15 @@ public function panel(Panel $panel): Panel
 {
     return $panel
         // ...
-        ->plugin(
-            Theme::make()
-                ->preset(Preset::Pristine)
-        );
+        ->plugin(Theme::make());
 }
 ```
 
-Registering the plugin also:
-
-- sets the panel font to `Inter Tight` and loads the theme stylesheet;
-- moves global search into the topbar and enables the theme switcher;
-- replaces the database notifications component with a tabbed version (defaults to the "unread" tab and asks for confirmation before deleting).
-
-> [!IMPORTANT]
-> The preset is applied **after** your own method calls, and it overwrites the settings it touches. The default preset (`Preset::Default`) resets transitions, blooming, shadows, borders, roundness and headings. To configure those yourself, turn the preset off first with `->preset(null)`.
-
-Arguments typed `Closure` are evaluated against the panel when it renders, so they can use Filament's usual closure injection (for example `fn (Panel $panel) => ...`).
-
 ## Theme API
 
-### `preset(Preset|Closure|null $preset)`
+### `preset(Preset $preset)`
 
-Applies a ready-made combination of settings. Pass `null` to disable presets.
+Applies a ready-made combination of settings.
 
 | Preset             | Description                                                                                                                 |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -232,7 +224,6 @@ use Cloudcake\Themes\Theme;
 
 $panel->plugin(
     Theme::make()
-        ->preset(null)
         ->auth(AuthLayout::Split, tagline: 'Welcome back.')
         ->primaryColour(dark: '#00A36A', light: '#00B08E')
         ->backgrounds(

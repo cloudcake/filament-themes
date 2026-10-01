@@ -2,9 +2,8 @@
 
 namespace Cloudcake\Themes;
 
+use Cloudcake\Themes\Enums\Preset;
 use Filament\Contracts\Plugin;
-use Filament\Enums\GlobalSearchPosition;
-use Filament\Livewire\GlobalSearch;
 use Filament\Panel;
 use Filament\Support\Assets\Css;
 use Cloudcake\Themes\Concerns\Plugin as PluginConcerns;
@@ -17,6 +16,7 @@ class Theme implements Plugin
         PluginConcerns\ConfiguresBlooming,
         PluginConcerns\ConfiguresBorders,
         PluginConcerns\ConfiguresColours,
+        PluginConcerns\ConfiguresFont,
         PluginConcerns\ConfiguresNotifications,
         PluginConcerns\ConfiguresHeadings,
         PluginConcerns\ConfiguresLightMode,
@@ -30,9 +30,12 @@ class Theme implements Plugin
      *
      * @return static
      */
-    public static function make(): static
+    public static function make(Preset $preset = null): static
     {
-        return app(static::class);
+        $instance = app(static::class);
+        $preset?->apply($instance);
+
+        return $instance;
     }
 
     public function getId(): string
@@ -42,26 +45,23 @@ class Theme implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel
-            ->font('Inter Tight')
-            ->assets([
-                Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
-            ]);
+        $panel->assets([
+            Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
+        ]);
 
         $this
-            ->applyPreset($panel)
+            ->applyNotifications($panel)
             ->applyAuthTheme($panel)
             ->applyBackgrounds($panel)
             ->applyBorders($panel)
             ->applyBlooming($panel)
             ->applyColours($panel)
+            ->applyFont($panel)
             ->applyTransitions($panel)
             ->applyHeadings($panel)
             ->applyLightMode($panel)
             ->applyShadows($panel)
-            ->applyNotifications($panel)
             ->applyTopbar($panel);
-
     }
 
     public function boot(Panel $panel): void

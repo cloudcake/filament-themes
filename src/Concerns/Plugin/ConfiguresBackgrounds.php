@@ -17,12 +17,12 @@ trait ConfiguresBackgrounds
     protected null|array|string|Closure $lightNavigationColour = null;
 
     public function backgrounds(
-        array|string|null|Closure $darkBody,
-        array|string|null|Closure $darkPanels,
-        array|string|null|Closure $darkNavigation,
-        array|string|null|Closure $lightBody,
-        array|string|null|Closure $lightPanels,
-        array|string|null|Closure $lightNavigation,
+        array|string|null|Closure $darkBody = null,
+        array|string|null|Closure $darkPanels = null,
+        array|string|null|Closure $darkNavigation = null,
+        array|string|null|Closure $lightBody = null,
+        array|string|null|Closure $lightPanels = null,
+        array|string|null|Closure $lightNavigation = null,
     ): static
     {
         $this->darkBodyColour = $darkBody;
