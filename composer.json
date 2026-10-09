@@ -3,6 +3,12 @@
   "type": "library",
   "license": "proprietary",
   "description": "Filament themes.",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.cloudcake.dev"
+    }
+  ],
   "require": {
     "php": "^8.2",
     "cloudcake/filament-icons": "*"
