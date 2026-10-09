@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": "^8.2",
-    "cloudcake/filament-icons": "*"
+    "cloudcake/filament-icons": "dev-main"
   },
   "require-dev": {
     "filament/filament": "^4.0|^5.0"
