@@ -1,4 +1,4 @@
-![banner](./art/banner.svg)
+![banner](banner.svg)
 
 ## Installation
 

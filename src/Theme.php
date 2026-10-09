@@ -7,10 +7,12 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Assets\Css;
 use Cloudcake\Themes\Concerns\Plugin as PluginConcerns;
+use Filament\Support\Assets\Js;
 
 class Theme implements Plugin
 {
     use
+        PluginConcerns\ConfiguresAnimations,
         PluginConcerns\ConfiguresAuthTheme,
         PluginConcerns\ConfiguresBackgrounds,
         PluginConcerns\ConfiguresBlooming,
@@ -28,9 +30,10 @@ class Theme implements Plugin
     /**
      * Make an instance of the plugin.
      *
+     * @param Preset|null $preset
      * @return static
      */
-    public static function make(Preset $preset = null): static
+    public static function make(Preset|null $preset = null): static
     {
         $instance = app(static::class);
         $preset?->apply($instance);
@@ -46,10 +49,12 @@ class Theme implements Plugin
     public function register(Panel $panel): void
     {
         $panel->assets([
-            Css::make('cloudcake-themes-prestine', __DIR__ . '/../resources/dist/css/index.css')
+            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
+            // Js::make('tailwind-jit-cdn', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'),
         ]);
 
         $this
+            ->applyAnimations($panel)
             ->applyNotifications($panel)
             ->applyAuthTheme($panel)
             ->applyBackgrounds($panel)

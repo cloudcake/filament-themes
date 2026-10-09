@@ -1,9 +1,8 @@
-.fi-ac-icon-btn-action:not([class*="fi-color-"]):not(.fi-color) {
-    @apply text-gray-400;
-}
-
 .fi-btn {
-    @apply rounded-2xl
+    @apply
+    text-white
+    rounded-2xl
+    border-color-200
     font-medium
     tracking-[0.004em]
     p-[calc(0.5rem_*_var(--theme-density,_1))];
@@ -13,6 +12,12 @@
     color 200ms var(--theme-ease, ease),
     box-shadow 200ms var(--theme-ease, ease),
     transform 200ms var(--theme-ease, ease);
+}
+
+.fi-btn:not([class*="fi-color-"]):not(.fi-color),
+.fi-btn.fi-color-gray,
+.fi-btn.fi-color-default {
+    @apply text-black dark:text-gray-50;
 }
 
 .fi-btn.fi-color:not(.fi-outlined):not(label):not(.fi-disabled):not([disabled]):hover {

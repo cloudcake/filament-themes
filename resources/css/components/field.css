@@ -11,7 +11,7 @@
 }
 
 .fi-fo-field-wrp-error-message {
-    @apply text-[var(--gray-700)]
+    @apply text-rose-600 dark:text-rose-400
     font-medium
     text-xs
     dark:text-[var(--danger-400)];

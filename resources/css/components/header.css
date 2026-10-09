@@ -1,18 +1,18 @@
 .fi-header {
-    @apply relative
-    pb-[calc(0.875rem_*_var(--theme-density,_1))]
-    gap-[calc(1rem_*_var(--theme-density,_1))];
+    @apply
+        relative isolate
+        pb-[calc(0.875rem_*_var(--theme-density,_1))]
+        gap-[calc(1rem_*_var(--theme-density,_1))];
 
-    &::before {
-        @apply absolute
-        bottom-0
-        start-0
-        h-0.5
-        w-[5.25rem]
-        rounded-3xl
-        bg-primary-500
-        content-[''];
-    }
+    @apply
+        before:absolute
+        before:bottom-0
+        before:start-0
+        before:h-0.5
+        before:w-[5.25rem]
+        before:rounded-3xl
+        before:bg-primary-500
+        before:content-[''];
 }
 
 .fi-header-actions-ctn {

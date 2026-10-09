@@ -125,11 +125,11 @@ enum Preset
                 ->primaryColour(dark: Color::Indigo[500], light: Color::Indigo[500])
                 ->backgrounds(
                     darkBody: '#090a12',
-                    darkPanels: '#090a1290',
-                    darkNavigation: '#090a1290',
+                    darkPanels: '#090a12',
+                    darkNavigation: '#090a12E6',
                     lightBody: '#F1F5F8',
                     lightPanels: '#FFFFFF',
-                    lightNavigation: '#FFFFFF95',
+                    lightNavigation: '#FFFFFFE6',
                 )
         };
     }

@@ -58,11 +58,6 @@ trait ConfiguresBackgrounds
                             --gray-50: $lightPanelColour;
                             
                             background-color: $lightBodyColour;
-                            
-                            .fi-sidebar,
-                            .fi-topbar {
-                                background-color: $lightNavigationColour;
-                            }
                         }                                 
                   
                         .dark body {
@@ -71,11 +66,6 @@ trait ConfiguresBackgrounds
                             --gray-900: $darkPanelColour;
                             
                             background-color: $darkBodyColour;
-                                                       
-                            .fi-sidebar,
-                            .fi-topbar {
-                                background-color: $darkNavigationColour;
-                            }
                         }
                     </style>
                 HTML

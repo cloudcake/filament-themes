@@ -1,7 +1,13 @@
 .fi-theme-topbar-wrp {
-    .fi-announcement-banner {
+    & {
         @apply
         bg-[var(--theme-navigation-background-color)]
+        backdrop-blur-[2px]
+        sticky top-0 left-0 right-0 z-[1]
+    }
+
+    .fi-announcement-banner {
+        @apply
         border-b-1 border-b-[var(--theme-navigation-border-color)]
         shadow-xs shadow-primary-900
         text-xs;
@@ -9,9 +15,8 @@
 
     .fi-theme-toolbar {
         @apply
-        bg-[var(--theme-navigation-background-color)]
         border-b-1 border-b-[var(--theme-navigation-border-color)]
-        shadow-md shadow-primary-900
+        shadow-xs shadow-primary-900
         text-xs;
     }
 

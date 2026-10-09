@@ -24,6 +24,7 @@
 .fi-dropdown-panel {
     @apply
     border border-solid border-[var(--theme-hairline)]
+    backdrop-blur-[1px]
     p-[0.3125rem]
     rounded-md
     shadow-xl;

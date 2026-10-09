@@ -24,6 +24,32 @@
     shadow-xl;
 }
 
+.fi-modal-window:has(.fi-sc-wizard) {
+    & {
+
+    }
+
+    .fi-modal-content {
+        @apply p-0;
+    }
+
+    .fi-modal-header {
+        @apply hidden;
+    }
+
+    .fi-sc-wizard-header {
+        @apply border-none ring-0 rounded-md rounded-b-none;
+    }
+
+    .fi-sc-wizard-step.fi-active {
+        @apply px-6;
+    }
+
+    .fi-sc-wizard-footer {
+        @apply p-5 px-6;
+    }
+}
+
 .fi-modal-footer .fi-pagination {
     @apply p-0;
 }

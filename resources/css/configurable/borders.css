@@ -2,8 +2,8 @@
 .fi-ta-ctn,
 .fi-sc-wizard,
 .fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
-.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
-.fi-section-content-ctn,
+/*.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,*/
+/*.fi-section-content-ctn,*/
 .fi-section-content {
     @apply rounded-lg;
 }
