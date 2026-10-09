@@ -11,6 +11,8 @@ use Filament\Support\Assets\Js;
 
 class Theme implements Plugin
 {
+    public const ASSET_ID = 'cloudcake-themes';
+
     use
         PluginConcerns\ConfiguresAnimations,
         PluginConcerns\ConfiguresAuthTheme,
@@ -48,10 +50,15 @@ class Theme implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel->assets([
-            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
-            // Js::make('tailwind-jit-cdn', 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'),
-        ]);
+        // The stylesheet already includes Filament's theme.css, so it replaces the default theme instead
+        // of loading before it. A panel with its own viteTheme keeps it, and gets ours as an extra stylesheet.
+        if (blank($panel->getViteTheme())) {
+            $panel->theme(self::ASSET_ID);
+        } else {
+            $panel->assets([
+                Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
+            ]);
+        }
 
         $this
             ->applyAnimations($panel)
