@@ -76,7 +76,7 @@
     }
 
     .fi-modal-content {
-        @apply overflow-x-hidden my-px;
+        @apply overflow-x-hidden my-px px-0;
     }
 }
 

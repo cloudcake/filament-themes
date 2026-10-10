@@ -1,4 +1,4 @@
-@import '../../vendor/filament/filament/resources/css/theme.css';
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
 
 @import 'components/base.css';
 @import 'components/scrollbar.css';
@@ -115,7 +115,7 @@
 
     --theme-navigation-background-color: var(--gray-900);
     --theme-navigation-border-color: var(--theme-hairline);
-    
+
     --border-tail-colour: var(--primary-400);
     --border-tail-mix: var(--primary-400);
 
