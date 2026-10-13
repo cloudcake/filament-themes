@@ -1,14 +1,15 @@
 .fi-tabs {
-    @apply !bg-transparent
-    !p-0
+    @apply
+    !bg-transparent
+    !p-0 m-0
+    !rounded-none
     overflow-y-hidden
-    shadow-none
-    m-0;
+    shadow-none ring-0 border-none;
 }
 
 .fi-tabs-item {
     @apply text-[var(--theme-ink-muted)]
-    shadow-none
+    shadow-none ring-0 border-none
     bg-transparent
     relative
     py-[calc(0.75rem_*_var(--theme-density,_1))]
@@ -18,19 +19,22 @@
 }
 
 .fi-tabs-item.fi-active {
-    @apply text-primary-700
+    @apply
+    text-primary-700
     dark:text-primary-300
     bg-transparent
-    font-[550];
+    font-[550]
+    rounded-none;
 }
 
 .fi-tabs-item.fi-active {
-    @apply after:bg-primary-500
+    @apply
+    after:bg-primary-500
+    after:rounded-none
     after:absolute
     after:inset-x-0
     after:bottom-[-1px]
     after:h-[3px]
-    after:rounded-[64px]
     after:content-[''];
 }
 
