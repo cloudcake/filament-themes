@@ -2,8 +2,6 @@
 
 namespace Cloudcake\Themes;
 
-use Cloudcake\Themes\Livewire\DatabaseNotifications;
-use Livewire\Livewire;
 
 use Filament\Support\Assets\Theme as FilamentTheme;
 use Filament\Support\Facades\FilamentAsset;
