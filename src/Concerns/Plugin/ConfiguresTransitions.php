@@ -3,7 +3,6 @@
 namespace Cloudcake\Themes\Concerns\Plugin;
 
 use Closure;
-use Cloudcake\Themes\Enums\AuthLayout;
 use Cloudcake\Themes\Settings\Styles;
 use Filament\Panel;
 use Filament\View\PanelsRenderHook;

@@ -3,10 +3,8 @@
 namespace Cloudcake\Themes\Concerns\Plugin;
 
 use Closure;
-use Cloudcake\Themes\Enums\AuthLayout;
 use Filament\Panel;
 use Filament\View\PanelsRenderHook;
-use Illuminate\Support\Facades\Blade;
 
 trait ConfiguresHeadings
 {

@@ -7,7 +7,6 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Assets\Css;
 use Cloudcake\Themes\Concerns\Plugin as PluginConcerns;
-use Filament\Support\Assets\Js;
 
 class Theme implements Plugin
 {
