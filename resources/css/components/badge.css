@@ -8,13 +8,9 @@
 }
 
 .fi-badge.fi-color {
-    @apply
-    text-color-50 dark:text-color-900
-    bg-color-400 dark:bg-color-400;
+    @apply text-color-50 bg-color-400;
 }
 
 .fi-badge:not(.fi-color) {
-    @apply
-        text-gray-50 dark:text-gray-950
-        bg-gray-950 dark:bg-gray-50;
+    @apply text-gray-50 bg-gray-950;
 }

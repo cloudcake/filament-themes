@@ -1,5 +1,3 @@
-@import '../../../../vendor/filament/filament/resources/css/theme.css';
-
 @import 'components/base.css';
 @import 'components/scrollbar.css';
 @import 'components/auth.css';
@@ -28,10 +26,11 @@
 @import 'components/link.css';
 @import 'components/page.css';
 @import 'components/misc.css';
-
 @import 'configurable/borders.css';
 @import 'configurable/components.css';
 @import 'configurable/transitions.css';
+
+@reference '../../../../vendor/filament/filament/resources/css/theme.css';
 
 @source '../views/**/*.blade.php';
 @source '../../**/*';

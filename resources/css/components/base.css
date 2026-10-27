@@ -14,13 +14,12 @@ body {
     @apply font-semibold
     text-[0.5875rem]
     uppercase
-    font-[var(--font-sans),_ui-serif,_Georgia,_serif]
+    font-[var(--font-sans),ui-serif,Georgia,serif]
     tracking-[0.085em];
 }
 
 ::selection {
-    @apply text-[var(--gray-950)]
-    bg-[color-mix(in_oklab,_var(--primary-300)_60%,_transparent)];
+    @apply text-gray-950 bg-[color-mix(in_oklab,var(--primary-300)_60%,transparent)];
 }
 
 [wire\:loading\.delay] {
@@ -29,14 +28,14 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
     * {
-        @apply [animation-duration:0.01ms] [animation-iteration-count:1] [transition-duration:0.01ms] [scroll-behavior:auto];
+        @apply [animation-duration:0.01ms] [animation-iteration-count:1] duration-[0.01ms] scroll-auto;
     }
 
     *::after {
-        @apply [animation-duration:0.01ms] [animation-iteration-count:1] [transition-duration:0.01ms] [scroll-behavior:auto];
+        @apply [animation-duration:0.01ms] [animation-iteration-count:1] duration-[0.01ms] scroll-auto;
     }
 
     *::before {
-        @apply [animation-duration:0.01ms] [animation-iteration-count:1] [transition-duration:0.01ms] [scroll-behavior:auto];
+        @apply [animation-duration:0.01ms] [animation-iteration-count:1] duration-[0.01ms] scroll-auto;
     }
 }
