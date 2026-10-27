@@ -49,15 +49,9 @@ class Theme implements Plugin
 
     public function register(Panel $panel): void
     {
-        // The stylesheet already includes Filament's theme.css, so it replaces the default theme instead
-        // of loading before it. A panel with its own viteTheme keeps it, and gets ours as an extra stylesheet.
-        if (blank($panel->getViteTheme())) {
-            $panel->theme(self::ASSET_ID);
-        } else {
-            $panel->assets([
-                Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
-            ]);
-        }
+        $panel->assets([
+            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css')->loadedOnRequest(),
+        ]);
 
         $this
             ->applyAnimations($panel)
