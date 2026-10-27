@@ -7,10 +7,10 @@
         text-[0.6875rem];
 }
 
-.fi-badge.fi-color {
-    @apply text-color-50 bg-color-400;
-}
+/*.fi-badge.fi-color {*/
+/*    @apply text-color-50 bg-color-400;*/
+/*}*/
 
-.fi-badge:not(.fi-color) {
-    @apply text-gray-50 bg-gray-950;
-}
+/*.fi-badge:not(.fi-color) {*/
+/*    @apply text-gray-50 bg-gray-950;*/
+/*}*/

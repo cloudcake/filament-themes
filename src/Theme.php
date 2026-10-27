@@ -50,7 +50,7 @@ class Theme implements Plugin
     public function register(Panel $panel): void
     {
         $panel->assets([
-            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css')->loadedOnRequest(),
+            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
         ]);
 
         $this
