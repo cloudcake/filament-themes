@@ -70,8 +70,7 @@
 }
 
 .fi-sidebar-group-label {
-    @apply text-[var(--theme-ink-muted)]
-    uppercase
+    @apply text-gray-600 dark:text-gray-600
     px-[calc(0.75rem_*_var(--theme-density,_1))]
     pt-[calc(0.875rem_*_var(--theme-density,_1))]
     pb-[calc(0.5rem_*_var(--theme-density,_1))];
@@ -91,7 +90,7 @@
     py-[calc(0.5625rem_*_var(--theme-density,_1))]
     px-[calc(0.75rem_*_var(--theme-density,_1))]
     gap-[calc(1.05rem_*_var(--theme-density,_1))]
-    rounded-lg
+    rounded-none
     tracking-[-0.005em]
     dark:text-[var(--gray-300)];
     transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
@@ -116,16 +115,20 @@
 }
 
 .fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
-    @apply bg-white/40
-    dark:bg-gray-800/30
-    rounded-lg;
+    @apply bg-gray-500/10 dark:bg-gray-950/40 rounded-none;
 }
 
 .fi-sidebar-item:not(.fi-sidebar-sub-group-items .fi-sidebar-item).fi-active > .fi-sidebar-item-btn,
 .fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    @apply bg-transparent rounded-md;
+
+    > .fi-icon {
+        @apply text-primary-400 dark:text-primary-500;
+    }
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
     @apply
-    bg-transparent
-    rounded-md
     before:absolute
     before:w-full
     before:h-full
@@ -133,11 +136,7 @@
     before:border-l-3
     before:border-l-primary-500/80
     before:bg-linear-to-r before:from-primary-500/30 before:via-primary-500/10 before:to-transparent
-    before:rounded-md;
-
-    > .fi-icon {
-        @apply text-primary-400 dark:text-primary-500;
-    }
+    before:rounded-none;
 }
 
 .fi-sidebar-nav {
@@ -153,11 +152,6 @@
 
 .fi-sidebar-item.fi-active > .fi-sidebar-item-btn > .fi-icon {
     @apply dark:text-primary-400;
-}
-
-.fi-sidebar-item:not(.fi-active) > .fi-sidebar-item-btn:hover {
-    @apply dark:bg-[color-mix(in_oklab,_var(--gray-50)_7%,_transparent)]
-    dark:text-[var(--theme-ink)];
 }
 
 /* Mobile Topbar */

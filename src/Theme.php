@@ -5,7 +5,6 @@ namespace Cloudcake\Themes;
 use Cloudcake\Themes\Enums\Preset;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Filament\Support\Assets\Css;
 use Cloudcake\Themes\Concerns\Plugin as PluginConcerns;
 
 class Theme implements Plugin
@@ -15,6 +14,7 @@ class Theme implements Plugin
     use
         PluginConcerns\ConfiguresAnimations,
         PluginConcerns\ConfiguresAuthTheme,
+        PluginConcerns\ConfiguresArt,
         PluginConcerns\ConfiguresBackgrounds,
         PluginConcerns\ConfiguresBlooming,
         PluginConcerns\ConfiguresBorders,
@@ -49,12 +49,9 @@ class Theme implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel->assets([
-            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
-        ]);
-
         $this
             ->applyAnimations($panel)
+            ->applyArt($panel)
             ->applyNotifications($panel)
             ->applyAuthTheme($panel)
             ->applyBackgrounds($panel)
