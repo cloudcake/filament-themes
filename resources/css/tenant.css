@@ -1,0 +1,8 @@
+.fi-dropdown.fi-tenant-menu .fi-dropdown-panel,
+.fi-dropdown.fi-tenant-menu .fi-dropdown-list {
+    @apply !w-full !max-w-full;
+}
+
+.fi-tenant-menu-trigger-tenant-name {
+    @apply overflow-hidden text-ellipsis;
+}

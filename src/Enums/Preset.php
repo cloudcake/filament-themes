@@ -19,7 +19,7 @@ enum Preset
                     new Bloom(
                         position: BloomPosition::UpperLeft,
                         spreadX: 20,
-                        spreadY: 70,
+                        spreadY: 40,
                         darkIntensity: 11,
                         darkColour: 'var(--primary-900)',
                         lightColour: 'var(--primary-500)',
@@ -38,7 +38,7 @@ enum Preset
 
                     new Bloom(
                         position: BloomPosition::BottomLeft,
-                        spreadX: 70,
+                        spreadX: 20,
                         spreadY: 40,
                         darkIntensity: 15,
                         darkColour: 'var(--primary-900)',
@@ -66,10 +66,10 @@ enum Preset
                 ->backgrounds(
                     darkBody: '#090a12',
                     darkPanels: '#090a12',
-                    darkNavigation: '#090a12E6',
+                    darkNavigation: '#00000020',
                     lightBody: '#F1F5F8',
                     lightPanels: '#FFFFFF',
-                    lightNavigation: '#FFFFFFE6',
+                    lightNavigation: '#FFFFFF50',
                 )
         };
     }

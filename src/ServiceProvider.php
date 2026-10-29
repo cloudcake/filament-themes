@@ -17,7 +17,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     private function bootAssets(): void
     {
         FilamentAsset::register([
-            Css::make('cloudcake-themes-styles', __DIR__ . '/../resources/dist/css/index.css'),
+            Css::make('cloudcake-theme', __DIR__ . '/../resources/dist/css/@index.css'),
         ]);
     }
 

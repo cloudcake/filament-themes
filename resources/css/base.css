@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@reference '../../../../vendor/filament/filament/resources/css/theme.css';
+@source '../views/**/*';
+@theme {
+    --animate-gradient: gradient 12s linear infinite;
+    --animate-border: border 8s linear infinite;
+
+    --color-white: color-mix(in oklab, var(--gray-50) 55%, white);
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --theme-chart-line-tension: 0.35;
+    --theme-chart-bar-radius: 4;
+    --theme-chart-tooltip-radius: 12;
+    --theme-chart-legend-swatch-radius: 3;
+    --theme-density: 1;
+    --theme-row-height: 3.5rem;
+    --theme-section-gap: 2rem;
+    --theme-ease: cubic-bezier(0.22, 0.61, 0.24, 1);
+    --theme-duration: 260ms;
+    --theme-duration-slow: 420ms;
+    --theme-anim-duration: 520ms;
+    --theme-canvas: light-dark(var(--gray-50), var(--gray-950));
+    --theme-hairline: light-dark(color-mix(in oklab, var(--gray-300) 55%, transparent), color-mix(in oklab, var(--gray-700) 62%, transparent));
+    --theme-hairline-strong: light-dark(color-mix(in oklab, var(--gray-400) 55%, transparent), color-mix(in oklab, var(--gray-600) 70%, transparent));
+    --theme-ink: light-dark(var(--gray-950), var(--color-white));
+    --theme-ink-muted: light-dark(var(--gray-600), var(--gray-400));
+    --theme-accent-wash: light-dark(color-mix(in oklab, var(--primary-200) 42%, transparent), color-mix(in oklab, var(--primary-500) 16%, transparent));
+    --theme-accent-line: light-dark(color-mix(in oklab, var(--primary-500) 55%, transparent), color-mix(in oklab, var(--primary-400) 45%, transparent));
+    --theme-heading-font: var(--font-sans);
+    --theme-stage: linear-gradient(155deg, color-mix(in oklab, var(--gray-900) 92%, var(--primary-800)) 0%, color-mix(in oklab, var(--gray-950) 90%, var(--primary-900)) 55%, color-mix(in oklab, var(--gray-900) 88%, var(--secondary-900)) 100%);
+    --theme-transition-offset: 1.5rem;
+    --theme-transition-duration: 0.5s;
+    --theme-text-gradient-from-colour: light-dark(var(--primary-400),var(--primary-400));
+    --theme-text-gradient-via-colour: light-dark(var(--primary-50), var(--primary-100));
+    --theme-text-gradient-to-colour: light-dark(var(--primary-400), var(--primary-400));
+    --theme-grain-xs:
+        repeating-linear-gradient(
+            0deg,
+            color-mix(
+                in oklab,
+                light-dark(var(--primary-950), var(--primary-100)) 2%,
+                transparent
+            ) 0 1px,
+            transparent 1px 5px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            color-mix(
+                in oklab,
+                light-dark(var(--primary-950), var(--primary-100)) 1%,
+                transparent
+            ) 0 1px,
+            transparent 1px 5px
+        );
+
+    --theme-grain:
+        repeating-linear-gradient(
+            0deg,
+            color-mix(in oklab, var(--gray-400) 5%, transparent) 0 1px,
+            transparent 1px 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            color-mix(in oklab, var(--gray-400) 3%, transparent) 0 1px,
+            transparent 1px 4px
+        );
+
+    --theme-grain-dark:
+        repeating-linear-gradient(
+            0deg,
+            color-mix(in oklab,var(--gray-600) 5%, transparent) 0 1px,
+            transparent 1px 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            color-mix(in oklab, var(--gray-600) 3%, transparent) 0 1px,
+            transparent 1px 4px
+        );
+
+    --theme-navigation-background-color: var(--gray-900);
+    --theme-navigation-border-color: var(--theme-hairline);
+
+    --border-tail-colour: var(--primary-400);
+    --border-tail-mix: var(--primary-400);
+
+    --shadow-2xs: var(--runtime-shadow-2xs);
+    --shadow-xs: var(--runtime-shadow-xs);
+    --shadow-sm: var(--runtime-shadow-sm);
+    --shadow-md: var(--runtime-shadow-md);
+    --shadow-lg: var(--runtime-shadow-lg);
+    --shadow-xl: var(--runtime-shadow-xl);
+    --shadow-2xl: var(--runtime-shadow-2xl);
+
+    @keyframes gradient {
+        from {
+            background-position: 0 50%;
+        }
+        to {
+            background-position: 200% 100%;
+        }
+    }
+
+    @keyframes border {
+        to {
+            --border-angle: 1080deg;
+        }
+    }
+
+    @keyframes theme-auth-in {
+        from {
+            opacity: 0;
+            transform: translateY(2.75rem);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @keyframes theme-rise {
+        from {
+            opacity: 0;
+            transform: translateY(var(--theme-transition-offset))
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes theme-shimmer {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
+    @keyframes theme-icon-in {
+        from {
+            opacity: 0;
+            transform: scale(0.94) rotate(-3deg);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+    }
+}
+
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}

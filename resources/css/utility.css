@@ -1,0 +1,91 @@
+
+
+@utility border-rail {
+    @apply border-1 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-primary-100 outline-offset-16 dark:outline-primary-950;
+}
+
+@utility text-gradient {
+    @apply animate-gradient from-[var(--theme-text-gradient-from-colour)] via-[var(--theme-text-gradient-via-colour)] to-[var(--theme-text-gradient-to-colour)] bg-[length:200%_100%] bg-linear-to-l bg-clip-text text-transparent;
+}
+
+@utility text-gradient-primary {
+    --theme-text-gradient-from-colour: light-dark(var(--primary-400),var(--primary-400));
+    --theme-text-gradient-via-colour: light-dark(var(--primary-50), var(--primary-100));
+    --theme-text-gradient-to-colour: light-dark(var(--primary-400), var(--primary-400));
+
+    @apply text-gradient;
+}
+
+@utility text-gradient-danger {
+    --theme-text-gradient-from-colour: light-dark(var(--danger-400),var(--danger-400));
+    --theme-text-gradient-via-colour: light-dark(var(--danger-50), var(--danger-100));
+    --theme-text-gradient-to-colour: light-dark(var(--danger-400), var(--danger-400));
+
+    @apply text-gradient;
+}
+
+@utility border-tail {
+    @apply [background:linear-gradient(-45deg,var(--border-tail-mix),var(--border-tail-colour)_100%,var(--border-tail-mix))_padding-box,conic-gradient(from_var(--border-angle),color-mix(in_srgb,var(--border-tail-colour)_15%,transparent)_0%,color-mix(in_srgb,var(--border-tail-colour)_25%,transparent)_20%,color-mix(in_srgb,var(--border-tail-colour)_40%,transparent)_40%,color-mix(in_srgb,var(--border-tail-colour)_60%,transparent)_60%,color-mix(in_srgb,var(--border-tail-colour)_85%,transparent)_75%,var(--border-tail-colour)_88%,color-mix(in_srgb,var(--border-tail-colour)_75%,white)_94%,color-mix(in_srgb,var(--border-tail-colour)_15%,transparent)_100%)_border-box];
+    @apply border border-transparent;
+}
+
+@utility theme-border-dotted {
+    @apply
+    border-[length:var(--theme-border-width)]
+    border-dotted
+    border-gray-300 dark:border-gray-800
+    ring-0
+    outline-0
+}
+
+@utility theme-border-dottedrails {
+    @apply
+    border-1
+    border-dotted
+    border-gray-300 dark:border-gray-800
+    ring-[length:var(--theme-border-width)]
+    ring-inset
+    ring-transparent
+    outline-1
+    outline-dotted
+    -outline-offset-[length:var(--theme-border-width)]
+    outline-primary-400/50 dark:outline-gray-800;
+}
+
+@utility theme-border-rails {
+    @apply
+    border-1
+    border-solid
+    border-gray-300 dark:border-gray-800
+    ring-[length:var(--theme-border-width)]
+    ring-inset
+    ring-transparent
+    outline-1
+    outline-solid
+    -outline-offset-[length:var(--theme-border-width)]
+    outline-primary-200/50 dark:outline-gray-800;
+}
+
+@utility theme-border-dashed {
+    @apply
+    border-[length:var(--theme-border-width)]
+    border-dashed
+    border-gray-300 dark:border-gray-800
+    ring-0
+    outline-0
+}
+
+
+@utility theme-border-dashedrails {
+    @apply
+    border-1
+    border-dashed
+    border-primary-400/50 dark:border-gray-800
+    ring-[length:var(--theme-border-width)]
+    ring-inset
+    ring-transparent
+    outline-1
+    outline-dashed
+    -outline-offset-[length:var(--theme-border-width)]
+    outline-primary-200/50 dark:outline-gray-800;
+}

@@ -1,5 +1,0 @@
-.theme-transitions {
-    .fi-main > .fi-page, .fi-simple-main {
-        animation: theme-rise var(--theme-transition-duration);
-    }
-}

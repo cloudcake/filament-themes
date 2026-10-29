@@ -40,7 +40,7 @@ trait ConfiguresTransitions
 
                         return new HtmlString(
                             <<<HTML
-                                <style>                    
+                                <style>
                                     :root {
                                         $transitionTokens
                                     }

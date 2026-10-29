@@ -1,6 +1,0 @@
-.fi-logo {
-    @apply text-[var(--theme-ink)]
-    font-medium
-    text-2xl
-    tracking-[-0.015em];
-}

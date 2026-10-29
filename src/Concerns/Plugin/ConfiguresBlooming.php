@@ -36,12 +36,12 @@ trait ConfiguresBlooming
 
                 return new HtmlString(
                     <<<HTML
-                    <style>                    
-                        .fi-layout {
+                    <style>
+                        body {
                             $lightBloomTokens
                         }
-                    
-                        .dark .fi-layout {
+
+                        .dark body {
                             $darkBloomTokens
                         }
                     </style>

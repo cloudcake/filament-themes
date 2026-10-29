@@ -2,8 +2,11 @@
 
 namespace Cloudcake\Themes\Livewire;
 
+use Cloudcake\Components\Enums\Tabler;
 use Filament\Actions\Action;
 use Filament\Livewire\DatabaseNotifications as BaseDatabaseNotifications;
+use Filament\Notifications\Notification;
+use Filament\Support\Components\Attributes\Exposed;
 use Filament\Support\Enums\Size;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -38,7 +41,7 @@ class DatabaseNotifications extends BaseDatabaseNotifications
 
     public function setTab(string $tab): void
     {
-        if (! in_array($tab, ['unread', 'all'], true)) {
+        if (!in_array($tab, ['unread', 'all'], true)) {
             return;
         }
 
@@ -46,7 +49,7 @@ class DatabaseNotifications extends BaseDatabaseNotifications
         $this->resetPage(pageName: 'database-notifications-page');
     }
 
-    public function getFilteredNotificationsQuery(): Builder | Relation
+    public function getFilteredNotificationsQuery(): Builder|Relation
     {
         $query = $this->getNotificationsQuery();
 
@@ -57,9 +60,9 @@ class DatabaseNotifications extends BaseDatabaseNotifications
         return $query;
     }
 
-    public function getNotifications(): DatabaseNotificationCollection | Paginator
+    public function getNotifications(): DatabaseNotificationCollection|Paginator
     {
-        if (! $this->isPaginated()) {
+        if (!$this->isPaginated()) {
             /** @phpstan-ignore-next-line */
             return $this->getFilteredNotificationsQuery()->get();
         }
@@ -70,18 +73,6 @@ class DatabaseNotifications extends BaseDatabaseNotifications
     public function getAllNotificationsCount(): int
     {
         return $this->getNotificationsQuery()->count();
-    }
-
-    public function markAllNotificationsAsReadAction(): Action
-    {
-        return Action::make('markAllNotificationsAsRead')
-            ->link()
-            ->size(Size::ExtraSmall)
-            ->icon('tabler-mail-opened')
-            ->color(fn (): string => $this->getUnreadNotificationsCount() ? 'primary' : 'gray')
-            ->label(__('filament-notifications::database.modal.actions.mark_all_as_read.label'))
-            ->extraAttributes(['tabindex' => '-1'])
-            ->action('markAllNotificationsAsRead');
     }
 
     public function deleteNotificationAction(): Action
@@ -98,7 +89,7 @@ class DatabaseNotifications extends BaseDatabaseNotifications
 
     public function deleteNotification(string $id): void
     {
-        if (! Str::isUuid($id)) {
+        if (!Str::isUuid($id)) {
             return;
         }
 
@@ -109,7 +100,7 @@ class DatabaseNotifications extends BaseDatabaseNotifications
 
     public function toggleNotificationReadStatus(string $id): void
     {
-        if (! Str::isUuid($id)) {
+        if (!Str::isUuid($id)) {
             return;
         }
 
@@ -125,5 +116,18 @@ class DatabaseNotifications extends BaseDatabaseNotifications
     public function render(): View
     {
         return view('cloudcake-themes::database-notifications');
+    }
+
+    #[Exposed]
+    public function markAllNotificationsAsRead(): void
+    {
+        parent::markAllNotificationsAsRead();
+
+        Notification::make()
+            ->title("Notifications Cleared")
+            ->body("All your unread notifications have been marked as read.")
+            ->icon(Tabler::Check)
+            ->color('primary')
+            ->send();
     }
 }

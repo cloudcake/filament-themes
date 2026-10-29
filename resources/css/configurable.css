@@ -1,0 +1,110 @@
+/*
+ |
+ | Borders
+ |
+ */
+
+.fi-wi-stats-overview-stat,
+.fi-ta-ctn,
+.fi-sc-wizard,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section-content,
+.fi-input-wrp
+/*.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,*/
+/*.fi-section-content-ctn,*/
+{
+    @apply rounded-lg;
+}
+
+.fi-sidebar:not(.fi-body-has-topbar .fi-sidebar) {
+    @apply border-gray-200 dark:border-gray-800 border-r-1 border-solid;
+}
+
+.theme-borders-dotted {
+    .fi-main-ctn,
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !theme-border-dotted;
+    }
+}
+
+.theme-borders-dottedrails {
+    .fi-main-ctn,
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !theme-border-dottedrails;
+    }
+}
+
+.theme-borders-dashed {
+    .fi-main-ctn,
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !theme-border-dashed;
+    }
+}
+
+.theme-borders-dashedrails {
+    .fi-main-ctn,
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !theme-border-dashedrails;
+    }
+}
+
+.theme-borders-rails {
+    .fi-main-ctn,
+    .fi-ta-ctn,
+    .fi-sc-wizard,
+    .fi-section:not(.fi-aside):not(.fi-section-not-contained),
+    .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+    .fi-wi-stats-overview-stat {
+        @apply !theme-border-rails;
+    }
+}
+
+/*
+ |
+ | Blurs
+ |
+ */
+
+.fi-wi-stats-overview-stat,
+.fi-ta-ctn,
+.fi-sc-wizard,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section-content
+{
+    @apply backdrop-blur-xl;
+}
+
+/*
+ |
+ | Page Headings
+ |
+ */
+
+.fi-header {
+    @apply
+    before:absolute
+    before:bottom-0
+    before:start-0
+    before:h-0.5
+    before:w-[5.25rem]
+    before:rounded-3xl
+    before:bg-primary-500
+    before:content-[''];
+}
+

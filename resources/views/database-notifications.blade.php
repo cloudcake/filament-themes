@@ -91,8 +91,15 @@
                             {{ __('cloudcake-themes::notifications.tabs.all') }}
                         </x-filament::tabs.item>
 
-                        @if ($this->markAllNotificationsAsReadAction?->isVisible())
-                            <span class="flex-inline justify-center my-auto ms-auto leading-9">{{ $this->markAllNotificationsAsReadAction }}</span>
+                        @if ($this->markAllNotificationsAsReadAction?->isVisible() && $unreadNotificationsCount)
+                            <x-filament::tabs.item
+                                class="flex-inline justify-center my-auto ms-auto leading-9"
+                                :active="$this->tab === 'all'"
+                                icon="{{ \Cloudcake\Components\Enums\Tabler::BellCheck }}"
+                                wire:click="markAllNotificationsAsRead()"
+                            >
+                                {{ __('filament-notifications::database.modal.actions.mark_all_as_read.label') }}
+                            </x-filament::tabs.item>
                         @endif
                     </x-filament::tabs>
                 </div>
@@ -184,73 +191,4 @@
     </x-filament::modal>
 
     <x-filament-actions::modals />
-
-    <style>
-        .fi-no-database .fi-no-notification-close-btn {
-            display: none;
-        }
-
-        .fi-no-database .fi-no-database-tabs {
-            margin-top: 0.75rem;
-        }
-
-        .fi-no-database .fi-no-database-notification-ctn {
-            position: relative;
-        }
-
-        .fi-no-database .fi-no-database-notification-actions {
-            position: absolute;
-            padding: 0.1rem 0.05rem;
-            inset-block-start: .825rem;
-            inset-inline-end: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.45s ease;
-        }
-
-        .fi-no-database .fi-no-database-notification-badge {
-            position: absolute;
-            inset-block-start: .825rem;
-            inset-inline-end: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            opacity: 1;
-            pointer-events: none;
-            transition: opacity 0.45s ease;
-        }
-
-        .fi-no-database .fi-no-database-notification-ctn:hover .fi-no-database-notification-badge {
-            opacity: 0;
-        }
-
-        .fi-no-database .fi-no-database-notification-ctn:hover .fi-no-database-notification-actions,
-        .fi-no-database .fi-no-database-notification-actions:focus-within {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        @media (hover: none) {
-            .fi-no-database .fi-no-database-notification-actions {
-                opacity: 1;
-                pointer-events: auto;
-            }
-        }
-
-        .fi-no-database .fi-no-database-notification-actions .fi-icon-btn {
-            border-radius: 0.375rem;
-            transition: background-color 0.15s ease;
-        }
-
-        .fi-no-database .fi-no-database-notification-actions .fi-icon-btn:hover {
-            background-color: rgb(244 244 245 / 0.9);
-        }
-
-        .dark .fi-no-database .fi-no-database-notification-actions .fi-icon-btn:hover {
-            background-color: rgb(63 63 70 / 0.9);
-        }
-    </style>
 </div>
