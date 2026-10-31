@@ -1,3 +1,8 @@
+/* Need to keep blur consistent */
+.fi-modal-window {
+    opacity: 1 !important;
+}
+
 .fi-modal-close-overlay {
     @apply bg-[color-mix(in_oklab,_var(--gray-900)_42%,_transparent)]
     dark:bg-[color-mix(in_oklab,_var(--gray-950)_68%,_transparent)];
@@ -18,17 +23,36 @@
     leading-[1.25];
 }
 
+.fi-modal-window .fi-dropdown-panel {
+    @apply z-50!;
+}
+
+.fi-modal-window .fi-modal-content {
+    @apply relative z-20;
+}
+
+/** Needed so the footer doesn't cover dropdowns */
+.fi-modal-window .fi-modal-footer {
+    @apply relative z-10;
+}
+
 .fi-modal-window {
     @apply border border-solid border-[var(--theme-hairline)]
     rounded-md
     shadow-xl;
 }
 
+
+.fi-modal-header,
+.fi-modal-footer {
+    @apply bg-transparent!;
+}
+
+.fi-modal-close-overlay {
+    @apply bg-transparent;
+}
+
 .fi-modal-window:has(.fi-sc-wizard) {
-    & {
-
-    }
-
     .fi-modal-content {
         @apply p-0;
     }

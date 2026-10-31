@@ -1,23 +1,61 @@
 /*
- |
+ |==============================
  | Borders
- |
+ |==============================
  */
 
-.fi-wi-stats-overview-stat,
-.fi-ta-ctn,
+/* Rounding */
+.fi-badge,
+.fi-checkbox-input,
+.fi-dropdown-panel,
+.fi-fo-builder-item,
+.fi-fo-repeater-item,
+.fi-icon-btn,
+.fi-input-wrp,
+.fi-modal-window,
+.fi-radio-input,
 .fi-sc-wizard,
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
 .fi-section-content,
-.fi-input-wrp
-/*.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,*/
-/*.fi-section-content-ctn,*/
-{
+.fi-section-content-ctn:not(.fi-wi-chart .fi-section-content-ctn),
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat,
+.fi-wi-table {
     @apply rounded-lg;
 }
 
-.fi-sidebar:not(.fi-body-has-topbar .fi-sidebar) {
-    @apply border-gray-200 dark:border-gray-800 border-r-1 border-solid;
+/* Colour */
+.fi-dropdown-panel,
+.fi-dropdown-list,
+.fi-dropdown-header,
+.fi-fo-builder-item,
+.fi-fo-repeater-item,
+.fi-icon-btn,
+.fi-input-wrp,
+.fi-wi-stats-overview-stat,
+.fi-ta-ctn,
+.fi-sc-wizard,
+.fi-section-content,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-modal-window,
+.fi-modal-header,
+.fi-modal-footer,
+.fi-wi-stats-overview-stat,
+.fi-wi-table {
+    @apply border-[var(--theme-hairline)] outline-0 ring-0;
+}
+
+.fi-modal-window,
+.fi-sc-component > .fi-wi-stats-overview-stat,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-section-content,
+.fi-ta-ctn,
+.fi-wi-table,
+.fi-wi-chart > section {
+    @apply border-gradient;
 }
 
 .theme-borders-dotted {
@@ -76,35 +114,57 @@
 }
 
 /*
- |
+ |==============================
  | Blurs
- |
+ |==============================
  */
 
+/* Direct blur only on things that never contain a dropdown */
 .fi-wi-stats-overview-stat,
-.fi-ta-ctn,
-.fi-sc-wizard,
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
-.fi-section-content
-{
+.fi-icon-btn,
+.fi-dropdown-panel,
+.fi-dropdown-panel:where(.dark, .dark *) {
     @apply backdrop-blur-xl;
 }
 
+/* Containers that can hold dropdowns use a ::before blur layer */
+.fi-sc-wizard,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
+.fi-section-content,
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-section-content-ctn,
+.fi-input-wrp {
+    @apply relative;
+}
+
+.fi-sc-wizard::before,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained)::before,
+.fi-section-content::before,
+.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn::before,
+.fi-section-content-ctn::before,
+.fi-input-wrp::before,
+.fi-modal-window::before,
+.fi-ta-ctn::before,
+.fi-topbar::before,
+.fi-sidebar::before {
+    @apply absolute inset-0 -z-10 backdrop-blur-md pointer-events-none content-[''] rounded-[inherit];
+}
 /*
- |
- | Page Headings
- |
+ |==============================
+ | Page Tweaks
+ |==============================
  */
 
 .fi-header {
     @apply
     before:absolute
     before:bottom-0
-    before:start-0
+    before:inset-s-0
     before:h-0.5
     before:w-[5.25rem]
     before:rounded-3xl
     before:bg-primary-500
     before:content-[''];
 }
+
 

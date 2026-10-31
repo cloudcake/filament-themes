@@ -2,9 +2,10 @@ body {
     --theme-icon-auth: none;
     --theme-icon-empty-state: none;
 
-    @apply antialiased scroll-smooth;
     font-feature-settings: 'liga' 1, 'clig' 1, 'kern' 1;
     text-rendering: optimizeLegibility;
+
+    @apply antialiased scroll-smooth;
 }
 
 .fi-body:is(.fi-header-heading,.fi-modal-heading,.fi-simple-header-heading,.fi-ta-header-heading,.fi-empty-state-heading,.fi-ta-empty-state-heading,.fi-logo) {
@@ -40,6 +41,16 @@ body {
     @apply transition-opacity duration-[260ms];
 }
 
+.fi-page-header-main-ctn {
+    @apply mt-7;
+}
+
+
+/*
+ |
+ | Breadcrumbs
+ |
+ */
 
 .fi-breadcrumbs {
     @apply mb-[calc(0.25rem_*_var(--theme-density,_1))];
@@ -52,12 +63,6 @@ body {
         @apply text-primary-400;
     }
 }
-
-/*
- |
- | Breadcrumbs
- |
- */
 
 .fi-breadcrumbs .fi-breadcrumbs-item-label {
     @apply font-medium;

@@ -51,20 +51,24 @@ trait ConfiguresBackgrounds
 
                 return new HtmlString(
                     <<<HTML
-                    <style>                                 
+                    <style>
                         body:not(.dark body) {
                             --theme-navigation-background-color: $lightNavigationColour;
+                            --theme-panel-background-color: $lightPanelColour;
+
                             --color-white: $lightPanelColour;
                             --gray-50: $lightPanelColour;
-                            
+
                             background-color: $lightBodyColour;
-                        }                                 
-                  
+                        }
+
                         .dark body {
                             --theme-navigation-background-color: $darkNavigationColour;
+                            --theme-panel-background-color: $darkPanelColour;
+
                             --color-white: #fff;
                             --gray-900: $darkPanelColour;
-                            
+
                             background-color: $darkBodyColour;
                         }
                     </style>

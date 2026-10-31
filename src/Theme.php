@@ -19,6 +19,7 @@ class Theme implements Plugin
         PluginConcerns\ConfiguresBlooming,
         PluginConcerns\ConfiguresBorders,
         PluginConcerns\ConfiguresColours,
+        PluginConcerns\ConfiguresComponents,
         PluginConcerns\ConfiguresFont,
         PluginConcerns\ConfiguresNotifications,
         PluginConcerns\ConfiguresHeadings,
@@ -63,7 +64,8 @@ class Theme implements Plugin
             ->applyHeadings($panel)
             ->applyLightMode($panel)
             ->applyShadows($panel)
-            ->applyTopbar($panel);
+            ->applyTopbar($panel)
+            ->applyComponents($panel);
     }
 
     public function boot(Panel $panel): void

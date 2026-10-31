@@ -1,0 +1,5 @@
+.fi-ta-row.fi-striped {
+    @apply bg-[color-mix(in_oklab,var(--theme-panel-background-color),white_2%)]!;
+}
+
+

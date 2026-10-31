@@ -1,4 +1,49 @@
+@utility border-gradient {
+    @apply
+    relative
+    border-none
+    shadow-sm
+    ring-0
+    outline-0
+    after:content-['']
+    after:absolute
+    after:inset-0
+    after:rounded-[inherit]
+    after:p-px
+    after:pointer-events-none
+    after:bg-linear-to-tr
+    after:from-gray-200
+    after:via-gray-300
+    after:to-gray-200
+    dark:after:from-gray-900
+    dark:after:via-gray-800
+    dark:after:to-gray-700/80
+    after:[mask:linear-gradient(#000_0_0)_content-box_exclude,linear-gradient(#000_0_0)];
+}
 
+@utility border-gradient-primary {
+    @apply
+        border-gradient
+        after:from-primary-300
+        after:via-primary-200
+        after:to-primary-50
+        dark:after:from-primary-950/50
+        dark:after:via-primary-950/35
+        dark:after:to-primary-950/10;
+}
+
+@utility bg-plus {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-color: rgba(255,255,255,0.05);
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M12 9v6M9 12h6' stroke='black' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+        mask-size: 24px 24px;
+    }
+}
 
 @utility border-rail {
     @apply border-1 border-primary-100/80 dark:border-primary-950/80 outline-1 outline-primary-100 outline-offset-16 dark:outline-primary-950;

@@ -1,46 +1,37 @@
-.fi-topbar {
-    @apply backdrop-blur-lg shadow-none bg-[var(--theme-navigation-background-color)];
-}
-
 .fi-topbar-ctn {
-    @apply sticky top-0 left-0 w-full;
-}
+    & {
+        @apply sticky w-full;
 
-.fi-topbar-end {
-    @apply gap-[calc(0.625rem_*_var(--theme-density,_1))];
-}
+        .fi-topbar {
+            @apply shadow-none bg-[var(--theme-navigation-background-color)];
+        }
 
-.fi-topbar-item-btn {
-    @apply text-[var(--gray-700)]
-    rounded-lg
-    dark:text-[var(--gray-300)];
-    transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease),
-    color var(--theme-duration, 260ms) var(--theme-ease, ease);
-}
+        fi-topbar-end {
+            @apply gap-[calc(0.625rem_*_var(--theme-density,_1))];
+        }
 
-.fi-topbar-item-btn:hover {
-    @apply text-[var(--theme-ink)]
-    bg-[color-mix(in_oklab,_var(--gray-400)_12%,_transparent)];
-}
+        .fi-icon-btn {
+            @apply bg-transparent border border-gray-200 dark:border-gray-800;
+        }
 
-.fi-topbar-item.fi-active > .fi-topbar-item-btn {
-    @apply bg-[var(--theme-accent-wash)]
-    text-primary-700
-    dark:text-primary-200;
-}
+        .fi-topbar-item-btn {
+            @apply text-[var(--gray-700)] dark:text-[var(--gray-300)] bg-transparent;
+            transition: background-color var(--theme-duration, 260ms) var(--theme-ease, ease),color var(--theme-duration, 260ms) var(--theme-ease, ease);
+        }
 
-.fi-topbar-start {
-    @apply gap-[calc(0.625rem_*_var(--theme-density,_1))];
-}
+        .fi-topbar-item-btn:hover {
+            @apply text-[var(--theme-ink)]
+            bg-[color-mix(in_oklab,_var(--gray-400)_12%,_transparent)];
+        }
 
-.fi-topbar {
-    .fi-icon-btn,
-    .fi-user-menu-trigger {
-        @apply rounded-xl
-        border
-        border-gray-200
-        bg-gray-50
-        dark:border-gray-800
-        dark:bg-gray-950;
+        .fi-topbar-item.fi-active > .fi-topbar-item-btn {
+            @apply bg-[var(--theme-accent-wash)]
+            text-primary-700
+            dark:text-primary-200;
+        }
+
+        .fi-topbar-start {
+            @apply gap-[calc(0.625rem_*_var(--theme-density,_1))];
+        }
     }
 }

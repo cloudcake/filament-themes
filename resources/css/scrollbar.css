@@ -1,23 +1,17 @@
 ::-webkit-scrollbar {
-    @apply w-2 h-2;
+    @apply w-1 h-1;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-primary-200/20 dark:bg-primary-600
-    rounded-3xl
-    border-[3px] border-transparent
-    bg-clip-content;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    @apply bg-[color-mix(in_oklab,_var(--gray-500)_60%,_transparent)];
+    @apply bg-primary-200 rounded-lg
 }
 
 ::-webkit-scrollbar-track {
     @apply bg-transparent border-none;
 }
 
-:is(*, *::before, *::after) {
-    scrollbar-color: var(--theme-hairline-strong) transparent;
-    scrollbar-width: thin;
+.dark {
+    ::-webkit-scrollbar-thumb {
+        @apply bg-primary-950;
+    }
 }

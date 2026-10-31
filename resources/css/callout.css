@@ -1,0 +1,39 @@
+/*.fi-callout {*/
+/*    @apply !text-gray-50*/
+/*    shadow-gray-400/50*/
+/*    dark:shadow-gray-900/50*/
+/*    shadow-2xl;*/
+
+/*    .fi-callout-heading {*/
+/*        @apply !font-bold;*/
+/*    }*/
+/*}*/
+
+/*.fi-callout.fi-color-danger {*/
+/*    @apply bg-danger-200 dark:bg-danger-900;*/
+/*}*/
+
+/*.fi-callout.fi-color-info {*/
+/*    @apply bg-info-200 dark:bg-info-700;*/
+/*}*/
+
+/*.fi-callout.fi-color-primary {*/
+/*    @apply bg-primary-200 dark:bg-primary-600;*/
+/*}*/
+
+/*.fi-callout.fi-color-success {*/
+/*    @apply bg-success-200 dark:bg-success-700;*/
+/*}*/
+
+/*.fi-callout.fi-color-warning {*/
+/*    @apply bg-warning-100 dark:bg-warning-700;*/
+/*}*/
+
+.fi-callout:not([class*="fi-color-"]):not(.fi-color) {
+    @apply bg-gray-100 dark:bg-gray-800 ring-gray-300 dark:ring-gray-950;
+
+    .fi-callout-heading,
+    .fi-callout-description {
+        @apply text-gray-700 dark:text-gray-400;
+    }
+}

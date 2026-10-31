@@ -2,6 +2,9 @@
 @import 'utility.css';
 
 @import 'auth.css';
+@import 'btn.css';
+@import 'callout.css';
+@import 'code.css';
 @import 'configurable.css';
 @import 'link.css';
 @import 'loading.css';
@@ -10,6 +13,8 @@
 @import 'page.css';
 @import 'scrollbar.css';
 @import 'sidebar.css';
-@import 'tabs.css';
+@import 'tab.css';
+@import 'table.css';
 @import 'tenant.css';
 @import 'topbar.css';
+@import 'widget.css';

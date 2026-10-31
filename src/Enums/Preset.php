@@ -9,68 +9,55 @@ use Filament\Support\Colors\Color;
 enum Preset
 {
     case Pristine;
+    case PristineGreen;
 
     public function apply(Theme $theme): void
     {
         match ($this) {
-            self::Pristine => $theme
-                ->font('Inter Tight')
-                ->blooming([
-                    new Bloom(
-                        position: BloomPosition::UpperLeft,
-                        spreadX: 20,
-                        spreadY: 40,
-                        darkIntensity: 11,
-                        darkColour: 'var(--primary-900)',
-                        lightColour: 'var(--primary-500)',
-                        lightIntensity: 20,
-                    ),
-
-                    new Bloom(
-                        position: BloomPosition::UpperCenter,
-                        spreadX: 80,
-                        spreadY: 30,
-                        darkIntensity: 24,
-                        darkColour: 'var(--primary-900)',
-                        lightColour: 'var(--primary-400)',
-                        lightIntensity: 20,
-                    ),
-
-                    new Bloom(
-                        position: BloomPosition::BottomLeft,
-                        spreadX: 20,
-                        spreadY: 40,
-                        darkIntensity: 15,
-                        darkColour: 'var(--primary-900)',
-                        lightColour: 'var(--primary-400)',
-                        lightIntensity: 20,
-                    ),
-
-                    new Bloom(
-                        position: BloomPosition::BottomRight,
-                        spreadX: 40,
-                        spreadY: 30,
-                        darkIntensity: 7,
-                        darkColour: 'var(--primary-700)',
-                        lightColour: 'var(--primary-400)',
-                        lightIntensity: 30,
-                    ),
-                ])
-                ->auth(AuthLayout::Editorial, tagline: 'The best company in the land!')
-                ->shadows(Shadows::Soft)
-                ->borders(style: BorderStyle::Solid, width: 1)
-                ->roundness(Roundness::Pill)
-                ->headings()
-                ->transitions(duration: 0.825, offset: 0.825)
+            self::Pristine => $this->prestineBase($theme)
                 ->primaryColour(dark: Color::Indigo[500], light: Color::Indigo[500])
                 ->backgrounds(
                     darkBody: '#090a12',
-                    darkPanels: '#090a12',
-                    darkNavigation: '#00000020',
-                    lightBody: '#F1F5F8',
-                    lightPanels: '#FFFFFF',
+                    darkPanels: '#090a1220',
+                    darkNavigation: '#090a1220',
+                    lightBody: '#e8f2fa',
+                    lightPanels: '#FFFFFF20',
                     lightNavigation: '#FFFFFF50',
+                ),
+
+            self::PristineGreen => $this->prestineBase($theme)
+                ->primaryColour(dark: Color::Green[500], light: Color::Green[600])
+                ->backgrounds(
+                    darkBody: '#000000',
+                    darkPanels: '#090a1220',
+                    darkNavigation: '#00000020',
+                    lightBody: '#f3faff',
+                    lightPanels: '#FFFFFF20',
+                    lightNavigation: '#FFFFFF20',
                 )
         };
+    }
+
+    protected function prestineBase(Theme $theme)
+    {
+        return $theme
+            ->font('Inter Tight')
+            ->blooming([
+                new Bloom(
+                    position: BloomPosition::MiddleCenter,
+                    spreadX: 110,
+                    spreadY: 110,
+                    darkIntensity: 14,
+                    darkColour: 'var(--primary-900)',
+                    lightColour: 'var(--primary-500)',
+                    lightIntensity: 14,
+                ),
+            ])
+            ->auth(layout: AuthLayout::Editorial, tagline: null)
+            ->shadows(Shadows::Soft)
+            ->borders(style: BorderStyle::Solid, width: 1)
+            ->roundness(Roundness::Pill)
+            ->headings()
+            ->transitions(duration: 0.825, offset: 0.825);
     }
 }
