@@ -44,13 +44,23 @@ enum Preset
             ->font('Inter Tight')
             ->blooming([
                 new Bloom(
-                    position: BloomPosition::MiddleCenter,
-                    spreadX: 110,
-                    spreadY: 110,
-                    darkIntensity: 14,
-                    darkColour: 'var(--primary-900)',
+                    position: BloomPosition::UpperCenter,
+                    spreadX: 100,
+                    spreadY: 50,
+                    darkIntensity: 2,
+                    darkColour: 'var(--primary-300)',
                     lightColour: 'var(--primary-500)',
-                    lightIntensity: 14,
+                    lightIntensity: 4,
+                ),
+
+                new Bloom(
+                    position: BloomPosition::BottomCenter,
+                    spreadX: 100,
+                    spreadY: 60,
+                    darkIntensity: 2,
+                    darkColour: 'var(--primary-300)',
+                    lightColour: 'var(--primary-500)',
+                    lightIntensity: 4,
                 ),
             ])
             ->auth(layout: AuthLayout::Editorial, tagline: null)

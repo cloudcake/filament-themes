@@ -37,11 +37,8 @@
 }
 
 .fi-modal-window {
-    @apply border border-solid border-[var(--theme-hairline)]
-    rounded-md
-    shadow-xl;
+    @apply rounded-md shadow-xl;
 }
-
 
 .fi-modal-header,
 .fi-modal-footer {

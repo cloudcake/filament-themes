@@ -32,6 +32,11 @@
         --chart-legend-box-width: 10;
         --chart-point-radius: 0;
 
+        .fi-section-content-ctn,
+        .fi-section-content {
+            @apply before:border-none! before:ring-0! before:shadow-none! ring-0! shadow-none! border-none!;
+        }
+
         .fi-wi-chart-frame {
             @apply border-none rounded-none;
         }

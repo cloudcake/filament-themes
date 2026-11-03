@@ -3,7 +3,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-primary-200 rounded-lg
+    @apply bg-gray-400/50 rounded-lg
 }
 
 ::-webkit-scrollbar-track {
@@ -12,6 +12,6 @@
 
 .dark {
     ::-webkit-scrollbar-thumb {
-        @apply bg-primary-950;
+        @apply bg-gray-800/50;
     }
 }

@@ -16,7 +16,7 @@
 .fi-radio-input,
 .fi-sc-wizard,
 .fi-section-content,
-.fi-section-content-ctn:not(.fi-wi-chart .fi-section-content-ctn),
+.fi-section-content-ctn:not(.fi-wi-chart .fi-section-content-ctn):not(.fi-wi-stats-overview .fi-section-content-ctn):not(:has(> .fi-section-footer)),
 .fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
 .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
 .fi-ta-ctn,
@@ -32,11 +32,10 @@
 .fi-fo-builder-item,
 .fi-fo-repeater-item,
 .fi-icon-btn,
-.fi-input-wrp,
 .fi-wi-stats-overview-stat,
 .fi-ta-ctn,
 .fi-sc-wizard,
-.fi-section-content,
+.fi-section-content:not(.fi-wi-chart .fi-section-content),
 .fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
 .fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
 .fi-modal-window,
@@ -49,13 +48,13 @@
 
 .fi-modal-window,
 .fi-sc-component > .fi-wi-stats-overview-stat,
-.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained),
-.fi-section:not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
-.fi-section-content,
+.fi-section:not(:has(.fi-wi-stats-overview-stat)):not(.fi-aside):not(.fi-section-not-contained):not(.fi-wi-stats-overview .fi-section),
+.fi-section:not(.fi-wi-stats-overview .fi-section):not(.fi-section-not-contained).fi-aside > .fi-section-content-ctn,
+.fi-section-content:not(.fi-wi-chart .fi-section-content):not(.fi-wi-stats-overview .fi-section-content),
 .fi-ta-ctn,
 .fi-wi-table,
 .fi-wi-chart > section {
-    @apply border-gradient;
+    @apply border-gradient-primary;
 }
 
 .theme-borders-dotted {

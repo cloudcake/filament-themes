@@ -2,23 +2,6 @@
     @apply text-[var(--button-text-color)];
 }
 
-
-/*.fi-btn {*/
-/*    @apply*/
-/*    text-white*/
-/*    rounded-2xl*/
-/*    border-color-200*/
-/*    font-medium*/
-/*    tracking-[0.004em]*/
-/*    p-[calc(0.5rem_*_var(--theme-density,_1))];*/
-/*    padding-inline: calc(0.9375rem * var(--theme-density, 1));*/
-/*    transition: background-color 200ms var(--theme-ease, ease),*/
-/*    border-color 200ms var(--theme-ease, ease),*/
-/*    color 200ms var(--theme-ease, ease),*/
-/*    box-shadow 200ms var(--theme-ease, ease),*/
-/*    transform 200ms var(--theme-ease, ease);*/
-/*}*/
-
 /*.fi-btn:not([class*="fi-color-"]):not(.fi-color),*/
 /*.fi-btn.fi-color-gray,*/
 /*.fi-btn.fi-color-default {*/

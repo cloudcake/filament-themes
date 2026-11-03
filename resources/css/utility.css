@@ -24,12 +24,13 @@
 @utility border-gradient-primary {
     @apply
         border-gradient
-        after:from-primary-300
-        after:via-primary-200
+        after:bg-linear-to-b
+        after:from-primary-200/70
+        after:via-primary-100
         after:to-primary-50
-        dark:after:from-primary-950/50
-        dark:after:via-primary-950/35
-        dark:after:to-primary-950/10;
+        dark:after:from-primary-200/16
+        dark:after:via-primary-100/16
+        dark:after:to-primary-50/4;
 }
 
 @utility bg-plus {
