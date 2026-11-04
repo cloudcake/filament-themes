@@ -43,16 +43,25 @@ public function panel(Panel $panel): Panel
 
 ### `preset(Preset $preset)`
 
-Applies a ready-made combination of settings.
+Applies a ready-made combination of settings. You can also pass a preset to `make()`: `Theme::make(Preset::Pristine)` is the same as `Theme::make()->preset(Preset::Pristine)`. Without a preset, the theme starts from its own defaults.
 
-| Preset             | Description                                                                                                                 |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| `Preset::Default`  | Filament's look: no transitions, no blooming, default shadows, borders and roundness, plain headings.                       |
-| `Preset::AddPay`   | Green primary colour, editorial auth layout, solid 1px borders, slight roundness, four blooms, heading icons, transitions.   |
-| `Preset::Pristine` | Indigo primary colour, editorial auth layout, soft shadows, solid 1px borders, pill roundness, four blooms, heading icons, transitions. |
+| Preset                 | Description                                                                                          |
+|------------------------|------------------------------------------------------------------------------------------------------|
+| `Preset::Pristine`     | Indigo primary colour, dark navy and pale blue backgrounds.                                          |
+| `Preset::PristineGreen`| Green primary colour, black and pale blue backgrounds.                                               |
+
+Both presets also set the Inter Tight font, the editorial auth layout, soft shadows, solid 1px borders, pill roundness, two blooms (upper centre and bottom centre), heading icons with an underline, and transitions. Anything you set after the preset replaces it.
 
 ```php
-Theme::make()->preset(Preset::AddPay);
+Theme::make(Preset::PristineGreen)->roundness(Roundness::Slight);
+```
+
+### `font(string|Closure $font)`
+
+Sets the panel's font, by the name Filament's font providers know (for example `'Inter Tight'`).
+
+```php
+Theme::make()->font('Inter Tight');
 ```
 
 ### `auth(AuthLayout|Closure $layout, string|null|Closure $tagline = null)`
@@ -70,6 +79,14 @@ Sets the layout of the authentication pages (login, register and so on). With `A
 
 ```php
 Theme::make()->auth(AuthLayout::Split, tagline: 'Everything you need, in one place.');
+```
+
+### `authBackgroundIcon(string|false|null|Closure $image)`
+
+Sets the large icon drawn behind the authentication pages, as an image URL or a `data:` URI. The default is a user-key icon. Pass `false` or `null` to draw none.
+
+```php
+Theme::make()->authBackgroundIcon('/img/auth-icon.svg');
 ```
 
 ### `primaryColour(string|null|Closure $dark, string|null|Closure $light)`

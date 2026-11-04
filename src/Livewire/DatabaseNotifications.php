@@ -2,7 +2,7 @@
 
 namespace Cloudcake\Themes\Livewire;
 
-use Cloudcake\Components\Enums\Tabler;
+use Cloudcake\Icons\Enums\Tabler;
 use Filament\Actions\Action;
 use Filament\Livewire\DatabaseNotifications as BaseDatabaseNotifications;
 use Filament\Notifications\Notification;

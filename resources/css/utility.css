@@ -135,3 +135,10 @@
     -outline-offset-[length:var(--theme-border-width)]
     outline-primary-200/50 dark:outline-gray-800;
 }
+
+
+@utility bg-dots {
+    @apply
+        bg-[radial-gradient(#e5e7eb_1px,transparent_1px)]
+        bg-size-[16px_16px];
+}

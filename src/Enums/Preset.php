@@ -14,18 +14,18 @@ enum Preset
     public function apply(Theme $theme): void
     {
         match ($this) {
-            self::Pristine => $this->prestineBase($theme)
+            self::Pristine => $this->pristineBase($theme)
                 ->primaryColour(dark: Color::Indigo[500], light: Color::Indigo[500])
                 ->backgrounds(
                     darkBody: '#090a12',
                     darkPanels: '#090a1220',
-                    darkNavigation: '#090a1220',
+                    darkNavigation: '#090a1250',
                     lightBody: '#e8f2fa',
                     lightPanels: '#FFFFFF20',
                     lightNavigation: '#FFFFFF50',
                 ),
 
-            self::PristineGreen => $this->prestineBase($theme)
+            self::PristineGreen => $this->pristineBase($theme)
                 ->primaryColour(dark: Color::Green[500], light: Color::Green[600])
                 ->backgrounds(
                     darkBody: '#000000',
@@ -38,7 +38,7 @@ enum Preset
         };
     }
 
-    protected function prestineBase(Theme $theme)
+    protected function pristineBase(Theme $theme)
     {
         return $theme
             ->font('Inter Tight')

@@ -95,7 +95,7 @@
                             <x-filament::tabs.item
                                 class="flex-inline justify-center my-auto ms-auto leading-9"
                                 :active="$this->tab === 'all'"
-                                icon="{{ \Cloudcake\Components\Enums\Tabler::BellCheck }}"
+                                icon="{{ \Cloudcake\Icons\Enums\Tabler::BellCheck }}"
                                 wire:click="markAllNotificationsAsRead()"
                             >
                                 {{ __('filament-notifications::database.modal.actions.mark_all_as_read.label') }}
